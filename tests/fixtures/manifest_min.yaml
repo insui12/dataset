@@ -1,0 +1,21 @@
+manifest:
+  name: test-registry
+  version: 2026.1
+families:
+  - slug: bugzilla
+    name: Bugzilla
+    tier: core
+    collection_mode: manifest_exhaustive
+    dataset_role: software_product
+    protocol: REST
+    visibility: public
+    status: active
+    instances:
+      - name: example
+        base_url: https://example.bugzilla.org
+        api_base_url: https://example.bugzilla.org/rest
+        is_bounded: true
+        entries:
+          - name: example
+            kind: project
+            tracker_id: EX

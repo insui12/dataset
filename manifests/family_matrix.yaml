@@ -1,0 +1,51 @@
+families:
+  - slug: bugzilla
+    name: Bugzilla
+    tier: [core, extended, legacy]
+    api_protocols: [REST, JSON-RPC, XML-RPC]
+    bounded_instances: true
+  - slug: github
+    name: GitHub Issues
+    tier: core
+    api_protocols: [REST, GRAPHQL]
+    bounded_instances: false
+  - slug: gitlab
+    name: GitLab Issues
+    tier: core
+    api_protocols: [REST]
+    bounded_instances: false
+  - slug: jira
+    name: Jira
+    tier: core
+    api_protocols: [REST]
+    bounded_instances: false
+  - slug: launchpad
+    name: Launchpad
+    tier: core
+    api_protocols: [REST]
+    bounded_instances: true
+  - slug: redmine
+    name: Redmine
+    tier: core
+    api_protocols: [REST]
+    bounded_instances: true
+  - slug: youtrack
+    name: YouTrack
+    tier: core
+    api_protocols: [REST]
+    bounded_instances: true
+  - slug: google_issue_tracker
+    name: Google Issue Tracker
+    tier: special
+    api_protocols: [REST]
+    bounded_instances: true
+  - slug: debian_bts
+    name: Debian BTS
+    tier: special
+    api_protocols: [SOAP]
+    bounded_instances: true
+  - slug: phabricator
+    name: Phabricator
+    tier: special
+    api_protocols: [JSON-RPC]
+    bounded_instances: true
