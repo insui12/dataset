@@ -47,7 +47,7 @@ gbtd preview-collect-csv manifests/sample.manifest.yaml \
 - `src/gbtd_infra/models.py`: PostgreSQL ORM 스키마
 - `src/gbtd_infra/manifests.py`: manifest versioning + registry sync
 - `src/gbtd_infra/adapter_registry.py`: family slug -> adapter 매핑
-- `src/gbtd_infra/adapters/*`: family adapter들 (API-first, TODO placeholders 유지)
+- `src/gbtd_infra/adapters/*`: family adapter들 (API-first 계약 구현)
 - `src/gbtd_infra/scheduler/lease.py`: `SELECT ... FOR UPDATE SKIP LOCKED`
 - `src/gbtd_infra/orchestrator.py`: job claim / dispatch / status update
 - `src/gbtd_infra/clients/http.py`: polite HTTP + retry/backoff
@@ -62,9 +62,13 @@ gbtd bootstrap-manifest manifests/sample.manifest.yaml
 gbtd seed-jobs --family github --instance github.com --job-mode all --sample-size 50
 gbtd run-worker --iterations 200
 
+# 범위 지정 worker 실행 예시
+gbtd run-worker --family github --instance github.com --entry torvalds/linux --max-jobs 8
+
 # 1~100 샘플 규칙으로 권장 전수 탐색
-# (현재 단계는 placeholder family를 제외한 구현 family 위주)
+# (현재 단계는 구현 family 위주. 특이 family는 필요 시 순차 확장)
 gbtd seed-sample --sample-size 50
+gbtd smoke-collect --family github --instance github.com --max-entries 20 --sample-size 20 --iterations 500 --max-jobs 200
 
 gbtd smoke-collect --sample-size 50 --iterations 1000
 ```
@@ -86,7 +90,7 @@ gbtd bootstrap-manifest manifests/sample.manifest.yaml
 gbtd smoke-collect --family github --sample-size 20 --iterations 500
 gbtd smoke-collect --family gitlab --sample-size 20 --iterations 500
 
-# 4) placeholder family는 추후 구현 후에만 전면 확장
+# 4) 특수/미구현 family는 운영 안정성 검증 후 단계적으로 확장
 gbtd smoke-collect --sample-size 20 --iterations 2000
 ```
 
@@ -94,6 +98,17 @@ gbtd smoke-collect --sample-size 20 --iterations 2000
 # fixture 기반 단위 테스트
 PYTHONPATH=src pytest -q tests/test_infer_closed_state.py tests/test_adapters_list_issue_fixtures.py
 ```
+
+## 실시간 진행 로그 해석
+
+- `run-worker` / `smoke-collect`:
+  - `job START/DONE/FAIL` : 단위 job 상태
+  - `cycle end: ...` : 배치 단위 처리 요약 (claimed/ok/failed/elapsed_ms)
+  - `page_fetch_start` / `page=... issue_count=... inserted=...` : 페이지 처리 진행
+- `preview-collect-csv`:
+  - 대상 entry별 `preview target`
+  - 페이지별 수집된 응답/이슈 건수
+  - 종료 시 전체 페이지/이슈/스킵 수치
 
 ## 파일럿 CSV Dry-Run
 

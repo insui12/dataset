@@ -20,6 +20,7 @@ class ProbeResult(BaseModel):
     auth_required: bool = False
     count_supported: bool = False
     pagination: str | None = None
+    raw_response_status: int | None = None
     note: str | None = None
     details: dict[str, Any] | None = None
 

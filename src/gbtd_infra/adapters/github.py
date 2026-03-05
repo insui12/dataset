@@ -142,8 +142,14 @@ class GitHubIssuesAdapter(TrackerAdapter):
                     signature=f"{entry.id}:state-closed",
                     metadata={"source": "search/issues"},
                 )
-        except httpx.RequestError:
-            pass
+        except httpx.RequestError as exc:
+            return CountPlan(
+                mode=CountMode.APPROXIMATE,
+                value=None,
+                method="github-search-request-error",
+                signature=f"{entry.id}:count-request-error",
+                metadata={"error": str(exc)},
+            )
 
         return CountPlan(
             mode=CountMode.APPROXIMATE,

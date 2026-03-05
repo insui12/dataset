@@ -129,8 +129,14 @@ class GitLabIssuesAdapter(TrackerAdapter):
                     signature=f"{entry.id}:issues-closed",
                     metadata={"endpoint": endpoint},
                 )
-        except httpx.RequestError:
-            pass
+        except httpx.RequestError as exc:
+            return CountPlan(
+                mode=CountMode.APPROXIMATE,
+                value=None,
+                method="issues_statistics-request-error",
+                signature=f"{entry.id}:count-request-error",
+                metadata={"error": str(exc)},
+            )
 
         return CountPlan(
             mode=CountMode.APPROXIMATE,

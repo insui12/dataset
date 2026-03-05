@@ -132,7 +132,7 @@ E. Audit / reproducibility
 ## 8) collector implementation
 
 - 추상 클래스 `TrackerAdapter`에서 family별 Probe/Discover 인터페이스를 제공.
-- `discover`는 현재 placeholder이며, manifest에서 항목이 알려진 경우 우선 수집.
+- `discover`는 현재 manifest 우선 정책을 기본으로 두되, bounded instance에서 가능한 경우 adapter 구현 기반 자동 탐색을 병행한다.
 - `run`은 job_type별 처리기(ability probe, count, list/comments/attachments) 기반.
 
 ## 9) sample manifests
@@ -168,7 +168,7 @@ E. Audit / reproducibility
 
 ## 14) 한계와 추후 확장 포인트
 
-- 수집 파서 본문 처리 및 이벤트 정합성은 v0에 placeholder 상태.
+- 수집 파서 본문 처리 및 이벤트 정합성은 v0 범위를 벗어나기 때문에 현재는 적재 최소값만 보존하고, 전용 후속 모듈에서 확장한다.
 - family 일부(특수 family)는 endpoint 실제 파라미터/인증 방식 미반영.
 - 추후: fake-fixture based 어댑터 단위 테스트 및 실 API 통합 테스트 추가.
 

@@ -119,6 +119,68 @@ def _preview_entry_from_candidate(cand, instance_obj: SimpleNamespace) -> Simple
     )
 
 
+def _resolve_entry_scope(
+    session,
+    *,
+    family: str | None = None,
+    instance: str | None = None,
+    entry: str | None = None,
+    entry_kind: str | None = None,
+    max_entries: int | None = None,
+):
+    families_stmt = select(TrackerFamily)
+    if family is not None:
+        families_stmt = families_stmt.where(TrackerFamily.slug == family)
+    families = session.execute(families_stmt).scalars().all()
+    if family is not None and not families:
+        raise typer.BadParameter(f"unknown family: {family}")
+
+    entries = []
+    for fam in families:
+        instance_stmt = select(TrackerInstance).where(TrackerInstance.family_id == fam.id)
+        if instance is not None:
+            instance_stmt = instance_stmt.where(TrackerInstance.canonical_name == instance)
+        for inst in session.execute(instance_stmt).scalars().all():
+            entry_stmt = select(RegistryEntry).where(RegistryEntry.instance_id == inst.id)
+            if entry is not None:
+                entry_stmt = entry_stmt.where(
+                    or_(
+                        RegistryEntry.tracker_native_id == entry,
+                        RegistryEntry.tracker_api_key == entry,
+                    )
+                )
+            matched = session.execute(entry_stmt).scalars().all()
+            if entry is not None and not matched:
+                matched = session.execute(
+                    select(RegistryEntry).where(
+                        RegistryEntry.instance_id == inst.id,
+                        RegistryEntry.tracker_native_id == entry,
+                    )
+                ).scalars().all()
+            if entry_kind:
+                matched = [e for e in matched if e.entry_kind.value == entry_kind]
+            for ent in matched:
+                entries.append((fam, inst, ent))
+
+    if entry is not None and not entries:
+        raise typer.BadParameter(f"unknown entry: {entry}")
+
+    if max_entries is not None and max_entries > 0:
+        entries = entries[:max_entries]
+
+    family_ids = []
+    instance_ids = []
+    entry_ids = []
+    for fam, inst, ent in entries:
+        if fam.id not in family_ids:
+            family_ids.append(fam.id)
+        if inst.id not in instance_ids:
+            instance_ids.append(inst.id)
+        if ent.id not in entry_ids:
+            entry_ids.append(ent.id)
+    return family_ids, instance_ids, entry_ids, entries
+
+
 @app.command()
 def init_database(
     config_file: str | None = None,
@@ -279,12 +341,12 @@ def seed_sample(
     with session_scope(db) as s:
         sync_manifest_to_registry(s, manifest_path)
         fams = s.execute(select(TrackerFamily)).scalars().all()
-        targeted = [f for f in fams if family is None or f.slug == family]
-        if not targeted:
+        targeted_families = [f for f in fams if family is None or f.slug == family]
+        if not targeted_families:
             raise typer.BadParameter(f"unknown family: {family}")
 
-        seeded = 0
-        for fam in targeted:
+        target_entries: list[tuple[TrackerFamily, TrackerInstance, RegistryEntry]] = []
+        for fam in targeted_families:
             insts = s.execute(
                 select(TrackerInstance).where(
                     TrackerInstance.family_id == fam.id,
@@ -301,18 +363,23 @@ def seed_sample(
                     entries = [e for e in entries if e.tracker_native_id == entry or e.tracker_api_key == entry]
                 if entry_kind:
                     entries = [e for e in entries if e.entry_kind.value == entry_kind]
-                if max_entries is not None and max_entries > 0:
-                    entries = entries[:max_entries]
                 for ent in entries:
-                    seeded += _seed_entry_jobs(
-                        s,
-                        entry=ent,
-                        family_id=fam.id,
-                        sample_size=sample_size,
-                        page_size=page_size,
-                        include_probe=include_probe,
-                        include_count=include_count,
-                    )
+                    target_entries.append((fam, inst, ent))
+
+        if max_entries is not None and max_entries > 0:
+            target_entries = target_entries[:max_entries]
+
+        seeded = 0
+        for fam, inst, ent in target_entries:
+            seeded += _seed_entry_jobs(
+                s,
+                entry=ent,
+                family_id=fam.id,
+                sample_size=sample_size,
+                page_size=page_size,
+                include_probe=include_probe,
+                include_count=include_count,
+            )
 
         typer.echo(f"seeded {seeded} jobs for sample run")
 
@@ -331,19 +398,75 @@ def reclaim_jobs(config_file: str | None = None):
 def run_worker(
     config_file: str | None = None,
     iterations: int = typer.Option(0, help="0=forever"),
+    family: str | None = typer.Option(None, "--family", help="limit scope to one family slug"),
+    instance: str | None = typer.Option(None, "--instance", help="limit scope to one instance name"),
+    entry: str | None = typer.Option(None, "--entry", help="tracker_native_id or tracker_api_key"),
+    entry_kind: str | None = typer.Option(None, "--entry-kind", help="project|repo|product|component|module|instance"),
+    max_entries: int | None = typer.Option(None, "--max-entries", help="global max entries to include in scope"),
+    max_jobs: int | None = typer.Option(None, "--max-jobs", min=1, help="stop after this many successful jobs"),
     show_progress: bool = typer.Option(True, "--show-progress/--no-show-progress"),
 ):
     cfg = _load_config(config_file)
-    worker = Orchestrator(cfg, show_progress=show_progress)
+    family_ids = None
+    instance_ids = None
+    entry_ids = None
+
+    if family is not None or instance is not None or entry is not None or entry_kind is not None or (max_entries is not None and max_entries > 0):
+        db = build_session_factory(cfg)
+        with session_scope(db) as s:
+            family_ids, instance_ids, entry_ids, scoped = _resolve_entry_scope(
+                s,
+                family=family,
+                instance=instance,
+                entry=entry,
+                entry_kind=entry_kind,
+                max_entries=max_entries,
+            )
+        if not scoped:
+            raise typer.BadParameter("scope matched no entries")
+        if show_progress:
+            typer.echo(
+                f"run-worker scope: families={len(family_ids)} instances={len(instance_ids)} entries={len(entry_ids)}"
+            )
+
+    worker = Orchestrator(
+        cfg,
+        show_progress=show_progress,
+        family_ids=family_ids,
+        instance_ids=instance_ids,
+        entry_ids=entry_ids,
+    )
 
     async def loop():
+        processed_jobs = 0
+        loops = 0
         if iterations > 0:
             for _ in range(iterations):
+                loops += 1
                 n = await worker.claim_and_run_once()
                 if n == 0:
                     await asyncio.sleep(2)
+                    continue
+                processed_jobs += n
+                if max_jobs is not None and processed_jobs >= max_jobs:
+                    break
+            if show_progress:
+                typer.echo(f"run-worker finished: cycles={loops}, processed_jobs={processed_jobs}, max_jobs={max_jobs or 'unlimited'}")
             return
-        await worker.run_forever()
+
+        while True:
+            n = await worker.claim_and_run_once()
+            if n == 0:
+                if max_jobs is not None and processed_jobs >= max_jobs:
+                    break
+                await asyncio.sleep(2)
+                continue
+            loops += 1
+            processed_jobs += n
+            if max_jobs is not None and processed_jobs >= max_jobs:
+                break
+        if show_progress:
+            typer.echo(f"run-worker finished: cycles={loops}, processed_jobs={processed_jobs}, max_jobs={max_jobs or 'unlimited'}")
 
     asyncio.run(loop())
 
@@ -361,6 +484,7 @@ def smoke_collect(
     include_probe: bool = typer.Option(False),
     include_count: bool = typer.Option(False),
     page_size: int = typer.Option(50, min=1, max=100),
+    max_jobs: int | None = typer.Option(None, "--max-jobs", min=1, help="stop after this many successful jobs"),
     show_progress: bool = typer.Option(True, "--show-progress/--no-show-progress"),
     config_file: str | None = None,
 ):
@@ -368,43 +492,50 @@ def smoke_collect(
     db = build_session_factory(cfg)
     with session_scope(db) as s:
         sync_manifest_to_registry(s, manifest_path)
+        family_ids, instance_ids, entry_ids, scoped = _resolve_entry_scope(
+            s,
+            family=family,
+            instance=instance,
+            entry=entry,
+            entry_kind=entry_kind,
+            max_entries=max_entries,
+        )
+        if not scoped:
+            raise typer.BadParameter("no entries matched")
 
-        query = select(TrackerFamily)
-        if family:
-            query = query.where(TrackerFamily.slug == family)
-        families = s.execute(query).scalars().all()
+        seeded = 0
+        for _fam, _inst, ent in scoped:
+            seeded += _seed_entry_jobs(
+                s,
+                entry=ent,
+                family_id=_fam.id,
+                sample_size=sample_size,
+                page_size=page_size,
+                include_probe=include_probe,
+                include_count=include_count,
+            )
+    if show_progress:
+        typer.echo(
+            f"smoke_collect seed scope: families={len(family_ids)} instances={len(instance_ids)} entries={len(entry_ids)} seeded_jobs={seeded}"
+        )
 
-        for fam in families:
-            inst_query = select(TrackerInstance).where(TrackerInstance.family_id == fam.id)
-            if instance:
-                inst_query = inst_query.where(TrackerInstance.canonical_name == instance)
-            for inst in s.execute(inst_query).scalars().all():
-                entries = s.execute(select(RegistryEntry).where(RegistryEntry.instance_id == inst.id)).scalars().all()
-                if entry:
-                    entries = [ent for ent in entries if ent.tracker_native_id == entry or ent.tracker_api_key == entry]
-                if entry_kind:
-                    entries = [ent for ent in entries if ent.entry_kind.value == entry_kind]
-                if max_entries is not None and max_entries > 0:
-                    entries = entries[:max_entries]
-
-                for ent in entries:
-                    _seed_entry_jobs(
-                        s,
-                        entry=ent,
-                        family_id=fam.id,
-                        sample_size=sample_size,
-                        page_size=page_size,
-                        include_probe=include_probe,
-                        include_count=include_count,
-                    )
-
-    worker = Orchestrator(cfg, show_progress=show_progress)
+    worker = Orchestrator(
+        cfg,
+        show_progress=show_progress,
+        family_ids=family_ids,
+        instance_ids=instance_ids,
+        entry_ids=entry_ids,
+    )
 
     async def loop():
+        processed_jobs = 0
         if iterations > 0:
             for _ in range(iterations):
                 n = await worker.claim_and_run_once()
                 if n == 0:
+                    break
+                processed_jobs += n
+                if max_jobs is not None and processed_jobs >= max_jobs:
                     break
                 await asyncio.sleep(0.25)
         else:
@@ -412,9 +543,14 @@ def smoke_collect(
                 n = await worker.claim_and_run_once()
                 if n == 0:
                     break
+                processed_jobs += n
+                if max_jobs is not None and processed_jobs >= max_jobs:
+                    break
+                await asyncio.sleep(0.25)
 
     asyncio.run(loop())
-    typer.echo(f"smoke_collect finished. sample_size={sample_size}")
+    if show_progress:
+        typer.echo(f"smoke_collect finished. sample_size={sample_size} processed_jobs={processed_jobs} max_jobs={max_jobs or 'unlimited'}")
 
 
 @app.command()
@@ -519,7 +655,12 @@ def preview_collect_csv(
             response_writer.writeheader()
             issue_writer.writeheader()
 
-            for cand in candidates:
+            for idx, cand in enumerate(candidates, start=1):
+                if show_progress:
+                    typer.echo(
+                        f"preview target {idx}/{len(candidates)}: {cand.family_slug}:{cand.instance_name}:{cand.entry_name}"
+                    )
+
                 adapter_cls = adapter_for_family(cand.family_slug)
                 if adapter_cls is None:
                     skipped += 1
@@ -536,6 +677,8 @@ def preview_collect_csv(
                 for page_no in range(1, max_pages + 1):
                     remaining = sample_size - sample_collected if sample_size is not None else None
                     if remaining is not None and remaining <= 0:
+                        if show_progress:
+                            typer.echo(f"  sample limit reached for entry: {cand.entry_name}")
                         break
 
                     try:
@@ -560,6 +703,12 @@ def preview_collect_csv(
                             err=True,
                         )
                         break
+
+                    if show_progress:
+                        typer.echo(
+                            f"  page={page_no} issues={len(page.issues)} next={page.next_cursor or 'end'}"
+                            f" status={page.status_code or 0}"
+                        )
 
                     response_writer.writerow(
                         {
@@ -628,6 +777,8 @@ def preview_collect_csv(
                                 "body_raw": issue.body_raw or "",
                             }
                         )
+                    if show_progress:
+                        typer.echo(f"  entry={cand.entry_name} accepted_issues={sample_collected}")
 
                     if page.next_cursor is None:
                         break

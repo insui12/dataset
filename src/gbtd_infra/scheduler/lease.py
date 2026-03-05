@@ -21,16 +21,48 @@ class JobScheduler:
         self.worker_id = worker_id
         self.lease_seconds = lease_seconds
 
-    def claim_job(self, desired_types: Iterable[JobType] | None = None, batch: int = 1):
+    def claim_job(
+        self,
+        desired_types: Iterable[JobType] | None = None,
+        batch: int = 1,
+        family_ids: Iterable[int] | None = None,
+        instance_ids: Iterable[int] | None = None,
+        entry_ids: Iterable[int] | None = None,
+    ):
         session = self.session_factory()
         now = datetime.now(timezone.utc)
         try:
+            conditions = [
+                CollectionJob.status == JobStatus.pending,
+                CollectionJob.next_run_at <= now,
+            ]
+            if family_ids:
+                ids = list(family_ids)
+                if ids:
+                    conditions.append(CollectionJob.family_id.in_(ids))
+                else:
+                    session.close()
+                    return []
+
+            if instance_ids:
+                ids = list(instance_ids)
+                if ids:
+                    conditions.append(CollectionJob.instance_id.in_(ids))
+                else:
+                    session.close()
+                    return []
+
+            if entry_ids:
+                ids = list(entry_ids)
+                if ids:
+                    conditions.append(CollectionJob.registry_entry_id.in_(ids))
+                else:
+                    session.close()
+                    return []
+
             query = (
                 select(CollectionJob)
-                .where(
-                    CollectionJob.status == JobStatus.pending,
-                    CollectionJob.next_run_at <= now,
-                )
+                .where(and_(*conditions))
                 .order_by(CollectionJob.priority.desc(), CollectionJob.created_at.asc())
                 .limit(batch)
                 .with_for_update(skip_locked=True)

@@ -5,6 +5,7 @@ import asyncio
 import hashlib
 import json
 import logging
+import time
 import uuid
 
 from sqlalchemy import select
@@ -39,12 +40,22 @@ from gbtd_infra.scheduler.lease import JobScheduler
 
 
 class Orchestrator:
-    def __init__(self, config: AppConfig, show_progress: bool = True):
+    def __init__(
+        self,
+        config: AppConfig,
+        show_progress: bool = True,
+        family_ids: list[int] | None = None,
+        instance_ids: list[int] | None = None,
+        entry_ids: list[int] | None = None,
+    ):
         self.config = config
         self.session_factory = build_session_factory(config)
         self.http = PoliteHttpClient(config)
         self.scheduler = JobScheduler(self.session_factory, config.runner_id, config.lease_seconds)
         self.show_progress = show_progress
+        self.family_ids = family_ids
+        self.instance_ids = instance_ids
+        self.entry_ids = entry_ids
         self._logger = logging.getLogger("gbtd.orchestrator")
         if show_progress and not logging.getLogger().handlers:
             logging.basicConfig(
@@ -63,11 +74,20 @@ class Orchestrator:
             return
         self._logger.log(level, msg)
 
-    async def claim_and_run_once(self):
-        jobs = self.scheduler.claim_job(batch=self.config.worker_concurrency)
+    async def claim_and_run_once(self) -> int:
+        cycle_start = time.perf_counter()
+        jobs = self.scheduler.claim_job(
+            batch=self.config.worker_concurrency,
+            family_ids=self.family_ids,
+            instance_ids=self.instance_ids,
+            entry_ids=self.entry_ids,
+        )
         if not jobs:
             return 0
 
+        cycle_total = len(jobs)
+        cycle_ok = 0
+        cycle_failed = 0
         for job in jobs:
             session = self.session_factory()
             try:
@@ -79,6 +99,7 @@ class Orchestrator:
                 await self._process_job(session, job)
                 self.scheduler.complete_job(job.id)
                 self._log(f"{label} DONE type={job.job_type.value} id={job.id}")
+                cycle_ok += 1
                 session.commit()
             except Exception as exc:
                 family = session.get(TrackerFamily, job.family_id)
@@ -97,9 +118,21 @@ class Orchestrator:
                 )
                 session.commit()
                 self.scheduler.fail_job(job.id, repr(exc), retry_delay_seconds=120)
+                cycle_failed += 1
             finally:
                 session.close()
 
+        elapsed_ms = (time.perf_counter() - cycle_start) * 1000
+        self._log(
+            (
+                f"cycle end: claimed={cycle_total} ok={cycle_ok} failed={cycle_failed}"
+                f" filters="
+                f"families={len(self.family_ids) if self.family_ids is not None else 'all'}"
+                f", instances={len(self.instance_ids) if self.instance_ids is not None else 'all'}"
+                f", entries={len(self.entry_ids) if self.entry_ids is not None else 'all'}"
+                f", elapsed_ms={elapsed_ms:.1f}"
+            )
+        )
         return len(jobs)
 
     @staticmethod
@@ -210,8 +243,14 @@ class Orchestrator:
         if sample_limit is not None:
             effective_sample = max(0, sample_limit - sample_collected)
             if effective_sample <= 0:
+                self._log(f"{self._format_job_label(family, instance, entry)} sample limit reached: {sample_collected}")
                 return
 
+        page_no = payload.get("page", 1)
+        self._log(
+            f"{self._format_job_label(family, instance, entry)} page_fetch_start page={page_no} "
+            f"cursor={cursor or 'init'} limit={effective_sample if sample_limit is not None else 'unlimited'}"
+        )
         page = await adapter.list_issues(
             entry,
             cursor=cursor,
@@ -226,7 +265,16 @@ class Orchestrator:
 
         raw_payload_id = self._persist_raw_payload(session, family, instance, entry, page)
         self._persist_raw_page(session, entry.id, page, raw_payload_id, payload.get("page", 1))
+        self._log(
+            (
+                f"{self._format_job_label(family, instance, entry)} raw_page_stored payload_id={raw_payload_id}"
+                f" url={page.request_url or ''} status={page.status_code or 0}"
+            )
+        )
 
+        issue_rows = 0
+        closed_rows = 0
+        needs_review_rows = 0
         for issue_record in page.issues:
             if effective_sample is not None and sample_collected >= sample_limit:
                 break
@@ -240,6 +288,11 @@ class Orchestrator:
             )
             self._upsert_issue(session, family, instance, entry, issue_record, raw_payload_id, assessment)
             sample_collected += 1
+            issue_rows += 1
+            if assessment.is_closed:
+                closed_rows += 1
+            if assessment.needs_review:
+                needs_review_rows += 1
 
         if sample_limit is not None:
             payload["sample_collected"] = sample_collected
@@ -270,7 +323,8 @@ class Orchestrator:
         self._log(
             (
                 f"{self._format_job_label(family, instance, entry)} "
-                f"page={page_index} issue_count={len(page.issues)} "
+                f"page={page_index} issue_count={len(page.issues)} inserted={issue_rows} "
+                f"closed={closed_rows} needs_review={needs_review_rows} "
                 f"sample_collected={sample_collected}"
             )
         )

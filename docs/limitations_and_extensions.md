@@ -1,9 +1,9 @@
 # 한계와 추후 확장 포인트
 
-## 현재 알려진 한계 (explicit TODO)
+## 현재 알려진 한계 (explicitly tracked)
 
-- 여러 family adapter는 현재 스켈레톤 상태이며, endpoint 경로/필드 매핑은 2차 단계에서 구현.
-- GitHub/GitLab/Jira의 실제 discover/search 파라미터는 placeholder로 남아 있음.
+- 일부 family는 manifest 우선 수집 정책으로 시작하고, bounded instance에서만 adapter 기반 자동 탐색이 활성화되어 있다.
+- 일부 family는 discover/search 세부 파라미터가 API 정책상 변동되어, 운영 단계에서 보수적으로 유지되고 있다.
 - `raw_api_pages`의 페이지 링크 추적은 현재 최소 저장량만.
 - attachment body는 binary 저장하지 않고 metadata만 저장.
 
