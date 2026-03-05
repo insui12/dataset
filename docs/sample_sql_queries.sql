@@ -40,7 +40,7 @@ SELECT
   c.count_method,
   c.count_value,
   c.comparator,
-  c.counted_at
+  c.created_at AS counted_at
 FROM count_snapshots c
 JOIN registry_entries r ON r.id = c.registry_entry_id
 ORDER BY c.registry_entry_id, c.counted_at DESC;

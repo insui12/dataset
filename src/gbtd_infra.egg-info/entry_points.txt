@@ -1,0 +1,2 @@
+[console_scripts]
+gbtd = gbtd_infra.cli:app

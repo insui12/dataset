@@ -120,6 +120,15 @@ E. Audit / reproducibility
 - `src/gbtd_infra/orchestrator.py`: job 처리
 - `src/gbtd_infra/cli.py`: operator CLI
 
+## 7.1) closed/resolved 적용 규칙 (공식 API 우선)
+
+- 1순위: 공식 API가 closed/resolved 필터를 제공하면 이를 우선 사용
+- 2순위: 필터가 불가하면 `state/resolution/close_reason/closed_at`로 닫힘 판정
+- 3순위: 애매한 레코드는 `is_closed=false`, `needs_review=true` 보존 후 파생 집합에서 제외
+- fixed-only: 현재 단계에서 기본 필터로 사용하지 않음(파생 뷰로 분리 생성)
+
+자세한 정책 문서: [`docs/closed_inclusion_policy.md`](docs/closed_inclusion_policy.md)
+
 ## 8) collector implementation
 
 - 추상 클래스 `TrackerAdapter`에서 family별 Probe/Discover 인터페이스를 제공.
@@ -143,6 +152,8 @@ E. Audit / reproducibility
 - `tests/test_manifest_loader.py`: manifest 버전/엔트리 파싱
 - `tests/test_rate_limit_bucket.py`: token bucket 동작
 - `tests/test_count_modes.py`: count mode enum 보존
+- `tests/test_infer_closed_state.py`: closed/needs_review 판정 규칙 단위 테스트
+- `tests/test_adapters_list_issue_fixtures.py`: fixture 기반 GitHub/GitLab issue list 파싱 테스트
 
 ## 12) sample SQL queries
 

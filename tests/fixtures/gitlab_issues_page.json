@@ -1,0 +1,28 @@
+[
+  {
+    "iid": 101,
+    "title": "gitlab closed",
+    "description": "closed issue body",
+    "web_url": "https://gitlab.com/group/repo/-/issues/101",
+    "state": "closed",
+    "created_at": "2024-01-01T10:00:00Z",
+    "updated_at": "2024-01-02T10:00:00Z",
+    "closed_at": "2024-01-02T12:00:00Z",
+    "author": {"username": "alice"},
+    "assignee": {"username": "bob"},
+    "labels": ["bug", "triage"]
+  },
+  {
+    "iid": 102,
+    "title": "gitlab open",
+    "description": "open issue",
+    "web_url": "https://gitlab.com/group/repo/-/issues/102",
+    "state": "opened",
+    "created_at": "2024-01-03T10:00:00Z",
+    "updated_at": "2024-01-03T11:00:00Z",
+    "closed_at": null,
+    "author": {"username": "carol"},
+    "assignee": null,
+    "labels": []
+  }
+]

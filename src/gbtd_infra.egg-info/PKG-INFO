@@ -1,3 +1,25 @@
+Metadata-Version: 2.4
+Name: gbtd-infra
+Version: 0.1.0
+Summary: Global Bug Tracker Dataset collection infrastructure
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy>=2.0
+Requires-Dist: psycopg[binary]>=3.1
+Requires-Dist: alembic>=1.13
+Requires-Dist: httpx>=0.27
+Requires-Dist: tenacity>=9.0
+Requires-Dist: typer>=0.12
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pydantic-settings>=2.3
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: tomlkit>=0.12
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
+Requires-Dist: mypy>=1.10; extra == "dev"
+
 # GBTD: Global Bug Tracker Dataset Infrastructure (raw warehouse v0)
 
 ## 핵심 목표

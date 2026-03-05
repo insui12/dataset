@@ -20,7 +20,7 @@ from sqlalchemy import (
     func,
     text,
 )
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy.dialects.postgresql import JSONB, UUID as PGUUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
@@ -114,10 +114,10 @@ class JobStatus(str, enum.Enum):
 
 
 class CountMode(str, enum.Enum):
-    exact = "exact"
-    approximate = "approximate"
-    enumerated = "enumerated"
-    offset_probe = "offset_probe"
+    EXACT = "exact"
+    APPROXIMATE = "approximate"
+    ENUMERATED = "enumerated"
+    OFFSET_PROBE = "offset_probe"
 
 
 class RunStatus(str, enum.Enum):
@@ -230,9 +230,13 @@ class RegistryComponent(Base, TimestampMixin):
     component_key: Mapped[Optional[str]] = mapped_column(String(255))
     tracker_component_id: Mapped[Optional[str]] = mapped_column(String(255))
     tracker_component_url: Mapped[Optional[str]] = mapped_column(String(512))
-    metadata: Mapped[Optional[dict[str, Any]]] = mapped_column(JSONB)
+    metadata_json: Mapped[Optional[dict[str, Any]]] = mapped_column(
+        "metadata",
+        JSONB,
+    )
 
     entry: Mapped[RegistryEntry] = relationship(back_populates="components")
+
 
 
 class CollectionPolicy(Base, TimestampMixin):
@@ -445,7 +449,7 @@ class Issue(Base, TimestampMixin):
         UniqueConstraint("tracker_instance_id", "tracker_issue_id", name="uq_issues_instance_issue_id"),
         Index("ix_issues_state_closed", "is_closed"),
         Index("ix_issues_closed_at", "closed_at"),
-        Index("ix_issues_created_at", "created_at"),
+        Index("ix_issues_created_at_tracker", "created_at_tracker"),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -472,6 +476,7 @@ class Issue(Base, TimestampMixin):
     reporter_raw: Mapped[Optional[str]] = mapped_column(String(255))
     assignee_raw: Mapped[Optional[str]] = mapped_column(String(255))
     is_closed: Mapped[bool] = mapped_column(Boolean, default=False)
+    needs_review: Mapped[bool] = mapped_column(Boolean, default=False)
     is_pull_request: Mapped[bool] = mapped_column(Boolean, default=False)
     is_private_restricted: Mapped[bool] = mapped_column(Boolean, default=False)
     raw_payload_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("raw_api_payloads.id", ondelete="SET NULL"), nullable=True)

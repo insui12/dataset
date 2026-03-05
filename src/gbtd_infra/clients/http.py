@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime
 from urllib.parse import urlparse
 import asyncio
 import hashlib
@@ -55,7 +55,7 @@ class PoliteHttpClient:
         )
         self._inflight_concurrency: dict[str, int] = defaultdict(int)
         self._locks = defaultdict(asyncio.Lock)
-        self._session = httpx.AsyncClient(timeout=config.http.timeout_seconds)
+        self._session = httpx.AsyncClient(timeout=config.timeout_seconds)
 
     async def _host(self, url: str) -> str:
         return urlparse(url).netloc.lower()
@@ -116,7 +116,7 @@ class PoliteHttpClient:
         await self._acquire(host)
         try:
             # jitter helps de-synchronization, not evasion
-            request_headers = {"User-Agent": self.config.http.user_agent}
+            request_headers = {"User-Agent": self.config.user_agent}
             if headers:
                 request_headers.update(headers)
 

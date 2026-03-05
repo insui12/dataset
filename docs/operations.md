@@ -7,40 +7,78 @@
 3. `pip install -e .`
 4. `gbtd init-database`
 5. `gbtd bootstrap-manifest manifests/sample.manifest.yaml`
-6. `gbtd seed_jobs --family github --instance github.com`
-7. `gbtd run-worker`
+6. `gbtd seed-sample --sample-size 20` (또는 대상 집합 지정)
+7. `gbtd smoke-collect --sample-size 20 --iterations 1000`
+8. 운영 worker 실행: `gbtd run-worker`
 
-## 2. 3대 동시 실행 권장
+권장: `seed-jobs`로 집합 기반 수집 job을 만들고, `run-worker`로 실제 수집을 수행.
+
+## 2. 표준 명령
+
+- **Manifest 반영**
+  - `gbtd bootstrap-manifest <manifest_path>`
+- **Probe/Count/List 잡 시딩**
+  - `gbtd seed-jobs --family github --instance github.com --job-mode all --sample-size 50`
+- **파일럿 샘플 시딩**
+  - `gbtd seed-sample --sample-size 50`
+- **파일럿 바로 실행**
+  - `gbtd smoke-collect --sample-size 50 --iterations 1000`
+- **워커 실행**
+  - `gbtd run-worker --iterations 1000` (0은 영구실행)
+- **재시도 가능한 락 유실 복구**
+  - `gbtd reclaim-jobs`
+
+## 2-1. smoke 테스트 가이드 (1~100 건/entry)
+
+- Family별 최소 동작 확인(권장):
+
+```bash
+# 샘플 manifest 전체의 지원 family만 1~100 건 수준으로 빠르게 검증
+gbtd smoke-collect --sample-size 50 --iterations 2000
+```
+
+- 현재 1차 단계에서 리스트 수집이 구현된 family만 대상:
+
+```bash
+gbtd smoke-collect --family github --manifest-path manifests/sample.manifest.yaml --sample-size 50 --iterations 2000
+gbtd smoke-collect --family gitlab --manifest-path manifests/sample.manifest.yaml --sample-size 50 --iterations 2000
+```
+
+- fixture 기반 단위 테스트(실행):
+
+```bash
+PYTHONPATH=src pytest -q tests/test_infer_closed_state.py tests/test_adapters_list_issue_fixtures.py tests/test_manifest_loader.py
+```
+
+## 3. 3대 동시 실행
 
 - 노드 A: `GBTD_RUNNER_ID=node-a gbtd run-worker`
 - 노드 B: `GBTD_RUNNER_ID=node-b gbtd run-worker`
 - 노드 C: `GBTD_RUNNER_ID=node-c gbtd run-worker`
 
-모든 노드가 동일한 `DATABASE_URL`를 공유해야 한다.
+모든 노드가 동일한 `GBTD_DATABASE_URL`(또는 `DATABASE_URL`)를 공유해야 합니다.
 
-## 3. 장애 복구
+## 4. 장애 복구
 
 - 타임아웃(job lease 만료) 복구: `gbtd reclaim-jobs`
-- 장애 시 수집 실패는 `collection_errors`와 `collection_jobs.last_error`에 저장.
-- anti-bot 이벤트: `rate_limit_events`와 `collection_errors`로 추적.
+- 장애 시 수집 실패는 `collection_errors`와 `collection_jobs.last_error`에 저장
+- anti-bot 이벤트: `rate_limit_events`와 `collection_errors`로 추적
 
-## 4. manifest 버전 관리
+## 5. 샘플 수집 기준 권장값
 
-- `manifests/*.yaml` 변경 시 `manifest.version` 증가
-- 기존 버전과 diff를 저장하고 새 버전으로 `bootstrap-manifest` 재실행
-- 레지스트리 변경은 `manifest_versions`로 추적
+- 최소 검증: per entry `1~100`건
+- 기본 추천: `sample-size 20` 또는 `50`
+- 실제 전수 수집 전, 각 family별 적어도 1~2개 entry에서 closed 수집/수집 실패율/`needs_review` 비율을 점검
 
-## 5. static sharding fallback(중앙 DB 미사용 시)
+## 6. 성능/정합성
 
-중앙 PostgreSQL이 불가능한 경우:
+- 병렬도는 `GBTD_CONCURRENCY`
+- per-host RPS는 `GBTD_PER_HOST_RPS`, 버스트는 `GBTD_RATE_BUCKET_BURST`
+- 재수집 시 동일 manifest를 재시딩하고 잡을 재생성해서 증분/정합성 확인
 
-- 파일 기반 partition key(`family_slug`, `instance_id`)를 기준으로 고정 샤드 분리
-- 각 샤드(예: A/B/C)에 동일 코드 배포 후 `--family` 단위로 실행
-- 단, manifest와 count snapshot은 병합 불가능성이 크므로 중앙 DB 재결합 단계가 필수
-- 최종 목표가 장기 재사용 인프라인 만큼 이 옵션은 fallback로만 사용
+## 7. manifest fallback 정책
 
-## 6. 보안/정책 제약 준수
+중앙 PostgreSQL 사용이 안 되는 경우(강제 fallback):
 
-- 인증 필요 소스는 `visibility=auth_required` 기록
-- 승인되지 않은 API 호출은 수행하지 않음
-- 공개가 아닌 데이터는 registry와 job에서 차단 여부를 표시
+- family 단위로 코드 배포 후 샤드 분리 실행 가능하나, 현재는 중앙 DB를 권장 아키텍처로 문서화
+- 추후 `run-worker`에서 동일 manifest 스냅샷을 기준으로만 병합이 가능해야 함
