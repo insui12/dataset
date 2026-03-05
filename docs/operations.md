@@ -25,6 +25,12 @@
   - `gbtd smoke-collect --sample-size 50 --iterations 1000`
 - **워커 실행**
   - `gbtd run-worker --iterations 1000` (0은 영구실행)
+- **삽입 전 API dry-run(호출 CSV 저장)**
+  - `gbtd preview-collect-csv manifests/sample.manifest.yaml --family github --instance github.com --sample-size 20 --max-pages 2 --page-size 50 --output-dir artifacts/preview_csv`
+  - 출력 파일:
+    - `preview_raw_responses_<family>_<instance>_<timestamp>.csv`
+    - `preview_issues_<family>_<instance>_<timestamp>.csv`
+  - 목적: 수집 결과를 DB에 적재하지 않고 API 응답 파싱/closed 판정 상태를 먼저 검증
 - **재시도 가능한 락 유실 복구**
   - `gbtd reclaim-jobs`
 

@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import asyncio
 import hashlib
 import json
+import logging
 import uuid
 
 from sqlalchemy import select
@@ -38,17 +39,29 @@ from gbtd_infra.scheduler.lease import JobScheduler
 
 
 class Orchestrator:
-    def __init__(self, config: AppConfig):
+    def __init__(self, config: AppConfig, show_progress: bool = True):
         self.config = config
         self.session_factory = build_session_factory(config)
         self.http = PoliteHttpClient(config)
         self.scheduler = JobScheduler(self.session_factory, config.runner_id, config.lease_seconds)
+        self.show_progress = show_progress
+        self._logger = logging.getLogger("gbtd.orchestrator")
+        if show_progress and not logging.getLogger().handlers:
+            logging.basicConfig(
+                level=logging.INFO,
+                format="%(asctime)s [%(levelname)s] %(message)s",
+            )
 
     def _make_adapter(self, job_family_slug: str):
         adapter_cls = adapter_for_family(job_family_slug)
         if adapter_cls is None:
             return None
         return adapter_cls(self.session_factory, self.http, self.config)
+
+    def _log(self, msg: str, level: int = logging.INFO) -> None:
+        if not self.show_progress:
+            return
+        self._logger.log(level, msg)
 
     async def claim_and_run_once(self):
         jobs = self.scheduler.claim_job(batch=self.config.worker_concurrency)
@@ -58,10 +71,21 @@ class Orchestrator:
         for job in jobs:
             session = self.session_factory()
             try:
+                family = session.get(TrackerFamily, job.family_id)
+                instance = session.get(TrackerInstance, job.instance_id) if job.instance_id else None
+                entry = session.get(RegistryEntry, job.registry_entry_id) if job.registry_entry_id else None
+                label = self._format_job_label(family, instance, entry, job)
+                self._log(f"{label} START type={job.job_type.value} id={job.id}")
                 await self._process_job(session, job)
                 self.scheduler.complete_job(job.id)
+                self._log(f"{label} DONE type={job.job_type.value} id={job.id}")
                 session.commit()
             except Exception as exc:
+                family = session.get(TrackerFamily, job.family_id)
+                instance = session.get(TrackerInstance, job.instance_id) if job.instance_id else None
+                entry = session.get(RegistryEntry, job.registry_entry_id) if job.registry_entry_id else None
+                label = self._format_job_label(family, instance, entry, job)
+                self._log(f"{label} FAIL type={job.job_type.value} id={job.id} reason={exc}", logging.WARNING)
                 session.rollback()
                 self._record_collection_error(
                     session=session,
@@ -77,6 +101,21 @@ class Orchestrator:
                 session.close()
 
         return len(jobs)
+
+    @staticmethod
+    def _format_job_label(
+        family: TrackerFamily | None,
+        instance: TrackerInstance | None,
+        entry: RegistryEntry | None,
+        job: CollectionJob | None = None,
+    ) -> str:
+        parts = [
+            f"family={family.slug if family else 'unknown'}",
+            f"instance={instance.canonical_name if instance else 'unknown'}",
+            f"entry={entry.name if entry else 'n/a'}",
+            f"job={job.id if job else 'n/a'}",
+        ]
+        return " ".join(parts)
 
     async def _process_job(self, session, job: CollectionJob) -> None:
         family = session.get(TrackerFamily, job.family_id)
@@ -110,7 +149,14 @@ class Orchestrator:
         if job.job_type == JobType.list_page_fetch:
             if instance is None or entry is None:
                 raise RuntimeError(f"list_page_fetch requires family+instance+entry for job {job.id}")
-            await self._process_list_page(session, family, instance, entry, payload, job)
+            page_stats = await self._process_list_page(session, family, instance, entry, payload, job)
+            self._log(
+                (
+                    f"{self._format_job_label(family, instance, entry, job)} "
+                    f"page={payload.get('page', 1)} items={page_stats['items']} "
+                    f"issues={page_stats['issues']} next_cursor={page_stats['next_cursor']}"
+                )
+            )
             return
 
         if job.job_type == JobType.issue_detail_fetch:
@@ -175,6 +221,7 @@ class Orchestrator:
         )
 
         if page.error:
+            self._log(f"list_issues error: family={family.slug} instance={instance.canonical_name} entry={entry.name} {page.error}", logging.WARNING)
             raise RuntimeError(page.error)
 
         raw_payload_id = self._persist_raw_payload(session, family, instance, entry, page)
@@ -219,7 +266,21 @@ class Orchestrator:
                 )
             )
 
-        # page_count can be observed from issues and job payload; keep no-op placeholder removed.
+        page_index = payload.get("page", 1)
+        self._log(
+            (
+                f"{self._format_job_label(family, instance, entry)} "
+                f"page={page_index} issue_count={len(page.issues)} "
+                f"sample_collected={sample_collected}"
+            )
+        )
+
+        return {
+            "items": len(page.request_body) if isinstance(page.request_body, list) else 0,
+            "issues": len(page.issues),
+            "next_cursor": page.next_cursor,
+            "page": page_index,
+        }
 
     def _upsert_probe(self, session, family: TrackerFamily, instance: TrackerInstance | None, entry: RegistryEntry | None, result: ProbeResult) -> None:
         existing = session.scalar(

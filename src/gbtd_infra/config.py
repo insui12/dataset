@@ -74,6 +74,10 @@ class AppConfig(BaseSettings):
         default=None,
         validation_alias=AliasChoices("GBTD_YOUTRACK_TOKEN", "YOUTRACK_TOKEN"),
     )
+    phabricator_token: Optional[str] = Field(
+        default=None,
+        validation_alias=AliasChoices("GBTD_PHABRICATOR_TOKEN", "PHABRICATOR_TOKEN"),
+    )
     google_token: Optional[str] = Field(default=None, validation_alias=AliasChoices("GBTD_GOOGLE_TOKEN", "GOOGLE_TOKEN"))
     debian_token: Optional[str] = Field(
         default=None,

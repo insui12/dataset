@@ -29,7 +29,18 @@ gbtd bootstrap-manifest manifests/sample.manifest.yaml
 gbtd seed-sample --sample-size 20 --page-size 50
 
 gbtd smoke-collect --manifest-path manifests/sample.manifest.yaml --sample-size 20 --iterations 500
+
+# 4) DB 적재 전 API 호출 dry-run (호출 결과를 CSV로 저장)
+gbtd preview-collect-csv manifests/sample.manifest.yaml \
+  --family github \
+  --instance github.com \
+  --sample-size 20 \
+  --max-pages 2 \
+  --page-size 50 \
+  --output-dir artifacts/preview_csv
 ```
+
+`preview-collect-csv`는 `init-database`, DB 연결 없이도 동작하며 호출 응답만 CSV로 저장합니다.
 
 ## 패키지 구조
 
@@ -83,6 +94,23 @@ gbtd smoke-collect --sample-size 20 --iterations 2000
 # fixture 기반 단위 테스트
 PYTHONPATH=src pytest -q tests/test_infer_closed_state.py tests/test_adapters_list_issue_fixtures.py
 ```
+
+## 파일럿 CSV Dry-Run
+
+```bash
+# manifest 기반으로 호출 결과를 DB insert 없이 CSV로 저장
+gbtd preview-collect-csv manifests/sample.manifest.yaml \
+  --family github \
+  --instance github.com \
+  --sample-size 20 \
+  --max-pages 2 \
+  --page-size 50 \
+  --output-dir artifacts/preview_csv
+```
+
+생성 파일:
+- `artifacts/preview_csv/preview_raw_responses_<family>_<instance>_<timestamp>.csv` : page/요청 호출 레코드
+- `artifacts/preview_csv/preview_issues_<family>_<instance>_<timestamp>.csv` : 파싱된 issue rows + closed 판정(`is_closed`, `needs_review`)
 
 ## 운영 정책
 

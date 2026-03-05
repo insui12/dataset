@@ -6,7 +6,6 @@ from datetime import datetime
 from urllib.parse import urlparse
 import asyncio
 import hashlib
-import random
 import time
 from typing import Any, Optional
 
@@ -155,6 +154,15 @@ class PoliteHttpClient:
 
     async def get(self, url: str, headers: dict[str, str] | None = None, params=None) -> httpx.Response:
         return await self.request("GET", url, headers=headers, params=params)
+
+    async def post(
+        self,
+        url: str,
+        headers: dict[str, str] | None = None,
+        params: dict[str, Any] | None = None,
+        json: dict[str, Any] | None = None,
+    ) -> httpx.Response:
+        return await self.request("POST", url, headers=headers, params=params, json=json)
 
     async def close(self) -> None:
         await self._session.aclose()

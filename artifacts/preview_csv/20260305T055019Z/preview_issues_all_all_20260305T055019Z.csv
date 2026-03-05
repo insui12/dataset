@@ -1,0 +1,341 @@
+family,instance,entry_name,entry_tracker_id,entry_api_key,page_no,sample_position,tracker_issue_id,tracker_issue_key,title,issue_url,api_url,issue_type_raw,state_raw,resolution_raw,close_reason_raw,reporter_raw,assignee_raw,is_closed,needs_review,is_pull_request,is_private_restricted,labels,created_at_tracker,updated_at_tracker,closed_at,body_raw
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,1,184738,llvm/llvm-project#184738,[libc][math][NFC] Fix dependency for acospif,https://github.com/llvm/llvm-project/pull/184738,https://api.github.com/repos/llvm/llvm-project/issues/184738,pull_request,closed,,,bassiounix,,True,False,True,False,libc,2026-03-05T05:03:28+00:00,2026-03-05T05:23:45+00:00,2026-03-05T05:23:43+00:00,
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,2,184734,llvm/llvm-project#184734,[clang-tidy][NFC] Remove some more regex hacks to match full lines in tests,https://github.com/llvm/llvm-project/pull/184734,https://api.github.com/repos/llvm/llvm-project/issues/184734,pull_request,closed,,,localspook,,True,False,True,False,,2026-03-05T04:18:18+00:00,2026-03-05T04:31:29+00:00,2026-03-05T04:31:08+00:00,Updates a few more files I missed in #162293.
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,3,184703,llvm/llvm-project#184703,[AMDGPU] Optimize S_SETREG_IMM32_B32 piggybacking by treating it as a mode scope boundary,https://github.com/llvm/llvm-project/pull/184703,https://api.github.com/repos/llvm/llvm-project/issues/184703,pull_request,closed,,,shiltian,,True,False,True,False,backend:AMDGPU,2026-03-04T23:25:01+00:00,2026-03-05T00:25:19+00:00,2026-03-05T00:19:24+00:00,"When `handleSetregMode` encounters an `S_SETREG_IMM32_B32` with `Size <= 12`, the instruction's `imm32[12:19]` bits are ""free"" for VGPR MSB piggybacking. Previously, the old mode was eagerly written into these bits, but the `Rewritten` guard in `setMode` would then block subsequent piggybacking when the next VGPR instruction needed a different mode, causing an unnecessary `S_SET_VGPR_MSB` to be emitted.
+
+Model the `S_SETREG_IMM32_B32` as the boundary of the old mode's control range: reset `CurrentMode` and clear `bits[12:19]` to zero. This lets the next `setMode` call freely piggyback the required mode without triggering `Rewritten`."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,4,184701,llvm/llvm-project#184701,[dsymutil] Add DebugMapObjectFilter destructor,https://github.com/llvm/llvm-project/pull/184701,https://api.github.com/repos/llvm/llvm-project/issues/184701,pull_request,closed,,,EmmanuelAC1,,True,False,True,False,debuginfo,2026-03-04T23:11:00+00:00,2026-03-05T00:34:18+00:00,2026-03-05T00:34:18+00:00,
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,5,184699,llvm/llvm-project#184699,[CIR][NFCI] Fixup some test regressions due to OGCG changes,https://github.com/llvm/llvm-project/pull/184699,https://api.github.com/repos/llvm/llvm-project/issues/184699,pull_request,closed,,,erichkeane,,True,False,True,False,"clang,ClangIR",2026-03-04T23:08:18+00:00,2026-03-04T23:33:30+00:00,2026-03-04T23:33:29+00:00,"Discovered during CI in a different patch, 3 tests started failing for unknown reasons due to some very mild changes to the IR, but only in 'classic' codgen parts of the tests.  These tests were overly specific for no good reason, so this patch just fixes that."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,6,184698,llvm/llvm-project#184698,[hexagon] Attempting to emit S6_rol_i_p instruction but the Feature_HasV60 predicate(s) are not met,https://github.com/llvm/llvm-project/issues/184698,https://api.github.com/repos/llvm/llvm-project/issues/184698,issue,closed,completed,completed,androm3da,androm3da,True,False,False,False,"backend:Hexagon,release:backport",2026-03-04T23:02:13+00:00,2026-03-04T23:10:20+00:00,2026-03-04T23:10:12+00:00,"This program reduced from [Highway](https://github.com/google/highway/) fails with clang built from 22.1.0.
+
+```c
+// s6_rol_bug.c
+#include <stdint.h>
+__attribute__((noinline))
+uint64_t rotate_left_8(uint64_t val) {
+    return (val << 8) | (val >> 56);
+}
+int main(void) {
+    return (int)rotate_left_8(0x123456789ABCDEF0ULL);
+}
+```"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,7,184694,llvm/llvm-project#184694,[DebugInfo] Don't match wrong NULL in CHECK lines of dwarf5-debug-info-static-member.ll,https://github.com/llvm/llvm-project/pull/184694,https://api.github.com/repos/llvm/llvm-project/issues/184694,pull_request,closed,,,dzhidzhoev,,True,False,True,False,"debuginfo,skip-precommit-approval",2026-03-04T22:37:50+00:00,2026-03-04T22:38:09+00:00,2026-03-04T22:38:08+00:00,"Fixes failure on clang-ppc64le-rhel buildbot (https://lab.llvm.org/buildbot/#/builders/145/builds/13080) after #184219.
+
+On ppc64le, children are not produced for DW_TAG_subprogram ""main"" in this test. Therefore, dwarfdump doesn't print NULL after this tag. On other platforms (AArch64/X86), DW_TAG_subprogram has DW_TAG_variable ""instance_C"", which should not be matched by the check lines.
+
+Loosened the check lines (turned CHECK-NEXT into CHECK) to make them work for all mentioned platforms."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,8,184690,llvm/llvm-project#184690,[LLDB] Skip linker symbols test on Windows and MacOS.,https://github.com/llvm/llvm-project/pull/184690,https://api.github.com/repos/llvm/llvm-project/issues/184690,pull_request,closed,,,cmtice,,True,False,True,False,lldb,2026-03-04T22:13:40+00:00,2026-03-04T23:03:58+00:00,2026-03-04T23:03:57+00:00,"The test was only intended to run on linux.
+
+Currently it's failing on the lldb-x86_64-win builder: https://lab.llvm.org/buildbot/#/builders/211/builds/6741"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,9,184688,llvm/llvm-project#184688,[llvm][Support] Make createUniquePath require at least one wildcard marker,https://github.com/llvm/llvm-project/pull/184688,https://api.github.com/repos/llvm/llvm-project/issues/184688,pull_request,closed,,,jroelofs,,True,False,True,False,"lldb,llvm:support",2026-03-04T21:52:48+00:00,2026-03-05T05:46:16+00:00,2026-03-04T23:59:38+00:00,"The API was a bit easy to accidentally mis-use, as it silently accepted Model strings without any randomness marker characters (`%`), which results in a unique path that's not at all unique.  To avoid this foot-gun, we now assert that the model contains at least one, and update all the broken usages accordingly.
+
+rdar://170349565"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,10,184686,llvm/llvm-project#184686,[CIR] Upstream global variable replacement,https://github.com/llvm/llvm-project/pull/184686,https://api.github.com/repos/llvm/llvm-project/issues/184686,pull_request,closed,,,andykaylor,,True,False,True,False,"clang,ClangIR",2026-03-04T20:46:10+00:00,2026-03-04T21:50:58+00:00,2026-03-04T21:50:55+00:00,"This change upstreams the CIR implementation of global variable replacement. When we get a call to get or create a global variable using a type that does not match the previous type for a variable of the same name, we need to replace the old definition with the new one. In classic codegen that was as simple as replaceAllUses+eraseFromParent, but in CIR because we have typed pointers, we need to visit the uses and update them with bitcasts to reflect the new type."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,11,184685,llvm/llvm-project#184685,[DebugInfo] Don't specify target triple for cross-cu-linkonce-distinct.ll,https://github.com/llvm/llvm-project/pull/184685,https://api.github.com/repos/llvm/llvm-project/issues/184685,pull_request,closed,,,dzhidzhoev,,True,False,True,False,"debuginfo,skip-precommit-approval",2026-03-04T20:37:29+00:00,2026-03-04T20:38:03+00:00,2026-03-04T20:38:03+00:00,"Fixes buildbot failures after #184219.
+Target triple line was added to this test in https://reviews.llvm.org/D144007, but it's needless."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,12,184680,llvm/llvm-project#184680,libclc: Enable generic address space for amdgpu build,https://github.com/llvm/llvm-project/pull/184680,https://api.github.com/repos/llvm/llvm-project/issues/184680,pull_request,closed,,,arsenm,,True,False,True,False,libclc,2026-03-04T20:22:41+00:00,2026-03-04T20:36:47+00:00,2026-03-04T20:36:42+00:00,"Based on the macros in clc_func.h, the generic address space
+functions weren't being built. amdhsa triples assume flat address
+space is available. If we really cared about preserving gfx6 on
+mesa3d, we would need to split the build. But given that clover
+was deleted, don't bother."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,13,184679,llvm/llvm-project#184679,[LLDB] Allow symbols added by linker scripts to be examined.,https://github.com/llvm/llvm-project/pull/184679,https://api.github.com/repos/llvm/llvm-project/issues/184679,pull_request,closed,,,cmtice,,True,False,True,False,lldb,2026-03-04T20:20:17+00:00,2026-03-04T23:08:21+00:00,2026-03-04T20:38:27+00:00,"Symbols added by linker scripts do not have debug information or types, but they do have addresses. Sometimes users need to see the addresses of these symbols. Currently these symbols end up being assigned 'eSymbolTypeInvalid', so any attempt to look at them fails. This fixes that issue."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,14,184675,llvm/llvm-project#184675,[clang-doc] Sort index and avoid non-determinism,https://github.com/llvm/llvm-project/pull/184675,https://api.github.com/repos/llvm/llvm-project/issues/184675,pull_request,closed,,,ilovepi,,True,False,True,False,clang-tools-extra,2026-03-04T20:11:58+00:00,2026-03-04T21:56:26+00:00,2026-03-04T21:56:24+00:00,"Consolidate logic to get sorted children from  StringMap. 
+Using the new API makes it more natural to not miss cases,
+where we missed sorting the children directly.
+
+This also allows us to remove -DAG checks from tests and have
+deterministic ordering."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,15,184671,llvm/llvm-project#184671,"[clang-doc] Add DAG directive to MD ""All files"" test",https://github.com/llvm/llvm-project/pull/184671,https://api.github.com/repos/llvm/llvm-project/issues/184671,pull_request,closed,,,evelez7,,True,False,True,False,clang-tools-extra,2026-03-04T19:49:39+00:00,2026-03-04T20:15:51+00:00,2026-03-04T20:00:51+00:00,"It seems like the order of the all-files.md output might be different on local machines, so make the check directives `-DAG` for now."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,16,184670,llvm/llvm-project#184670,[MemProf] Add stack IDs to MemProfUse optimization remarks,https://github.com/llvm/llvm-project/pull/184670,https://api.github.com/repos/llvm/llvm-project/issues/184670,pull_request,closed,,,teresajohnson,,True,False,True,False,"PGO,llvm:transforms",2026-03-04T19:44:47+00:00,2026-03-04T20:22:51+00:00,2026-03-04T20:22:51+00:00,"This makes the remarks more equivalent for analysis to what we emit to
+stderr under -memprof-print-match-info."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,17,184668,llvm/llvm-project#184668,[Clang] Only define `wchar_size` module flag if non-standard,https://github.com/llvm/llvm-project/pull/184668,https://api.github.com/repos/llvm/llvm-project/issues/184668,pull_request,closed,,,jhuber6,,True,False,True,False,"backend:ARM,backend:AArch64,backend:AMDGPU,backend:RISC-V,backend:SystemZ,clang:codegen,llvm:instcombine,llvm:analysis,llvm:transforms,clang:openmp",2026-03-04T19:39:53+00:00,2026-03-04T22:13:49+00:00,2026-03-04T22:13:49+00:00,"Summary:
+This PR simply changes the behavior of the `wchar_size` flag. Currently,
+we emit this in all cases for all targets. This causes problems during
+LLVM-IR linking, specifically because this would vary between Linux and
+Windows in unintuitive ways. Now we have an llvm::Triple helper to
+determine the size from the known values. The module flag will only be
+emitted if these do not match (indicating a non-standard environment).
+
+In addition to fixing AMDGCN bitcode linking, this also means we don't
+need to bloat *every* IR module compiled by clang with this flag. The
+changed tests reflects this, one less unnecessary piece of metadata."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,18,184667,llvm/llvm-project#184667,[lld][WebAssembly] Convert weak-alias tests to assembly. NFC,https://github.com/llvm/llvm-project/pull/184667,https://api.github.com/repos/llvm/llvm-project/issues/184667,pull_request,closed,,,sbc100,,True,False,True,False,"lld,lld:wasm",2026-03-04T19:27:49+00:00,2026-03-04T21:05:05+00:00,2026-03-04T21:05:03+00:00,"This actually both improves and simplifies the `Inputs/weak_alias`.   With the `.ll` version we ended up using memory and `__stack_pointer` and locals, but LLVM ended up generated `call` rather than `call_indirect` for the `call_alias_ptr` and `call_direct_ptr`.  With the assembly tests we can ensure the usage of `call_indirect` while avoiding all the other stuff."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,19,184654,llvm/llvm-project#184654,[CIR] Fix __builtin_va_start handling,https://github.com/llvm/llvm-project/pull/184654,https://api.github.com/repos/llvm/llvm-project/issues/184654,pull_request,closed,,,andykaylor,,True,False,True,False,"clang,ClangIR",2026-03-04T17:48:33+00:00,2026-03-04T21:49:30+00:00,2026-03-04T20:07:26+00:00,We were attempting to capture a `count` argument for __builtin_va_start but the builtin doesn't actually have that as a defined argument. This change removes the errant handling.
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,20,184648,llvm/llvm-project#184648,[bazel] Fix parse_headers in bolt,https://github.com/llvm/llvm-project/pull/184648,https://api.github.com/repos/llvm/llvm-project/issues/184648,pull_request,closed,,,keith,,True,False,True,False,bazel,2026-03-04T17:22:53+00:00,2026-03-04T17:34:40+00:00,2026-03-04T17:34:38+00:00,
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,1,13861,gitlab-org/gitlab#13861,Provide more user information on currently linked omniauth accounts,https://gitlab.com/gitlab-org/gitlab/-/issues/13861,https://gitlab.com/gitlab-org/gitlab/-/issues/13861,issue,closed,closed,closed,johannesmp,,True,False,False,False,"Manage [DEPRECATED],UX,authentication,devops::foundations,group::authentication and authorization [DEPRECATED],section::dev,settings,type::feature,user profile",2014-08-07T16:24:05.147000+00:00,2022-02-23T11:10:41.529000+00:00,2022-02-23T11:10:41.513000+00:00,"# The Problem
+
+Currently when viewing linked social accounts on a gitlab CE user profile page (ex: https://gitlab.com/profile/account ) the only feedback provided to the user is which account is linked in the form of an extra border around the icon. For example in this screenshot, the github service has been linked:
+
+![screenshot_2014-08-07_19.05.48](https://gitlab.com/uploads/gitlab-org/gitlab-ce/9724a38a7f/screenshot_2014-08-07_19.05.48.png)
+
+As a user with potentially many google, github, etc. accounts this is not nearly enough information. I would like to be able to see which google account I've linked, and be able to unlink it when necessary (see issue gitlab-ce#477)
+
+
+# Suggestion
+
+Instead of only showing three icons with an outline, display omniauth services in a table, where each service has its own row. Once linked, a service row should display information such as:
+
+* The account username
+* The account avatar  
+* An 'Unlink <Service> Account' Button (see issue gitlab-ce#477)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,2,13866,gitlab-org/gitlab#13866,Graphs should not be smoothed,https://gitlab.com/gitlab-org/gitlab/-/issues/13866,https://gitlab.com/gitlab-org/gitlab/-/issues/13866,issue,closed,closed,closed,ghost1,,True,False,False,False,"UX,[deprecated] Accepting merge requests,devops::monitor [DEPRECATED],frontend,graphs,group::optimize,missed:12.10,missed:12.8,missed:12.9,missed:13.0,missed:13.1,priority::4,severity::4,type::bug",2014-10-08T09:23:23.628000+00:00,2024-12-10T16:19:55.353000+00:00,2020-07-08T18:32:31.960000+00:00,"I think it would be better to not enable graph smoothing, but instead show a step graph, like this one:
+
+http://www.geoafrica.co.za/reddog/gsw/grapher/2Dstep.gif
+
+The way graph are smoothed currently is IMHO a failed attempt to show nice graphs, and more importantly convey false informations. A step graph with a step every day/week would be better."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,3,13872,gitlab-org/gitlab#13872,Large merge request blocks GitLab from deleting it,https://gitlab.com/gitlab-org/gitlab/-/issues/13872,https://gitlab.com/gitlab-org/gitlab/-/issues/13872,issue,closed,closed,closed,nbigaouette,,True,False,False,False,"Category:Code Review Workflow,Create [DEPRECATED],bug::performance,devops::create,group::code review,merge requests,section::dev,type::bug",2014-11-11T17:34:42.463000+00:00,2024-05-05T22:38:47.381000+00:00,2024-05-05T22:38:47.149000+00:00,"We have a repo where the main branch is not master to emphasize to the devs the branching model. This mean that all branches we create do not originate from master. Additionally, the main branch is kept as ""master"" in gitlab.
+
+While this organization is used to force users to think about which branch they are in, it failed us on one point. The default branch is the one used by default during a merge request. We thus ended up with two merge requests to master, which is empty. Selecting the merge request will timeout with a 502:
+```
+502
+
+GitLab is not responding.
+
+Please contact your GitLab administrator if this problem persists.
+```
+since the diff between the two branches is huge.
+
+Increasing the GitLab's timeout might allow us delete the bad merge request, but this might not even be sufficient since the diff could still create issues.
+
+Is there any other way to delete these bad merge requests without having to go on the command line? The installed instance of GitLab is, let's say it that way, not easily accessible.
+
+There should be a ""Close"" button next to a merge request, similarly to the issues list, that would allow closing such merge requests without visiting the actual page. An ""Edit"" button could also be added, also similar to the issues list, to change the merge request.
+
+Thanks!
+
+Using GitLab 7.3.2 on CentOS 6.5 x86_64, installed through omnibus."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,4,13863,gitlab-org/gitlab#13863,"When downloading a project archive via the API, the SHA is included in the name",https://gitlab.com/gitlab-org/gitlab/-/issues/13863,https://gitlab.com/gitlab-org/gitlab/-/issues/13863,issue,closed,closed,closed,jhrcz,,True,False,False,False,"[deprecated] Accepting merge requests,[deprecated] good for new contributors,backend,devops::create,feature::enhancement,group::source code,repository,section::dev,type::feature,wontfix,workflow::ready for development",2015-02-13T13:38:40.496000+00:00,2022-12-22T12:30:42.419000+00:00,2022-12-22T08:22:33.816000+00:00,"When downloading a project archive via the API, the SHA is included in the name. This does not occur via the UI.
+
+When using the API: `https://gitlab.com/api/v4/projects/278964/repository/archive.tar.gz?ref=v12.3.1` it will download `gitlab-master-80713292dcbe0ae27f19e6a28ce159664fe9f4f6.tar.gz`
+
+**Proposal**
+
+Download the file without the SHA via the API"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,5,13864,gitlab-org/gitlab#13864,A comment for Shibboleth.md,https://gitlab.com/gitlab-org/gitlab/-/issues/13864,https://gitlab.com/gitlab-org/gitlab/-/issues/13864,issue,closed,closed,closed,toyokazu,,True,False,False,False,"Manage [DEPRECATED],[deprecated] Accepting merge requests,authentication,devops::foundations,docs-only,documentation,group::authentication and authorization [DEPRECATED],section::dev,type::maintenance",2015-02-28T06:27:25.459000+00:00,2022-02-17T06:20:41.425000+00:00,2022-02-17T06:20:41.414000+00:00,"In doc/integration/shibboleth.md (gitlab-ce@d76c5824bc05640d276be96f7853f2d266fd6750), an example using Apache mod_shib2 is introduced. I think that it is nice for Gitlab & Shibboleth users :)
+
+In the example configuration, while 'upper case' attributes, like HTTP_EPPN, are manually appended, it may be easier to use :request_type option supported in omniauth-shibboleth 1.0.8.
+
+    gitlab_rails['omniauth_providers'] = [
+      {
+        ""name"" => 'shibboleth',
+        ""args"" => {
+          ""request_type"" => 'header',
+          ""name_field"" => 'cn',
+          ""info_fields"" => { ""email"" => 'mail'}
+        }
+      }
+    ]
+
+Furthermore, another option for gitlab-omnibus package (handling Shibboleth request in Nginx environment) is using [rack-saml](https://github.com/toyokazu/rack-saml) with [omniauth-shibboleth](https://github.com/toyokazu/omniauth-shibboleth). It may be more easier because it does not require Apache and mod_shib2.
+
+I am sorry that I do not have enough time to test them. If someone is interested in them, please test and update Shibboleth.md :)
+
+Best"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,6,13865,gitlab-org/gitlab#13865,Deleting a project results in a large number of SQL requests that could be optimized,https://gitlab.com/gitlab-org/gitlab/-/issues/13865,https://gitlab.com/gitlab-org/gitlab/-/issues/13865,issue,closed,closed,closed,haynes,,True,False,False,False,bug::performance,2015-03-03T11:56:48.095000+00:00,2019-08-29T12:33:28.241000+00:00,2019-08-29T12:33:28.196000+00:00,"When deleting a big project, gitlab produces a very large amount of SQL Statements like these:  
+
+```
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25079]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25080]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25081]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25082]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25083]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25084]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25085]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25086]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25087]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25088]]
+  SQL (1.1ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25089]]
+```
+
+This could be done in a single SQL statement.
+
+```
+DELETE FROM ""notes"" WHERE ""notes"".""id"" in 25087,25088,25089 [....]
+```
+
+\cc @dzaporozhets Can you please take a look? It's another performance issue. I tested this with the linux mainline kernel.  
+Deleting it took several minutes because of the huge amount of SQL Statements."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,7,13871,gitlab-org/gitlab#13871,Adjust Backup task workflow,https://gitlab.com/gitlab-org/gitlab/-/issues/13871,https://gitlab.com/gitlab-org/gitlab/-/issues/13871,issue,closed,closed,closed,neico,,True,False,False,False,"Category:Backup/Restore of GitLab instances,Create [DEPRECATED],Manage [DEPRECATED],devops::systems,group::geo,rake tasks,section::core platform [DEPRECATED]",2015-03-05T04:42:45.218000+00:00,2022-05-23T00:17:19.839000+00:00,2022-05-23T00:17:19.830000+00:00,"**Summary:** When running the backup task, if there's an error while uploading to remote storage then the backup dir is getting cluttered up
+
+**Steps to reproduce:** run the backup task with an upload job that fails somewhere
+
+**Expected behavior:** Backup task finishes up cleanup and remove of old backups before trying to upload
+
+**Observed behavior:** Backup task is uploading, then gets an error while uploading, leaving the temp files and the old backups in the folder, resulting in the HDD getting full pretty quick on a daily task
+
+**Relevant logs and/or screenshots:**
+
+**Output of checks:** Not relevant for this as it's not an gitlab error but a simple logic issue.
+
+**Possible fixes:**
+
+Move line https://gitlab.com/gitlab-org/gitlab-ce/blob/master/lib/backup/manager.rb#L29 after https://gitlab.com/gitlab-org/gitlab-ce/blob/master/lib/tasks/gitlab/backup.rake#L18
+
+Add a simple ```return tar_file``` to manager.rb where the line was to catch it on the rake task (or make tar_file a class variable and make upload's argument optional)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,8,13873,gitlab-org/gitlab#13873,Wiki editing preview does not render AsciiDoc / RDoc / Org,https://gitlab.com/gitlab-org/gitlab/-/issues/13873,https://gitlab.com/gitlab-org/gitlab/-/issues/13873,issue,closed,closed,closed,Reinis,,True,False,False,False,"Category:Wiki,[deprecated] Accepting merge requests,asciidoc,backend,banzai,customer,default-priority,default-severity,devops::plan,direction,frontend,group::knowledge,priority::4,section::dev,severity::3,type::bug,vintage,web edit",2015-03-10T15:17:11.655000+00:00,2023-09-27T15:33:49.364000+00:00,2023-09-27T15:33:49.345000+00:00,"### Problem to solve
+
+Selecting a document format other than Markdown in wikis doesn't seem to switch preview rendering engine. After saving the document it is rendered correctly, but there is not a funcioning preview during editing.
+
+### Proposal
+
+First step:
+
+- Disable preview for unsupported formats: https://gitlab.com/gitlab-org/gitlab/-/issues/228883
+
+Further iterations: Implement preview for all formats:
+
+- AsciiDoc: https://gitlab.com/gitlab-org/gitlab/-/issues/228885
+- Org: https://gitlab.com/gitlab-org/gitlab/-/issues/228886
+- RDoc: https://gitlab.com/gitlab-org/gitlab/-/issues/228887
+
+The actual work will be tracked in the issues above, and we can close this issue once all of it is implemented.
+
+### Links
+
+There's a previous attempt to implement this at https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/16190, if possible we can reuse that.
+
+Most of the changes are around making the markup format generic, so once that's in place adding more formats won't take much additional effort.
+<!-- triage-serverless v3 PLEASE DO NOT REMOVE THIS SECTION -->
+*This page may contain information related to upcoming products, features and functionality.
+It is important to note that the information presented is for informational purposes only, so please do not rely on the information for purchasing or planning purposes.
+Just like with all projects, the items mentioned on the page are subject to change or delay, and the development, release, and timing of any products, features, or functionality remain at the sole discretion of GitLab Inc.*
+<!-- triage-serverless v3 PLEASE DO NOT REMOVE THIS SECTION -->"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,9,13869,gitlab-org/gitlab#13869,"Commits with close issue reference, fail to update issue page correctly",https://gitlab.com/gitlab-org/gitlab/-/issues/13869,https://gitlab.com/gitlab-org/gitlab/-/issues/13869,issue,closed,closed,closed,nelson-r-oliveira,,True,False,False,False,"default-priority,default-severity,devops::plan,frontend,group::project management,issues,priority::4,real-time,severity::3,type::bug",2015-03-24T20:36:00.470000+00:00,2022-05-19T17:06:37.520000+00:00,2019-09-09T16:34:10.536000+00:00,"**Summary**: If a user has a issue page open in the browser and pushes changes to gitlab that close that issue automatically, the page is correctly updated without the user refreshing the browser and the issue is marked closed, but the button to close the issue is still available to the user until the page is refreshed.
+This appears to be mainly cosmetic has pressing that button appears to do nothing but refresh the page.
+
+
+**Steps to reproduce**: Leave the issue page open in the browser and push to GitLab with a commit message closing the issue (use closes gitlab-ce#1 syntax), return to the browser and don't refresh the page, it should automatically update the issue status but the button to close the issue still remains.
+
+
+**Expected behavior**: The whole page should reflect a closed issued state.
+
+
+**Observed behavior**: The button to close the issue still remains, it appears to only refresh the page when clicked.
+
+Edit: Forgot to mention that issue was noticed on v7.9.0 don't know if it was present before"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,10,13879,gitlab-org/gitlab#13879,google bot shows a memory leak in the gitlab worker,https://gitlab.com/gitlab-org/gitlab/-/issues/13879,https://gitlab.com/gitlab-org/gitlab/-/issues/13879,issue,closed,closed,closed,dachary,,True,False,False,False,"auto updated,awaiting feedback,bug::performance,stale",2015-03-25T00:49:02.644000+00:00,2022-09-16T22:53:39.675000+00:00,2022-09-16T22:53:39.348000+00:00,"Steps to reproduce:
+
+* create a project and mirror http://github.com/ceph/ceph
+* use https://pypi.python.org/pypi/github2gitlab to import the ~4,000 pull requests as branches
+* wait for the google crawler to visit
+* watch the worker use all the available memory until it gets killed by the limit set in config.ru (tried with 2GB instead of the default 250MB: it takes about half an hour to get to to 2GB)
+
+GitLab 7.5.1"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,11,13881,gitlab-org/gitlab#13881,Groups should be public if they have projects shared with them.,https://gitlab.com/gitlab-org/gitlab/-/issues/13881,https://gitlab.com/gitlab-org/gitlab/-/issues/13881,issue,closed,closed,closed,cnst,,True,False,False,False,"Category:Groups & Projects,Group Sharing,closed::will not do,department::infrastructure platforms,devops::tenant scale,group::organizations,type::feature,won't do",2015-03-25T16:50:36.613000+00:00,2025-06-03T16:55:51.276000+00:00,2025-06-03T16:55:16.865000+00:00,"This is in continuation of http://stackoverflow.com/questions/29200998/are-gitlab-groups-never-public and [merge request 451](https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/451).
+
+It would be nice to be able to make a group public if some repositories are shared with the group.
+
+For example, there is no official git repository of NetBSD; however, a single NetBSD developer (currently ""jsonn"" on GitHub) may volunteer to create one under his own account, and share it with NetBSD.
+
+Similarly, I'd like to share my http://mdoc.su/ with the NetBSD group (as well as OpenBSD, DragonFlyBSD etc).  Sharing is already possible on GitLab, but it would seem weird to have to create a public project for such sharing itself to be public (also, is the sharing public in the first place?)."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,12,13878,gitlab-org/gitlab#13878,Add a better error message when /hooks folder is missing in a repository,https://gitlab.com/gitlab-org/gitlab/-/issues/13878,https://gitlab.com/gitlab-org/gitlab/-/issues/13878,issue,closed,closed,closed,sgrassie,,True,False,False,False,"Create [DEPRECATED],[deprecated] Accepting merge requests,devops::create,group::source code,repository,section::dev,type::feature",2015-03-27T09:04:19.058000+00:00,2022-09-20T18:52:43.223000+00:00,2022-09-20T18:52:43.211000+00:00,"## Background
+My repositories are stored on a mounted NFS share, the path is correct in gitlab.yml and everything works 100% correctly. Until someone (outside of my control) moves the NFS share.
+
+For some reason the /hooks folder in nearly all the repositories disappeared when the share was moved. This probably has to do with the vagaries of symlink's in linux. But I digress.
+
+## Actual Problem
+None of the repos were reporting updates on the Dashboard, but I could see that commit's were happening when checking individual repos. A quick check on the server:
+
+    sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production
+
+Revealed:
+
+```
+Errno::ENOENT: No such file or directory @ realpath_rec - /mnt/repos/group/example.git/hooks
+/home/git/gitlab/lib/tasks/gitlab/check.rake:509:in `realpath'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:509:in `block in check_repos_hooks_directory_is_link'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `block (2 levels) in find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `block in find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:125:in `find_in_batches'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:51:in `find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/querying.rb:9:in `find_each'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:503:in `check_repos_hooks_directory_is_link'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:364:in `block (3 levels) in <top (required)>'
+Tasks: TOP => gitlab:check => gitlab:gitlab_shell:check
+(See full trace by running task with --trace)
+stuart@server:/home/git/gitlab$
+```
+
+## Manual fix
+To fix it I had to create the /hooks folder in (nearly all) of the repos:
+
+    sudo -u git -H mkdir /mnt/repos/group/example.git/hooks
+
+And then run ./create-hooks:
+
+    sudo -u git -H /home/git/gitlab-shell//bin/create-hooks
+
+## Suggestion to improve Gitlab
+I think that if the `rake gitlab:check` command can detect that a repo has wrong or missing hooks, then it should also detect that the actual `/hooks` folder is missing, and offer a suggestion on how it can be fixed.
+
+Similarly, would `./create-hooks` not also be capable of actually creating the `/hooks` folder if it is missing?"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,13,13870,gitlab-org/gitlab#13870,Version check doesnt handle none git installations,https://gitlab.com/gitlab-org/gitlab/-/issues/13870,https://gitlab.com/gitlab-org/gitlab/-/issues/13870,issue,closed,closed,closed,darix,,True,False,False,False,"Category:Gitaly,devops::systems,feature::addition,group::distribution [DEPRECATED],section::core platform [DEPRECATED],type::feature",2015-04-10T19:20:34.676000+00:00,2023-01-24T17:22:32.217000+00:00,2023-01-24T16:16:11.992000+00:00,"We are packaging git as rpm ourself for opensuse.
+
+In the help screen we get:
+""GitLab 7.10.0.pre fatal: Not a git repository (or any of the parent directories): .git""
+
+Is there any file we can provide which can hold the git revision for this?"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,14,13925,gitlab-org/gitlab#13925,Tag of deleted branch doesn't appear in network view,https://gitlab.com/gitlab-org/gitlab/-/issues/13925,https://gitlab.com/gitlab-org/gitlab/-/issues/13925,issue,closed,closed,closed,openmengine,,True,False,False,False,"Create [DEPRECATED],devops::create,group::source code,repository",2015-04-13T14:15:05.351000+00:00,2020-05-08T17:44:46.637000+00:00,2020-02-10T21:43:42.319000+00:00,"Maybe this use case is stupid, but when you have a tag on top of a branch, and then delete the branch, you can't see the tag (and the commits of the deleted branch) anymore on the network view.
+
+The tag still exists in the tag page, it still exists in the combobox of the network page, but it is not diplayed on the tree.
+Of course, a git log display all the commits, as they are still reachable through the tag."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,15,13867,gitlab-org/gitlab#13867,Wiki pagetitle with hyphenated words,https://gitlab.com/gitlab-org/gitlab/-/issues/13867,https://gitlab.com/gitlab-org/gitlab/-/issues/13867,issue,closed,closed,closed,blackpanther,,True,False,False,False,"Category:Wiki,Create [DEPRECATED],[deprecated] Accepting merge requests,backend,default-priority,default-severity,devops::create,group::editor [DEPRECATED],priority::4,section::dev,severity::3,type::bug,workflow::planning breakdown",2015-04-16T12:17:38.846000+00:00,2020-12-12T15:38:52.395000+00:00,2020-09-30T19:38:38.387000+00:00,"It may be interesting to write hyphenated titles for wiki pages.   
+e.g. `This-is-an-example-for-hyphen--ated-titles` the wiki creates a title for url but there is no posibility to get the the word *hyphen-ated*
+
+Idea for a fix:   
+parse your whitespace with an underline instad of a minus (as it is done in wikipedia)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,16,13868,gitlab-org/gitlab#13868,CSRF Invalid Token / Error 422 on using OmniAuth Providers,https://gitlab.com/gitlab-org/gitlab/-/issues/13868,https://gitlab.com/gitlab-org/gitlab/-/issues/13868,issue,closed,closed,closed,Fira,,True,False,False,False,"Manage [DEPRECATED],authentication,auto updated,awaiting feedback,backend,default-priority,default-severity,devops::foundations,group::authentication and authorization [DEPRECATED],oauth,priority::4,severity::3,type::bug",2015-04-25T10:16:19.492000+00:00,2019-08-31T11:31:16.229000+00:00,2019-08-31T11:31:16.108000+00:00,"Hey, just got a fresh install of GitLab through Omnibus yesterday.
+
+I've been trying to have Single Sign-on with the rest of our Infra using OmniAuth providers, but it seems to always result in a **422 Error**, and a **CSRF invalid token** in production.log. 
+
+This is similar to issues gitlab-ce#715 as well as gitlab-ce#331 and gitlab-ce#775 on omnibus-gitlab but their workarounds don't seem to apply : 
+
+ * No reverse proxy other than Omnibus'
+ * Using embedded nginx 
+ * I checked the generated nginx config, and X-forwarded-proto is set with $scheme for https accordingly (yet these headers don't seem to appear on the client side ?)
+ * Tried the workaround of using custom certificates, to no avail
+ * Tried to use HTTP-only, but this also results in a CSRF error
+
+Spent a while trying to figure this out, looking in the sources for anything odd, but I'm at a loss. I'll probably try to fry the embedded nginx and experiment with my own, will give feedback then."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,17,13880,gitlab-org/gitlab#13880,No Markdown (GFM) in commit messages,https://gitlab.com/gitlab-org/gitlab/-/issues/13880,https://gitlab.com/gitlab-org/gitlab/-/issues/13880,issue,closed,closed,closed,savef,,True,False,False,False,"Category:Markdown,[deprecated] Accepting merge requests,banzai,devops::plan,group::project management,markdown [deprecated],section::dev,type::feature",2015-05-06T14:34:12.936000+00:00,2024-09-04T17:30:29.471000+00:00,2019-08-29T00:50:06.603000+00:00,"Hey, according to [markdown.md](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md) you should be able to use GFM in commit messages. We don't seem to be getting any, except for emojis (I tried bold, italics and links). The commit messages just sit unprocessed.
+
+This is the case on 7.10.0. As far as I know this has never worked (in ~12 months or so), and I think I remember a time when even emojis didn't work, but I can't be sure and don't have version numbers at all.
+
+I made an example in this repository:
+https://gitlab.com/savef/markdown-test/commit/564692541b0c0fc8d55b3f30f2e005d802b6e921"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,18,13922,gitlab-org/gitlab#13922,Version Check image alternative text is useless,https://gitlab.com/gitlab-org/gitlab/-/issues/13922,https://gitlab.com/gitlab-org/gitlab/-/issues/13922,issue,closed,closed,closed,WhyNotHugo,,True,False,False,False,"UX,accessibility,frontend,severity::4",2015-05-23T17:03:13.839000+00:00,2024-03-04T14:37:41.837000+00:00,2024-03-04T09:34:00.501000+00:00,"On /help, the version check image has an alternative text (`alt`) that reads ""Check"".
+
+This text should be the same as what the image reads for accessibility reasons. Screen readers will merely read ""Check"". Poor sighted users who disable images will have this text displayed to them."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,19,14068,gitlab-org/gitlab#14068,Auto login using omniauth provider,https://gitlab.com/gitlab-org/gitlab/-/issues/14068,https://gitlab.com/gitlab-org/gitlab/-/issues/14068,issue,closed,closed,closed,xornet-sl,,True,False,False,False,"Manage [DEPRECATED],authentication,devops::software supply chain security,group::authentication,section::sec,type::feature",2015-06-04T01:50:16.707000+00:00,2025-05-27T14:19:22.308000+00:00,2025-05-27T14:19:22.291000+00:00,"Is there any way to make auto login possible?
+Right now I can redirect unauthorized users to some url, but I can't redirect them to /users/auth/PROVIDER because it must be a POST request, not GET.
+
+I see two ways:
+1. It may be an option on system settings page like ""Enable auto login through provider: "" and select box with auth providers.
+2. It may be a check box after setting 'Home page url' on system settings page like 'do POST redirect'.
+
+It would be great if you could add this feature!
+
+Can I hope to see this feature realized?
+
+P.S. Sorry for my english =)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,20,13874,gitlab-org/gitlab#13874,Got OpenSSL::Cipher::CipherError when enable/login with 2FA,https://gitlab.com/gitlab-org/gitlab/-/issues/13874,https://gitlab.com/gitlab-org/gitlab/-/issues/13874,issue,closed,closed,closed,Gounlaf,,True,False,False,False,"2FA,Category:Backup/Restore of GitLab instances,[deprecated] Accepting merge requests,auto closed,default-priority,default-severity,devops::foundations,docs-only,documentation,group::authentication and authorization [DEPRECATED],installation,priority::4,section::dev,severity::3,stale,type::bug,vintage",2015-06-04T16:07:02.355000+00:00,2025-02-04T19:24:44.560000+00:00,2021-10-18T03:03:24.339000+00:00,"Hi,
+
+I switched from ""source installation"" to omnibus package (and also from one server to another one)
+2FA was enabled for my account.
+
+Below the production.log content
+
+```
+Started GET ""/profile/two_factor_auth/new"" for A.B.C.D at 2015-06-04 15:53:52 +0000
+Processing by Profiles::TwoFactorAuthsController#new as HTML
+Completed 500 Internal Server Error in 41ms
+
+OpenSSL::Cipher::CipherError (bad decrypt):
+  app/controllers/profiles/two_factor_auths_controller.rb:3:in `new'
+```
+
+Is it related to Gitlab or Nginx ?
+I'm using the embedded nginx ; https is enabled
+
+Thanks"
