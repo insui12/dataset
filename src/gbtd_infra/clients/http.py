@@ -54,7 +54,7 @@ class PoliteHttpClient:
         )
         self._inflight_concurrency: dict[str, int] = defaultdict(int)
         self._locks = defaultdict(asyncio.Lock)
-        self._session = httpx.AsyncClient(timeout=config.timeout_seconds)
+        self._session = httpx.AsyncClient(timeout=config.timeout_seconds, follow_redirects=True)
 
     async def _host(self, url: str) -> str:
         return urlparse(url).netloc.lower()

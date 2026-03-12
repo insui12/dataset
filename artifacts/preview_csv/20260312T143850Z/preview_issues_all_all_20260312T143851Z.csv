@@ -1,0 +1,393 @@
+family,instance,entry_name,entry_tracker_id,entry_api_key,page_no,sample_position,tracker_issue_id,tracker_issue_key,title,issue_url,api_url,issue_type_raw,state_raw,resolution_raw,close_reason_raw,reporter_raw,assignee_raw,is_closed,needs_review,is_pull_request,is_private_restricted,labels,created_at_tracker,updated_at_tracker,closed_at,body_raw
+bugzilla,mozilla,firefox,firefox,,1,1,163057,firefox#163057,Phoenix and Mozilla cannot comfortably share a source tree,https://bugzilla.mozilla.org/show_bug.cgi?id=163057,https://bugzilla.mozilla.org/rest/bug/163057,bug,VERIFIED,INVALID,INVALID,bugzilla+bz@cdn.cx,bryner@gmail.com,True,False,False,False,,2002-08-16T14:36:01+00:00,2002-09-19T04:55:25+00:00,2002-09-19T04:55:25+00:00,Phoenix and Mozilla cannot comfortably share a source tree
+bugzilla,mozilla,firefox,firefox,,1,2,165811,firefox#165811,"Phoenix forgets all cookies even though ""Enable cookies for the current session only"" is NOT chosen",https://bugzilla.mozilla.org/show_bug.cgi?id=165811,https://bugzilla.mozilla.org/rest/bug/165811,bug,VERIFIED,INVALID,INVALID,andre.bugs2@gmail.com,bugzilla@blakeross.com,True,False,False,False,,2002-08-30T22:14:32+00:00,2002-09-19T04:56:28+00:00,2002-09-19T04:56:28+00:00,"Phoenix forgets all cookies even though ""Enable cookies for the current session only"" is NOT chosen"
+bugzilla,mozilla,firefox,firefox,,1,3,167449,firefox#167449,fix branding,https://bugzilla.mozilla.org/show_bug.cgi?id=167449,https://bugzilla.mozilla.org/rest/bug/167449,bug,VERIFIED,FIXED,FIXED,asa@piercedotzler.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-09T06:16:34+00:00,2002-09-19T05:17:42+00:00,2002-09-19T05:17:42+00:00,fix branding
+bugzilla,mozilla,firefox,firefox,,1,4,167422,firefox#167422,view source tries to download type application x-view-source from view-source:<url>,https://bugzilla.mozilla.org/show_bug.cgi?id=167422,https://bugzilla.mozilla.org/rest/bug/167422,bug,VERIFIED,DUPLICATE,DUPLICATE,asa@piercedotzler.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-09T01:06:09+00:00,2002-09-19T20:24:25+00:00,2002-09-19T20:24:25+00:00,view source tries to download type application x-view-source from view-source:<url>
+bugzilla,mozilla,firefox,firefox,,1,5,167969,firefox#167969,Theme changes will take effect when you restart _Mozilla_.,https://bugzilla.mozilla.org/show_bug.cgi?id=167969,https://bugzilla.mozilla.org/rest/bug/167969,bug,VERIFIED,DUPLICATE,DUPLICATE,timeless@bemail.org,bugzilla@blakeross.com,True,False,False,False,,2002-09-11T14:45:36+00:00,2002-09-19T20:27:43+00:00,2002-09-19T20:27:43+00:00,Theme changes will take effect when you restart _Mozilla_.
+bugzilla,mozilla,firefox,firefox,,1,6,169379,firefox#169379,first Phoenix window ignored by nsIWindowMediator,https://bugzilla.mozilla.org/show_bug.cgi?id=169379,https://bugzilla.mozilla.org/rest/bug/169379,bug,VERIFIED,DUPLICATE,DUPLICATE,hewitt@formerly-netscape.com.tld,bugzilla@blakeross.com,True,False,False,False,,2002-09-18T07:57:39+00:00,2002-09-19T20:28:19+00:00,2002-09-19T20:28:19+00:00,first Phoenix window ignored by nsIWindowMediator
+bugzilla,mozilla,firefox,firefox,,1,7,168377,firefox#168377,Enable images cannot be used to disable the display of images.,https://bugzilla.mozilla.org/show_bug.cgi?id=168377,https://bugzilla.mozilla.org/rest/bug/168377,bug,VERIFIED,INVALID,INVALID,ronbu@centurylink.net,bugzilla@blakeross.com,True,False,False,False,,2002-09-13T00:58:55+00:00,2002-09-21T22:19:06+00:00,2002-09-21T22:19:06+00:00,Enable images cannot be used to disable the display of images.
+bugzilla,mozilla,firefox,firefox,,1,8,167180,firefox#167180,land pch's bookmarks patch from bug  160019,https://bugzilla.mozilla.org/show_bug.cgi?id=167180,https://bugzilla.mozilla.org/rest/bug/167180,bug,VERIFIED,FIXED,FIXED,asa@piercedotzler.com,p_ch@verizon.net,True,False,False,False,,2002-09-06T21:33:52+00:00,2002-09-21T22:19:27+00:00,2002-09-21T22:19:27+00:00,land pch's bookmarks patch from bug  160019
+bugzilla,mozilla,firefox,firefox,,1,9,167327,firefox#167327,Extremely high memory consumption after closing all windows with Quick Launch (Turbo) enabled,https://bugzilla.mozilla.org/show_bug.cgi?id=167327,https://bugzilla.mozilla.org/rest/bug/167327,bug,VERIFIED,INVALID,INVALID,jhatax@rocketmail.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-08T01:20:38+00:00,2002-09-21T22:19:30+00:00,2002-09-21T22:19:30+00:00,Extremely high memory consumption after closing all windows with Quick Launch (Turbo) enabled
+bugzilla,mozilla,firefox,firefox,,1,10,167878,firefox#167878,Pop up window blocking,https://bugzilla.mozilla.org/show_bug.cgi?id=167878,https://bugzilla.mozilla.org/rest/bug/167878,bug,VERIFIED,INVALID,INVALID,ronbu@centurylink.net,bugzilla@blakeross.com,True,False,False,False,,2002-09-11T04:20:43+00:00,2002-09-21T22:20:01+00:00,2002-09-21T22:20:01+00:00,Pop up window blocking
+bugzilla,mozilla,firefox,firefox,,1,11,169348,firefox#169348,Need tab loading icon,https://bugzilla.mozilla.org/show_bug.cgi?id=169348,https://bugzilla.mozilla.org/rest/bug/169348,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-18T04:29:25+00:00,2002-09-22T08:18:16+00:00,2002-09-22T08:18:16+00:00,Need tab loading icon
+bugzilla,mozilla,firefox,firefox,,1,12,169347,firefox#169347,Readd Open Location,https://bugzilla.mozilla.org/show_bug.cgi?id=169347,https://bugzilla.mozilla.org/rest/bug/169347,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-18T04:27:52+00:00,2002-09-22T08:19:42+00:00,2002-09-22T08:19:42+00:00,Readd Open Location
+bugzilla,mozilla,firefox,firefox,,1,13,170078,firefox#170078,Missing proxy image,https://bugzilla.mozilla.org/show_bug.cgi?id=170078,https://bugzilla.mozilla.org/rest/bug/170078,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,p_ch@verizon.net,True,False,False,False,,2002-09-21T15:33:32+00:00,2002-09-22T08:23:52+00:00,2002-09-22T08:23:52+00:00,Missing proxy image
+bugzilla,mozilla,firefox,firefox,,1,14,167430,firefox#167430,second window opens mozilla,https://bugzilla.mozilla.org/show_bug.cgi?id=167430,https://bugzilla.mozilla.org/rest/bug/167430,bug,VERIFIED,FIXED,FIXED,top_cop99@rediffmail.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-09T02:54:11+00:00,2002-09-22T08:24:47+00:00,2002-09-22T08:24:47+00:00,second window opens mozilla
+bugzilla,mozilla,firefox,firefox,,1,15,169971,firefox#169971,Need to enable wallet (password manager/image manager/cookie manager),https://bugzilla.mozilla.org/show_bug.cgi?id=169971,https://bugzilla.mozilla.org/rest/bug/169971,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,bryner@gmail.com,True,False,False,False,,2002-09-20T22:07:39+00:00,2002-09-22T08:52:13+00:00,2002-09-22T08:52:13+00:00,Need to enable wallet (password manager/image manager/cookie manager)
+bugzilla,mozilla,firefox,firefox,,1,16,170068,firefox#170068,the changes to mozbrowser/phoenix too confusing and too much,https://bugzilla.mozilla.org/show_bug.cgi?id=170068,https://bugzilla.mozilla.org/rest/bug/170068,bug,VERIFIED,INVALID,INVALID,m1scha_m@yahoo.com.au,bugzilla@blakeross.com,True,False,False,False,,2002-09-21T14:08:56+00:00,2002-09-22T08:53:49+00:00,2002-09-22T08:53:49+00:00,the changes to mozbrowser/phoenix too confusing and too much
+bugzilla,mozilla,firefox,firefox,,1,17,170157,firefox#170157,Bookmarks are not loaded if the Personal Toolbar is switched off,https://bugzilla.mozilla.org/show_bug.cgi?id=170157,https://bugzilla.mozilla.org/rest/bug/170157,bug,VERIFIED,FIXED,FIXED,mozilla@zamang.co.uk,p_ch@verizon.net,True,False,False,False,,2002-09-22T12:00:34+00:00,2002-09-22T20:50:29+00:00,2002-09-22T20:50:29+00:00,Bookmarks are not loaded if the Personal Toolbar is switched off
+bugzilla,mozilla,firefox,firefox,,1,18,169698,firefox#169698,"Open Personal Toolbar folder in toolbar, continue to hold mouse button, select bookmark -> nothing happens.",https://bugzilla.mozilla.org/show_bug.cgi?id=169698,https://bugzilla.mozilla.org/rest/bug/169698,bug,VERIFIED,FIXED,FIXED,david@coffeefish.org,p_ch@verizon.net,True,False,False,False,,2002-09-19T17:27:13+00:00,2002-09-23T04:28:38+00:00,2002-09-23T04:28:38+00:00,"Open Personal Toolbar folder in toolbar, continue to hold mouse button, select bookmark -> nothing happens."
+bugzilla,mozilla,firefox,firefox,,1,19,165959,firefox#165959,New Folder...in ptoolbar context menu is broken,https://bugzilla.mozilla.org/show_bug.cgi?id=165959,https://bugzilla.mozilla.org/rest/bug/165959,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,p_ch@verizon.net,True,False,False,False,,2002-08-31T23:14:19+00:00,2002-09-23T04:28:48+00:00,2002-09-23T04:28:48+00:00,New Folder...in ptoolbar context menu is broken
+bugzilla,mozilla,firefox,firefox,,1,20,169823,firefox#169823,Fix full screen to have smaller icons,https://bugzilla.mozilla.org/show_bug.cgi?id=169823,https://bugzilla.mozilla.org/rest/bug/169823,bug,VERIFIED,FIXED,FIXED,bugzilla@blakeross.com,bugzilla@blakeross.com,True,False,False,False,,2002-09-20T02:42:36+00:00,2002-09-23T04:28:50+00:00,2002-09-23T04:28:50+00:00,Fix full screen to have smaller icons
+bugzilla,gcc,gcc,gcc,,1,1,3458,gcc#3458,"ICE, in incomplete_type_error, at cp/typeck2.c:250",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3458,https://gcc.gnu.org/bugzilla/rest/bug/3458,bug,RESOLVED,DUPLICATE,DUPLICATE,furang@tiscalinet.it,rodrigc@gcc.gnu.org,True,False,False,False,,2001-06-28T06:46:01+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"ICE, in incomplete_type_error, at cp/typeck2.c:250"
+bugzilla,gcc,gcc,gcc,,1,2,4705,gcc#4705,"ICE in genrtl_compound_stmt, at c-semantics.c:673",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4705,https://gcc.gnu.org/bugzilla/rest/bug/4705,bug,RESOLVED,DUPLICATE,DUPLICATE,tmwg-gcc@inxservices.com,rodrigc@gcc.gnu.org,True,False,False,False,,2001-10-26T14:16:03+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"ICE in genrtl_compound_stmt, at c-semantics.c:673"
+bugzilla,gcc,gcc,gcc,,1,3,4769,gcc#4769,internal compiler error during kernel compile capi.c 2.4.13,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4769,https://gcc.gnu.org/bugzilla/rest/bug/4769,bug,RESOLVED,DUPLICATE,DUPLICATE,davh@davh.dk,rodrigc@gcc.gnu.org,True,False,False,False,,2001-11-02T01:36:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,internal compiler error during kernel compile capi.c 2.4.13
+bugzilla,gcc,gcc,gcc,,1,4,4948,gcc#4948,internal compiler error building linux kernel 2.4.15|16 on athlonXP,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4948,https://gcc.gnu.org/bugzilla/rest/bug/4948,bug,RESOLVED,DUPLICATE,DUPLICATE,fade@deepsky.com,rodrigc@gcc.gnu.org,True,False,False,False,,2001-11-26T07:35:59+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,internal compiler error building linux kernel 2.4.15|16 on athlonXP
+bugzilla,gcc,gcc,gcc,,1,5,4964,gcc#4964,"Internal compiler error in reload_cse_simplify_operands, at reload1.c:8364",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4964,https://gcc.gnu.org/bugzilla/rest/bug/4964,bug,RESOLVED,DUPLICATE,DUPLICATE,gad@reymad.com,rodrigc@gcc.gnu.org,True,False,False,False,,2001-11-28T16:16:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"Internal compiler error in reload_cse_simplify_operands, at reload1.c:8364"
+bugzilla,gcc,gcc,gcc,,1,6,1569,gcc#1569,"Internal compiler error in print_rtl_and_abort, at flow.c:6502",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=1569,https://gcc.gnu.org/bugzilla/rest/bug/1569,bug,RESOLVED,DUPLICATE,DUPLICATE,igor@txc.com,neilb@protonmail.ch,True,False,False,False,,2001-01-05T15:36:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"Internal compiler error in print_rtl_and_abort, at flow.c:6502"
+bugzilla,gcc,gcc,gcc,,1,7,5822,gcc#5822,gcc 3.0.4 reports internal compiler error with kdemultimedia (kde3),https://gcc.gnu.org/bugzilla/show_bug.cgi?id=5822,https://gcc.gnu.org/bugzilla/rest/bug/5822,bug,RESOLVED,DUPLICATE,DUPLICATE,usul@gmx.li,rodrigc@gcc.gnu.org,True,False,False,False,,2002-03-03T15:56:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,gcc 3.0.4 reports internal compiler error with kdemultimedia (kde3)
+bugzilla,gcc,gcc,gcc,,1,8,4387,gcc#4387,"Internal compiler error in eliminate_regs, at reload1.c:2580",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4387,https://gcc.gnu.org/bugzilla/rest/bug/4387,bug,RESOLVED,DUPLICATE,DUPLICATE,tranle@accesscom.com,rodrigc@gcc.gnu.org,True,False,False,False,,2001-09-24T15:36:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"Internal compiler error in eliminate_regs, at reload1.c:2580"
+bugzilla,gcc,gcc,gcc,,1,9,1668,gcc#1668,Internal compiler error compiling Linux/alpha kernel,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=1668,https://gcc.gnu.org/bugzilla/rest/bug/1668,bug,RESOLVED,DUPLICATE,DUPLICATE,chris@ludwig-alpha.unil.ch,neilb@protonmail.ch,True,False,False,False,,2001-01-16T07:26:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,Internal compiler error compiling Linux/alpha kernel
+bugzilla,gcc,gcc,gcc,,1,10,6986,gcc#6986,[Sparc] Internal compiler error in reload_cse_simplify_operands,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=6986,https://gcc.gnu.org/bugzilla/rest/bug/6986,bug,RESOLVED,DUPLICATE,DUPLICATE,dnilsson@sisoft.com,ebotcazou@gcc.gnu.org,True,False,False,False,,2002-06-10T17:56:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,[Sparc] Internal compiler error in reload_cse_simplify_operands
+bugzilla,gcc,gcc,gcc,,1,11,8357,gcc#8357,Wrong RTL code for attribute(packed) field access on Sparc,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=8357,https://gcc.gnu.org/bugzilla/rest/bug/8357,bug,RESOLVED,DUPLICATE,DUPLICATE,laurent.voisin@clearsy.com,davem@davemloft.net,True,False,False,False,,2002-10-25T10:56:01+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,Wrong RTL code for attribute(packed) field access on Sparc
+bugzilla,gcc,gcc,gcc,,1,12,9104,gcc#9104,[PPC] gcc 3.3 produces SEGFAULT,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=9104,https://gcc.gnu.org/bugzilla/rest/bug/9104,bug,RESOLVED,DUPLICATE,DUPLICATE,kostadindabov@terascale-euro.com,steven@gcc.gnu.org,True,False,False,False,,2002-12-30T04:46:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,[PPC] gcc 3.3 produces SEGFAULT
+bugzilla,gcc,gcc,gcc,,1,13,7020,gcc#7020,bootstrap failure on powerpc-unknown-linux-gnu,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=7020,https://gcc.gnu.org/bugzilla/rest/bug/7020,bug,RESOLVED,DUPLICATE,DUPLICATE,kraai@alumni.cmu.edu,amodra@gcc.gnu.org,True,False,False,False,,2002-06-13T10:36:01+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,bootstrap failure on powerpc-unknown-linux-gnu
+bugzilla,gcc,gcc,gcc,,1,14,4550,gcc#4550,Internal compiler error,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4550,https://gcc.gnu.org/bugzilla/rest/bug/4550,bug,RESOLVED,DUPLICATE,DUPLICATE,twisti@gmx.net,rodrigc@gcc.gnu.org,True,False,False,False,,2001-10-11T16:46:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,Internal compiler error
+bugzilla,gcc,gcc,gcc,,1,15,4630,gcc#4630,"linux-2.4.12 and  make bzImage, failed in drivers/net subdirectory",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4630,https://gcc.gnu.org/bugzilla/rest/bug/4630,bug,RESOLVED,DUPLICATE,DUPLICATE,mirco@matfyz.cz,rodrigc@gcc.gnu.org,True,False,False,False,,2001-10-20T12:26:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"linux-2.4.12 and  make bzImage, failed in drivers/net subdirectory"
+bugzilla,gcc,gcc,gcc,,1,16,5049,gcc#5049,"Internal compiler error in print_rtl_and_abort, at flow.c:6449",https://gcc.gnu.org/bugzilla/show_bug.cgi?id=5049,https://gcc.gnu.org/bugzilla/rest/bug/5049,bug,RESOLVED,DUPLICATE,DUPLICATE,relf@os2.ru,rodrigc@gcc.gnu.org,True,False,False,False,,2001-12-08T00:06:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,"Internal compiler error in print_rtl_and_abort, at flow.c:6449"
+bugzilla,gcc,gcc,gcc,,1,17,2008,gcc#2008,ICE in gcj (no optimization),https://gcc.gnu.org/bugzilla/show_bug.cgi?id=2008,https://gcc.gnu.org/bugzilla/rest/bug/2008,bug,RESOLVED,DUPLICATE,DUPLICATE,martin.kahlert@infineon.com,tromey@gcc.gnu.org,True,False,False,False,,2001-02-16T09:06:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,ICE in gcj (no optimization)
+bugzilla,gcc,gcc,gcc,,1,18,6715,gcc#6715,gcc 3.1 cannot compile infocmp.c from ncurses-5.2-20020511,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=6715,https://gcc.gnu.org/bugzilla/rest/bug/6715,bug,RESOLVED,DUPLICATE,DUPLICATE,sluggo@unknown.nu,davem@davemloft.net,True,False,False,False,,2002-05-18T04:56:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,gcc 3.1 cannot compile infocmp.c from ncurses-5.2-20020511
+bugzilla,gcc,gcc,gcc,,1,19,4631,gcc#4631,Internal compiler error on linux kernel 2.4.12,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=4631,https://gcc.gnu.org/bugzilla/rest/bug/4631,bug,RESOLVED,DUPLICATE,DUPLICATE,j_jose_iglesias_gomez@wanadoo.es,rodrigc@gcc.gnu.org,True,False,False,False,,2001-10-20T12:36:00+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,Internal compiler error on linux kernel 2.4.12
+bugzilla,gcc,gcc,gcc,,1,20,5034,gcc#5034,Internal compiler error in gcc-2.95.4.  gcc-3.0 gives syntax errors,https://gcc.gnu.org/bugzilla/show_bug.cgi?id=5034,https://gcc.gnu.org/bugzilla/rest/bug/5034,bug,RESOLVED,DUPLICATE,DUPLICATE,shawley@aei.mpg.de,rodrigc@gcc.gnu.org,True,False,False,False,,2001-12-06T05:56:01+00:00,2003-05-21T18:42:24+00:00,2003-05-21T18:42:24+00:00,Internal compiler error in gcc-2.95.4.  gcc-3.0 gives syntax errors
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,1,186120,llvm/llvm-project#186120,[Offload] Escape \; in command string,https://github.com/llvm/llvm-project/pull/186120,https://api.github.com/repos/llvm/llvm-project/issues/186120,pull_request,closed,,,jplehr,,True,False,True,False,"backend:AMDGPU,offload",2026-03-12T14:01:06+00:00,2026-03-12T14:02:46+00:00,2026-03-12T14:02:41+00:00,This adds a \ in front of the ; between the two cache files to stop the run function to interpret it as a shell statement separator (or so).
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,2,186111,llvm/llvm-project#186111,"Revert ""[OpenMP][OMPT] Remove Threads dependency from omptest""",https://github.com/llvm/llvm-project/pull/186111,https://api.github.com/repos/llvm/llvm-project/issues/186111,pull_request,closed,,,jplehr,,True,False,True,False,"openmp:libomp,openmp:libomptarget",2026-03-12T12:50:34+00:00,2026-03-12T12:51:03+00:00,2026-03-12T12:51:02+00:00,Reverts llvm/llvm-project#185930
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,3,186105,llvm/llvm-project#186105,[clang][AST] Fix assertion in `getFullyQualifiedType` for AutoType,https://github.com/llvm/llvm-project/pull/186105,https://api.github.com/repos/llvm/llvm-project/issues/186105,pull_request,closed,,,devajithvs,devajithvs,True,False,True,False,"clang,clang:frontend",2026-03-12T12:10:01+00:00,2026-03-12T13:23:58+00:00,2026-03-12T13:23:50+00:00,"getFullyQualifiedType() asserts ""Unhandled type node"" when the input QualType is an AutoType.
+
+This was exposed by clang-repl's value printer:
+```
+clang-repl> namespace N { struct D {}; }
+clang-repl> auto x = N::D(); x // asserts
+```
+
+Strip AutoType early before the type-specific handling."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,4,186102,llvm/llvm-project#186102,[GVN] Eliminate redundant scalar binop by reusing vector binop result,https://github.com/llvm/llvm-project/pull/186102,https://api.github.com/repos/llvm/llvm-project/issues/186102,pull_request,closed,,,0bVdnt,,True,False,True,False,llvm:transforms,2026-03-12T11:53:42+00:00,2026-03-12T14:15:35+00:00,2026-03-12T14:10:53+00:00,"Fixes #185564 
+
+When a scalar binary operation computes the same thing as one lane of an existing dominating vector binary operation, GVN now replaces it with an `extractelement` from the vector result."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,5,186101,llvm/llvm-project#186101,[libc] Use the proper name for the 'llvm-gpu-loader',https://github.com/llvm/llvm-project/pull/186101,https://api.github.com/repos/llvm/llvm-project/issues/186101,pull_request,closed,,,jhuber6,,True,False,True,False,libc,2026-03-12T11:49:15+00:00,2026-03-12T12:17:13+00:00,2026-03-12T12:17:12+00:00,"Summary:
+This used to be two separate executables but was merged awhile back. The
+LLVM libc code was never updated to use the new tool name and a recent
+refactoring unintentionally removed the symlinks. Just look for
+`llvm-gpu-loader`."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,6,186100,llvm/llvm-project#186100,[AMDGPU] Allow bank conflicts on src0 for V_DUAL_MOV_B32 for gfx1170,https://github.com/llvm/llvm-project/pull/186100,https://api.github.com/repos/llvm/llvm-project/issues/186100,pull_request,closed,,,mbrkusanin,,True,False,True,False,backend:AMDGPU,2026-03-12T11:47:09+00:00,2026-03-12T12:49:53+00:00,2026-03-12T12:49:53+00:00,
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,7,186097,llvm/llvm-project#186097,"[AMDGPU] Fix missing ""---"" in MIR test. NFCI.",https://github.com/llvm/llvm-project/pull/186097,https://api.github.com/repos/llvm/llvm-project/issues/186097,pull_request,closed,,,jayfoad,,True,False,True,False,backend:AMDGPU,2026-03-12T11:44:26+00:00,2026-03-12T12:18:39+00:00,2026-03-12T12:18:39+00:00,"The only problem this caused was confusing the update script so that it
+failed to update checks in the following function."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,8,186092,llvm/llvm-project#186092,libclc: Improve minmag and maxmag,https://github.com/llvm/llvm-project/pull/186092,https://api.github.com/repos/llvm/llvm-project/issues/186092,pull_request,closed,,,arsenm,,True,False,True,False,libclc,2026-03-12T11:13:56+00:00,2026-03-12T11:24:09+00:00,2026-03-12T11:24:07+00:00,Gives slightly better codegen.
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,9,186085,llvm/llvm-project#186085,libclc: Improve fdim handling,https://github.com/llvm/llvm-project/pull/186085,https://api.github.com/repos/llvm/llvm-project/issues/186085,pull_request,closed,,,arsenm,,True,False,True,False,libclc,2026-03-12T10:43:59+00:00,2026-03-12T10:52:53+00:00,2026-03-12T10:52:51+00:00,"The maxnum is somewhat overconstraining. This gives slightly
+better codegen and avoids the noise from the select and convert,
+and saves the cost of materializing the nan literal."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,10,186084,llvm/llvm-project#186084,[Clang][AArch64] Remove duplicate CodeGen test for bf16 get/set intrinsics,https://github.com/llvm/llvm-project/pull/186084,https://api.github.com/repos/llvm/llvm-project/issues/186084,pull_request,closed,,,banach-space,,True,False,True,False,"clang,mlir:core,mlir",2026-03-12T10:39:24+00:00,2026-03-12T13:00:32+00:00,2026-03-12T13:00:29+00:00,"The following test files contain identical test bodies (aside from the
+RUN lines):
+
+  * clang/test/CodeGen/AArch64/bf16-getset-intrinsics.c
+  * clang/test/CodeGen/arm-bf16-getset-intrinsics.c
+
+The differences in the RUN lines do not appear to be relevant for the
+tested functionality. This change keeps a single test file and
+simplifies its RUN lines to match the generic style used in
+clang/test/CodeGen/AArch64/neon.
+
+This also moves toward unifying and reusing RUN lines across tests."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,11,186083,llvm/llvm-project#186083,libclc: Replace fmod implementation with elementwise builtin,https://github.com/llvm/llvm-project/pull/186083,https://api.github.com/repos/llvm/llvm-project/issues/186083,pull_request,closed,,,arsenm,,True,False,True,False,libclc,2026-03-12T10:35:15+00:00,2026-03-12T10:47:41+00:00,2026-03-12T10:47:39+00:00,"This corresponds to frem, which for whatever reason is a first
+class IR instruction. The backend has a heroic freestanding
+implementation that should be nearly identical to what was here."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,12,186082,llvm/llvm-project#186082,libclc: Replace nextafter implementation,https://github.com/llvm/llvm-project/pull/186082,https://api.github.com/repos/llvm/llvm-project/issues/186082,pull_request,closed,,,arsenm,,True,False,True,False,libclc,2026-03-12T10:29:30+00:00,2026-03-12T10:52:37+00:00,2026-03-12T10:52:35+00:00,"Use a more straightforward version which allows
+optimizations to delete the edge case checks, and also
+codegens better. Implement in terms of new nextup and nextdown
+helper functions, which are IEEE functions, and usable in other
+functions."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,13,186079,llvm/llvm-project#186079,[MLIR] [Python] Fixed type errors in `get_parent_of_type`,https://github.com/llvm/llvm-project/pull/186079,https://api.github.com/repos/llvm/llvm-project/issues/186079,pull_request,closed,,,superbobry,,True,False,True,False,"mlir:python,mlir",2026-03-12T10:19:20+00:00,2026-03-12T13:38:50+00:00,2026-03-12T13:28:41+00:00,"`op.parent` can be `None`, and `None` is not assignable to a variable with type `OpView | Operation`.
+
+Both mypy and Pyrefly flag this.
+
+Perhaps, it's time we add a type checker sanity check to the CI? Wdyt, @makslevental?"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,14,186077,llvm/llvm-project#186077,[X86] 2011-12-15-vec_shift.ll - regenerate test checks,https://github.com/llvm/llvm-project/pull/186077,https://api.github.com/repos/llvm/llvm-project/issues/186077,pull_request,closed,,,RKSimon,,True,False,True,False,"backend:X86,skip-precommit-approval",2026-03-12T10:13:34+00:00,2026-03-12T11:02:32+00:00,2026-03-12T11:00:32+00:00,
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,15,186074,llvm/llvm-project#186074,"Reland ""[Support] Move HTTP client/server to new LLVMSupportHTTP lib (NFC)""",https://github.com/llvm/llvm-project/pull/186074,https://api.github.com/repos/llvm/llvm-project/issues/186074,pull_request,closed,,,weliveindetail,,True,False,True,False,"lldb,debuginfo,PGO,llvm:support,llvm:binary-utilities",2026-03-12T10:08:03+00:00,2026-03-12T14:20:49+00:00,2026-03-12T14:20:49+00:00,"Relocate HTTPClient and HTTPServer from the Debuginfod library to
+llvm/Support/HTTP so they can be reused by other components.
+
+---------
+
+Relanding with fixes in CMakeLists.txt to account for dependency to new LLVMSupportHTTP in tools.
+Relanding with fix in libSupportHTTP that adds it as a component in libLLVM.so
+
+---------
+
+Co-authored-by: Alexandre Ganea <aganea@havenstudios.com>
+Co-authored-by: Jonas Devlieghere <jonas@devlieghere.com>"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,16,186072,llvm/llvm-project#186072,"Revert ""[VPlan] Extend interleave-group-narrowing to WidenCast""",https://github.com/llvm/llvm-project/pull/186072,https://api.github.com/repos/llvm/llvm-project/issues/186072,pull_request,closed,,,artagnon,,True,False,True,False,"vectorizers,llvm:transforms",2026-03-12T10:03:05+00:00,2026-03-12T11:37:13+00:00,2026-03-12T11:37:09+00:00,"This reverts commit bd5f9384 (#183204) to buy us time to investigate a AArch64 SVE-fixed-length buildbot miscompile.
+
+Ref: https://lab.llvm.org/buildbot/#/builders/143/builds/14601"
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,17,186071,llvm/llvm-project#186071,"Revert ""[lldb] Consolidating platform support checks in tests.""",https://github.com/llvm/llvm-project/pull/186071,https://api.github.com/repos/llvm/llvm-project/issues/186071,pull_request,closed,,,DavidSpickett,,True,False,True,False,lldb,2026-03-12T09:59:18+00:00,2026-03-12T10:04:58+00:00,2026-03-12T10:04:57+00:00,"Reverts llvm/llvm-project#184656
+
+This PR broke linking on Windows and possibly elsewhere. There are at least 2 possible fixes. Revert while we decide on a single solution."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,18,186070,llvm/llvm-project#186070,[Offload] AMD Flang bot to use CMake cache file,https://github.com/llvm/llvm-project/pull/186070,https://api.github.com/repos/llvm/llvm-project/issues/186070,pull_request,closed,,,jplehr,,True,False,True,False,"backend:AMDGPU,offload",2026-03-12T09:58:38+00:00,2026-03-12T13:10:13+00:00,2026-03-12T13:10:05+00:00,"Converting the current bot config to use the CMake cache file that we use in other bots (offload/cmake/caches/AMDGPUBot.cmake). This PR removes all CMake settings that the cache file already sets and only leaves those that were either not set explicitly or which differ.
+
+Thus, first load the cache file and then adjust the settings to override existing values."
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,19,186068,llvm/llvm-project#186068,"Revert ""[SDAG] (abs (add nsw a, -b)) -> (abds a, b)"" (#17580)",https://github.com/llvm/llvm-project/pull/186068,https://api.github.com/repos/llvm/llvm-project/issues/186068,pull_request,closed,,,RKSimon,,True,False,True,False,"backend:AArch64,llvm:SelectionDAG",2026-03-12T09:56:15+00:00,2026-03-12T10:35:26+00:00,2026-03-12T10:35:25+00:00,Reverts llvm/llvm-project#175801 while #185467 miscompilation is being investigated
+github,github.com,llvm/llvm-project,1155608,llvm/llvm-project,1,20,186064,llvm/llvm-project#186064,[AMDGPU] Address post-commit review of #177343,https://github.com/llvm/llvm-project/pull/186064,https://api.github.com/repos/llvm/llvm-project/issues/186064,pull_request,closed,,,Pierre-vh,,True,False,True,False,"clang,backend:AMDGPU,clang:codegen",2026-03-12T09:33:57+00:00,2026-03-12T12:58:13+00:00,2026-03-12T12:58:11+00:00,"- OpenCL has no cluster scope so ""cluster-one-as"" does not exist and cannot be emitted."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,1,13861,gitlab-org/gitlab#13861,Provide more user information on currently linked omniauth accounts,https://gitlab.com/gitlab-org/gitlab/-/work_items/13861,https://gitlab.com/gitlab-org/gitlab/-/work_items/13861,issue,closed,closed,closed,johannesmp,,True,False,False,False,"Manage [DEPRECATED],UX,authentication,devops::foundations,group::authentication and authorization [DEPRECATED],section::dev,settings,type::feature,user profile",2014-08-07T16:24:05.147000+00:00,2022-02-23T11:10:41.529000+00:00,2022-02-23T11:10:41.513000+00:00,"# The Problem
+
+Currently when viewing linked social accounts on a gitlab CE user profile page (ex: https://gitlab.com/profile/account ) the only feedback provided to the user is which account is linked in the form of an extra border around the icon. For example in this screenshot, the github service has been linked:
+
+![screenshot_2014-08-07_19.05.48](https://gitlab.com/uploads/gitlab-org/gitlab-ce/9724a38a7f/screenshot_2014-08-07_19.05.48.png)
+
+As a user with potentially many google, github, etc. accounts this is not nearly enough information. I would like to be able to see which google account I've linked, and be able to unlink it when necessary (see issue gitlab-ce#477)
+
+
+# Suggestion
+
+Instead of only showing three icons with an outline, display omniauth services in a table, where each service has its own row. Once linked, a service row should display information such as:
+
+* The account username
+* The account avatar  
+* An 'Unlink <Service> Account' Button (see issue gitlab-ce#477)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,2,13866,gitlab-org/gitlab#13866,Graphs should not be smoothed,https://gitlab.com/gitlab-org/gitlab/-/work_items/13866,https://gitlab.com/gitlab-org/gitlab/-/work_items/13866,issue,closed,closed,closed,ghost1,,True,False,False,False,"UX,[deprecated] Accepting merge requests,devops::monitor [DEPRECATED],frontend,graphs,group::optimize,missed:12.10,missed:12.8,missed:12.9,missed:13.0,missed:13.1,priority::4,severity::4,type::bug",2014-10-08T09:23:23.628000+00:00,2024-12-10T16:19:55.353000+00:00,2020-07-08T18:32:31.960000+00:00,"I think it would be better to not enable graph smoothing, but instead show a step graph, like this one:
+
+http://www.geoafrica.co.za/reddog/gsw/grapher/2Dstep.gif
+
+The way graph are smoothed currently is IMHO a failed attempt to show nice graphs, and more importantly convey false informations. A step graph with a step every day/week would be better."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,3,13872,gitlab-org/gitlab#13872,Large merge request blocks GitLab from deleting it,https://gitlab.com/gitlab-org/gitlab/-/work_items/13872,https://gitlab.com/gitlab-org/gitlab/-/work_items/13872,issue,closed,closed,closed,nbigaouette,,True,False,False,False,"Category:Code Review Workflow,Create [DEPRECATED],bug::performance,devops::create,group::code review,merge requests,section::dev,type::bug",2014-11-11T17:34:42.463000+00:00,2024-05-05T22:38:47.381000+00:00,2024-05-05T22:38:47.149000+00:00,"We have a repo where the main branch is not master to emphasize to the devs the branching model. This mean that all branches we create do not originate from master. Additionally, the main branch is kept as ""master"" in gitlab.
+
+While this organization is used to force users to think about which branch they are in, it failed us on one point. The default branch is the one used by default during a merge request. We thus ended up with two merge requests to master, which is empty. Selecting the merge request will timeout with a 502:
+```
+502
+
+GitLab is not responding.
+
+Please contact your GitLab administrator if this problem persists.
+```
+since the diff between the two branches is huge.
+
+Increasing the GitLab's timeout might allow us delete the bad merge request, but this might not even be sufficient since the diff could still create issues.
+
+Is there any other way to delete these bad merge requests without having to go on the command line? The installed instance of GitLab is, let's say it that way, not easily accessible.
+
+There should be a ""Close"" button next to a merge request, similarly to the issues list, that would allow closing such merge requests without visiting the actual page. An ""Edit"" button could also be added, also similar to the issues list, to change the merge request.
+
+Thanks!
+
+Using GitLab 7.3.2 on CentOS 6.5 x86_64, installed through omnibus."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,4,13863,gitlab-org/gitlab#13863,"When downloading a project archive via the API, the SHA is included in the name",https://gitlab.com/gitlab-org/gitlab/-/work_items/13863,https://gitlab.com/gitlab-org/gitlab/-/work_items/13863,issue,closed,closed,closed,jhrcz,,True,False,False,False,"[deprecated] Accepting merge requests,[deprecated] good for new contributors,backend,devops::create,feature::enhancement,group::source code,repository,section::dev,type::feature,wontfix,workflow::ready for development",2015-02-13T13:38:40.496000+00:00,2022-12-22T12:30:42.419000+00:00,2022-12-22T08:22:33.816000+00:00,"When downloading a project archive via the API, the SHA is included in the name. This does not occur via the UI.
+
+When using the API: `https://gitlab.com/api/v4/projects/278964/repository/archive.tar.gz?ref=v12.3.1` it will download `gitlab-master-80713292dcbe0ae27f19e6a28ce159664fe9f4f6.tar.gz`
+
+**Proposal**
+
+Download the file without the SHA via the API"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,5,13864,gitlab-org/gitlab#13864,A comment for Shibboleth.md,https://gitlab.com/gitlab-org/gitlab/-/work_items/13864,https://gitlab.com/gitlab-org/gitlab/-/work_items/13864,issue,closed,closed,closed,toyokazu,,True,False,False,False,"Manage [DEPRECATED],[deprecated] Accepting merge requests,authentication,devops::foundations,docs-only,documentation,group::authentication and authorization [DEPRECATED],section::dev,type::maintenance",2015-02-28T06:27:25.459000+00:00,2022-02-17T06:20:41.425000+00:00,2022-02-17T06:20:41.414000+00:00,"In doc/integration/shibboleth.md (gitlab-ce@d76c5824bc05640d276be96f7853f2d266fd6750), an example using Apache mod_shib2 is introduced. I think that it is nice for Gitlab & Shibboleth users :)
+
+In the example configuration, while 'upper case' attributes, like HTTP_EPPN, are manually appended, it may be easier to use :request_type option supported in omniauth-shibboleth 1.0.8.
+
+    gitlab_rails['omniauth_providers'] = [
+      {
+        ""name"" => 'shibboleth',
+        ""args"" => {
+          ""request_type"" => 'header',
+          ""name_field"" => 'cn',
+          ""info_fields"" => { ""email"" => 'mail'}
+        }
+      }
+    ]
+
+Furthermore, another option for gitlab-omnibus package (handling Shibboleth request in Nginx environment) is using [rack-saml](https://github.com/toyokazu/rack-saml) with [omniauth-shibboleth](https://github.com/toyokazu/omniauth-shibboleth). It may be more easier because it does not require Apache and mod_shib2.
+
+I am sorry that I do not have enough time to test them. If someone is interested in them, please test and update Shibboleth.md :)
+
+Best"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,6,13865,gitlab-org/gitlab#13865,Deleting a project results in a large number of SQL requests that could be optimized,https://gitlab.com/gitlab-org/gitlab/-/work_items/13865,https://gitlab.com/gitlab-org/gitlab/-/work_items/13865,issue,closed,closed,closed,haynes,,True,False,False,False,bug::performance,2015-03-03T11:56:48.095000+00:00,2019-08-29T12:33:28.241000+00:00,2019-08-29T12:33:28.196000+00:00,"When deleting a big project, gitlab produces a very large amount of SQL Statements like these:  
+
+```
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25079]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25080]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25081]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25082]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25083]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25084]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25085]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25086]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25087]]
+  SQL (1.0ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25088]]
+  SQL (1.1ms)  DELETE FROM ""notes"" WHERE ""notes"".""id"" = $1  [[""id"", 25089]]
+```
+
+This could be done in a single SQL statement.
+
+```
+DELETE FROM ""notes"" WHERE ""notes"".""id"" in 25087,25088,25089 [....]
+```
+
+\cc @dzaporozhets Can you please take a look? It's another performance issue. I tested this with the linux mainline kernel.  
+Deleting it took several minutes because of the huge amount of SQL Statements."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,7,13871,gitlab-org/gitlab#13871,Adjust Backup task workflow,https://gitlab.com/gitlab-org/gitlab/-/work_items/13871,https://gitlab.com/gitlab-org/gitlab/-/work_items/13871,issue,closed,closed,closed,neico,,True,False,False,False,"Category:Backup/Restore of GitLab instances,Create [DEPRECATED],Manage [DEPRECATED],devops::systems,group::geo,rake tasks,section::core platform [DEPRECATED]",2015-03-05T04:42:45.218000+00:00,2022-05-23T00:17:19.839000+00:00,2022-05-23T00:17:19.830000+00:00,"**Summary:** When running the backup task, if there's an error while uploading to remote storage then the backup dir is getting cluttered up
+
+**Steps to reproduce:** run the backup task with an upload job that fails somewhere
+
+**Expected behavior:** Backup task finishes up cleanup and remove of old backups before trying to upload
+
+**Observed behavior:** Backup task is uploading, then gets an error while uploading, leaving the temp files and the old backups in the folder, resulting in the HDD getting full pretty quick on a daily task
+
+**Relevant logs and/or screenshots:**
+
+**Output of checks:** Not relevant for this as it's not an gitlab error but a simple logic issue.
+
+**Possible fixes:**
+
+Move line https://gitlab.com/gitlab-org/gitlab-ce/blob/master/lib/backup/manager.rb#L29 after https://gitlab.com/gitlab-org/gitlab-ce/blob/master/lib/tasks/gitlab/backup.rake#L18
+
+Add a simple ```return tar_file``` to manager.rb where the line was to catch it on the rake task (or make tar_file a class variable and make upload's argument optional)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,8,13873,gitlab-org/gitlab#13873,Wiki editing preview does not render AsciiDoc / RDoc / Org,https://gitlab.com/gitlab-org/gitlab/-/work_items/13873,https://gitlab.com/gitlab-org/gitlab/-/work_items/13873,issue,closed,closed,closed,Reinis,,True,False,False,False,"Category:Wiki,[deprecated] Accepting merge requests,asciidoc,backend,banzai,customer,default-priority,default-severity,devops::plan,direction,frontend,group::knowledge,priority::4,section::dev,severity::3,type::bug,vintage,web edit",2015-03-10T15:17:11.655000+00:00,2023-09-27T15:33:49.364000+00:00,2023-09-27T15:33:49.345000+00:00,"### Problem to solve
+
+Selecting a document format other than Markdown in wikis doesn't seem to switch preview rendering engine. After saving the document it is rendered correctly, but there is not a funcioning preview during editing.
+
+### Proposal
+
+First step:
+
+- Disable preview for unsupported formats: https://gitlab.com/gitlab-org/gitlab/-/issues/228883
+
+Further iterations: Implement preview for all formats:
+
+- AsciiDoc: https://gitlab.com/gitlab-org/gitlab/-/issues/228885
+- Org: https://gitlab.com/gitlab-org/gitlab/-/issues/228886
+- RDoc: https://gitlab.com/gitlab-org/gitlab/-/issues/228887
+
+The actual work will be tracked in the issues above, and we can close this issue once all of it is implemented.
+
+### Links
+
+There's a previous attempt to implement this at https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/16190, if possible we can reuse that.
+
+Most of the changes are around making the markup format generic, so once that's in place adding more formats won't take much additional effort.
+<!-- triage-serverless v3 PLEASE DO NOT REMOVE THIS SECTION -->
+*This page may contain information related to upcoming products, features and functionality.
+It is important to note that the information presented is for informational purposes only, so please do not rely on the information for purchasing or planning purposes.
+Just like with all projects, the items mentioned on the page are subject to change or delay, and the development, release, and timing of any products, features, or functionality remain at the sole discretion of GitLab Inc.*
+<!-- triage-serverless v3 PLEASE DO NOT REMOVE THIS SECTION -->"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,9,13869,gitlab-org/gitlab#13869,"Commits with close issue reference, fail to update issue page correctly",https://gitlab.com/gitlab-org/gitlab/-/work_items/13869,https://gitlab.com/gitlab-org/gitlab/-/work_items/13869,issue,closed,closed,closed,nelson-r-oliveira,,True,False,False,False,"default-priority,default-severity,devops::plan,frontend,group::project management,issues,priority::4,real-time,severity::3,type::bug",2015-03-24T20:36:00.470000+00:00,2022-05-19T17:06:37.520000+00:00,2019-09-09T16:34:10.536000+00:00,"**Summary**: If a user has a issue page open in the browser and pushes changes to gitlab that close that issue automatically, the page is correctly updated without the user refreshing the browser and the issue is marked closed, but the button to close the issue is still available to the user until the page is refreshed.
+This appears to be mainly cosmetic has pressing that button appears to do nothing but refresh the page.
+
+
+**Steps to reproduce**: Leave the issue page open in the browser and push to GitLab with a commit message closing the issue (use closes gitlab-ce#1 syntax), return to the browser and don't refresh the page, it should automatically update the issue status but the button to close the issue still remains.
+
+
+**Expected behavior**: The whole page should reflect a closed issued state.
+
+
+**Observed behavior**: The button to close the issue still remains, it appears to only refresh the page when clicked.
+
+Edit: Forgot to mention that issue was noticed on v7.9.0 don't know if it was present before"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,10,13879,gitlab-org/gitlab#13879,google bot shows a memory leak in the gitlab worker,https://gitlab.com/gitlab-org/gitlab/-/work_items/13879,https://gitlab.com/gitlab-org/gitlab/-/work_items/13879,issue,closed,closed,closed,dachary,,True,False,False,False,"auto updated,awaiting feedback,bug::performance,stale",2015-03-25T00:49:02.644000+00:00,2022-09-16T22:53:39.675000+00:00,2022-09-16T22:53:39.348000+00:00,"Steps to reproduce:
+
+* create a project and mirror http://github.com/ceph/ceph
+* use https://pypi.python.org/pypi/github2gitlab to import the ~4,000 pull requests as branches
+* wait for the google crawler to visit
+* watch the worker use all the available memory until it gets killed by the limit set in config.ru (tried with 2GB instead of the default 250MB: it takes about half an hour to get to to 2GB)
+
+GitLab 7.5.1"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,11,13881,gitlab-org/gitlab#13881,Groups should be public if they have projects shared with them.,https://gitlab.com/gitlab-org/gitlab/-/work_items/13881,https://gitlab.com/gitlab-org/gitlab/-/work_items/13881,issue,closed,closed,closed,cnst,,True,False,False,False,"Category:Groups & Projects,Group Sharing,closed::will not do,department::infrastructure platforms,devops::tenant scale,group::organizations,type::feature,won't do",2015-03-25T16:50:36.613000+00:00,2025-06-03T16:55:51.276000+00:00,2025-06-03T16:55:16.865000+00:00,"This is in continuation of http://stackoverflow.com/questions/29200998/are-gitlab-groups-never-public and [merge request 451](https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/451).
+
+It would be nice to be able to make a group public if some repositories are shared with the group.
+
+For example, there is no official git repository of NetBSD; however, a single NetBSD developer (currently ""jsonn"" on GitHub) may volunteer to create one under his own account, and share it with NetBSD.
+
+Similarly, I'd like to share my http://mdoc.su/ with the NetBSD group (as well as OpenBSD, DragonFlyBSD etc).  Sharing is already possible on GitLab, but it would seem weird to have to create a public project for such sharing itself to be public (also, is the sharing public in the first place?)."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,12,13878,gitlab-org/gitlab#13878,Add a better error message when /hooks folder is missing in a repository,https://gitlab.com/gitlab-org/gitlab/-/work_items/13878,https://gitlab.com/gitlab-org/gitlab/-/work_items/13878,issue,closed,closed,closed,sgrassie,,True,False,False,False,"Create [DEPRECATED],[deprecated] Accepting merge requests,devops::create,group::source code,repository,section::dev,type::feature",2015-03-27T09:04:19.058000+00:00,2022-09-20T18:52:43.223000+00:00,2022-09-20T18:52:43.211000+00:00,"## Background
+My repositories are stored on a mounted NFS share, the path is correct in gitlab.yml and everything works 100% correctly. Until someone (outside of my control) moves the NFS share.
+
+For some reason the /hooks folder in nearly all the repositories disappeared when the share was moved. This probably has to do with the vagaries of symlink's in linux. But I digress.
+
+## Actual Problem
+None of the repos were reporting updates on the Dashboard, but I could see that commit's were happening when checking individual repos. A quick check on the server:
+
+    sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production
+
+Revealed:
+
+```
+Errno::ENOENT: No such file or directory @ realpath_rec - /mnt/repos/group/example.git/hooks
+/home/git/gitlab/lib/tasks/gitlab/check.rake:509:in `realpath'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:509:in `block in check_repos_hooks_directory_is_link'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `block (2 levels) in find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:52:in `block in find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:125:in `find_in_batches'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/batches.rb:51:in `find_each'
+/home/git/gitlab/vendor/bundle/ruby/2.1.0/gems/activerecord-4.1.9/lib/active_record/querying.rb:9:in `find_each'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:503:in `check_repos_hooks_directory_is_link'
+/home/git/gitlab/lib/tasks/gitlab/check.rake:364:in `block (3 levels) in <top (required)>'
+Tasks: TOP => gitlab:check => gitlab:gitlab_shell:check
+(See full trace by running task with --trace)
+stuart@server:/home/git/gitlab$
+```
+
+## Manual fix
+To fix it I had to create the /hooks folder in (nearly all) of the repos:
+
+    sudo -u git -H mkdir /mnt/repos/group/example.git/hooks
+
+And then run ./create-hooks:
+
+    sudo -u git -H /home/git/gitlab-shell//bin/create-hooks
+
+## Suggestion to improve Gitlab
+I think that if the `rake gitlab:check` command can detect that a repo has wrong or missing hooks, then it should also detect that the actual `/hooks` folder is missing, and offer a suggestion on how it can be fixed.
+
+Similarly, would `./create-hooks` not also be capable of actually creating the `/hooks` folder if it is missing?"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,13,13870,gitlab-org/gitlab#13870,Version check doesnt handle none git installations,https://gitlab.com/gitlab-org/gitlab/-/work_items/13870,https://gitlab.com/gitlab-org/gitlab/-/work_items/13870,issue,closed,closed,closed,darix,,True,False,False,False,"Category:Gitaly,devops::systems,feature::addition,group::distribution [DEPRECATED],section::core platform [DEPRECATED],type::feature",2015-04-10T19:20:34.676000+00:00,2023-01-24T17:22:32.217000+00:00,2023-01-24T16:16:11.992000+00:00,"We are packaging git as rpm ourself for opensuse.
+
+In the help screen we get:
+""GitLab 7.10.0.pre fatal: Not a git repository (or any of the parent directories): .git""
+
+Is there any file we can provide which can hold the git revision for this?"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,14,13925,gitlab-org/gitlab#13925,Tag of deleted branch doesn't appear in network view,https://gitlab.com/gitlab-org/gitlab/-/work_items/13925,https://gitlab.com/gitlab-org/gitlab/-/work_items/13925,issue,closed,closed,closed,openmengine,,True,False,False,False,"Create [DEPRECATED],devops::create,group::source code,repository",2015-04-13T14:15:05.351000+00:00,2020-05-08T17:44:46.637000+00:00,2020-02-10T21:43:42.319000+00:00,"Maybe this use case is stupid, but when you have a tag on top of a branch, and then delete the branch, you can't see the tag (and the commits of the deleted branch) anymore on the network view.
+
+The tag still exists in the tag page, it still exists in the combobox of the network page, but it is not diplayed on the tree.
+Of course, a git log display all the commits, as they are still reachable through the tag."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,15,13867,gitlab-org/gitlab#13867,Wiki pagetitle with hyphenated words,https://gitlab.com/gitlab-org/gitlab/-/work_items/13867,https://gitlab.com/gitlab-org/gitlab/-/work_items/13867,issue,closed,closed,closed,blackpanther,,True,False,False,False,"Category:Wiki,Create [DEPRECATED],[deprecated] Accepting merge requests,backend,default-priority,default-severity,devops::create,group::editor [DEPRECATED],priority::4,section::dev,severity::3,type::bug,workflow::planning breakdown",2015-04-16T12:17:38.846000+00:00,2020-12-12T15:38:52.395000+00:00,2020-09-30T19:38:38.387000+00:00,"It may be interesting to write hyphenated titles for wiki pages.   
+e.g. `This-is-an-example-for-hyphen--ated-titles` the wiki creates a title for url but there is no posibility to get the the word *hyphen-ated*
+
+Idea for a fix:   
+parse your whitespace with an underline instad of a minus (as it is done in wikipedia)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,16,13868,gitlab-org/gitlab#13868,CSRF Invalid Token / Error 422 on using OmniAuth Providers,https://gitlab.com/gitlab-org/gitlab/-/work_items/13868,https://gitlab.com/gitlab-org/gitlab/-/work_items/13868,issue,closed,closed,closed,Fira,,True,False,False,False,"Manage [DEPRECATED],authentication,auto updated,awaiting feedback,backend,default-priority,default-severity,devops::foundations,group::authentication and authorization [DEPRECATED],oauth,priority::4,severity::3,type::bug",2015-04-25T10:16:19.492000+00:00,2019-08-31T11:31:16.229000+00:00,2019-08-31T11:31:16.108000+00:00,"Hey, just got a fresh install of GitLab through Omnibus yesterday.
+
+I've been trying to have Single Sign-on with the rest of our Infra using OmniAuth providers, but it seems to always result in a **422 Error**, and a **CSRF invalid token** in production.log. 
+
+This is similar to issues gitlab-ce#715 as well as gitlab-ce#331 and gitlab-ce#775 on omnibus-gitlab but their workarounds don't seem to apply : 
+
+ * No reverse proxy other than Omnibus'
+ * Using embedded nginx 
+ * I checked the generated nginx config, and X-forwarded-proto is set with $scheme for https accordingly (yet these headers don't seem to appear on the client side ?)
+ * Tried the workaround of using custom certificates, to no avail
+ * Tried to use HTTP-only, but this also results in a CSRF error
+
+Spent a while trying to figure this out, looking in the sources for anything odd, but I'm at a loss. I'll probably try to fry the embedded nginx and experiment with my own, will give feedback then."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,17,13880,gitlab-org/gitlab#13880,No Markdown (GFM) in commit messages,https://gitlab.com/gitlab-org/gitlab/-/work_items/13880,https://gitlab.com/gitlab-org/gitlab/-/work_items/13880,issue,closed,closed,closed,savef,,True,False,False,False,"Category:Markdown,[deprecated] Accepting merge requests,banzai,devops::plan,group::project management,markdown [deprecated],section::dev,type::feature",2015-05-06T14:34:12.936000+00:00,2024-09-04T17:30:29.471000+00:00,2019-08-29T00:50:06.603000+00:00,"Hey, according to [markdown.md](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/markdown/markdown.md) you should be able to use GFM in commit messages. We don't seem to be getting any, except for emojis (I tried bold, italics and links). The commit messages just sit unprocessed.
+
+This is the case on 7.10.0. As far as I know this has never worked (in ~12 months or so), and I think I remember a time when even emojis didn't work, but I can't be sure and don't have version numbers at all.
+
+I made an example in this repository:
+https://gitlab.com/savef/markdown-test/commit/564692541b0c0fc8d55b3f30f2e005d802b6e921"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,18,13922,gitlab-org/gitlab#13922,Version Check image alternative text is useless,https://gitlab.com/gitlab-org/gitlab/-/work_items/13922,https://gitlab.com/gitlab-org/gitlab/-/work_items/13922,issue,closed,closed,closed,WhyNotHugo,,True,False,False,False,"UX,accessibility,frontend,severity::4",2015-05-23T17:03:13.839000+00:00,2024-03-04T14:37:41.837000+00:00,2024-03-04T09:34:00.501000+00:00,"On /help, the version check image has an alternative text (`alt`) that reads ""Check"".
+
+This text should be the same as what the image reads for accessibility reasons. Screen readers will merely read ""Check"". Poor sighted users who disable images will have this text displayed to them."
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,19,14068,gitlab-org/gitlab#14068,Auto login using omniauth provider,https://gitlab.com/gitlab-org/gitlab/-/work_items/14068,https://gitlab.com/gitlab-org/gitlab/-/work_items/14068,issue,closed,closed,closed,xornet-sl,,True,False,False,False,"Manage [DEPRECATED],authentication,devops::software supply chain security,group::authentication,section::sec,type::feature",2015-06-04T01:50:16.707000+00:00,2025-05-27T14:19:22.308000+00:00,2025-05-27T14:19:22.291000+00:00,"Is there any way to make auto login possible?
+Right now I can redirect unauthorized users to some url, but I can't redirect them to /users/auth/PROVIDER because it must be a POST request, not GET.
+
+I see two ways:
+1. It may be an option on system settings page like ""Enable auto login through provider: "" and select box with auth providers.
+2. It may be a check box after setting 'Home page url' on system settings page like 'do POST redirect'.
+
+It would be great if you could add this feature!
+
+Can I hope to see this feature realized?
+
+P.S. Sorry for my english =)"
+gitlab,gitlab.com,gitlab-org/gitlab,gitlab-org/gitlab,gitlab-org/gitlab,1,20,13874,gitlab-org/gitlab#13874,Got OpenSSL::Cipher::CipherError when enable/login with 2FA,https://gitlab.com/gitlab-org/gitlab/-/work_items/13874,https://gitlab.com/gitlab-org/gitlab/-/work_items/13874,issue,closed,closed,closed,Gounlaf,,True,False,False,False,"2FA,Category:Backup/Restore of GitLab instances,[deprecated] Accepting merge requests,auto closed,default-priority,default-severity,devops::foundations,docs-only,documentation,group::authentication and authorization [DEPRECATED],installation,priority::4,section::dev,severity::3,stale,type::bug,vintage",2015-06-04T16:07:02.355000+00:00,2025-02-04T19:24:44.560000+00:00,2021-10-18T03:03:24.339000+00:00,"Hi,
+
+I switched from ""source installation"" to omnibus package (and also from one server to another one)
+2FA was enabled for my account.
+
+Below the production.log content
+
+```
+Started GET ""/profile/two_factor_auth/new"" for A.B.C.D at 2015-06-04 15:53:52 +0000
+Processing by Profiles::TwoFactorAuthsController#new as HTML
+Completed 500 Internal Server Error in 41ms
+
+OpenSSL::Cipher::CipherError (bad decrypt):
+  app/controllers/profiles/two_factor_auths_controller.rb:3:in `new'
+```
+
+Is it related to Gitlab or Nginx ?
+I'm using the embedded nginx ; https is enabled
+
+Thanks"

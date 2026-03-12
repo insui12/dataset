@@ -123,6 +123,8 @@ gbtd preview-collect-csv manifests/sample.manifest.yaml \
   --output-dir artifacts/preview_csv
 ```
 
+`manifests/sample.manifest.yaml`은 라이브 preview/smoke 실행용 green manifest이고, 전체 family coverage 설계는 `manifests/family_matrix.yaml`에서 유지합니다.
+
 생성 파일:
 - `artifacts/preview_csv/preview_raw_responses_<family>_<instance>_<timestamp>.csv` : page/요청 호출 레코드
 - `artifacts/preview_csv/preview_issues_<family>_<instance>_<timestamp>.csv` : 파싱된 issue rows + closed 판정(`is_closed`, `needs_review`)

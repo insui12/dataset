@@ -206,20 +206,15 @@ class YouTrackAdapter(TrackerAdapter):
             skip = 0
         limit = max(1, min(int(page_size), 100))
 
-        states = ["Closed", "Fixed", "Won't fix"]
-        if mode != "closed":
-            states = []
-
         query = f'project:{project}'
-        if states:
-            states_q = " or ".join([f"State:{state}" for state in states])
-            query = f"{query} and ({states_q})"
+        if mode == "closed":
+            query = f"{query} #Resolved"
 
         params = {
             "$top": limit,
             "$skip": skip,
             "query": query,
-            "fields": "id,summary,description,reporter(login),updater(login),created,updated,resolved,state(name),numberInProject",
+            "fields": "id,idReadable,summary,description,reporter(login),updater(login),created,updated,resolved,numberInProject,project(shortName),customFields(name,value(name))",
         }
 
         try:
@@ -265,31 +260,38 @@ class YouTrackAdapter(TrackerAdapter):
             if issue_id is None:
                 continue
             item_id = str(issue_id)
-            fields = item.get("fields", {})
-            if not isinstance(fields, dict):
-                fields = {}
-            state = fields.get("state") if isinstance(fields.get("state"), dict) else None
-            state_name = state.get("name") if isinstance(state, dict) else None
+            state_name = None
+            custom_fields = item.get("customFields")
+            if isinstance(custom_fields, list):
+                for field in custom_fields:
+                    if not isinstance(field, dict):
+                        continue
+                    if field.get("name") != "State":
+                        continue
+                    value = field.get("value")
+                    if isinstance(value, dict) and value.get("name"):
+                        state_name = str(value["name"])
+                        break
             reporter = item.get("reporter") if isinstance(item.get("reporter"), dict) else None
             updater = item.get("updater") if isinstance(item.get("updater"), dict) else None
-            description = fields.get("description") if isinstance(fields, dict) else None
+            description = item.get("description")
 
             records.append(
                 IssueRecord(
                     tracker_issue_id=item_id,
                     tracker_issue_key=f"{project}-{item.get('numberInProject', item_id)}",
-                    title=_to_text(fields.get("summary")) or "",
+                    title=_to_text(item.get("summary")) or "",
                     body_raw=_to_text(description),
                     body_plaintext=_to_text(description),
-                    issue_url=(item.get("idReadable") or item_id),
+                    issue_url=f"{entry.instance.base_url.rstrip('/')}/issue/{item.get('idReadable') or item_id}",
                     api_url=f"{base}/issue/{item_id}",
                     issue_type_raw="issue",
                     state_raw=_to_text(state_name),
                     resolution_raw=_to_text(item.get("resolution")),
                     close_reason_raw=_to_text(item.get("closeReason")),
-                    created_at_tracker=_to_dt(fields.get("created")),
-                    updated_at_tracker=_to_dt(fields.get("updated")),
-                    closed_at=_to_dt(fields.get("resolved")),
+                    created_at_tracker=_to_dt(item.get("created")),
+                    updated_at_tracker=_to_dt(item.get("updated")),
+                    closed_at=_to_dt(item.get("resolved")),
                     reporter_raw=_to_text(reporter.get("login") if isinstance(reporter, dict) else reporter),
                     assignee_raw=_to_text(updater.get("login") if isinstance(updater, dict) else updater),
                     is_pull_request=False,
@@ -325,5 +327,5 @@ class YouTrackAdapter(TrackerAdapter):
             request_body=payload,
             headers=dict(response.headers),
             closed_filter_applied=(mode == "closed"),
-            closed_filter_mode="query includes closed states",
+            closed_filter_mode="query includes #Resolved",
         )

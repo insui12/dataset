@@ -42,6 +42,12 @@ class LaunchpadAdapter(TrackerAdapter):
     def _api_base(self, instance: TrackerInstance) -> str:
         return (instance.api_base_url or instance.base_url).rstrip("/")
 
+    def _service_base(self, instance: TrackerInstance) -> str:
+        base = self._api_base(instance)
+        if base.endswith("/1.0"):
+            return base
+        return f"{base}/1.0"
+
     def _entry_key(self, entry: RegistryEntry) -> str | None:
         return entry.tracker_api_key or entry.tracker_native_id or entry.name
 
@@ -56,7 +62,7 @@ class LaunchpadAdapter(TrackerAdapter):
         entry: RegistryEntry | None = None,
     ) -> ProbeResult:
         base = self._api_base(instance)
-        url = f"{base}/1.0/"
+        url = f"{self._service_base(instance)}/"
         try:
             response = await self.client.get(url, headers=self._auth_headers())
         except httpx.RequestError as exc:
@@ -122,7 +128,7 @@ class LaunchpadAdapter(TrackerAdapter):
 
     async def discover(self, family: TrackerFamily, instance: TrackerInstance) -> DiscoveryPlan:
         base = self._api_base(instance)
-        url = f"{base}/1.0/projects"
+        url = f"{self._service_base(instance)}/projects"
         try:
             response = await self.client.get(url, headers=self._auth_headers())
         except httpx.RequestError as exc:
@@ -204,7 +210,7 @@ class LaunchpadAdapter(TrackerAdapter):
                 signature=f"{entry.id}:missing-key",
             )
 
-        endpoint = f"{base}/1.0/{project}/bugtasks"
+        endpoint = f"{self._service_base(entry.instance)}/{project}/bugtasks"
         params = {"ws.size": 0}
         try:
             response = await self.client.get(endpoint, params=params, headers=self._auth_headers())
@@ -274,7 +280,7 @@ class LaunchpadAdapter(TrackerAdapter):
         except Exception:
             start = 0
 
-        endpoint = f"{base}/1.0/{project}/bugtasks"
+        endpoint = f"{self._service_base(entry.instance)}/{project}/bugtasks"
         params: dict[str, Any] = {
             "ws.start": start,
             "ws.size": per_page,

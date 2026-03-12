@@ -39,10 +39,12 @@ class DebianBTSAdapter(TrackerAdapter):
     family_slug = "debian_bts"
     supported_protocols = (ProtocolType.SOAP,)
 
+    def _pkgreport_endpoint(self, instance: TrackerInstance) -> str:
+        return f"{instance.base_url.rstrip('/')}/cgi-bin/pkgreport.cgi"
+
     async def probe(self, family: TrackerFamily, instance: TrackerInstance, entry: RegistryEntry | None = None) -> ProbeResult:
         # Debian BTS historically exposes SOAP/XML-ish endpoints; this remains versioned and explicit.
-        base = (instance.api_base_url or instance.base_url).rstrip("/")
-        url = f"{base}/cgi-bin/pkgreport.cgi"
+        url = self._pkgreport_endpoint(instance)
         try:
             response = await self.client.get(url)
             if response.status_code == 200:
@@ -94,7 +96,6 @@ class DebianBTSAdapter(TrackerAdapter):
     async def build_count_plan(self, entry: RegistryEntry) -> CountPlan:
         # Debian BTS does not expose a strict canonical closed-count endpoint.
         # We keep an approximate policy by using pkgreport endpoint and metadata-only header if available.
-        base = (entry.instance.api_base_url or entry.instance.base_url).rstrip("/")
         project = entry.tracker_native_id or entry.tracker_api_key or entry.name
         if not project:
             return CountPlan(
@@ -104,7 +105,7 @@ class DebianBTSAdapter(TrackerAdapter):
                 signature=f"{entry.id}:missing-key",
             )
 
-        url = f"{base}/cgi-bin/pkgreport.cgi"
+        url = self._pkgreport_endpoint(entry.instance)
         params = {"src": project, "archive": 1, "status": "resolved", "format": "json", "count": 1}
         try:
             response = await self.client.get(url, params=params)
@@ -154,7 +155,6 @@ class DebianBTSAdapter(TrackerAdapter):
         mode: str = "closed",
         sample_limit: int | None = None,
     ) -> IssueListPage:
-        base = (entry.instance.api_base_url or entry.instance.base_url).rstrip("/")
         project = entry.tracker_native_id or entry.tracker_api_key or entry.name
         if not project:
             return IssueListPage(
@@ -178,7 +178,7 @@ class DebianBTSAdapter(TrackerAdapter):
             "limit": per_page,
         }
 
-        endpoint = f"{base}/cgi-bin/pkgreport.cgi"
+        endpoint = self._pkgreport_endpoint(entry.instance)
         try:
             response = await self.client.get(endpoint, params=params)
         except httpx.RequestError as exc:
@@ -247,8 +247,8 @@ class DebianBTSAdapter(TrackerAdapter):
                     title=_to_text(item.get("subject")) or "",
                     body_raw=_to_text(description),
                     body_plaintext=_to_text(description),
-                    issue_url=f"{base}/cgi-bin/bugreport.cgi?bug={issue_id}",
-                    api_url=f"{base}/cgi-bin/bugreport.cgi?bug={issue_id}",
+                    issue_url=f"{entry.instance.base_url.rstrip('/')}/cgi-bin/bugreport.cgi?bug={issue_id}",
+                    api_url=f"{entry.instance.base_url.rstrip('/')}/cgi-bin/bugreport.cgi?bug={issue_id}",
                     issue_type_raw="bug",
                     state_raw=_to_text(item.get("status")),
                     resolution_raw=_to_text(item.get("fixed_version")),

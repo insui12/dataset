@@ -42,6 +42,12 @@ class PhabricatorAdapter(TrackerAdapter):
     def _api_base(self, instance: TrackerInstance) -> str:
         return (instance.api_base_url or instance.base_url).rstrip("/")
 
+    def _method_endpoint(self, instance: TrackerInstance, method: str) -> str:
+        base = self._api_base(instance)
+        if base.endswith("/api"):
+            return f"{base}/{method}"
+        return f"{base}/api/{method}"
+
     def _entry_key(self, entry: RegistryEntry) -> str | None:
         return entry.tracker_api_key or entry.tracker_native_id or entry.name
 
@@ -54,7 +60,7 @@ class PhabricatorAdapter(TrackerAdapter):
         method: str,
         params: dict[str, Any],
     ) -> httpx.Response | None:
-        endpoint = f"{self._api_base(instance)}/api/{method}"
+        endpoint = self._method_endpoint(instance, method)
         body = dict(params)
         token = self._token()
         if token:
@@ -258,7 +264,7 @@ class PhabricatorAdapter(TrackerAdapter):
         mode: str = "closed",
         sample_limit: int | None = None,
     ) -> IssueListPage:
-        endpoint = f"{self._api_base(entry.instance)}/api/maniphest.search"
+        endpoint = self._method_endpoint(entry.instance, "maniphest.search")
         per_page = max(1, min(int(page_size), 100))
 
         params: dict[str, Any] = {

@@ -56,6 +56,18 @@ class JiraAdapter(TrackerAdapter):
     def _api_base(self, instance: TrackerInstance) -> str:
         return (instance.api_base_url or instance.base_url).rstrip("/")
 
+    def _search_endpoint(self, instance: TrackerInstance) -> str:
+        base = self._api_base(instance)
+        if base.endswith("/rest/api/2") or base.endswith("/rest/api/3"):
+            return f"{base}/search"
+        return f"{base}/rest/api/2/search"
+
+    def _issue_endpoint_base(self, instance: TrackerInstance) -> str:
+        base = self._api_base(instance)
+        if base.endswith("/rest/api/2") or base.endswith("/rest/api/3"):
+            return base
+        return f"{base}/rest/api/2"
+
     def _entry_key(self, entry: RegistryEntry) -> str | None:
         return entry.tracker_api_key or entry.tracker_native_id or entry.name
 
@@ -142,7 +154,7 @@ class JiraAdapter(TrackerAdapter):
                 signature=f"{entry.id}:missing-key",
             )
 
-        endpoint = f"{base}/rest/api/2/search"
+        endpoint = self._search_endpoint(entry.instance)
         jql = f'project="{_jql_escape(key)}" and {_closed_status_filter()}'
         params = {
             "jql": jql,
@@ -215,12 +227,12 @@ class JiraAdapter(TrackerAdapter):
         jql = f'project="{_jql_escape(project)}"'
         if mode == "closed":
             jql = f"{jql} AND {_closed_status_filter()}"
-        endpoint = f"{base}/rest/api/2/search"
+        endpoint = self._search_endpoint(entry.instance)
         params = {
             "jql": jql,
             "startAt": start_at,
             "maxResults": per_page,
-            "fields": "id,key,summary,description,status,resolution,issuetype,assignee,creator,created,updated,closedSprints,labels,labels",
+            "fields": "id,key,summary,description,status,resolution,resolutiondate,issuetype,assignee,creator,created,updated,labels",
             "validateQuery": True,
         }
 
@@ -296,8 +308,8 @@ class JiraAdapter(TrackerAdapter):
                     title=_to_text(fields.get("summary")) or "",
                     body_raw=_to_text(fields.get("description")),
                     body_plaintext=_to_text(fields.get("description")),
-                    issue_url=f"{base}/browse/{item.get('key')}" if item.get("key") else "",
-                    api_url=f"{base}/rest/api/2/issue/{issue_id}",
+                    issue_url=f"{entry.instance.base_url.rstrip('/')}/browse/{item.get('key')}" if item.get("key") else "",
+                    api_url=f"{self._issue_endpoint_base(entry.instance)}/issue/{issue_id}",
                     issue_type_raw=_to_text(issuetype.get("name") if isinstance(issuetype, dict) else None),
                     state_raw=_to_text(state_name),
                     resolution_raw=_to_text(resolution_name),
