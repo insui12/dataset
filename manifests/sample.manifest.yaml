@@ -1,9 +1,9 @@
 manifest:
-  name: gbtd-core-registry
-  version: 1.0.0
-  rationale: bounded_instances_and_curated_mega_hosts
+  name: gbtd-preview-green-22
+  version: 3.0.0
+  rationale: live_preview_manifest_only_contains_entries_expected_to_be_collectable_via_current_api_first_adapters
   created_by: gbtd-infra
-  source: initial_schema_seed
+  source: preview_green_refresh_2026_03_13
 
 families:
   - slug: bugzilla
@@ -22,33 +22,31 @@ families:
         entries:
           - name: firefox
             kind: product
-            tracker_id: firefox
-      - name: gnome
-        base_url: https://bugzilla.gnome.org
-        api_base_url: https://bugzilla.gnome.org/rest
-        is_bounded: true
-        entries:
-          - name: gnome-shell
-            kind: project
-            tracker_id: gnome-shell
-      - name: chromium
-        base_url: https://bugs.chromium.org/p
-        api_base_url: https://bugs.chromium.org/p
-        is_bounded: true
-        entries:
-          - name: chromium
-            kind: project
-            tracker_id: chromium
+            tracker_id: Firefox
+          - name: thunderbird
+            kind: product
+            tracker_id: Thunderbird
+          - name: core
+            kind: product
+            tracker_id: Core
+          - name: toolkit
+            kind: product
+            tracker_id: Toolkit
+          - name: devtools
+            kind: product
+            tracker_id: DevTools
+
       - name: freebsd
         base_url: https://bugs.freebsd.org/bugzilla
         api_base_url: https://bugs.freebsd.org/bugzilla/rest
         is_bounded: true
-        dataset_role: software_product
         tier: extended
+        dataset_role: software_product
         entries:
           - name: freebsd
-            kind: project
-            tracker_id: freebsd
+            kind: product
+            tracker_id: "Base System"
+
       - name: gcc
         base_url: https://gcc.gnu.org/bugzilla
         api_base_url: https://gcc.gnu.org/bugzilla/rest
@@ -56,8 +54,9 @@ families:
         tier: extended
         entries:
           - name: gcc
-            kind: project
+            kind: product
             tracker_id: gcc
+
       - name: libreoffice
         base_url: https://bugs.documentfoundation.org
         api_base_url: https://bugs.documentfoundation.org/rest
@@ -65,8 +64,9 @@ families:
         tier: extended
         entries:
           - name: libreoffice
-            kind: project
-            tracker_id: libreoffice
+            kind: product
+            tracker_id: "LibreOffice"
+
       - name: kernel
         base_url: https://bugzilla.kernel.org
         api_base_url: https://bugzilla.kernel.org/rest
@@ -75,33 +75,19 @@ families:
         dataset_role: os_kernel
         entries:
           - name: kernel
-            kind: project
-            tracker_id: kernel
+            kind: product
+            tracker_id: Linux
+
       - name: eclipse
         base_url: https://bugs.eclipse.org/bugs
         api_base_url: https://bugs.eclipse.org/bugs/rest
         is_bounded: true
-        collection_mode: instance_exhaustive
-        dataset_role: legacy
         tier: legacy
         status: legacy
         entries:
           - name: eclipse_platform
-            kind: project
-            tracker_id: eclipse-platform
-      - name: redhat_bugzilla
-        base_url: https://bugzilla.redhat.com
-        api_base_url: https://bugzilla.redhat.com/rest
-        is_bounded: true
-        collection_mode: instance_exhaustive
-        dataset_role: legacy
-        tier: legacy
-        status: legacy
-        visibility: blocked
-        entries:
-          - name: redhat
-            kind: project
-            tracker_id: redhat
+            kind: product
+            tracker_id: Platform
 
   - slug: github
     name: GitHub Issues
@@ -117,25 +103,54 @@ families:
         api_base_url: https://api.github.com
         is_bounded: false
         entries:
-          - name: torvalds/linux
-            kind: repo
-            tracker_id: 2325298
-            tracker_api_key: torvalds/linux
-            tracker_url: https://github.com/torvalds/linux
-            api_url: https://api.github.com/repos/torvalds/linux
-            dataset_role: os_kernel
-          - name: docker/docker
-            kind: repo
-            tracker_id: 321948
-            tracker_api_key: docker/docker
-            tracker_url: https://github.com/docker/docker
-            api_url: https://api.github.com/repos/docker/docker
           - name: llvm/llvm-project
             kind: repo
             tracker_id: 1155608
             tracker_api_key: llvm/llvm-project
             tracker_url: https://github.com/llvm/llvm-project
             api_url: https://api.github.com/repos/llvm/llvm-project
+          - name: python/cpython
+            kind: repo
+            tracker_id: 81598961
+            tracker_api_key: python/cpython
+            tracker_url: https://github.com/python/cpython
+            api_url: https://api.github.com/repos/python/cpython
+          - name: moby/moby
+            kind: repo
+            tracker_id: 7691631
+            tracker_api_key: moby/moby
+            tracker_url: https://github.com/moby/moby
+            api_url: https://api.github.com/repos/moby/moby
+          - name: rust-lang/rust
+            kind: repo
+            tracker_id: 724712
+            tracker_api_key: rust-lang/rust
+            tracker_url: https://github.com/rust-lang/rust
+            api_url: https://api.github.com/repos/rust-lang/rust
+          - name: microsoft/vscode
+            kind: repo
+            tracker_id: 41881900
+            tracker_api_key: microsoft/vscode
+            tracker_url: https://github.com/microsoft/vscode
+            api_url: https://api.github.com/repos/microsoft/vscode
+          - name: apache/airflow
+            kind: repo
+            tracker_id: 33884891
+            tracker_api_key: apache/airflow
+            tracker_url: https://github.com/apache/airflow
+            api_url: https://api.github.com/repos/apache/airflow
+          - name: kubernetes/kubernetes
+            kind: repo
+            tracker_id: 20580498
+            tracker_api_key: kubernetes/kubernetes
+            tracker_url: https://github.com/kubernetes/kubernetes
+            api_url: https://api.github.com/repos/kubernetes/kubernetes
+          - name: nodejs/node
+            kind: repo
+            tracker_id: 27193779
+            tracker_api_key: nodejs/node
+            tracker_url: https://github.com/nodejs/node
+            api_url: https://api.github.com/repos/nodejs/node
 
   - slug: gitlab
     name: GitLab Issues
@@ -151,140 +166,19 @@ families:
         api_base_url: https://gitlab.com/api/v4
         is_bounded: false
         entries:
-          - name: python/cpython
-            kind: repo
-            tracker_id: python/cpython
-            tracker_api_key: python/cpython
           - name: gitlab-org/gitlab
             kind: repo
             tracker_id: gitlab-org/gitlab
             tracker_api_key: gitlab-org/gitlab
-
-  - slug: jira
-    name: Jira
-    tier: core
-    collection_mode: manifest_exhaustive
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: apache_jira
-        base_url: https://issues.apache.org/jira
-        api_base_url: https://issues.apache.org/jira
-        is_bounded: true
-        entries:
-          - name: kafka
-            kind: project
-            tracker_id: KAFKA
-          - name: airflow
-            kind: project
-            tracker_id: AIRFLOW
-
-  - slug: launchpad
-    name: Launchpad
-    tier: core
-    collection_mode: manifest_exhaustive
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: canonical
-        base_url: https://api.launchpad.net
-        api_base_url: https://api.launchpad.net
-        is_bounded: true
-        entries:
-          - name: ubuntu
-            kind: project
-            tracker_id: ubuntu
-
-  - slug: redmine
-    name: Redmine
-    tier: core
-    collection_mode: conditional
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: opensuse_redmine
-        base_url: https://build.opensuse.org
-        api_base_url: https://api.opensuse.org
-        is_bounded: false
-        entries:
-          - name: openSUSE packages
-            kind: project
-            tracker_id: 1
-
-  - slug: youtrack
-    name: YouTrack
-    tier: core
-    collection_mode: conditional
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: kotlintracker
-        base_url: https://youtrack.jetbrains.com
-        api_base_url: https://youtrack.jetbrains.com/api
-        is_bounded: true
-        entries:
-          - name: kt
-            kind: project
-            tracker_id: KT
-
-  - slug: google_issue_tracker
-    name: Google Issue Tracker
-    tier: special
-    collection_mode: conditional
-    dataset_role: software_product
-    protocol: REST
-    visibility: restricted
-    status: active
-    instances:
-      - name: google-issuetracker
-        base_url: https://issuetracker.google.com
-        api_base_url: https://issuetracker.google.com
-        is_bounded: true
-        entries:
-          - name: chromium
-            kind: product
-            tracker_id: chromium
-
-  - slug: debian_bts
-    name: Debian BTS (Debbugs)
-    tier: special
-    collection_mode: conditional
-    dataset_role: community_process
-    protocol: SOAP
-    visibility: public
-    status: active
-    instances:
-      - name: debbugs
-        base_url: https://bugs.debian.org
-        api_base_url: https://bugs.debian.org
-        is_bounded: true
-        entries:
-          - name: debian
-            kind: project
-            tracker_id: debian
-
-  - slug: phabricator
-    name: Phabricator/Maniphest
-    tier: special
-    collection_mode: conditional
-    dataset_role: community_process
-    protocol: JSON-RPC
-    visibility: public
-    status: active
-    instances:
-      - name: phabricator_public
-        base_url: https://secure.phabricator.com
-        api_base_url: https://secure.phabricator.com/api
-        is_bounded: true
-        entries:
-          - name: public_tasks
-            kind: project
-            tracker_id: public
+          - name: gitlab-org/gitlab-runner
+            kind: repo
+            tracker_id: gitlab-org/gitlab-runner
+            tracker_api_key: gitlab-org/gitlab-runner
+          - name: gitlab-org/gitaly
+            kind: repo
+            tracker_id: gitlab-org/gitaly
+            tracker_api_key: gitlab-org/gitaly
+          - name: gitlab-org/omnibus-gitlab
+            kind: repo
+            tracker_id: gitlab-org/omnibus-gitlab
+            tracker_api_key: gitlab-org/omnibus-gitlab

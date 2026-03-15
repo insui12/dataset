@@ -368,11 +368,6 @@ class BugzillaAdapter(TrackerAdapter):
             offset = 0
         endpoint = f"{base}/bug"
 
-        if mode == "closed":
-            selected_status = self._closed_statuses()
-        else:
-            selected_status = self._select_statuses(mode)
-
         params = {
             "product": tracker_key,
             "include_fields": (
@@ -382,10 +377,11 @@ class BugzillaAdapter(TrackerAdapter):
             ),
             "limit": per_page,
             "offset": max(0, offset),
-            "bug_status": selected_status,
-            "order": "changeddate",
+            "order": "bug_id",
             "sort": "ASC",
         }
+        if mode == "closed":
+            params["bug_status"] = self._closed_statuses()
 
         try:
             response = await self.client.get(endpoint, params=params)
