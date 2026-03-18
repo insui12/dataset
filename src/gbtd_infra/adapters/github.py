@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from typing import Any
-from urllib.parse import quote
+from urllib.parse import parse_qs, quote, urlparse
 
 import httpx
 
@@ -25,6 +25,30 @@ def _strip_unsafe(text: str | None) -> str | None:
     if text is None:
         return None
     return str(text).strip()
+
+
+def _next_page_from_link_header(link_header: str | None) -> str | None:
+    if not link_header:
+        return None
+
+    for raw_part in link_header.split(","):
+        part = raw_part.strip()
+        if 'rel="next"' not in part:
+            continue
+
+        start = part.find("<")
+        end = part.find(">", start + 1)
+        if start == -1 or end == -1:
+            continue
+
+        next_url = part[start + 1 : end]
+        parsed = urlparse(next_url)
+        params = parse_qs(parsed.query)
+        next_page = params.get("page")
+        if next_page and next_page[0]:
+            return next_page[0]
+
+    return None
 
 
 class GitHubIssuesAdapter(TrackerAdapter):
@@ -189,6 +213,36 @@ class GitHubIssuesAdapter(TrackerAdapter):
 
         try:
             response = await self.client.get(endpoint, headers=self._auth_headers(), params=params)
+        except httpx.HTTPStatusError as exc:
+            response = exc.response
+            status_code = response.status_code if response is not None else None
+            headers = dict(response.headers) if response is not None else None
+
+            # GitHub may reject a synthetic "next" page even though the previous
+            # page was full. Treat that as terminal pagination instead of crashing.
+            if status_code == 422 and page > 1:
+                return IssueListPage(
+                    issues=[],
+                    next_cursor=None,
+                    next_page=None,
+                    request_url=endpoint,
+                    request_params=params,
+                    request_headers=self._auth_headers(),
+                    status_code=status_code,
+                    headers=headers,
+                    closed_filter_applied=False,
+                )
+
+            return IssueListPage(
+                issues=[],
+                error=f"http_error:{status_code}",
+                status_code=status_code,
+                request_url=endpoint,
+                request_params=params,
+                request_headers=self._auth_headers(),
+                headers=headers,
+                closed_filter_applied=False,
+            )
         except httpx.RequestError as exc:
             return IssueListPage(
                 issues=[],
@@ -226,6 +280,8 @@ class GitHubIssuesAdapter(TrackerAdapter):
         for item in payload:
             if not isinstance(item, dict):
                 continue
+            if item.get("pull_request"):
+                continue
             labels = []
             for label in item.get("labels") or []:
                 if isinstance(label, dict):
@@ -252,7 +308,7 @@ class GitHubIssuesAdapter(TrackerAdapter):
                     body_plaintext=_strip_unsafe(item.get("body")),
                     issue_url=item.get("html_url") or "",
                     api_url=item.get("url") or "",
-                    issue_type_raw="pull_request" if item.get("pull_request") else "issue",
+                    issue_type_raw="issue",
                     state_raw=item.get("state"),
                     resolution_raw=item.get("state_reason"),
                     close_reason_raw=item.get("state_reason"),
@@ -261,14 +317,14 @@ class GitHubIssuesAdapter(TrackerAdapter):
                     closed_at=closed_at,
                     reporter_raw=(item.get("user") or {}).get("login") if isinstance(item.get("user"), dict) else None,
                     assignee_raw=(item.get("assignee") or {}).get("login") if isinstance(item.get("assignee"), dict) else None,
-                    is_pull_request=bool(item.get("pull_request")),
+                    is_pull_request=False,
                     is_private_restricted=False,
                     labels=labels,
                     raw_payload=item,
                 )
             )
 
-        next_cursor = str(page + 1) if len(payload) >= per_page else None
+        next_cursor = _next_page_from_link_header(response.headers.get("link"))
         limited_records = records
         if sample_limit is not None:
             remaining = max(0, sample_limit)

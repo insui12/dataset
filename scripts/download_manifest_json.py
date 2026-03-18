@@ -150,7 +150,7 @@ def issue_envelope(candidate: ManifestCandidate, issue) -> dict[str, Any]:
     }
 
 
-def bugzilla_document_envelope(
+def tracker_document_envelope(
     *,
     candidate: ManifestCandidate,
     issue,
@@ -247,7 +247,7 @@ async def save_bugzilla_full_issue(
     base_out.parent.mkdir(parents=True, exist_ok=True)
     base_out.write_text(
         json.dumps(
-            bugzilla_document_envelope(
+            tracker_document_envelope(
                 candidate=candidate,
                 issue=issue,
                 doc_type="BASE",
@@ -292,7 +292,7 @@ async def save_bugzilla_full_issue(
     desc_out.parent.mkdir(parents=True, exist_ok=True)
     desc_out.write_text(
         json.dumps(
-            bugzilla_document_envelope(
+            tracker_document_envelope(
                 candidate=candidate,
                 issue=issue,
                 doc_type="DESC",
@@ -330,7 +330,7 @@ async def save_bugzilla_full_issue(
                     out_path.parent.mkdir(parents=True, exist_ok=True)
                     out_path.write_text(
                         json.dumps(
-                            bugzilla_document_envelope(
+                            tracker_document_envelope(
                                 candidate=candidate,
                                 issue=issue,
                                 doc_type="CMT",
@@ -372,7 +372,7 @@ async def save_bugzilla_full_issue(
                     out_path.parent.mkdir(parents=True, exist_ok=True)
                     out_path.write_text(
                         json.dumps(
-                            bugzilla_document_envelope(
+                            tracker_document_envelope(
                                 candidate=candidate,
                                 issue=issue,
                                 doc_type="HIST",
@@ -408,7 +408,7 @@ async def save_bugzilla_full_issue(
         attach_out.parent.mkdir(parents=True, exist_ok=True)
         attach_out.write_text(
             json.dumps(
-                bugzilla_document_envelope(
+                tracker_document_envelope(
                     candidate=candidate,
                     issue=issue,
                     doc_type="ATTACH",
@@ -441,7 +441,7 @@ async def save_bugzilla_full_issue(
         attach_detail_out.parent.mkdir(parents=True, exist_ok=True)
         attach_detail_out.write_text(
             json.dumps(
-                bugzilla_document_envelope(
+                tracker_document_envelope(
                     candidate=candidate,
                     issue=issue,
                     doc_type="ATTACH_DATA",
@@ -456,6 +456,189 @@ async def save_bugzilla_full_issue(
             encoding="utf-8",
         )
         saved_count += 1
+
+    return saved_count
+
+
+async def save_github_full_issue(
+    *,
+    candidate: ManifestCandidate,
+    issue,
+    output_root: Path,
+    client: PoliteHttpClient,
+) -> int:
+    issue_id = str(issue.tracker_issue_id)
+    saved_count = 0
+
+    base_out = document_output_path(
+        output_root=output_root,
+        candidate=candidate,
+        doc_type="BASE",
+        issue_id=issue_id,
+    )
+    base_out.parent.mkdir(parents=True, exist_ok=True)
+    base_out.write_text(
+        json.dumps(issue_envelope(candidate, issue), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    saved_count += 1
+
+    desc_out = document_output_path(
+        output_root=output_root,
+        candidate=candidate,
+        doc_type="DESC",
+        issue_id=issue_id,
+    )
+    desc_out.parent.mkdir(parents=True, exist_ok=True)
+    desc_out.write_text(
+        json.dumps(
+            tracker_document_envelope(
+                candidate=candidate,
+                issue=issue,
+                doc_type="DESC",
+                payload={
+                    "id": issue_id,
+                    "title": issue.title,
+                    "description": issue.body_plaintext,
+                },
+                api_url=issue.api_url,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    saved_count += 1
+
+    comments_url = None
+    if isinstance(issue.raw_payload, dict):
+        comments_url = issue.raw_payload.get("comments_url")
+    if comments_url:
+        comments_status, comments_payload, comments_error = await _fetch_json(client, comments_url)
+        if isinstance(comments_payload, list):
+            for idx, comment in enumerate(comments_payload, start=1):
+                if not isinstance(comment, dict):
+                    continue
+                comment_id = str(comment.get("id") or idx)
+                out_path = document_output_path(
+                    output_root=output_root,
+                    candidate=candidate,
+                    doc_type="CMT",
+                    issue_id=issue_id,
+                    item_id=comment_id,
+                )
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                out_path.write_text(
+                    json.dumps(
+                        tracker_document_envelope(
+                            candidate=candidate,
+                            issue=issue,
+                            doc_type="CMT",
+                            payload=comment,
+                            api_url=comments_url,
+                            item_id=comment_id,
+                            note=comments_error or (f"http_status={comments_status}" if comments_status and comments_status >= 400 else None),
+                        ),
+                        ensure_ascii=False,
+                        indent=2,
+                    ),
+                    encoding="utf-8",
+                )
+                saved_count += 1
+
+    return saved_count
+
+
+async def save_gitlab_full_issue(
+    *,
+    candidate: ManifestCandidate,
+    issue,
+    output_root: Path,
+    client: PoliteHttpClient,
+) -> int:
+    issue_id = str(issue.tracker_issue_id)
+    saved_count = 0
+
+    base_out = document_output_path(
+        output_root=output_root,
+        candidate=candidate,
+        doc_type="BASE",
+        issue_id=issue_id,
+    )
+    base_out.parent.mkdir(parents=True, exist_ok=True)
+    base_out.write_text(
+        json.dumps(issue_envelope(candidate, issue), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    saved_count += 1
+
+    description = None
+    if isinstance(issue.raw_payload, dict):
+        description = issue.raw_payload.get("description")
+    desc_out = document_output_path(
+        output_root=output_root,
+        candidate=candidate,
+        doc_type="DESC",
+        issue_id=issue_id,
+    )
+    desc_out.parent.mkdir(parents=True, exist_ok=True)
+    desc_out.write_text(
+        json.dumps(
+            tracker_document_envelope(
+                candidate=candidate,
+                issue=issue,
+                doc_type="DESC",
+                payload={
+                    "id": issue_id,
+                    "title": issue.title,
+                    "description": description,
+                },
+                api_url=issue.api_url,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    saved_count += 1
+
+    notes_url = None
+    if isinstance(issue.raw_payload, dict):
+        links = issue.raw_payload.get("_links")
+        if isinstance(links, dict):
+            notes_url = links.get("notes")
+    if notes_url:
+        notes_status, notes_payload, notes_error = await _fetch_json(client, notes_url)
+        if isinstance(notes_payload, list):
+            for idx, note in enumerate(notes_payload, start=1):
+                if not isinstance(note, dict):
+                    continue
+                note_id = str(note.get("id") or idx)
+                out_path = document_output_path(
+                    output_root=output_root,
+                    candidate=candidate,
+                    doc_type="CMT",
+                    issue_id=issue_id,
+                    item_id=note_id,
+                )
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                out_path.write_text(
+                    json.dumps(
+                        tracker_document_envelope(
+                            candidate=candidate,
+                            issue=issue,
+                            doc_type="CMT",
+                            payload=note,
+                            api_url=notes_url,
+                            item_id=note_id,
+                            note=notes_error or (f"http_status={notes_status}" if notes_status and notes_status >= 400 else None),
+                        ),
+                        ensure_ascii=False,
+                        indent=2,
+                    ),
+                    encoding="utf-8",
+                )
+                saved_count += 1
 
     return saved_count
 
@@ -530,6 +713,20 @@ async def download_single_page(
                 output_root=output_root,
                 client=client,
             )
+        elif candidate.family_slug == "github":
+            saved_this_page += await save_github_full_issue(
+                candidate=candidate,
+                issue=issue,
+                output_root=output_root,
+                client=client,
+            )
+        elif candidate.family_slug == "gitlab":
+            saved_this_page += await save_gitlab_full_issue(
+                candidate=candidate,
+                issue=issue,
+                output_root=output_root,
+                client=client,
+            )
         else:
             out_path = issue_output_path(output_root, candidate, issue_id)
             out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -543,18 +740,9 @@ async def download_single_page(
     issues_saved += saved_this_page
     pages_completed += 1
 
+    # Respect the adapter's explicit pagination decision.
+    # Some adapters always populate next_params for diagnostics even on the final page.
     next_cursor = page.next_cursor
-    if next_cursor is None and page.next_page is not None:
-        next_cursor = str(page.next_page)
-    if next_cursor is None and page.next_params:
-        if "offset" in page.next_params:
-            next_cursor = str(page.next_params["offset"])
-        elif "page" in page.next_params:
-            next_cursor = str(page.next_params["page"])
-        elif "$skip" in page.next_params:
-            next_cursor = str(page.next_params["$skip"])
-        elif "startAt" in page.next_params:
-            next_cursor = str(page.next_params["startAt"])
 
     completed = next_cursor is None
     save_state(
