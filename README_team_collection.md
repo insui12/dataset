@@ -1,218 +1,143 @@
-# Team Collection README
+# Team Collection Guide
 
 ## 목적
 - `sample.manifest.yaml` 기준으로 이슈를 로컬 JSON으로 수집한다.
-- `mozilla`, `eclipse`는 이번 분산 수집 범위에서 제외한다.
-- 각 팀원은 자기에게 할당된 entry만 실행한다.
-- 기본 운영 방식은 `round-robin`이다.
-  - entry 1개를 오래 연속 호출하지 않고
-  - 각 entry에서 1페이지씩만 받고 다음 entry로 넘어간다.
+- 3명(A/B/C)이 같은 코드를 공유하고, `--team A/B/C`만 다르게 줘서 각자 자기 몫만 수집한다.
+- round-robin 방식: entry마다 1페이지씩만 받고 다음 entry로 넘어간다.
 
-## 현재 저장 방식
-- 저장 루트 예시:
-  - `artifacts/json_downloads_round_robin_A`
-  - `artifacts/json_downloads_round_robin_B`
-  - `artifacts/json_downloads_round_robin_C`
+## 팀 배정
+`manifests/team_assignments.yaml`에 정의됨.
 
-- Bugzilla는 full report 저장:
-  - `BASE/<bug_id>.json`
-  - `DESC/<bug_id>.json`
-  - `CMT/<bug_id>_<comment_id>.json`
-  - `HIST/<bug_id>_<seq>.json`
-  - `ATTACH/<bug_id>_<attachment_id>.json`
-  - `ATTACH_DATA/<bug_id>_<attachment_id>.json`
+### 기본 배정 (GitHub/GitLab/기타 Bugzilla)
+| Team | Entry | Family |
+|------|-------|--------|
+| A | gitlab-org/gitlab, gitlab-org/gitlab-runner, gitlab-org/gitaly, gitlab-org/omnibus-gitlab | GitLab |
+| A | kernel | Bugzilla |
+| A | apache/airflow | GitHub |
+| B | microsoft/vscode, llvm/llvm-project, nodejs/node, moby/moby | GitHub |
+| B | freebsd | Bugzilla |
+| C | rust-lang/rust, python/cpython, kubernetes/kubernetes | GitHub |
+| C | gcc, libreoffice | Bugzilla |
 
-- GitHub / GitLab은 현재 `BASE` 중심 저장이다.
-  - issue body 포함 raw payload는 저장되지만
-  - comments / events / attachments 세분화는 아직 안 붙였다.
+### Mozilla/Eclipse Bugzilla 배정 (대표 항목)
+| Team | Entry | Est. Issues |
+|------|-------|------------:|
+| A | core (mozilla) | 556,210 |
+| B | firefox (mozilla) | 228,891 |
+| B | devtools (mozilla) | 46,117 |
+| C | eclipse_platform | 122,516 |
+| C | thunderbird (mozilla) | 75,955 |
+| C | toolkit (mozilla) | 65,523 |
+
+> 위 6개 외에도 ~406개의 Mozilla/Eclipse product가 팀별로 자동 배정됨.
+> 전체 목록은 `manifests/team_assignments.yaml` 참조.
+
+## 저장 방식
+- 저장 루트: `artifacts/json_downloads_round_robin_{A,B,C}/`
+- Bugzilla full report: `BASE/`, `DESC/`, `CMT/`, `HIST/`, `ATTACH/`, `ATTACH_DATA/`
+- GitHub / GitLab: `BASE/` 중심 (raw payload 포함)
 
 ## 실행 환경
 - 권장: WSL Ubuntu
 - Python: `3.11`
-- conda env 이름 예시: `gbtd_raw`
+- conda env: `gbtd_raw`
 
 ## 최초 1회 설치
 ```bash
-cd /mnt/c/Users/user/Desktop/datasets/dataset
-
+cd /home/selab/dataset
 conda create -n gbtd_raw python=3.11 -y
 conda activate gbtd_raw
-
-python -m pip install -U pip
 pip install -e .
 ```
 
-## 실행 전 공통
+## 실행 명령어
+
+### 테스트 (1 사이클)
 ```bash
-cd /mnt/c/Users/user/Desktop/datasets/dataset
+cd /home/selab/dataset
 conda activate gbtd_raw
-```
 
-## A / B / C 할당
-
-### A
-- `gitlab-org/gitlab`
-- `gitlab-org/gitlab-runner`
-- `gitlab-org/gitaly`
-- `gitlab-org/omnibus-gitlab`
-- `kernel`
-- `apache/airflow`
-
-### B
-- `microsoft/vscode`
-- `llvm/llvm-project`
-- `nodejs/node`
-- `moby/moby`
-- `freebsd`
-
-### C
-- `rust-lang/rust`
-- `python/cpython`
-- `kubernetes/kubernetes`
-- `gcc`
-- `libreoffice`
-
-## 권장 실행 방식
-- `scripts/download_manifest_json_round_robin.py`
-- entry마다 1페이지씩만 받고 다음 entry로 넘어간다.
-- 완료된 entry는 자동으로 skip한다.
-- `_state` 파일 기준으로 중단 후 재실행이 가능하다.
-
-## 테스트 실행
-먼저 한 사이클만 돌려서 경로와 로그를 확인한다.
-
-### A 테스트
-```bash
+# Team A 테스트
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 20 \
-  --entries gitlab-org/gitlab,gitlab-org/gitlab-runner,gitlab-org/gitaly,gitlab-org/omnibus-gitlab,kernel,apache/airflow \
-  --pause-seconds 1 \
-  --max-cycles 1 \
-  --output-dir artifacts/json_downloads_round_robin_A_test
-```
+  --team A --mode all --page-size 20 --pause-seconds 1 --max-cycles 1
 
-### B 테스트
-```bash
+# Team B 테스트
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 20 \
-  --entries microsoft/vscode,llvm/llvm-project,nodejs/node,moby/moby,freebsd \
-  --pause-seconds 1 \
-  --max-cycles 1 \
-  --output-dir artifacts/json_downloads_round_robin_B_test
-```
+  --team B --mode all --page-size 20 --pause-seconds 1 --max-cycles 1
 
-### C 테스트
-```bash
+# Team C 테스트
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 20 \
-  --entries rust-lang/rust,python/cpython,kubernetes/kubernetes,gcc,libreoffice \
-  --pause-seconds 1 \
-  --max-cycles 1 \
-  --output-dir artifacts/json_downloads_round_robin_C_test
+  --team C --mode all --page-size 20 --pause-seconds 1 --max-cycles 1
 ```
 
-## 실제 실행
-테스트가 정상인지 확인한 뒤 `--max-cycles 1`만 빼고 실행한다.
-
-### A 실행
+### 실제 실행
+`--max-cycles 1`만 빼고 실행한다.
 ```bash
+# Team A
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 100 \
-  --entries gitlab-org/gitlab,gitlab-org/gitlab-runner,gitlab-org/gitaly,gitlab-org/omnibus-gitlab,kernel,apache/airflow \
-  --pause-seconds 1 \
-  --output-dir artifacts/json_downloads_round_robin_A
-```
+  --team A --mode all --page-size 100 --pause-seconds 1
 
-### B 실행
-```bash
+# Team B
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 100 \
-  --entries microsoft/vscode,llvm/llvm-project,nodejs/node,moby/moby,freebsd \
-  --pause-seconds 1 \
-  --output-dir artifacts/json_downloads_round_robin_B
-```
+  --team B --mode all --page-size 100 --pause-seconds 1
 
-### C 실행
-```bash
+# Team C
 PYTHONPATH=src python scripts/download_manifest_json_round_robin.py \
-  --mode all \
-  --page-size 100 \
-  --entries rust-lang/rust,python/cpython,kubernetes/kubernetes,gcc,libreoffice \
-  --pause-seconds 1 \
-  --output-dir artifacts/json_downloads_round_robin_C
+  --team C --mode all --page-size 100 --pause-seconds 1
 ```
-
-## 로그 해석
-- `[CYCLE]`
-  - round-robin 한 바퀴 시작
-- `[ENTRY]`
-  - 해당 entry에서 이번 cycle에 1페이지 처리
-  - `saved=...`
-  - `total=...`
-  - `next_cursor=...`
-  - `completed=True/False`
-- `[CYCLE_DONE]`
-  - 한 바퀴 종료
-- `[DONE] all selected entries completed`
-  - 선택된 entry 전부 완료
 
 ## 중단 / 재시작
 - 중간에 `Ctrl+C`로 멈춰도 된다.
 - 같은 명령을 다시 실행하면 `_state` 파일 기준으로 이어서 진행한다.
-- 상태 파일 위치:
-  - `artifacts/json_downloads_round_robin_A/_state`
-  - `artifacts/json_downloads_round_robin_B/_state`
-  - `artifacts/json_downloads_round_robin_C/_state`
+- 상태 파일 위치: `artifacts/json_downloads_round_robin_{A,B,C}/_state/`
+- **output 디렉토리를 바꾸면 새 수집으로 시작**된다. 이어받으려면 같은 output dir를 써야 한다.
 
-## 완료된 프로젝트 처리
-- 어떤 entry가 완료되면 state에 `completed=true`가 저장된다.
-- 다음 cycle부터는 자동으로 skip된다.
-- 다른 미완료 entry만 계속 반복한다.
+## 안전장치
+- **Team lock file**: 각 output 디렉토리에 `_team_lock.json`이 생성됨.
+  다른 팀으로 같은 디렉토리에 접근하면 에러 발생.
+- 완료된 entry는 state에 `completed=true`가 저장되어 자동 skip.
+
+## 로그 해석
+- `[TEAM]` — 팀 배정 정보 및 entry 목록 출력
+- `[CYCLE]` — round-robin 한 바퀴 시작
+- `[ENTRY]` — 해당 entry에서 1페이지 처리 (`saved=`, `total=`, `completed=`)
+- `[SKIP]` — 완료된 entry skip
+- `[CYCLE_DONE]` — 한 바퀴 종료 (`completed_entries=X/Y`)
+- `[DONE]` — 모든 entry 완료
 
 ## 빠른 점검 명령
-
-### 저장된 프로젝트 폴더 확인
 ```bash
-find artifacts/json_downloads_round_robin_A -maxdepth 2 -type d
+# 저장된 프로젝트 폴더 확인
+ls artifacts/json_downloads_round_robin_A/
+
+# 상태 파일 확인
+ls artifacts/json_downloads_round_robin_A/_state/
+
+# 특정 상태 파일 내용 확인
+cat artifacts/json_downloads_round_robin_A/_state/bugzilla__mozilla__core__all.json
+
+# 디스크 사용량
+du -sh artifacts/json_downloads_round_robin_*/
 ```
 
-### 상태 파일 확인
-```bash
-find artifacts/json_downloads_round_robin_A/_state -type f -maxdepth 1
-```
-
-### Bugzilla full report 구조 확인
-```bash
-find artifacts/json_downloads_round_robin_B/BUGZILLA_FREEBSD_FREEBSD/2026/03 -maxdepth 1 -type d
-```
-
-### 본문 확인
-```bash
-cat artifacts/json_downloads_round_robin_B/BUGZILLA_FREEBSD_FREEBSD/2026/03/DESC/1.json
-```
-
-## 주의
-- Bugzilla `bug_id`는 product 내부 번호가 아니라 인스턴스 전역 번호다.
-  - 따라서 `kernel`의 첫 bug가 `213863`처럼 커도 이상이 아니다.
-- `--mode all`을 사용해야 열린/닫힌 이슈를 모두 받는다.
-- output 디렉토리를 바꾸면 새 수집으로 시작한다.
-- 기존 state를 이어받고 싶으면 같은 output 디렉토리를 써야 한다.
-
-## 현재 한계
-- GitHub / GitLab은 아직 `BASE` 위주 저장이다.
-- Bugzilla만 full report 분해 저장이 붙어 있다.
-- `mozilla`, `eclipse`는 이번 팀 분산 수집 범위에서 제외한다.
+## 팀 배정 수정
+1. `manifests/team_assignments.yaml` 편집
+2. 새로운 entry는 먼저 `manifests/sample.manifest.yaml`에 추가
+3. 같은 entry가 두 팀에 겹치면 스크립트가 에러를 냄
 
 ## 관련 스크립트
-- `scripts/download_manifest_json.py`
-  - 일반 다운로드
-- `scripts/download_manifest_json_round_robin.py`
-  - entry 1페이지씩 교차 수집
-- `scripts/find_last_issue_per_manifest.py`
-  - manifest entry별 마지막 issue 번호/키 확인
+| 스크립트 | 용도 |
+|---------|------|
+| `download_manifest_json_round_robin.py` | **메인 수집 스크립트** (--team 사용) |
+| `download_manifest_json.py` | 일반 순차 다운로드 (하위 함수 제공) |
+| `discover_bugzilla_products.py` | Mozilla/Eclipse 전체 product 발견 |
+| `generate_team_assignments.py` | 발견된 product를 manifest/team에 배정 |
+| `reset_github_state.py` | GitHub state 리셋 유틸리티 |
+| `find_last_bugzilla_ids_manifest.py` | entry별 마지막 issue 번호 확인 |
+| `download_bugzilla_team_split_round_robin.py` | **(deprecated)** 구 Mozilla/Eclipse 전용 |
 
+## 주의사항
+- Bugzilla `bug_id`는 인스턴스 전역 번호다 (product 내부 번호가 아님).
+- `--mode all`을 사용해야 열린/닫힌 이슈를 모두 받는다.
+- GitHub/GitLab은 현재 `BASE` 위주 저장이다 (comments/events 분해 미구현).
+- Mozilla/Eclipse 대형 product는 수집에 수일 소요될 수 있다.

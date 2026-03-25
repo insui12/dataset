@@ -4,181 +4,1394 @@ manifest:
   rationale: live_preview_manifest_only_contains_entries_expected_to_be_collectable_via_current_api_first_adapters
   created_by: gbtd-infra
   source: preview_green_refresh_2026_03_13
-
 families:
-  - slug: bugzilla
-    name: Bugzilla
-    tier: core
-    collection_mode: instance_exhaustive
+- slug: bugzilla
+  name: Bugzilla
+  tier: core
+  collection_mode: instance_exhaustive
+  dataset_role: software_product
+  protocol: REST
+  visibility: public
+  status: active
+  instances:
+  - name: mozilla
+    base_url: https://bugzilla.mozilla.org
+    api_base_url: https://bugzilla.mozilla.org/rest
+    is_bounded: true
+    entries:
+    - name: firefox
+      kind: product
+      tracker_id: Firefox
+    - name: thunderbird
+      kind: product
+      tracker_id: Thunderbird
+    - name: core
+      kind: product
+      tracker_id: Core
+    - name: toolkit
+      kind: product
+      tracker_id: Toolkit
+    - name: devtools
+      kind: product
+      tracker_id: DevTools
+    - name: add_on_sdk_graveyard
+      kind: product
+      tracker_id: Add-on SDK Graveyard
+    - name: addons_mozilla_org
+      kind: product
+      tracker_id: addons.mozilla.org
+    - name: addons_mozilla_org_graveyard
+      kind: product
+      tracker_id: addons.mozilla.org Graveyard
+    - name: air_mozilla
+      kind: product
+      tracker_id: Air Mozilla
+    - name: air_mozilla_graveyard
+      kind: product
+      tracker_id: Air Mozilla Graveyard
+    - name: android_background_services_graveyard
+      kind: product
+      tracker_id: Android Background Services Graveyard
+    - name: application_services
+      kind: product
+      tracker_id: Application Services
+    - name: aus_graveyard
+      kind: product
+      tracker_id: AUS Graveyard
+    - name: b2gdroid_graveyard
+      kind: product
+      tracker_id: B2GDroid Graveyard
+    - name: boot2gecko_graveyard
+      kind: product
+      tracker_id: Boot2Gecko Graveyard
+    - name: bugzilla
+      kind: product
+      tracker_id: Bugzilla
+    - name: bugzilla_mozilla_org
+      kind: product
+      tracker_id: bugzilla.mozilla.org
+    - name: bugzilla_mozilla_org_graveyard
+      kind: product
+      tracker_id: bugzilla.mozilla.org Graveyard
+    - name: ca_program
+      kind: product
+      tracker_id: CA Program
+    - name: calendar
+      kind: product
+      tracker_id: Calendar
+    - name: camino_graveyard
+      kind: product
+      tracker_id: Camino Graveyard
+    - name: cck_graveyard
+      kind: product
+      tracker_id: CCK Graveyard
+    - name: chat_core
+      kind: product
+      tracker_id: Chat Core
+    - name: cloud_services
+      kind: product
+      tracker_id: Cloud Services
+    - name: cloud_services_graveyard
+      kind: product
+      tracker_id: Cloud Services Graveyard
+    - name: community_building
+      kind: product
+      tracker_id: Community Building
+    - name: composer_graveyard
+      kind: product
+      tracker_id: Composer Graveyard
+    - name: conduit
+      kind: product
+      tracker_id: Conduit
+    - name: conduit_graveyard
+      kind: product
+      tracker_id: Conduit Graveyard
+    - name: connected_devices_graveyard
+      kind: product
+      tracker_id: Connected Devices Graveyard
+    - name: content_services_graveyard
+      kind: product
+      tracker_id: Content Services Graveyard
+    - name: context_graph_graveyard
+      kind: product
+      tracker_id: Context Graph Graveyard
+    - name: core_graveyard
+      kind: product
+      tracker_id: Core Graveyard
+    - name: crash_pings
+      kind: product
+      tracker_id: Crash Pings
+    - name: data_bi_services_team
+      kind: product
+      tracker_id: Data & BI Services Team
+    - name: data_bi_services_team_graveyard
+      kind: product
+      tracker_id: Data & BI Services Team Graveyard
+    - name: data_compliance
+      kind: product
+      tracker_id: Data Compliance
+    - name: data_platform_and_tools
+      kind: product
+      tracker_id: Data Platform and Tools
+    - name: data_platform_and_tools_graveyard
+      kind: product
+      tracker_id: Data Platform and Tools Graveyard
+    - name: data_science
+      kind: product
+      tracker_id: Data Science
+    - name: datazilla_graveyard
+      kind: product
+      tracker_id: Datazilla Graveyard
+    - name: derivatives_graveyard
+      kind: product
+      tracker_id: Derivatives Graveyard
+    - name: developer_documentation_graveyard
+      kind: product
+      tracker_id: Developer Documentation Graveyard
+    - name: developer_ecosystem
+      kind: product
+      tracker_id: Developer Ecosystem
+    - name: developer_engagement
+      kind: product
+      tracker_id: Developer Engagement
+    - name: developer_engagement_graveyard
+      kind: product
+      tracker_id: Developer Engagement Graveyard
+    - name: developer_infrastructure
+      kind: product
+      tracker_id: Developer Infrastructure
+    - name: developer_mozilla_org
+      kind: product
+      tracker_id: developer.mozilla.org
+    - name: developer_mozilla_org_graveyard
+      kind: product
+      tracker_id: developer.mozilla.org Graveyard
+    - name: developer_services
+      kind: product
+      tracker_id: Developer Services
+    - name: devtools_graveyard
+      kind: product
+      tracker_id: DevTools Graveyard
+    - name: directory_graveyard
+      kind: product
+      tracker_id: Directory Graveyard
+    - name: documentation_graveyard
+      kind: product
+      tracker_id: Documentation Graveyard
+    - name: doh_trr_program
+      kind: product
+      tracker_id: DoH TRR Program
+    - name: eliot
+      kind: product
+      tracker_id: Eliot
+    - name: emerging_markets_graveyard
+      kind: product
+      tracker_id: Emerging Markets Graveyard
+    - name: enterprise_information_security_graveyard
+      kind: product
+      tracker_id: Enterprise Information Security Graveyard
+    - name: extend_firefox_graveyard
+      kind: product
+      tracker_id: Extend Firefox Graveyard
+    - name: external_software_affecting_firefox
+      kind: product
+      tracker_id: External Software Affecting Firefox
+    - name: external_software_affecting_firefox_graveyard
+      kind: product
+      tracker_id: External Software Affecting Firefox Graveyard
+    - name: fenix_graveyard
+      kind: product
+      tracker_id: Fenix Graveyard
+    - name: firefox_affiliates_graveyard
+      kind: product
+      tracker_id: Firefox Affiliates Graveyard
+    - name: firefox_build_system
+      kind: product
+      tracker_id: Firefox Build System
+    - name: firefox_enterprise
+      kind: product
+      tracker_id: Firefox Enterprise
+    - name: firefox_for_android
+      kind: product
+      tracker_id: Firefox for Android
+    - name: firefox_for_android_graveyard
+      kind: product
+      tracker_id: Firefox for Android Graveyard
+    - name: firefox_for_echo_show_graveyard
+      kind: product
+      tracker_id: Firefox for Echo Show Graveyard
+    - name: firefox_for_firetv_graveyard
+      kind: product
+      tracker_id: Firefox for FireTV Graveyard
+    - name: firefox_for_ios
+      kind: product
+      tracker_id: Firefox for iOS
+    - name: firefox_for_metro_graveyard
+      kind: product
+      tracker_id: Firefox for Metro Graveyard
+    - name: firefox_friends_graveyard
+      kind: product
+      tracker_id: Firefox Friends Graveyard
+    - name: firefox_graveyard
+      kind: product
+      tracker_id: Firefox Graveyard
+    - name: firefox_health_report_graveyard
+      kind: product
+      tracker_id: Firefox Health Report Graveyard
+    - name: firefox_os_graveyard
+      kind: product
+      tracker_id: Firefox OS Graveyard
+    - name: firefox_private_network
+      kind: product
+      tracker_id: Firefox Private Network
+    - name: firefox_profiler
+      kind: product
+      tracker_id: Firefox Profiler
+    - name: focus
+      kind: product
+      tracker_id: Focus
+    - name: focus_ios
+      kind: product
+      tracker_id: Focus-iOS
+    - name: fsa_graveyard
+      kind: product
+      tracker_id: FSA Graveyard
+    - name: geckoview
+      kind: product
+      tracker_id: GeckoView
+    - name: geckoview_graveyard
+      kind: product
+      tracker_id: GeckoView Graveyard
+    - name: grendel_graveyard
+      kind: product
+      tracker_id: Grendel Graveyard
+    - name: growth
+      kind: product
+      tracker_id: Growth
+    - name: hello_loop
+      kind: product
+      tracker_id: Hello (Loop)
+    - name: infrastructure_operations
+      kind: product
+      tracker_id: Infrastructure & Operations
+    - name: infrastructure_operations_graveyard
+      kind: product
+      tracker_id: Infrastructure & Operations Graveyard
+    - name: input
+      kind: product
+      tracker_id: Input
+    - name: input_graveyard
+      kind: product
+      tracker_id: Input Graveyard
+    - name: instantbird_graveyard
+      kind: product
+      tracker_id: Instantbird Graveyard
+    - name: instantbird_servers_graveyard
+      kind: product
+      tracker_id: Instantbird Servers Graveyard
+    - name: intellego_graveyard
+      kind: product
+      tracker_id: Intellego Graveyard
+    - name: internet_public_policy
+      kind: product
+      tracker_id: Internet Public Policy
+    - name: invalid_bugs
+      kind: product
+      tracker_id: Invalid Bugs
+    - name: jss_graveyard
+      kind: product
+      tracker_id: JSS Graveyard
+    - name: l20n
+      kind: product
+      tracker_id: L20n
+    - name: l20n_graveyard
+      kind: product
+      tracker_id: L20n Graveyard
+    - name: localization_infrastructure_and_tools
+      kind: product
+      tracker_id: Localization Infrastructure and Tools
+    - name: localization_infrastructure_and_tools_graveyard
+      kind: product
+      tracker_id: Localization Infrastructure and Tools Graveyard
+    - name: location
+      kind: product
+      tracker_id: Location
+    - name: lockwise_graveyard
+      kind: product
+      tracker_id: Lockwise Graveyard
+    - name: mailnews_core
+      kind: product
+      tracker_id: MailNews Core
+    - name: mailnews_core_graveyard
+      kind: product
+      tracker_id: MailNews Core Graveyard
+    - name: marketing
+      kind: product
+      tracker_id: Marketing
+    - name: marketing_graveyard
+      kind: product
+      tracker_id: Marketing Graveyard
+    - name: marketplace_graveyard
+      kind: product
+      tracker_id: Marketplace Graveyard
+    - name: minimo_graveyard
+      kind: product
+      tracker_id: Minimo Graveyard
+    - name: mozilla_china
+      kind: product
+      tracker_id: Mozilla China
+    - name: mozilla_foundation
+      kind: product
+      tracker_id: Mozilla Foundation
+    - name: mozilla_foundation_communications
+      kind: product
+      tracker_id: Mozilla Foundation Communications
+    - name: mozilla_labs
+      kind: product
+      tracker_id: Mozilla Labs
+    - name: mozilla_labs_graveyard
+      kind: product
+      tracker_id: Mozilla Labs Graveyard
+    - name: mozilla_localizations
+      kind: product
+      tracker_id: Mozilla Localizations
+    - name: mozilla_localizations_graveyard
+      kind: product
+      tracker_id: Mozilla Localizations Graveyard
+    - name: mozilla_messaging_graveyard
+      kind: product
+      tracker_id: Mozilla Messaging Graveyard
+    - name: mozilla_metrics
+      kind: product
+      tracker_id: Mozilla Metrics
+    - name: mozilla_org
+      kind: product
+      tracker_id: mozilla.org
+    - name: mozilla_org_graveyard
+      kind: product
+      tracker_id: mozilla.org Graveyard
+    - name: mozilla_qa
+      kind: product
+      tracker_id: Mozilla QA
+    - name: mozilla_qa_graveyard
+      kind: product
+      tracker_id: Mozilla QA Graveyard
+    - name: mozilla_reps
+      kind: product
+      tracker_id: Mozilla Reps
+    - name: mozilla_reps_graveyard
+      kind: product
+      tracker_id: Mozilla Reps Graveyard
+    - name: mozilla_vpn
+      kind: product
+      tracker_id: Mozilla VPN
+    - name: mozillaclassic_graveyard
+      kind: product
+      tracker_id: MozillaClassic Graveyard
+    - name: mozillaignite_graveyard
+      kind: product
+      tracker_id: mozillaignite Graveyard
+    - name: mozreview_graveyard
+      kind: product
+      tracker_id: MozReview Graveyard
+    - name: nspr
+      kind: product
+      tracker_id: NSPR
+    - name: nss
+      kind: product
+      tracker_id: NSS
+    - name: other_applications
+      kind: product
+      tracker_id: Other Applications
+    - name: other_applications_graveyard
+      kind: product
+      tracker_id: Other Applications Graveyard
+    - name: pancake_graveyard
+      kind: product
+      tracker_id: Pancake Graveyard
+    - name: participation_infrastructure
+      kind: product
+      tracker_id: Participation Infrastructure
+    - name: participation_infrastructure_graveyard
+      kind: product
+      tracker_id: Participation Infrastructure Graveyard
+    - name: penelope_graveyard
+      kind: product
+      tracker_id: Penelope Graveyard
+    - name: petri_graveyard
+      kind: product
+      tracker_id: Petri Graveyard
+    - name: plugin_check_graveyard
+      kind: product
+      tracker_id: Plugin Check Graveyard
+    - name: plugins_graveyard
+      kind: product
+      tracker_id: Plugins Graveyard
+    - name: pocket
+      kind: product
+      tracker_id: Pocket
+    - name: powertool_graveyard
+      kind: product
+      tracker_id: Powertool Graveyard
+    - name: privacy_graveyard
+      kind: product
+      tracker_id: Privacy Graveyard
+    - name: product_innovation
+      kind: product
+      tracker_id: Product Innovation
+    - name: quality_mozilla_org
+      kind: product
+      tracker_id: quality.mozilla.org
+    - name: release_engineering
+      kind: product
+      tracker_id: Release Engineering
+    - name: release_engineering_graveyard
+      kind: product
+      tracker_id: Release Engineering Graveyard
+    - name: release_management
+      kind: product
+      tracker_id: Release Management
+    - name: remote_protocol
+      kind: product
+      tracker_id: Remote Protocol
+    - name: rhino_graveyard
+      kind: product
+      tracker_id: Rhino Graveyard
+    - name: seamonkey
+      kind: product
+      tracker_id: SeaMonkey
+    - name: security_assurance
+      kind: product
+      tracker_id: Security Assurance
+    - name: servo_graveyard
+      kind: product
+      tracker_id: Servo Graveyard
+    - name: shield
+      kind: product
+      tracker_id: Shield
+    - name: skywriter_graveyard
+      kind: product
+      tracker_id: Skywriter Graveyard
+    - name: snippets
+      kind: product
+      tracker_id: Snippets
+    - name: snippets_graveyard
+      kind: product
+      tracker_id: Snippets Graveyard
+    - name: socorro
+      kind: product
+      tracker_id: Socorro
+    - name: socorro_graveyard
+      kind: product
+      tracker_id: Socorro Graveyard
+    - name: support_mozilla_org
+      kind: product
+      tracker_id: support.mozilla.org
+    - name: support_mozilla_org_graveyard
+      kind: product
+      tracker_id: support.mozilla.org Graveyard
+    - name: support_mozilla_org_lithium
+      kind: product
+      tracker_id: support.mozilla.org - Lithium
+    - name: support_mozillamessaging_com_graveyard
+      kind: product
+      tracker_id: support.mozillamessaging.com Graveyard
+    - name: tamarin_graveyard
+      kind: product
+      tracker_id: Tamarin Graveyard
+    - name: taskcluster
+      kind: product
+      tracker_id: Taskcluster
+    - name: taskcluster_graveyard
+      kind: product
+      tracker_id: Taskcluster Graveyard
+    - name: tech_evangelism_graveyard
+      kind: product
+      tracker_id: Tech Evangelism Graveyard
+    - name: tecken
+      kind: product
+      tracker_id: Tecken
+    - name: testing
+      kind: product
+      tracker_id: Testing
+    - name: testing_graveyard
+      kind: product
+      tracker_id: Testing Graveyard
+    - name: testopia
+      kind: product
+      tracker_id: Testopia
+    - name: toolkit_graveyard
+      kind: product
+      tracker_id: Toolkit Graveyard
+    - name: tracking
+      kind: product
+      tracker_id: Tracking
+    - name: tracking_graveyard
+      kind: product
+      tracker_id: Tracking Graveyard
+    - name: tree_management
+      kind: product
+      tracker_id: Tree Management
+    - name: tree_management_graveyard
+      kind: product
+      tracker_id: Tree Management Graveyard
+    - name: user_experience_design_graveyard
+      kind: product
+      tracker_id: User Experience Design Graveyard
+    - name: user_research
+      kind: product
+      tracker_id: User Research
+    - name: ux_systems
+      kind: product
+      tracker_id: UX Systems
+    - name: web_apps
+      kind: product
+      tracker_id: Web Apps
+    - name: web_apps_graveyard
+      kind: product
+      tracker_id: Web Apps Graveyard
+    - name: web_compatibility
+      kind: product
+      tracker_id: Web Compatibility
+    - name: webextensions
+      kind: product
+      tracker_id: WebExtensions
+    - name: webmaker_graveyard
+      kind: product
+      tracker_id: Webmaker Graveyard
+    - name: websites
+      kind: product
+      tracker_id: Websites
+    - name: websites_graveyard
+      kind: product
+      tracker_id: Websites Graveyard
+    - name: webtools
+      kind: product
+      tracker_id: Webtools
+    - name: webtools_graveyard
+      kind: product
+      tracker_id: Webtools Graveyard
+    - name: www_firefox_com
+      kind: product
+      tracker_id: www.firefox.com
+    - name: www_mozilla_org
+      kind: product
+      tracker_id: www.mozilla.org
+    - name: www_mozilla_org_graveyard
+      kind: product
+      tracker_id: www.mozilla.org Graveyard
+  - name: freebsd
+    base_url: https://bugs.freebsd.org/bugzilla
+    api_base_url: https://bugs.freebsd.org/bugzilla/rest
+    is_bounded: true
+    tier: extended
     dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: mozilla
-        base_url: https://bugzilla.mozilla.org
-        api_base_url: https://bugzilla.mozilla.org/rest
-        is_bounded: true
-        entries:
-          - name: firefox
-            kind: product
-            tracker_id: Firefox
-          - name: thunderbird
-            kind: product
-            tracker_id: Thunderbird
-          - name: core
-            kind: product
-            tracker_id: Core
-          - name: toolkit
-            kind: product
-            tracker_id: Toolkit
-          - name: devtools
-            kind: product
-            tracker_id: DevTools
-
-      - name: freebsd
-        base_url: https://bugs.freebsd.org/bugzilla
-        api_base_url: https://bugs.freebsd.org/bugzilla/rest
-        is_bounded: true
-        tier: extended
-        dataset_role: software_product
-        entries:
-          - name: freebsd
-            kind: product
-            tracker_id: "Base System"
-
-      - name: gcc
-        base_url: https://gcc.gnu.org/bugzilla
-        api_base_url: https://gcc.gnu.org/bugzilla/rest
-        is_bounded: true
-        tier: extended
-        entries:
-          - name: gcc
-            kind: product
-            tracker_id: gcc
-
-      - name: libreoffice
-        base_url: https://bugs.documentfoundation.org
-        api_base_url: https://bugs.documentfoundation.org/rest
-        is_bounded: true
-        tier: extended
-        entries:
-          - name: libreoffice
-            kind: product
-            tracker_id: "LibreOffice"
-
-      - name: kernel
-        base_url: https://bugzilla.kernel.org
-        api_base_url: https://bugzilla.kernel.org/rest
-        is_bounded: true
-        tier: extended
-        dataset_role: os_kernel
-        entries:
-          - name: kernel
-            kind: product
-            tracker_id: Linux
-
-      - name: eclipse
-        base_url: https://bugs.eclipse.org/bugs
-        api_base_url: https://bugs.eclipse.org/bugs/rest
-        is_bounded: true
-        tier: legacy
-        status: legacy
-        entries:
-          - name: eclipse_platform
-            kind: product
-            tracker_id: Platform
-
-  - slug: github
-    name: GitHub Issues
-    tier: core
-    collection_mode: manifest_exhaustive
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: github.com
-        base_url: https://github.com
-        api_base_url: https://api.github.com
-        is_bounded: false
-        entries:
-          - name: llvm/llvm-project
-            kind: repo
-            tracker_id: 1155608
-            tracker_api_key: llvm/llvm-project
-            tracker_url: https://github.com/llvm/llvm-project
-            api_url: https://api.github.com/repos/llvm/llvm-project
-          - name: python/cpython
-            kind: repo
-            tracker_id: 81598961
-            tracker_api_key: python/cpython
-            tracker_url: https://github.com/python/cpython
-            api_url: https://api.github.com/repos/python/cpython
-          - name: moby/moby
-            kind: repo
-            tracker_id: 7691631
-            tracker_api_key: moby/moby
-            tracker_url: https://github.com/moby/moby
-            api_url: https://api.github.com/repos/moby/moby
-          - name: rust-lang/rust
-            kind: repo
-            tracker_id: 724712
-            tracker_api_key: rust-lang/rust
-            tracker_url: https://github.com/rust-lang/rust
-            api_url: https://api.github.com/repos/rust-lang/rust
-          - name: microsoft/vscode
-            kind: repo
-            tracker_id: 41881900
-            tracker_api_key: microsoft/vscode
-            tracker_url: https://github.com/microsoft/vscode
-            api_url: https://api.github.com/repos/microsoft/vscode
-          - name: apache/airflow
-            kind: repo
-            tracker_id: 33884891
-            tracker_api_key: apache/airflow
-            tracker_url: https://github.com/apache/airflow
-            api_url: https://api.github.com/repos/apache/airflow
-          - name: kubernetes/kubernetes
-            kind: repo
-            tracker_id: 20580498
-            tracker_api_key: kubernetes/kubernetes
-            tracker_url: https://github.com/kubernetes/kubernetes
-            api_url: https://api.github.com/repos/kubernetes/kubernetes
-          - name: nodejs/node
-            kind: repo
-            tracker_id: 27193779
-            tracker_api_key: nodejs/node
-            tracker_url: https://github.com/nodejs/node
-            api_url: https://api.github.com/repos/nodejs/node
-
-  - slug: gitlab
-    name: GitLab Issues
-    tier: core
-    collection_mode: manifest_exhaustive
-    dataset_role: software_product
-    protocol: REST
-    visibility: public
-    status: active
-    instances:
-      - name: gitlab.com
-        base_url: https://gitlab.com
-        api_base_url: https://gitlab.com/api/v4
-        is_bounded: false
-        entries:
-          - name: gitlab-org/gitlab
-            kind: repo
-            tracker_id: gitlab-org/gitlab
-            tracker_api_key: gitlab-org/gitlab
-          - name: gitlab-org/gitlab-runner
-            kind: repo
-            tracker_id: gitlab-org/gitlab-runner
-            tracker_api_key: gitlab-org/gitlab-runner
-          - name: gitlab-org/gitaly
-            kind: repo
-            tracker_id: gitlab-org/gitaly
-            tracker_api_key: gitlab-org/gitaly
-          - name: gitlab-org/omnibus-gitlab
-            kind: repo
-            tracker_id: gitlab-org/omnibus-gitlab
-            tracker_api_key: gitlab-org/omnibus-gitlab
+    entries:
+    - name: freebsd
+      kind: product
+      tracker_id: Base System
+  - name: gcc
+    base_url: https://gcc.gnu.org/bugzilla
+    api_base_url: https://gcc.gnu.org/bugzilla/rest
+    is_bounded: true
+    tier: extended
+    entries:
+    - name: gcc
+      kind: product
+      tracker_id: gcc
+  - name: libreoffice
+    base_url: https://bugs.documentfoundation.org
+    api_base_url: https://bugs.documentfoundation.org/rest
+    is_bounded: true
+    tier: extended
+    entries:
+    - name: libreoffice
+      kind: product
+      tracker_id: LibreOffice
+  - name: kernel
+    base_url: https://bugzilla.kernel.org
+    api_base_url: https://bugzilla.kernel.org/rest
+    is_bounded: true
+    tier: extended
+    dataset_role: os_kernel
+    entries:
+    - name: kernel
+      kind: product
+      tracker_id: Linux
+  - name: eclipse
+    base_url: https://bugs.eclipse.org/bugs
+    api_base_url: https://bugs.eclipse.org/bugs/rest
+    is_bounded: true
+    tier: legacy
+    status: legacy
+    entries:
+    - name: eclipse_platform
+      kind: product
+      tracker_id: Platform
+    - name: 4diac
+      kind: product
+      tracker_id: 4DIAC
+    - name: acceleo
+      kind: product
+      tracker_id: Acceleo
+    - name: agail
+      kind: product
+      tracker_id: Agail
+    - name: ajdt
+      kind: product
+      tracker_id: AJDT
+    - name: amalgam
+      kind: product
+      tracker_id: Amalgam
+    - name: amp_archived
+      kind: product
+      tracker_id: AMP (ARCHIVED)
+    - name: andmore
+      kind: product
+      tracker_id: andmore
+    - name: apogy_archived
+      kind: product
+      tracker_id: Apogy (Archived)
+    - name: app4mc
+      kind: product
+      tracker_id: App4mc
+    - name: aspectj
+      kind: product
+      tracker_id: AspectJ
+    - name: b612
+      kind: product
+      tracker_id: B612
+    - name: babel
+      kind: product
+      tracker_id: Babel
+    - name: basyx
+      kind: product
+      tracker_id: basyx
+    - name: bpmn2modeler
+      kind: product
+      tracker_id: BPMN2Modeler
+    - name: buildship
+      kind: product
+      tracker_id: Buildship
+    - name: californium
+      kind: product
+      tracker_id: Californium
+    - name: camf_archived
+      kind: product
+      tracker_id: Camf (ARCHIVED)
+    - name: capella
+      kind: product
+      tracker_id: Capella
+    - name: capra
+      kind: product
+      tracker_id: Capra
+    - name: cbi
+      kind: product
+      tracker_id: CBI
+    - name: cdt
+      kind: product
+      tracker_id: CDT
+    - name: cft
+      kind: product
+      tracker_id: CFT
+    - name: che
+      kind: product
+      tracker_id: Che
+    - name: chemclipse
+      kind: product
+      tracker_id: Chemclipse
+    - name: cognicrypt
+      kind: product
+      tracker_id: Cognicrypt
+    - name: community
+      kind: product
+      tracker_id: Community
+    - name: cyclonedds
+      kind: product
+      tracker_id: Cyclonedds
+    - name: dali_jpa_tools
+      kind: product
+      tracker_id: Dali JPA Tools
+    - name: dash
+      kind: product
+      tracker_id: Dash
+    - name: data_tools
+      kind: product
+      tracker_id: Data Tools
+    - name: dawnsci
+      kind: product
+      tracker_id: DAWNsci
+    - name: deeplearning4j
+      kind: product
+      tracker_id: DeepLearning4J
+    - name: dirigible
+      kind: product
+      tracker_id: Dirigible
+    - name: ditto
+      kind: product
+      tracker_id: Ditto
+    - name: dltk
+      kind: product
+      tracker_id: DLTK
+    - name: drupal
+      kind: product
+      tracker_id: Drupal
+    - name: e4
+      kind: product
+      tracker_id: e4
+    - name: ease
+      kind: product
+      tracker_id: Ease
+    - name: eavp
+      kind: product
+      tracker_id: Eavp
+    - name: ecf
+      kind: product
+      tracker_id: ECF
+    - name: eclemma
+      kind: product
+      tracker_id: Eclemma
+    - name: ecoretools
+      kind: product
+      tracker_id: Ecoretools
+    - name: ecp
+      kind: product
+      tracker_id: ECP
+    - name: edapt
+      kind: product
+      tracker_id: Edapt
+    - name: eef
+      kind: product
+      tracker_id: EEF
+    - name: efm
+      kind: product
+      tracker_id: EFM
+    - name: efxclipse
+      kind: product
+      tracker_id: Efxclipse
+    - name: egerrit
+      kind: product
+      tracker_id: Egerrit
+    - name: egit
+      kind: product
+      tracker_id: EGit
+    - name: ejb
+      kind: product
+      tracker_id: EJB
+    - name: elk
+      kind: product
+      tracker_id: Elk
+    - name: elogbook
+      kind: product
+      tracker_id: elogbook
+    - name: emf
+      kind: product
+      tracker_id: EMF
+    - name: emf_diffmerge
+      kind: product
+      tracker_id: EMF.Diffmerge
+    - name: emf_egf
+      kind: product
+      tracker_id: EMF.EGF
+    - name: emf_parsley
+      kind: product
+      tracker_id: EMF.Parsley
+    - name: emf_services
+      kind: product
+      tracker_id: EMF Services
+    - name: emfcompare
+      kind: product
+      tracker_id: EMFCompare
+    - name: emfstore
+      kind: product
+      tracker_id: EMFStore
+    - name: emft
+      kind: product
+      tracker_id: EMFT
+    - name: emft_doc2model
+      kind: product
+      tracker_id: EMFT.Doc2Model
+    - name: emft_henshin
+      kind: product
+      tracker_id: EMFT.Henshin
+    - name: emft_refactor
+      kind: product
+      tracker_id: EMFT.Refactor
+    - name: epp
+      kind: product
+      tracker_id: EPP
+    - name: epsilon
+      kind: product
+      tracker_id: Epsilon
+    - name: equinox
+      kind: product
+      tracker_id: Equinox
+    - name: esf
+      kind: product
+      tracker_id: ESF
+    - name: etrice
+      kind: product
+      tracker_id: eTrice
+    - name: gef
+      kind: product
+      tracker_id: GEF
+    - name: gemini
+      kind: product
+      tracker_id: Gemini
+    - name: gemini_blueprint
+      kind: product
+      tracker_id: Gemini.Blueprint
+    - name: gemini_dbaccess
+      kind: product
+      tracker_id: Gemini.DBaccess
+    - name: gemini_jpa
+      kind: product
+      tracker_id: Gemini.JPA
+    - name: gemini_management
+      kind: product
+      tracker_id: Gemini.Management
+    - name: gemini_naming
+      kind: product
+      tracker_id: Gemini.Naming
+    - name: gemini_web
+      kind: product
+      tracker_id: Gemini.Web
+    - name: gendoc
+      kind: product
+      tracker_id: Gendoc
+    - name: general
+      kind: product
+      tracker_id: General
+    - name: geobench
+      kind: product
+      tracker_id: GeoBench
+    - name: geogig
+      kind: product
+      tracker_id: GeoGig
+    - name: geomesa
+      kind: product
+      tracker_id: GeoMesa
+    - name: geotrellis
+      kind: product
+      tracker_id: GeoTrellis
+    - name: geowave
+      kind: product
+      tracker_id: GeoWave
+    - name: gmf_runtime
+      kind: product
+      tracker_id: GMF-Runtime
+    - name: gmf_tooling_archived
+      kind: product
+      tracker_id: GMF-Tooling (ARCHIVED)
+    - name: gmp
+      kind: product
+      tracker_id: GMP
+    - name: graphiti
+      kind: product
+      tracker_id: Graphiti
+    - name: handly
+      kind: product
+      tracker_id: Handly
+    - name: hawk
+      kind: product
+      tracker_id: Hawk
+    - name: hawkbit
+      kind: product
+      tracker_id: Hawkbit
+    - name: hudson
+      kind: product
+      tracker_id: Hudson
+    - name: ice
+      kind: product
+      tracker_id: Ice
+    - name: incubator
+      kind: product
+      tracker_id: Incubator
+    - name: iofog
+      kind: product
+      tracker_id: IoFog
+    - name: jakartaee_stable
+      kind: product
+      tracker_id: Jakartaee-stable
+    - name: jakartaee_tck
+      kind: product
+      tracker_id: jakartaee-tck
+    - name: java_server_faces
+      kind: product
+      tracker_id: Java Server Faces
+    - name: jdt
+      kind: product
+      tracker_id: JDT
+    - name: jersey
+      kind: product
+      tracker_id: Jersey
+    - name: jetty
+      kind: product
+      tracker_id: Jetty
+    - name: jgit
+      kind: product
+      tracker_id: JGit
+    - name: jifa
+      kind: product
+      tracker_id: Jifa
+    - name: jsdt
+      kind: product
+      tracker_id: JSDT
+    - name: jts
+      kind: product
+      tracker_id: JTS
+    - name: jubula_archived
+      kind: product
+      tracker_id: Jubula (Archived)
+    - name: justj
+      kind: product
+      tracker_id: Justj
+    - name: jwt_archived
+      kind: product
+      tracker_id: JWT (Archived)
+    - name: kapua
+      kind: product
+      tracker_id: Kapua
+    - name: keti
+      kind: product
+      tracker_id: Keti
+    - name: kitalpha
+      kind: product
+      tracker_id: Kitalpha
+    - name: kuksa
+      kind: product
+      tracker_id: Kuksa
+    - name: kura
+      kind: product
+      tracker_id: Kura
+    - name: ldt
+      kind: product
+      tracker_id: LDT
+    - name: libims
+      kind: product
+      tracker_id: Libims
+    - name: linux_tools
+      kind: product
+      tracker_id: Linux Tools
+    - name: lyo
+      kind: product
+      tracker_id: Lyo
+    - name: m2e_wtp
+      kind: product
+      tracker_id: M2E-WTP
+    - name: m2t
+      kind: product
+      tracker_id: M2T
+    - name: mangrove_archived
+      kind: product
+      tracker_id: Mangrove (ARCHIVED)
+    - name: mat
+      kind: product
+      tracker_id: MAT
+    - name: mdht
+      kind: product
+      tracker_id: MDHT
+    - name: mdmbl
+      kind: product
+      tracker_id: MDMBL
+    - name: mdmweb
+      kind: product
+      tracker_id: MDMWeb
+    - name: mdt
+      kind: product
+      tracker_id: MDT
+    - name: mdt_bpmn2
+      kind: product
+      tracker_id: MDT.BPMN2
+    - name: mdt_rmf
+      kind: product
+      tracker_id: MDT.RMF
+    - name: mdt_uml2
+      kind: product
+      tracker_id: MDT.UML2
+    - name: microprofile
+      kind: product
+      tracker_id: Microprofile
+    - name: mihini
+      kind: product
+      tracker_id: Mihini
+    - name: milo
+      kind: product
+      tracker_id: Milo
+    - name: mmt
+      kind: product
+      tracker_id: MMT
+    - name: mmt_atl
+      kind: product
+      tracker_id: MMT.ATL
+    - name: modeling
+      kind: product
+      tracker_id: Modeling
+    - name: modisco
+      kind: product
+      tracker_id: MoDisco
+    - name: mpc
+      kind: product
+      tracker_id: MPC
+    - name: mtj_archived
+      kind: product
+      tracker_id: MTJ (Archived)
+    - name: nattable
+      kind: product
+      tracker_id: NatTable
+    - name: nebula_incubator
+      kind: product
+      tracker_id: Nebula.incubator
+    - name: objectteams
+      kind: product
+      tracker_id: Objectteams
+    - name: ocl
+      kind: product
+      tracker_id: OCL
+    - name: ogee_archived
+      kind: product
+      tracker_id: OGEE (Archived)
+    - name: om2m
+      kind: product
+      tracker_id: OM2M
+    - name: omr
+      kind: product
+      tracker_id: OMR
+    - name: oomph
+      kind: product
+      tracker_id: Oomph
+    - name: openj9
+      kind: product
+      tracker_id: openj9
+    - name: openk_usermodules
+      kind: product
+      tracker_id: openk-usermodules
+    - name: openpass
+      kind: product
+      tracker_id: Openpass
+    - name: orbit
+      kind: product
+      tracker_id: Orbit
+    - name: orion_archived
+      kind: product
+      tracker_id: Orion (Archived)
+    - name: osbp
+      kind: product
+      tracker_id: OSBP
+    - name: osee
+      kind: product
+      tracker_id: OSEE
+    - name: packager
+      kind: product
+      tracker_id: Packager
+    - name: paho
+      kind: product
+      tracker_id: Paho
+    - name: papyrus
+      kind: product
+      tracker_id: Papyrus
+    - name: papyrus_rt
+      kind: product
+      tracker_id: Papyrus-rt
+    - name: passage
+      kind: product
+      tracker_id: Passage
+    - name: pde
+      kind: product
+      tracker_id: PDE
+    - name: pdt_incubator
+      kind: product
+      tracker_id: PDT.Incubator
+    - name: platform
+      kind: product
+      tracker_id: Platform
+    - name: pmf
+      kind: product
+      tracker_id: PMF
+    - name: ptp
+      kind: product
+      tracker_id: PTP
+    - name: qvtd
+      kind: product
+      tracker_id: QVTd
+    - name: qvto
+      kind: product
+      tracker_id: QVTo
+    - name: rap
+      kind: product
+      tracker_id: RAP
+    - name: rcptt
+      kind: product
+      tracker_id: RCPTT
+    - name: reddeer
+      kind: product
+      tracker_id: Reddeer
+    - name: reqcycle
+      kind: product
+      tracker_id: Reqcycle
+    - name: rest
+      kind: product
+      tracker_id: Rest
+    - name: rich_beans
+      kind: product
+      tracker_id: Rich Beans
+    - name: riena
+      kind: product
+      tracker_id: Riena
+    - name: rover
+      kind: product
+      tracker_id: Rover
+    - name: rtsc_archived
+      kind: product
+      tracker_id: RTSC (ARCHIVED)
+    - name: sfcurve
+      kind: product
+      tracker_id: SFCurve
+    - name: simultaneous_release
+      kind: product
+      tracker_id: Simultaneous Release
+    - name: sirius
+      kind: product
+      tracker_id: Sirius
+    - name: sisu
+      kind: product
+      tracker_id: Sisu
+    - name: skills_archived
+      kind: product
+      tracker_id: Skills (Archived)
+    - name: soa_platform
+      kind: product
+      tracker_id: SOA Platform
+    - name: spatial4j
+      kind: product
+      tracker_id: Spatial4j
+    - name: sphinx
+      kind: product
+      tracker_id: Sphinx
+    - name: statet
+      kind: product
+      tracker_id: Statet
+    - name: stem
+      kind: product
+      tracker_id: STEM
+    - name: subversive
+      kind: product
+      tracker_id: Subversive
+    - name: sw360
+      kind: product
+      tracker_id: SW360
+    - name: swtbot
+      kind: product
+      tracker_id: SWTBot
+    - name: swtchart
+      kind: product
+      tracker_id: SwtChart
+    - name: target_management
+      kind: product
+      tracker_id: Target Management
+    - name: tcf
+      kind: product
+      tracker_id: TCF
+    - name: tea
+      kind: product
+      tracker_id: Tea
+    - name: technology_top_level
+      kind: product
+      tracker_id: Technology Top Level
+    - name: texlipse
+      kind: product
+      tracker_id: Texlipse
+    - name: tigerstripe_archived
+      kind: product
+      tracker_id: Tigerstripe (Archived)
+    - name: time4sys
+      kind: product
+      tracker_id: Time4sys
+    - name: titan
+      kind: product
+      tracker_id: Titan
+    - name: tmf
+      kind: product
+      tracker_id: TMF
+    - name: tools
+      kind: product
+      tracker_id: Tools
+    - name: tracecompass
+      kind: product
+      tracker_id: Tracecompass
+    - name: tracecompass_incubator
+      kind: product
+      tracker_id: Tracecompass.Incubator
+    - name: udig
+      kind: product
+      tracker_id: uDig
+    - name: unide_archived
+      kind: product
+      tracker_id: Unide (Archived)
+    - name: uomo
+      kind: product
+      tracker_id: UOMo
+    - name: upr_archived
+      kind: product
+      tracker_id: UPR (ARCHIVED)
+    - name: usssdk
+      kind: product
+      tracker_id: USSSDK
+    - name: vertx
+      kind: product
+      tracker_id: Vertx
+    - name: viatra
+      kind: product
+      tracker_id: Viatra
+    - name: virgo
+      kind: product
+      tracker_id: Virgo
+    - name: vorto
+      kind: product
+      tracker_id: Vorto
+    - name: vtp
+      kind: product
+      tracker_id: VTP
+    - name: wakaama
+      kind: product
+      tracker_id: Wakaama
+    - name: web_tools
+      kind: product
+      tracker_id: Web Tools
+    - name: woolsey
+      kind: product
+      tracker_id: Woolsey
+    - name: working_groups
+      kind: product
+      tracker_id: Working Groups
+    - name: wtp_common_tools
+      kind: product
+      tracker_id: WTP Common Tools
+    - name: wtp_ejb_tools
+      kind: product
+      tracker_id: WTP EJB Tools
+    - name: wtp_java_ee_tools
+      kind: product
+      tracker_id: WTP Java EE Tools
+    - name: wtp_releng
+      kind: product
+      tracker_id: WTP Releng
+    - name: wtp_servertools
+      kind: product
+      tracker_id: WTP ServerTools
+    - name: wtp_source_editing
+      kind: product
+      tracker_id: WTP Source Editing
+    - name: wtp_webservices
+      kind: product
+      tracker_id: WTP Webservices
+    - name: wtp_website
+      kind: product
+      tracker_id: WTP Website
+    - name: xacc
+      kind: product
+      tracker_id: XACC
+    - name: xpect
+      kind: product
+      tracker_id: xpect
+    - name: xtend
+      kind: product
+      tracker_id: Xtend
+    - name: xwt
+      kind: product
+      tracker_id: XWT
+    - name: z_archived
+      kind: product
+      tracker_id: z_Archived
+- slug: github
+  name: GitHub Issues
+  tier: core
+  collection_mode: manifest_exhaustive
+  dataset_role: software_product
+  protocol: REST
+  visibility: public
+  status: active
+  instances:
+  - name: github.com
+    base_url: https://github.com
+    api_base_url: https://api.github.com
+    is_bounded: false
+    entries:
+    - name: llvm/llvm-project
+      kind: repo
+      tracker_id: 1155608
+      tracker_api_key: llvm/llvm-project
+      tracker_url: https://github.com/llvm/llvm-project
+      api_url: https://api.github.com/repos/llvm/llvm-project
+    - name: python/cpython
+      kind: repo
+      tracker_id: 81598961
+      tracker_api_key: python/cpython
+      tracker_url: https://github.com/python/cpython
+      api_url: https://api.github.com/repos/python/cpython
+    - name: moby/moby
+      kind: repo
+      tracker_id: 7691631
+      tracker_api_key: moby/moby
+      tracker_url: https://github.com/moby/moby
+      api_url: https://api.github.com/repos/moby/moby
+    - name: rust-lang/rust
+      kind: repo
+      tracker_id: 724712
+      tracker_api_key: rust-lang/rust
+      tracker_url: https://github.com/rust-lang/rust
+      api_url: https://api.github.com/repos/rust-lang/rust
+    - name: microsoft/vscode
+      kind: repo
+      tracker_id: 41881900
+      tracker_api_key: microsoft/vscode
+      tracker_url: https://github.com/microsoft/vscode
+      api_url: https://api.github.com/repos/microsoft/vscode
+    - name: apache/airflow
+      kind: repo
+      tracker_id: 33884891
+      tracker_api_key: apache/airflow
+      tracker_url: https://github.com/apache/airflow
+      api_url: https://api.github.com/repos/apache/airflow
+    - name: kubernetes/kubernetes
+      kind: repo
+      tracker_id: 20580498
+      tracker_api_key: kubernetes/kubernetes
+      tracker_url: https://github.com/kubernetes/kubernetes
+      api_url: https://api.github.com/repos/kubernetes/kubernetes
+    - name: nodejs/node
+      kind: repo
+      tracker_id: 27193779
+      tracker_api_key: nodejs/node
+      tracker_url: https://github.com/nodejs/node
+      api_url: https://api.github.com/repos/nodejs/node
+- slug: gitlab
+  name: GitLab Issues
+  tier: core
+  collection_mode: manifest_exhaustive
+  dataset_role: software_product
+  protocol: REST
+  visibility: public
+  status: active
+  instances:
+  - name: gitlab.com
+    base_url: https://gitlab.com
+    api_base_url: https://gitlab.com/api/v4
+    is_bounded: false
+    entries:
+    - name: gitlab-org/gitlab
+      kind: repo
+      tracker_id: gitlab-org/gitlab
+      tracker_api_key: gitlab-org/gitlab
+    - name: gitlab-org/gitlab-runner
+      kind: repo
+      tracker_id: gitlab-org/gitlab-runner
+      tracker_api_key: gitlab-org/gitlab-runner
+    - name: gitlab-org/gitaly
+      kind: repo
+      tracker_id: gitlab-org/gitaly
+      tracker_api_key: gitlab-org/gitaly
+    - name: gitlab-org/omnibus-gitlab
+      kind: repo
+      tracker_id: gitlab-org/omnibus-gitlab
+      tracker_api_key: gitlab-org/omnibus-gitlab

@@ -60,12 +60,14 @@ class PoliteHttpClient:
         return urlparse(url).netloc.lower()
 
     async def _acquire(self, host: str) -> float:
-        # concurrency cap
-        async with self._locks[host]:
-            cap = self.config.rate_limits.host_concurrency
-            while self._inflight_concurrency[host] >= cap:
-                await asyncio.sleep(0.2)
-            self._inflight_concurrency[host] += 1
+        # concurrency cap — spin outside lock to avoid blocking other hosts
+        cap = self.config.rate_limits.host_concurrency
+        while True:
+            async with self._locks[host]:
+                if self._inflight_concurrency[host] < cap:
+                    self._inflight_concurrency[host] += 1
+                    break
+            await asyncio.sleep(0.05)
 
         wait = self._buckets[host].consume()
         if wait > 0:

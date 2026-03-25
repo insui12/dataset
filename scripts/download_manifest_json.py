@@ -226,18 +226,35 @@ async def save_bugzilla_full_issue(
     issue_id = str(issue.tracker_issue_id)
     saved_count = 0
 
+    # ── Phase 1: Fetch detail, comments, history, attachments list IN PARALLEL ──
     detail_url = f"{base_url}/bug/{issue_id}"
-    detail_status, detail_payload, detail_error = await _fetch_json(
-        client,
-        detail_url,
-        params={
-            "include_fields": (
-                "id,alias,summary,description,status,resolution,product,component,version,"
-                "priority,severity,creator,assigned_to,creation_time,last_change_time,is_open,"
-                "creator_detail,assigned_to_detail"
-            )
-        },
+    comments_url = f"{base_url}/bug/{issue_id}/comment"
+    history_url = f"{base_url}/bug/{issue_id}/history"
+    attachments_url = f"{base_url}/bug/{issue_id}/attachment"
+
+    (
+        (detail_status, detail_payload, detail_error),
+        (comments_status, comments_payload, comments_error),
+        (history_status, history_payload, history_error),
+        (attachments_status, attachments_payload, attachments_error),
+    ) = await asyncio.gather(
+        _fetch_json(
+            client,
+            detail_url,
+            params={
+                "include_fields": (
+                    "id,alias,summary,description,status,resolution,product,component,version,"
+                    "priority,severity,creator,assigned_to,creation_time,last_change_time,is_open,"
+                    "creator_detail,assigned_to_detail"
+                )
+            },
+        ),
+        _fetch_json(client, comments_url),
+        _fetch_json(client, history_url),
+        _fetch_json(client, attachments_url),
     )
+
+    # ── Save BASE ──
     base_out = document_output_path(
         output_root=output_root,
         candidate=candidate,
@@ -262,9 +279,7 @@ async def save_bugzilla_full_issue(
     )
     saved_count += 1
 
-    comments_url = f"{base_url}/bug/{issue_id}/comment"
-    comments_status, comments_payload, comments_error = await _fetch_json(client, comments_url)
-
+    # ── Save DESC ──
     detail_bug = None
     if isinstance(detail_payload, dict):
         bugs = detail_payload.get("bugs")
@@ -311,6 +326,7 @@ async def save_bugzilla_full_issue(
     )
     saved_count += 1
 
+    # ── Save CMT ──
     if isinstance(comments_payload, dict):
         bug_comments = comments_payload.get("bugs", {}).get(issue_id)
         if isinstance(bug_comments, dict):
@@ -346,8 +362,7 @@ async def save_bugzilla_full_issue(
                     )
                     saved_count += 1
 
-    history_url = f"{base_url}/bug/{issue_id}/history"
-    history_status, history_payload, history_error = await _fetch_json(client, history_url)
+    # ── Save HIST ──
     if isinstance(history_payload, dict):
         bugs = history_payload.get("bugs")
         if isinstance(bugs, list):
@@ -388,8 +403,7 @@ async def save_bugzilla_full_issue(
                     )
                     saved_count += 1
 
-    attachments_url = f"{base_url}/bug/{issue_id}/attachment"
-    attachments_status, attachments_payload, attachments_error = await _fetch_json(client, attachments_url)
+    # ── Save ATTACH + Phase 2: Fetch ATTACH_DATA IN PARALLEL ──
     attachment_list: list[dict[str, Any]] = []
     if isinstance(attachments_payload, dict):
         bug_attachments = attachments_payload.get("bugs", {}).get(issue_id)
@@ -424,38 +438,43 @@ async def save_bugzilla_full_issue(
         )
         saved_count += 1
 
-        attach_detail_url = f"{base_url}/bug/attachment/{attachment_id}"
-        attach_detail_status, attach_detail_payload, attach_detail_error = await _fetch_json(client, attach_detail_url)
-        detail_payload_one = attach_detail_payload
-        if isinstance(attach_detail_payload, dict):
-            amap = attach_detail_payload.get("attachments")
-            if isinstance(amap, dict) and attachment_id in amap:
-                detail_payload_one = amap[attachment_id]
-        attach_detail_out = document_output_path(
-            output_root=output_root,
-            candidate=candidate,
-            doc_type="ATTACH_DATA",
-            issue_id=issue_id,
-            item_id=attachment_id,
+    # Fetch all attachment details in parallel
+    if attachment_list:
+        attach_ids = [str(a.get("id") or "unknown") for a in attachment_list]
+        attach_detail_results = await asyncio.gather(
+            *[_fetch_json(client, f"{base_url}/bug/attachment/{aid}") for aid in attach_ids]
         )
-        attach_detail_out.parent.mkdir(parents=True, exist_ok=True)
-        attach_detail_out.write_text(
-            json.dumps(
-                tracker_document_envelope(
-                    candidate=candidate,
-                    issue=issue,
-                    doc_type="ATTACH_DATA",
-                    payload=detail_payload_one,
-                    api_url=attach_detail_url,
-                    item_id=attachment_id,
-                    note=attach_detail_error or (f"http_status={attach_detail_status}" if attach_detail_status and attach_detail_status >= 400 else None),
+        for attachment_id, (ad_status, ad_payload, ad_error) in zip(attach_ids, attach_detail_results):
+            detail_payload_one = ad_payload
+            if isinstance(ad_payload, dict):
+                amap = ad_payload.get("attachments")
+                if isinstance(amap, dict) and attachment_id in amap:
+                    detail_payload_one = amap[attachment_id]
+            attach_detail_out = document_output_path(
+                output_root=output_root,
+                candidate=candidate,
+                doc_type="ATTACH_DATA",
+                issue_id=issue_id,
+                item_id=attachment_id,
+            )
+            attach_detail_out.parent.mkdir(parents=True, exist_ok=True)
+            attach_detail_out.write_text(
+                json.dumps(
+                    tracker_document_envelope(
+                        candidate=candidate,
+                        issue=issue,
+                        doc_type="ATTACH_DATA",
+                        payload=detail_payload_one,
+                        api_url=f"{base_url}/bug/attachment/{attachment_id}",
+                        item_id=attachment_id,
+                        note=ad_error or (f"http_status={ad_status}" if ad_status and ad_status >= 400 else None),
+                    ),
+                    ensure_ascii=False,
+                    indent=2,
                 ),
-                ensure_ascii=False,
-                indent=2,
-            ),
-            encoding="utf-8",
-        )
-        saved_count += 1
+                encoding="utf-8",
+            )
+            saved_count += 1
 
     return saved_count
 
@@ -704,38 +723,39 @@ async def download_single_page(
 
     saved_this_page = 0
     last_issue_id = None
-    for issue in page.issues:
-        issue_id = str(issue.tracker_issue_id)
+
+    # Parallelize per-issue saving within a page
+    async def _save_one_issue(issue):
+        iid = str(issue.tracker_issue_id)
         if candidate.family_slug == "bugzilla":
-            saved_this_page += await save_bugzilla_full_issue(
-                candidate=candidate,
-                issue=issue,
-                output_root=output_root,
-                client=client,
+            return iid, await save_bugzilla_full_issue(
+                candidate=candidate, issue=issue,
+                output_root=output_root, client=client,
             )
         elif candidate.family_slug == "github":
-            saved_this_page += await save_github_full_issue(
-                candidate=candidate,
-                issue=issue,
-                output_root=output_root,
-                client=client,
+            return iid, await save_github_full_issue(
+                candidate=candidate, issue=issue,
+                output_root=output_root, client=client,
             )
         elif candidate.family_slug == "gitlab":
-            saved_this_page += await save_gitlab_full_issue(
-                candidate=candidate,
-                issue=issue,
-                output_root=output_root,
-                client=client,
+            return iid, await save_gitlab_full_issue(
+                candidate=candidate, issue=issue,
+                output_root=output_root, client=client,
             )
         else:
-            out_path = issue_output_path(output_root, candidate, issue_id)
+            out_path = issue_output_path(output_root, candidate, iid)
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(
                 json.dumps(issue_envelope(candidate, issue), ensure_ascii=False, indent=2),
                 encoding="utf-8",
             )
-            saved_this_page += 1
-        last_issue_id = issue_id
+            return iid, 1
+
+    if page.issues:
+        results = await asyncio.gather(*[_save_one_issue(iss) for iss in page.issues])
+        for iid, count in results:
+            saved_this_page += count
+            last_issue_id = iid
 
     issues_saved += saved_this_page
     pages_completed += 1

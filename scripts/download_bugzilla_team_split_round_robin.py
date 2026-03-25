@@ -1,14 +1,28 @@
+"""DEPRECATED: Use download_manifest_json_round_robin.py --team A/B/C instead.
+
+This script is kept for backward compatibility with existing collection runs.
+New collections should use the unified round-robin script with --team flag.
+"""
 from __future__ import annotations
 
 import argparse
 import asyncio
 import json
 from pathlib import Path
+import re
+import warnings
+
+warnings.warn(
+    "download_bugzilla_team_split_round_robin.py is deprecated. "
+    "Use download_manifest_json_round_robin.py --team A/B/C instead.",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
 from gbtd_infra.adapter_registry import adapter_for_family
 from gbtd_infra.clients.http import PoliteHttpClient
 from gbtd_infra.config import AppConfig
-from gbtd_infra.manifests import ManifestCandidate
+from gbtd_infra.manifests import ManifestCandidate, ManifestLoader
 from gbtd_infra.models import (
     CollectionMode,
     DatasetRole,
@@ -39,17 +53,34 @@ BUGZILLA_INSTANCES: dict[str, dict[str, str]] = {
         "api_base_url": "https://bugs.eclipse.org/bugs/rest",
     },
 }
+TEAM_NAMES = ("A", "B", "C")
+VISIBLE_OFFSET_RE = re.compile(r"last_visible_offset=(\d+)")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Download Mozilla/Eclipse Bugzilla products for a selected team split in round-robin order."
     )
-    parser.add_argument("--team", choices=["A", "B", "C"], required=True)
+    parser.add_argument("--team", choices=TEAM_NAMES, required=True)
     parser.add_argument(
         "--split-path",
         default="artifacts/mozilla_eclipse_team_split.json",
         help="Path to the team split JSON generated from Mozilla/Eclipse instance bounds.",
+    )
+    parser.add_argument(
+        "--manifest-path",
+        default="manifests/sample.manifest.yaml",
+        help="Manifest YAML used to auto-generate the split file when it is missing.",
+    )
+    parser.add_argument(
+        "--weights-path",
+        default="artifacts/last_issue_per_manifest.json",
+        help="Optional JSON file with last-visible issue metadata used to balance auto-generated teams.",
+    )
+    parser.add_argument(
+        "--no-auto-generate-split",
+        action="store_true",
+        help="Fail when the split file is missing instead of generating it from the manifest.",
     )
     parser.add_argument(
         "--output-dir",
@@ -66,6 +97,109 @@ def parse_args() -> argparse.Namespace:
         help="Optional comma-separated instance filter, e.g. mozilla,eclipse",
     )
     return parser.parse_args()
+
+
+def load_weight_lookup(weights_path: Path) -> dict[tuple[str, str], int]:
+    if not weights_path.exists():
+        return {}
+
+    try:
+        payload = json.loads(weights_path.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+
+    if not isinstance(payload, list):
+        return {}
+
+    weight_lookup: dict[tuple[str, str], int] = {}
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        if str(item.get("family")) != "bugzilla":
+            continue
+        instance_name = str(item.get("instance") or "").strip()
+        entry_name = str(item.get("entry") or "").strip()
+        if not instance_name or not entry_name:
+            continue
+
+        note = str(item.get("note") or "")
+        matched = VISIBLE_OFFSET_RE.search(note)
+        if not matched:
+            continue
+
+        weight_lookup[(instance_name, entry_name)] = int(matched.group(1)) + 1
+
+    return weight_lookup
+
+
+def build_split_payload(
+    manifest_path: Path,
+    weights_path: Path,
+) -> list[dict[str, object]]:
+    _, candidates = ManifestLoader(manifest_path).load()
+    bugzilla_candidates = [
+        candidate
+        for candidate in candidates
+        if candidate.family_slug == "bugzilla" and candidate.instance_name in BUGZILLA_INSTANCES
+    ]
+    if not bugzilla_candidates:
+        raise ValueError(
+            f"no Mozilla/Eclipse Bugzilla entries found in manifest: {manifest_path}"
+        )
+
+    weight_lookup = load_weight_lookup(weights_path)
+    team_state = {
+        team_name: {"team": team_name, "approx_visible_issues": 0, "products": []}
+        for team_name in TEAM_NAMES
+    }
+
+    ordered_candidates = sorted(
+        bugzilla_candidates,
+        key=lambda candidate: (
+            -weight_lookup.get((candidate.instance_name, candidate.entry_name), 1),
+            candidate.instance_name,
+            candidate.entry_name,
+        ),
+    )
+    for candidate in ordered_candidates:
+        team_name = min(
+            TEAM_NAMES,
+            key=lambda name: (
+                int(team_state[name]["approx_visible_issues"]),
+                len(team_state[name]["products"]),
+                name,
+            ),
+        )
+        weight = weight_lookup.get((candidate.instance_name, candidate.entry_name), 1)
+        team_state[team_name]["products"].append(
+            {
+                "instance": candidate.instance_name,
+                "product": candidate.entry_name,
+                "approx_visible_issues": weight,
+            }
+        )
+        team_state[team_name]["approx_visible_issues"] = int(
+            team_state[team_name]["approx_visible_issues"]
+        ) + weight
+
+    return [team_state[team_name] for team_name in TEAM_NAMES]
+
+
+def ensure_split_file(split_path: Path, manifest_path: Path, weights_path: Path) -> None:
+    payload = build_split_payload(manifest_path, weights_path)
+    split_path.parent.mkdir(parents=True, exist_ok=True)
+    split_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(f"[INIT] generated split file at {split_path}")
+    for team_block in payload:
+        products = ",".join(
+            f"{item['instance']}:{item['product']}" for item in team_block.get("products", [])
+        )
+        print(
+            f"[INIT] team={team_block['team']} "
+            f"approx_visible_issues={team_block['approx_visible_issues']} "
+            f"products={products or '-'}"
+        )
 
 
 def load_team_candidates(split_path: Path, team: str, instance_filter: set[str] | None) -> list[ManifestCandidate]:
@@ -117,7 +251,13 @@ async def async_main() -> None:
 
     split_path = Path(args.split_path)
     if not split_path.exists():
-        raise FileNotFoundError(f"team split file not found: {split_path}")
+        if args.no_auto_generate_split:
+            raise FileNotFoundError(f"team split file not found: {split_path}")
+        ensure_split_file(
+            split_path=split_path,
+            manifest_path=Path(args.manifest_path),
+            weights_path=Path(args.weights_path),
+        )
 
     instance_filter = None
     if args.instances:

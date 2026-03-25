@@ -10,15 +10,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class RateLimitConfig(BaseModel):
     host_concurrency: int = Field(
-        default=4,
+        default=8,
         validation_alias=AliasChoices("GBTD_HOST_CONCURRENCY", "RATE_LIMITS_HOST_CONCURRENCY", "HOST_CONCURRENCY"),
     )
     per_host_rps: float = Field(
-        default=1.0,
+        default=5.0,
         validation_alias=AliasChoices("GBTD_PER_HOST_RPS", "RATE_LIMITS_PER_HOST_RPS", "PER_HOST_RPS"),
     )
     burst: int = Field(
-        default=6,
+        default=12,
         validation_alias=AliasChoices("GBTD_RATE_BUCKET_BURST", "RATE_LIMITS_BURST", "BURST"),
     )
     backoff_base_seconds: float = Field(
