@@ -197,11 +197,17 @@ async def async_main() -> None:
                         return None
                     adapter = adapter_cls(session_factory=None, client=client, config=cfg)
                     _, _, ent = build_runtime_models(cand)
-                    return await download_single_page(
-                        candidate=cand, entry=ent, adapter=adapter,
-                        client=client, output_root=output_root,
-                        mode=args.mode, page_size=args.page_size,
-                    )
+                    try:
+                        return await download_single_page(
+                            candidate=cand, entry=ent, adapter=adapter,
+                            client=client, output_root=output_root,
+                            mode=args.mode, page_size=args.page_size,
+                        )
+                    except Exception as exc:
+                        print(f"[ERROR] {cand.family_slug}:{cand.entry_name} {type(exc).__name__}: {exc}")
+                        return {"attempted": True, "saved_this_page": 0,
+                                "issues_saved": 0, "next_cursor": None,
+                                "completed": False, "error": str(exc)}
 
                 results = await asyncio.gather(*[_process_entry(c) for c in batch])
 
