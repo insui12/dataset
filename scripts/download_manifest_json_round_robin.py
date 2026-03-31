@@ -6,10 +6,11 @@ import json
 import sys
 from pathlib import Path
 
-# Portable Python (._pth)에서는 PYTHONPATH가 무시되므로 직접 추가
-_src = str(Path(__file__).resolve().parent.parent / "src")
-if _src not in sys.path:
-    sys.path.insert(0, _src)
+# Portable Python (._pth)에서는 PYTHONPATH와 스크립트 디렉토리가 무시되므로 직접 추가
+_root = Path(__file__).resolve().parent.parent
+for _p in [str(_root / "src"), str(_root / "scripts")]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 import yaml
 

@@ -46,11 +46,12 @@ mkdir "%PY_DIR%" 2>nul
 tar -xf _python.zip -C "%PY_DIR%"
 del _python.zip
 
-REM import site 활성화 (pip 필수) + src 경로 추가 (gbtd_infra 패키지)
+REM import site 활성화 (pip 필수) + src/scripts 경로 추가
 (
 echo python311.zip
 echo .
 echo ../src
+echo ../scripts
 echo import site
 ) > "%PY_DIR%\%PY_PTH%"
 
