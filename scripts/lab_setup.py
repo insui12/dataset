@@ -53,6 +53,11 @@ def main() -> int:
         print(f"  [ERROR] pip install 실패:\n{r.stderr}")
         return 1
 
+    # gbtd_infra 로컬 패키지 설치
+    project_root = Path(__file__).resolve().parent.parent
+    run([sys.executable, "-m", "pip", "install", "-e", str(project_root),
+         "--no-deps", "--quiet"])
+
     # 검증
     try:
         import httpx, yaml, pydantic, tenacity, sqlalchemy  # noqa: F401

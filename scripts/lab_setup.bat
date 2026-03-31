@@ -55,6 +55,7 @@ REM ============================================
 echo.
 echo [2/4] 패키지 설치 중...
 "%PY%" -m pip install --quiet "httpx>=0.27" "tenacity>=9.0" "pydantic>=2.7" "pydantic-settings>=2.3" "PyYAML>=6.0" "sqlalchemy>=2.0" 2>nul
+"%PY%" -m pip install -e . --no-deps --quiet 2>nul
 "%PY%" -c "import httpx, yaml, pydantic, tenacity, sqlalchemy" 2>nul
 if %errorlevel% neq 0 (
     echo   [ERROR] 패키지 설치 실패
