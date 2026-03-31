@@ -241,7 +241,7 @@ def _win_shutdown(machine_id: int, log_file: str | None):
         capture_output=True, text=True,
     )
     if r.returncode == 0:
-        log(machine_id, "shutdown 명령 성공 (30초 후 종료)", log_file)
+        log(machine_id, "shutdown 명령 성공, 30초 후 종료", log_file)
         return
 
     log(machine_id, f"shutdown 명령 실패 (rc={r.returncode}): {r.stderr.strip()}", log_file)
