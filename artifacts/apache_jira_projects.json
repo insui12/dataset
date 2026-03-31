@@ -1,0 +1,4713 @@
+[
+  {
+    "key": "SPARK",
+    "name": "Spark",
+    "id": "12315420",
+    "issue_count": 55865,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "FLINK",
+    "name": "Flink",
+    "id": "12315522",
+    "issue_count": 39299,
+    "category": "Flink"
+  },
+  {
+    "key": "FLEX",
+    "name": "Apache Flex",
+    "id": "12313521",
+    "issue_count": 35395,
+    "category": "Flex"
+  },
+  {
+    "key": "HBASE",
+    "name": "HBase",
+    "id": "12310753",
+    "issue_count": 29807,
+    "category": "Hadoop"
+  },
+  {
+    "key": "HIVE",
+    "name": "Hive",
+    "id": "12310843",
+    "issue_count": 29403,
+    "category": "Hadoop"
+  },
+  {
+    "key": "IGNITE",
+    "name": "Ignite",
+    "id": "12315922",
+    "issue_count": 28329,
+    "category": "Ignite"
+  },
+  {
+    "key": "AMBARI",
+    "name": "Ambari",
+    "id": "12312020",
+    "issue_count": 26275,
+    "category": "Ambari"
+  },
+  {
+    "key": "CAMEL",
+    "name": "Camel",
+    "id": "12311211",
+    "issue_count": 23210,
+    "category": "Camel"
+  },
+  {
+    "key": "CASSANDRA",
+    "name": "Apache Cassandra",
+    "id": "12310865",
+    "issue_count": 21034,
+    "category": "Cassandra"
+  },
+  {
+    "key": "KAFKA",
+    "name": "Kafka",
+    "id": "12311720",
+    "issue_count": 19101,
+    "category": "Kafka"
+  },
+  {
+    "key": "ARROW",
+    "name": "Apache Arrow",
+    "id": "12319525",
+    "issue_count": 18291,
+    "category": "Retired"
+  },
+  {
+    "key": "SOLR",
+    "name": "Solr",
+    "id": "12310230",
+    "issue_count": 18006,
+    "category": "Lucene"
+  },
+  {
+    "key": "HADOOP",
+    "name": "Hadoop Common",
+    "id": "12310240",
+    "issue_count": 17531,
+    "category": "Hadoop"
+  },
+  {
+    "key": "HDFS",
+    "name": "Hadoop HDFS",
+    "id": "12310942",
+    "issue_count": 17040,
+    "category": "Hadoop"
+  },
+  {
+    "key": "NIFI",
+    "name": "Apache NiFi",
+    "id": "12316020",
+    "issue_count": 15714,
+    "category": "NiFi"
+  },
+  {
+    "key": "HDDS",
+    "name": "Apache Ozone",
+    "id": "12321922",
+    "issue_count": 14869,
+    "category": "Ozone"
+  },
+  {
+    "key": "IMPALA",
+    "name": "IMPALA",
+    "id": "12321021",
+    "issue_count": 14823,
+    "category": "Impala"
+  },
+  {
+    "key": "BEAM",
+    "name": "Beam",
+    "id": "12319527",
+    "issue_count": 14551,
+    "category": "Beam"
+  },
+  {
+    "key": "CB",
+    "name": "Apache Cordova",
+    "id": "12312420",
+    "issue_count": 14005,
+    "category": "Cordova"
+  },
+  {
+    "key": "OFBIZ",
+    "name": "OFBiz",
+    "id": "12310500",
+    "issue_count": 13366,
+    "category": "OFBiz"
+  },
+  {
+    "key": "SLING",
+    "name": "Sling",
+    "id": "12310710",
+    "issue_count": 13115,
+    "category": "Sling"
+  },
+  {
+    "key": "OAK",
+    "name": "Jackrabbit Oak",
+    "id": "12313221",
+    "issue_count": 12105,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "YARN",
+    "name": "Hadoop YARN",
+    "id": "12313722",
+    "issue_count": 11660,
+    "category": "Hadoop"
+  },
+  {
+    "key": "GROOVY",
+    "name": "Groovy",
+    "id": "12318123",
+    "issue_count": 11637,
+    "category": "Groovy"
+  },
+  {
+    "key": "LUCENE",
+    "name": "Lucene - Core",
+    "id": "12310110",
+    "issue_count": 10630,
+    "category": "Lucene"
+  },
+  {
+    "key": "GEODE",
+    "name": "Geode",
+    "id": "12318420",
+    "issue_count": 10554,
+    "category": "Geode"
+  },
+  {
+    "key": "MESOS",
+    "name": "Mesos (Retired)",
+    "id": "12311242",
+    "issue_count": 10207,
+    "category": "Retired"
+  },
+  {
+    "key": "HUDI",
+    "name": "Apache Hudi",
+    "id": "12322822",
+    "issue_count": 9766,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "CXF",
+    "name": "CXF",
+    "id": "12310511",
+    "issue_count": 9095,
+    "category": "CXF"
+  },
+  {
+    "key": "QPID",
+    "name": "Qpid",
+    "id": "12310520",
+    "issue_count": 8634,
+    "category": "Qpid"
+  },
+  {
+    "key": "DRILL",
+    "name": "Apache Drill",
+    "id": "12313820",
+    "issue_count": 8502,
+    "category": "Drill"
+  },
+  {
+    "key": "AMQ",
+    "name": "ActiveMQ (Read-Only)",
+    "id": "12311210",
+    "issue_count": 8486,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "KARAF",
+    "name": "Karaf",
+    "id": "12311140",
+    "issue_count": 7804,
+    "category": "Karaf"
+  },
+  {
+    "key": "PHOENIX",
+    "name": "Phoenix",
+    "id": "12315120",
+    "issue_count": 7750,
+    "category": "Phoenix"
+  },
+  {
+    "key": "CALCITE",
+    "name": "Calcite",
+    "id": "12315524",
+    "issue_count": 7446,
+    "category": "Calcite"
+  },
+  {
+    "key": "MNG",
+    "name": "Maven (Moved to GitHub Issues)",
+    "id": "12316922",
+    "issue_count": 7386,
+    "category": "Maven"
+  },
+  {
+    "key": "MAPREDUCE",
+    "name": "Hadoop Map/Reduce",
+    "id": "12310941",
+    "issue_count": 7209,
+    "category": "Hadoop"
+  },
+  {
+    "key": "DERBY",
+    "name": "Derby (Retired)",
+    "id": "10594",
+    "issue_count": 7169,
+    "category": "Retired"
+  },
+  {
+    "key": "WICKET",
+    "name": "Wicket",
+    "id": "12310561",
+    "issue_count": 7168,
+    "category": "Wicket"
+  },
+  {
+    "key": "FELIX",
+    "name": "Felix",
+    "id": "12310100",
+    "issue_count": 6719,
+    "category": "Felix"
+  },
+  {
+    "key": "HARMONY",
+    "name": "Harmony",
+    "id": "12310050",
+    "issue_count": 6676,
+    "category": "Retired"
+  },
+  {
+    "key": "UIMA",
+    "name": "UIMA",
+    "id": "12310570",
+    "issue_count": 6481,
+    "category": "UIMA"
+  },
+  {
+    "key": "ZEPPELIN",
+    "name": "Zeppelin",
+    "id": "12316221",
+    "issue_count": 6394,
+    "category": "Zeppelin"
+  },
+  {
+    "key": "IOTDB",
+    "name": "Apache IoTDB",
+    "id": "12322720",
+    "issue_count": 6340,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "NETBEANS",
+    "name": "NetBeans",
+    "id": "12320634",
+    "issue_count": 6305,
+    "category": "NetBeans"
+  },
+  {
+    "key": "PDFBOX",
+    "name": "PDFBox",
+    "id": "12310760",
+    "issue_count": 6177,
+    "category": "PDFBox"
+  },
+  {
+    "key": "AXIS2",
+    "name": "Axis2",
+    "id": "10611",
+    "issue_count": 5996,
+    "category": "Axis"
+  },
+  {
+    "key": "THRIFT",
+    "name": "Thrift",
+    "id": "12310800",
+    "issue_count": 5937,
+    "category": "Thrift"
+  },
+  {
+    "key": "KYLIN",
+    "name": "Kylin",
+    "id": "12316121",
+    "issue_count": 5927,
+    "category": "Kylin"
+  },
+  {
+    "key": "ARTEMIS",
+    "name": "Artemis",
+    "id": "12315920",
+    "issue_count": 5858,
+    "category": "Artemis"
+  },
+  {
+    "key": "WW",
+    "name": "Struts 2",
+    "id": "12311041",
+    "issue_count": 5550,
+    "category": "Struts Framework"
+  },
+  {
+    "key": "RANGER",
+    "name": "Ranger",
+    "id": "12315621",
+    "issue_count": 5525,
+    "category": "Ranger"
+  },
+  {
+    "key": "PIG",
+    "name": "Pig",
+    "id": "12310730",
+    "issue_count": 5395,
+    "category": "Hadoop"
+  },
+  {
+    "key": "ATLAS",
+    "name": "Atlas",
+    "id": "12318521",
+    "issue_count": 5209,
+    "category": "Incubator"
+  },
+  {
+    "key": "SM",
+    "name": "ServiceMix",
+    "id": "12311206",
+    "issue_count": 5153,
+    "category": "ServiceMix"
+  },
+  {
+    "key": "TS",
+    "name": "Traffic Server",
+    "id": "12310963",
+    "issue_count": 5103,
+    "category": "Traffic Server"
+  },
+  {
+    "key": "JCR",
+    "name": "Jackrabbit Content Repository",
+    "id": "10591",
+    "issue_count": 5090,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "ZOOKEEPER",
+    "name": "ZooKeeper",
+    "id": "12310801",
+    "issue_count": 4839,
+    "category": "ZooKeeper"
+  },
+  {
+    "key": "ACCUMULO",
+    "name": "Accumulo",
+    "id": "12312121",
+    "issue_count": 4745,
+    "category": "Accumulo"
+  },
+  {
+    "key": "TIKA",
+    "name": "Tika",
+    "id": "12310631",
+    "issue_count": 4696,
+    "category": "Tika"
+  },
+  {
+    "key": "TEZ",
+    "name": "Apache Tez",
+    "id": "12314426",
+    "issue_count": 4680,
+    "category": "Tez"
+  },
+  {
+    "key": "SVN",
+    "name": "Subversion",
+    "id": "12318828",
+    "issue_count": 4558,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "BIGTOP",
+    "name": "Bigtop",
+    "id": "12311420",
+    "issue_count": 4508,
+    "category": "BigTop"
+  },
+  {
+    "key": "MYFACES",
+    "name": "MyFaces Core",
+    "id": "10600",
+    "issue_count": 4376,
+    "category": "MyFaces"
+  },
+  {
+    "key": "CARBONDATA",
+    "name": "CarbonData",
+    "id": "12320220",
+    "issue_count": 4347,
+    "category": "CarbonData"
+  },
+  {
+    "key": "AVRO",
+    "name": "Apache Avro",
+    "id": "12310911",
+    "issue_count": 4225,
+    "category": "Avro"
+  },
+  {
+    "key": "TOMEE",
+    "name": "TomEE",
+    "id": "12312320",
+    "issue_count": 4141,
+    "category": "OpenEJB"
+  },
+  {
+    "key": "JAMES",
+    "name": "James Server",
+    "id": "10411",
+    "issue_count": 4115,
+    "category": "James"
+  },
+  {
+    "key": "STORM",
+    "name": "Apache Storm",
+    "id": "12314820",
+    "issue_count": 4100,
+    "category": "Storm"
+  },
+  {
+    "key": "TUSCANY",
+    "name": "Tuscany",
+    "id": "12310210",
+    "issue_count": 4082,
+    "category": "Tuscany"
+  },
+  {
+    "key": "CAUSEWAY",
+    "name": "Causeway",
+    "id": "12311171",
+    "issue_count": 3968,
+    "category": "Causeway"
+  },
+  {
+    "key": "SYSTEMDS",
+    "name": "SystemDS",
+    "id": "12319522",
+    "issue_count": 3794,
+    "category": "SystemDS"
+  },
+  {
+    "key": "ASTERIXDB",
+    "name": "Apache AsterixDB",
+    "id": "12316420",
+    "issue_count": 3740,
+    "category": "AsterixDB"
+  },
+  {
+    "key": "AIRAVATA",
+    "name": "Airavata",
+    "id": "12311302",
+    "issue_count": 3729,
+    "category": "Airavata"
+  },
+  {
+    "key": "OOZIE",
+    "name": "Oozie (Retired)",
+    "id": "12311620",
+    "issue_count": 3727,
+    "category": "Retired"
+  },
+  {
+    "key": "LOG4J2",
+    "name": "Log4j 2",
+    "id": "12310790",
+    "issue_count": 3675,
+    "category": "Logging"
+  },
+  {
+    "key": "KUDU",
+    "name": "Kudu",
+    "id": "12319523",
+    "issue_count": 3604,
+    "category": "Kudu"
+  },
+  {
+    "key": "FLUME",
+    "name": "Flume",
+    "id": "12311321",
+    "issue_count": 3458,
+    "category": "Flume"
+  },
+  {
+    "key": "TRAFODION",
+    "name": "Apache Trafodion (Retired)",
+    "id": "12318620",
+    "issue_count": 3337,
+    "category": "Retired"
+  },
+  {
+    "key": "FOP",
+    "name": "FOP",
+    "id": "12314223",
+    "issue_count": 3297,
+    "category": "Formatting Objects Processor"
+  },
+  {
+    "key": "COUCHDB",
+    "name": "CouchDB",
+    "id": "12310780",
+    "issue_count": 3292,
+    "category": "CouchDB"
+  },
+  {
+    "key": "KNOX",
+    "name": "Apache Knox",
+    "id": "12314427",
+    "issue_count": 3285,
+    "category": "Knox"
+  },
+  {
+    "key": "TINKERPOP",
+    "name": "TinkerPop",
+    "id": "12316520",
+    "issue_count": 3237,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "YUNIKORN",
+    "name": "Apache YuniKorn",
+    "id": "12323620",
+    "issue_count": 3229,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "SQOOP",
+    "name": "Sqoop (Retired)",
+    "id": "12311320",
+    "issue_count": 3152,
+    "category": "Retired"
+  },
+  {
+    "key": "HOP",
+    "name": "Apache Hop (Retired)",
+    "id": "12324323",
+    "issue_count": 3145,
+    "category": "Retired"
+  },
+  {
+    "key": "NUTCH",
+    "name": "Nutch",
+    "id": "10680",
+    "issue_count": 3145,
+    "category": "Nutch"
+  },
+  {
+    "key": "DAFFODIL",
+    "name": "Daffodil",
+    "id": "12321622",
+    "issue_count": 3035,
+    "category": "Daffodil"
+  },
+  {
+    "key": "STR",
+    "name": "Struts 1",
+    "id": "12311043",
+    "issue_count": 3009,
+    "category": "Struts Framework"
+  },
+  {
+    "key": "OPENJPA",
+    "name": "OpenJPA",
+    "id": "12310351",
+    "issue_count": 2944,
+    "category": "OpenJPA"
+  },
+  {
+    "key": "AXIS",
+    "name": "Axis",
+    "id": "10460",
+    "issue_count": 2923,
+    "category": "Axis"
+  },
+  {
+    "key": "PROTON",
+    "name": "Qpid Proton",
+    "id": "12313720",
+    "issue_count": 2917,
+    "category": "Qpid"
+  },
+  {
+    "key": "CAY",
+    "name": "Cayenne",
+    "id": "12310903",
+    "issue_count": 2906,
+    "category": "Cayenne"
+  },
+  {
+    "key": "SCB",
+    "name": "Apache ServiceComb",
+    "id": "12321626",
+    "issue_count": 2856,
+    "category": "Incubator"
+  },
+  {
+    "key": "TAP5",
+    "name": "Tapestry 5",
+    "id": "12310833",
+    "issue_count": 2820,
+    "category": "Tapestry"
+  },
+  {
+    "key": "OPENMEETINGS",
+    "name": "Openmeetings",
+    "id": "12312720",
+    "issue_count": 2816,
+    "category": "Openmeetings"
+  },
+  {
+    "key": "SAMZA",
+    "name": "Samza",
+    "id": "12314526",
+    "issue_count": 2803,
+    "category": "Samza"
+  },
+  {
+    "key": "MINIFICPP",
+    "name": "Apache NiFi MiNiFi C++",
+    "id": "12321520",
+    "issue_count": 2752,
+    "category": "NiFi"
+  },
+  {
+    "key": "CONTINUUM",
+    "name": "Continuum",
+    "id": "12316921",
+    "issue_count": 2724,
+    "category": "Continuum"
+  },
+  {
+    "key": "SENTRY",
+    "name": "Sentry (Retired)",
+    "id": "12314720",
+    "issue_count": 2564,
+    "category": "Retired"
+  },
+  {
+    "key": "TRINIDAD",
+    "name": "MyFaces Trinidad",
+    "id": "12310661",
+    "issue_count": 2561,
+    "category": "MyFaces"
+  },
+  {
+    "key": "FINERACT",
+    "name": "Apache Fineract",
+    "id": "12319420",
+    "issue_count": 2551,
+    "category": "Fineract"
+  },
+  {
+    "key": "TAPESTRY",
+    "name": "Tapestry",
+    "id": "10573",
+    "issue_count": 2499,
+    "category": "Tapestry"
+  },
+  {
+    "key": "TOBAGO",
+    "name": "MyFaces Tobago",
+    "id": "12310273",
+    "issue_count": 2486,
+    "category": "MyFaces"
+  },
+  {
+    "key": "PARQUET",
+    "name": "Parquet",
+    "id": "12315521",
+    "issue_count": 2485,
+    "category": "Parquet"
+  },
+  {
+    "key": "RATIS",
+    "name": "Ratis",
+    "id": "12320820",
+    "issue_count": 2450,
+    "category": "Ratis"
+  },
+  {
+    "key": "DISPATCH",
+    "name": "Qpid Dispatch",
+    "id": "12315321",
+    "issue_count": 2371,
+    "category": "Qpid"
+  },
+  {
+    "key": "COCOON",
+    "name": "Cocoon (Retired)",
+    "id": "12310170",
+    "issue_count": 2367,
+    "category": "Retired"
+  },
+  {
+    "key": "JENA",
+    "name": "Apache Jena",
+    "id": "12311220",
+    "issue_count": 2352,
+    "category": "Jena"
+  },
+  {
+    "key": "METRON",
+    "name": "Metron (Retired)",
+    "id": "12319323",
+    "issue_count": 2349,
+    "category": "Retired"
+  },
+  {
+    "key": "FALCON",
+    "name": "Falcon",
+    "id": "12314429",
+    "issue_count": 2343,
+    "category": "Incubator"
+  },
+  {
+    "key": "DIRSERVER",
+    "name": "Directory ApacheDS",
+    "id": "12310260",
+    "issue_count": 2339,
+    "category": "Directory"
+  },
+  {
+    "key": "HTTPCLIENT",
+    "name": "HttpComponents HttpClient",
+    "id": "12310360",
+    "issue_count": 2325,
+    "category": "HttpComponents"
+  },
+  {
+    "key": "CELEBORN",
+    "name": "Apache Celeborn",
+    "id": "12324920",
+    "issue_count": 2285,
+    "category": "Celeborn"
+  },
+  {
+    "key": "SUREFIRE",
+    "name": "Maven Surefire (Moved to GitHub Issues)",
+    "id": "12317927",
+    "issue_count": 2282,
+    "category": "Maven"
+  },
+  {
+    "key": "XERCESC",
+    "name": "Xerces-C++",
+    "id": "10510",
+    "issue_count": 2257,
+    "category": "XML"
+  },
+  {
+    "key": "GOBBLIN",
+    "name": "Apache Gobblin",
+    "id": "12321020",
+    "issue_count": 2256,
+    "category": "Gobblin"
+  },
+  {
+    "key": "GUACAMOLE",
+    "name": "Guacamole",
+    "id": "12319620",
+    "issue_count": 2242,
+    "category": "Guacamole"
+  },
+  {
+    "key": "MAHOUT",
+    "name": "Mahout",
+    "id": "12310751",
+    "issue_count": 2198,
+    "category": "Mahout"
+  },
+  {
+    "key": "ARIES",
+    "name": "Aries",
+    "id": "12310981",
+    "issue_count": 2186,
+    "category": "Aries"
+  },
+  {
+    "key": "TAJO",
+    "name": "Tajo (Retired)",
+    "id": "12314424",
+    "issue_count": 2183,
+    "category": "Retired"
+  },
+  {
+    "key": "ORC",
+    "name": "ORC",
+    "id": "12318320",
+    "issue_count": 2144,
+    "category": "Orc"
+  },
+  {
+    "key": "ROL",
+    "name": "Apache Roller",
+    "id": "12310906",
+    "issue_count": 2143,
+    "category": "Roller"
+  },
+  {
+    "key": "REEF",
+    "name": "REEF (Retired)",
+    "id": "12315820",
+    "issue_count": 2066,
+    "category": "Retired"
+  },
+  {
+    "key": "OPENEJB",
+    "name": "OpenEJB",
+    "id": "12310530",
+    "issue_count": 2047,
+    "category": "OpenEJB"
+  },
+  {
+    "key": "APEXMALHAR",
+    "name": "Apache Apex Malhar",
+    "id": "12318824",
+    "issue_count": 2041,
+    "category": "Apex"
+  },
+  {
+    "key": "MRM",
+    "name": "Archiva (Retired)",
+    "id": "12316920",
+    "issue_count": 2018,
+    "category": "Retired"
+  },
+  {
+    "key": "SHINDIG",
+    "name": "Shindig",
+    "id": "12310741",
+    "issue_count": 1979,
+    "category": "Shindig"
+  },
+  {
+    "key": "AURORA",
+    "name": "Aurora",
+    "id": "12314922",
+    "issue_count": 1970,
+    "category": "Aurora"
+  },
+  {
+    "key": "SYNCOPE",
+    "name": "Syncope",
+    "id": "12313120",
+    "issue_count": 1951,
+    "category": "Syncope"
+  },
+  {
+    "key": "SMX4",
+    "name": "ServiceMix 4",
+    "id": "12311208",
+    "issue_count": 1905,
+    "category": "ServiceMix"
+  },
+  {
+    "key": "HAWQ",
+    "name": "Apache HAWQ (Retired)",
+    "id": "12318826",
+    "issue_count": 1837,
+    "category": "Retired"
+  },
+  {
+    "key": "DATALAB",
+    "name": "Apache DataLab (Retired)",
+    "id": "12322420",
+    "issue_count": 1806,
+    "category": "Retired"
+  },
+  {
+    "key": "XERCESJ",
+    "name": "Xerces2-J",
+    "id": "10520",
+    "issue_count": 1784,
+    "category": "XML"
+  },
+  {
+    "key": "LANG",
+    "name": "Commons Lang",
+    "id": "12310481",
+    "issue_count": 1780,
+    "category": "Commons"
+  },
+  {
+    "key": "CONNECTORS",
+    "name": "ManifoldCF",
+    "id": "12311050",
+    "issue_count": 1779,
+    "category": "ManifoldCF"
+  },
+  {
+    "key": "OPENNLP",
+    "name": "OpenNLP",
+    "id": "12311215",
+    "issue_count": 1772,
+    "category": "OpenNLP"
+  },
+  {
+    "key": "AXIS2C",
+    "name": "Axis2-C",
+    "id": "12310180",
+    "issue_count": 1696,
+    "category": "Axis"
+  },
+  {
+    "key": "TOMAHAWK",
+    "name": "MyFaces Tomahawk",
+    "id": "12310272",
+    "issue_count": 1684,
+    "category": "MyFaces"
+  },
+  {
+    "key": "MATH",
+    "name": "Commons Math",
+    "id": "12310485",
+    "issue_count": 1677,
+    "category": "Commons"
+  },
+  {
+    "key": "STRATOS",
+    "name": "Stratos",
+    "id": "12314521",
+    "issue_count": 1662,
+    "category": "Stratos"
+  },
+  {
+    "key": "IVY",
+    "name": "Ivy",
+    "id": "12310580",
+    "issue_count": 1656,
+    "category": "Ant"
+  },
+  {
+    "key": "OLINGO",
+    "name": "Olingo",
+    "id": "12314520",
+    "issue_count": 1646,
+    "category": "Olingo"
+  },
+  {
+    "key": "JCLOUDS",
+    "name": "jclouds (Retired) (Retired)",
+    "id": "12314430",
+    "issue_count": 1643,
+    "category": "Retired"
+  },
+  {
+    "key": "MADLIB",
+    "name": "Apache MADlib",
+    "id": "12318923",
+    "issue_count": 1507,
+    "category": "MADlib"
+  },
+  {
+    "key": "STANBOL",
+    "name": "Stanbol (Retired)",
+    "id": "12311214",
+    "issue_count": 1473,
+    "category": "Retired"
+  },
+  {
+    "key": "LENS",
+    "name": "Apache Lens (Retired)",
+    "id": "12315923",
+    "issue_count": 1451,
+    "category": "Retired"
+  },
+  {
+    "key": "MSHARED",
+    "name": "Maven Shared Components",
+    "id": "12317922",
+    "issue_count": 1448,
+    "category": "Maven"
+  },
+  {
+    "key": "OWB",
+    "name": "OpenWebBeans",
+    "id": "12310844",
+    "issue_count": 1448,
+    "category": "OpenWebBeans"
+  },
+  {
+    "key": "SUBMARINE",
+    "name": "Apache Submarine",
+    "id": "12322824",
+    "issue_count": 1415,
+    "category": "Retired"
+  },
+  {
+    "key": "MXNET",
+    "name": "Apache MXNet (Retired)",
+    "id": "12321623",
+    "issue_count": 1404,
+    "category": "Retired"
+  },
+  {
+    "key": "BATIK",
+    "name": "Batik",
+    "id": "12314222",
+    "issue_count": 1389,
+    "category": "Batik"
+  },
+  {
+    "key": "DELTASPIKE",
+    "name": "DeltaSpike",
+    "id": "12312820",
+    "issue_count": 1389,
+    "category": "Deltaspike"
+  },
+  {
+    "key": "JS2",
+    "name": "Jetspeed 2 (Retired)",
+    "id": "10492",
+    "issue_count": 1355,
+    "category": "Retired"
+  },
+  {
+    "key": "SSHD",
+    "name": "MINA SSHD",
+    "id": "12310849",
+    "issue_count": 1350,
+    "category": "MINA"
+  },
+  {
+    "key": "USERGRID",
+    "name": "Usergrid (Retired)",
+    "id": "12314923",
+    "issue_count": 1341,
+    "category": "Retired"
+  },
+  {
+    "key": "DIRSTUDIO",
+    "name": "Directory Studio",
+    "id": "12310590",
+    "issue_count": 1329,
+    "category": "Directory"
+  },
+  {
+    "key": "RAVE",
+    "name": "Rave",
+    "id": "12311290",
+    "issue_count": 1286,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "SLIDER",
+    "name": "Slider (Retired)",
+    "id": "12315422",
+    "issue_count": 1265,
+    "category": "Retired"
+  },
+  {
+    "key": "GIRAPH",
+    "name": "Giraph (Retired)",
+    "id": "12311820",
+    "issue_count": 1255,
+    "category": "Retired"
+  },
+  {
+    "key": "YETUS",
+    "name": "Yetus",
+    "id": "12318920",
+    "issue_count": 1254,
+    "category": "Yetus"
+  },
+  {
+    "key": "FOR",
+    "name": "Forrest (Retired)",
+    "id": "12310000",
+    "issue_count": 1251,
+    "category": "Retired"
+  },
+  {
+    "key": "BEEHIVE",
+    "name": "Beehive",
+    "id": "10570",
+    "issue_count": 1231,
+    "category": "Retired"
+  },
+  {
+    "key": "DIRMINA",
+    "name": "MINA",
+    "id": "10670",
+    "issue_count": 1146,
+    "category": "MINA"
+  },
+  {
+    "key": "JSPWIKI",
+    "name": "JSPWiki",
+    "id": "12310732",
+    "issue_count": 1145,
+    "category": "JSPWiki"
+  },
+  {
+    "key": "VCL",
+    "name": "VCL",
+    "id": "12310840",
+    "issue_count": 1139,
+    "category": "Incubator"
+  },
+  {
+    "key": "MRELEASE",
+    "name": "Maven Release Plugin (Moved to GitHub Issues)",
+    "id": "12317824",
+    "issue_count": 1130,
+    "category": "Maven"
+  },
+  {
+    "key": "SYNAPSE",
+    "name": "Synapse",
+    "id": "12310201",
+    "issue_count": 1129,
+    "category": "Synapse"
+  },
+  {
+    "key": "XW",
+    "name": "XWork",
+    "id": "12313523",
+    "issue_count": 1128,
+    "category": "Struts Framework"
+  },
+  {
+    "key": "CMIS",
+    "name": "Chemistry (Retired)",
+    "id": "12310936",
+    "issue_count": 1097,
+    "category": "Retired"
+  },
+  {
+    "key": "EAGLE",
+    "name": "Eagle (Retired)",
+    "id": "12319222",
+    "issue_count": 1097,
+    "category": "Retired"
+  },
+  {
+    "key": "BOOKKEEPER",
+    "name": "Bookkeeper",
+    "id": "12311293",
+    "issue_count": 1095,
+    "category": "BookKeeper"
+  },
+  {
+    "key": "AXISCPP",
+    "name": "Axis-C++",
+    "id": "10461",
+    "issue_count": 1087,
+    "category": "Axis"
+  },
+  {
+    "key": "ODE",
+    "name": "ODE",
+    "id": "12310270",
+    "issue_count": 1078,
+    "category": "ODE"
+  },
+  {
+    "key": "CLEREZZA",
+    "name": "Clerezza (Retired)",
+    "id": "12311020",
+    "issue_count": 1069,
+    "category": "Retired"
+  },
+  {
+    "key": "TAVERNA",
+    "name": "Apache Taverna (Retired)",
+    "id": "12318322",
+    "issue_count": 1063,
+    "category": "Retired"
+  },
+  {
+    "key": "STDCXX",
+    "name": "C++ Standard Library",
+    "id": "12310070",
+    "issue_count": 1062,
+    "category": "C++ Standard Library"
+  },
+  {
+    "key": "LIBCLOUD",
+    "name": "Libcloud",
+    "id": "12311030",
+    "issue_count": 1045,
+    "category": "Libcloud"
+  },
+  {
+    "key": "PIVOT",
+    "name": "Pivot (Retired)",
+    "id": "12310863",
+    "issue_count": 1042,
+    "category": "Retired"
+  },
+  {
+    "key": "OODT",
+    "name": "OODT (Retired)",
+    "id": "12311070",
+    "issue_count": 1041,
+    "category": "Retired"
+  },
+  {
+    "key": "JUDDI",
+    "name": "jUDDI (Retired)",
+    "id": "10401",
+    "issue_count": 1018,
+    "category": "Retired"
+  },
+  {
+    "key": "MASSEMBLY",
+    "name": "Maven Assembly Plugin (Moved to GitHub Issues)",
+    "id": "12317220",
+    "issue_count": 1018,
+    "category": "Maven"
+  },
+  {
+    "key": "SCM",
+    "name": "Maven SCM (Moved to GitHub Issues)",
+    "id": "12317828",
+    "issue_count": 1012,
+    "category": "Maven"
+  },
+  {
+    "key": "HAMA",
+    "name": "Hama",
+    "id": "12310810",
+    "issue_count": 1006,
+    "category": "Retired"
+  },
+  {
+    "key": "SMXCOMP",
+    "name": "ServiceMix Components",
+    "id": "12311212",
+    "issue_count": 986,
+    "category": "ServiceMix"
+  },
+  {
+    "key": "CLIMATE",
+    "name": "Apache Open Climate Workbench (Retired)",
+    "id": "12314422",
+    "issue_count": 973,
+    "category": "Retired"
+  },
+  {
+    "key": "XALANJ",
+    "name": "XalanJ2",
+    "id": "10584",
+    "issue_count": 954,
+    "category": "Xalan"
+  },
+  {
+    "key": "MDEP",
+    "name": "Maven Dependency Plugin (Moved to GitHub Issues)",
+    "id": "12317227",
+    "issue_count": 949,
+    "category": "Maven"
+  },
+  {
+    "key": "LIVY",
+    "name": "Livy",
+    "id": "12321434",
+    "issue_count": 937,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "VELOCITY",
+    "name": "Velocity",
+    "id": "12310104",
+    "issue_count": 924,
+    "category": "Velocity"
+  },
+  {
+    "key": "UNOMI",
+    "name": "Apache Unomi",
+    "id": "12319220",
+    "issue_count": 923,
+    "category": "Unomi"
+  },
+  {
+    "key": "MSITE",
+    "name": "Maven Site Plugin (Moved to GitHub Issues)",
+    "id": "12317923",
+    "issue_count": 921,
+    "category": "Maven"
+  },
+  {
+    "key": "SHIRO",
+    "name": "Shiro",
+    "id": "12310950",
+    "issue_count": 904,
+    "category": "Shiro"
+  },
+  {
+    "key": "IO",
+    "name": "Commons IO",
+    "id": "12310477",
+    "issue_count": 874,
+    "category": "Commons"
+  },
+  {
+    "key": "HELIX",
+    "name": "Apache Helix",
+    "id": "12314020",
+    "issue_count": 863,
+    "category": "Helix"
+  },
+  {
+    "key": "VFS",
+    "name": "Commons VFS",
+    "id": "12310495",
+    "issue_count": 857,
+    "category": "Commons"
+  },
+  {
+    "key": "JDO",
+    "name": "JDO",
+    "id": "10630",
+    "issue_count": 854,
+    "category": "DB"
+  },
+  {
+    "key": "CONFIGURATION",
+    "name": "Commons Configuration",
+    "id": "12310467",
+    "issue_count": 850,
+    "category": "Commons"
+  },
+  {
+    "key": "MNEMONIC",
+    "name": "Mnemonic (Retired)",
+    "id": "12319820",
+    "issue_count": 839,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRVLT",
+    "name": "Jackrabbit FileVault",
+    "id": "12314920",
+    "issue_count": 836,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "COLLECTIONS",
+    "name": "Commons Collections",
+    "id": "12310465",
+    "issue_count": 830,
+    "category": "Commons"
+  },
+  {
+    "key": "CHUKWA",
+    "name": "Chukwa (retired)",
+    "id": "12310900",
+    "issue_count": 822,
+    "category": "Retired"
+  },
+  {
+    "key": "XALANC",
+    "name": "XalanC",
+    "id": "10582",
+    "issue_count": 815,
+    "category": "Xalan"
+  },
+  {
+    "key": "MJAVADOC",
+    "name": "Maven Javadoc Plugin (Moved to GitHub Issues)",
+    "id": "12317529",
+    "issue_count": 813,
+    "category": "Maven"
+  },
+  {
+    "key": "GERONIMODEVTOOLS",
+    "name": "Geronimo-Devtools",
+    "id": "12310111",
+    "issue_count": 806,
+    "category": "Geronimo"
+  },
+  {
+    "key": "PLUTO",
+    "name": "Pluto (Retired)",
+    "id": "10560",
+    "issue_count": 805,
+    "category": "Retired"
+  },
+  {
+    "key": "CLK",
+    "name": "Click",
+    "id": "12310902",
+    "issue_count": 804,
+    "category": "Retired"
+  },
+  {
+    "key": "INLONG",
+    "name": "Apache InLong",
+    "id": "12323523",
+    "issue_count": 802,
+    "category": "Incubator"
+  },
+  {
+    "key": "APEXCORE",
+    "name": "Apache Apex Core",
+    "id": "12318823",
+    "issue_count": 782,
+    "category": "Apex"
+  },
+  {
+    "key": "GERONIMO",
+    "name": "Geronimo",
+    "id": "10220",
+    "issue_count": 782,
+    "category": "Geronimo"
+  },
+  {
+    "key": "IBATIS",
+    "name": "iBatis for Java [READ ONLY]",
+    "id": "10601",
+    "issue_count": 777,
+    "category": "Retired"
+  },
+  {
+    "key": "HTTPCORE",
+    "name": "HttpComponents HttpCore",
+    "id": "12310340",
+    "issue_count": 770,
+    "category": "HttpComponents"
+  },
+  {
+    "key": "DIRKRB",
+    "name": "Directory Kerberos",
+    "id": "12310910",
+    "issue_count": 768,
+    "category": "Directory"
+  },
+  {
+    "key": "WHIRR",
+    "name": "Apache Whirr (retired)",
+    "id": "12311110",
+    "issue_count": 754,
+    "category": "Retired"
+  },
+  {
+    "key": "SEDONA",
+    "name": "Apache Sedona",
+    "id": "12324321",
+    "issue_count": 750,
+    "category": "Sedona"
+  },
+  {
+    "key": "BUILDR",
+    "name": "Buildr (Retired)",
+    "id": "12310734",
+    "issue_count": 735,
+    "category": "Retired"
+  },
+  {
+    "key": "NET",
+    "name": "Commons Net",
+    "id": "12310487",
+    "issue_count": 732,
+    "category": "Commons"
+  },
+  {
+    "key": "CURATOR",
+    "name": "Apache Curator",
+    "id": "12314425",
+    "issue_count": 724,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MECLIPSE",
+    "name": "Maven Eclipse Plugin (RETIRED)",
+    "id": "12317423",
+    "issue_count": 723,
+    "category": "Maven"
+  },
+  {
+    "key": "COMPRESS",
+    "name": "Commons Compress",
+    "id": "12310904",
+    "issue_count": 719,
+    "category": "Commons"
+  },
+  {
+    "key": "WSS",
+    "name": "WSS4J",
+    "id": "12310063",
+    "issue_count": 718,
+    "category": "Web Services"
+  },
+  {
+    "key": "LEGAL",
+    "name": "Legal Discuss",
+    "id": "12310811",
+    "issue_count": 715,
+    "category": "Apache Software Foundation"
+  },
+  {
+    "key": "MRESOLVER",
+    "name": "Maven Resolver (Moved to GitHub Issues)",
+    "id": "12320628",
+    "issue_count": 714,
+    "category": "Maven"
+  },
+  {
+    "key": "DOXIA",
+    "name": "Maven Doxia (Moved to GitHub Issues)",
+    "id": "12317230",
+    "issue_count": 703,
+    "category": "Maven"
+  },
+  {
+    "key": "CRUNCH",
+    "name": "Crunch (Retired)",
+    "id": "12313526",
+    "issue_count": 697,
+    "category": "Retired"
+  },
+  {
+    "key": "LOG4NET",
+    "name": "Log4net",
+    "id": "10690",
+    "issue_count": 693,
+    "category": "Logging"
+  },
+  {
+    "key": "STREAMS",
+    "name": "Streams (Retired) (Retired)",
+    "id": "12314320",
+    "issue_count": 683,
+    "category": "Retired"
+  },
+  {
+    "key": "WEEX",
+    "name": "Weex (Retired)",
+    "id": "12320726",
+    "issue_count": 681,
+    "category": "Retired"
+  },
+  {
+    "key": "MARMOTTA",
+    "name": "Marmotta (Retired)",
+    "id": "12314321",
+    "issue_count": 680,
+    "category": "Retired"
+  },
+  {
+    "key": "GORA",
+    "name": "Apache Gora (Retired)",
+    "id": "12311172",
+    "issue_count": 667,
+    "category": "Retired"
+  },
+  {
+    "key": "AMQCPP",
+    "name": "ActiveMQ C++ Client",
+    "id": "12311207",
+    "issue_count": 662,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "XMLBEANS",
+    "name": "XMLBeans",
+    "id": "10436",
+    "issue_count": 661,
+    "category": "XMLBeans"
+  },
+  {
+    "key": "AMQNET",
+    "name": "ActiveMQ .Net",
+    "id": "12311201",
+    "issue_count": 654,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "LUCENENET",
+    "name": "Lucene.Net",
+    "id": "12310290",
+    "issue_count": 651,
+    "category": "Incubator"
+  },
+  {
+    "key": "HCATALOG",
+    "name": "HCatalog",
+    "id": "12311291",
+    "issue_count": 649,
+    "category": "Incubator"
+  },
+  {
+    "key": "ARCHETYPE",
+    "name": "Maven Archetype (Moved to GitHub Issues)",
+    "id": "12317122",
+    "issue_count": 649,
+    "category": "Maven"
+  },
+  {
+    "key": "STREAMPIPES",
+    "name": "StreamPipes",
+    "id": "12323520",
+    "issue_count": 640,
+    "category": "StreamPipes"
+  },
+  {
+    "key": "BROOKLYN",
+    "name": "Brooklyn",
+    "id": "12315421",
+    "issue_count": 634,
+    "category": "Brooklyn"
+  },
+  {
+    "key": "NPANDAY",
+    "name": "NPanday (Retired)",
+    "id": "12311182",
+    "issue_count": 634,
+    "category": "Retired"
+  },
+  {
+    "key": "SIS",
+    "name": "Spatial Information Systems",
+    "id": "12311072",
+    "issue_count": 628,
+    "category": "SIS"
+  },
+  {
+    "key": "QPIDJMS",
+    "name": "Qpid JMS",
+    "id": "12314524",
+    "issue_count": 616,
+    "category": "Qpid"
+  },
+  {
+    "key": "WAGON",
+    "name": "Maven Wagon (Moved to GitHub Issues)",
+    "id": "12318122",
+    "issue_count": 614,
+    "category": "Maven"
+  },
+  {
+    "key": "DBCP",
+    "name": "Commons DBCP",
+    "id": "12310469",
+    "issue_count": 590,
+    "category": "Commons"
+  },
+  {
+    "key": "XAP",
+    "name": "XAP",
+    "id": "12310502",
+    "issue_count": 589,
+    "category": "Retired"
+  },
+  {
+    "key": "DTACLOUD",
+    "name": "DeltaCloud",
+    "id": "12311150",
+    "issue_count": 587,
+    "category": "DeltaCloud"
+  },
+  {
+    "key": "MCOMPILER",
+    "name": "Maven Compiler Plugin (Moved to GitHub Issues)",
+    "id": "12317225",
+    "issue_count": 587,
+    "category": "Maven"
+  },
+  {
+    "key": "TILES",
+    "name": "Tiles",
+    "id": "12311046",
+    "issue_count": 578,
+    "category": "Retired"
+  },
+  {
+    "key": "BEANUTILS",
+    "name": "Commons BeanUtils",
+    "id": "12310460",
+    "issue_count": 576,
+    "category": "Commons"
+  },
+  {
+    "key": "ANY23",
+    "name": "Apache Any23 (Retired)",
+    "id": "12312323",
+    "issue_count": 574,
+    "category": "Retired"
+  },
+  {
+    "key": "SINGA",
+    "name": "Singa",
+    "id": "12316720",
+    "issue_count": 572,
+    "category": "Singa"
+  },
+  {
+    "key": "TOREE",
+    "name": "TOREE",
+    "id": "12319524",
+    "issue_count": 572,
+    "category": "Incubator"
+  },
+  {
+    "key": "JS1",
+    "name": "Jetspeed (Retired)",
+    "id": "10493",
+    "issue_count": 570,
+    "category": "Retired"
+  },
+  {
+    "key": "CTAKES",
+    "name": "cTAKES",
+    "id": "12313621",
+    "issue_count": 566,
+    "category": "Incubator"
+  },
+  {
+    "key": "LOGCXX",
+    "name": "Log4cxx",
+    "id": "10550",
+    "issue_count": 559,
+    "category": "Logging"
+  },
+  {
+    "key": "TC",
+    "name": "Traffic Control",
+    "id": "12320632",
+    "issue_count": 553,
+    "category": "Incubator"
+  },
+  {
+    "key": "RAT",
+    "name": "Apache RAT",
+    "id": "12310750",
+    "issue_count": 544,
+    "category": "Creadur"
+  },
+  {
+    "key": "RYA",
+    "name": "Rya",
+    "id": "12319020",
+    "issue_count": 542,
+    "category": "Rya"
+  },
+  {
+    "key": "ACE",
+    "name": "ACE",
+    "id": "12310931",
+    "issue_count": 539,
+    "category": "Ace"
+  },
+  {
+    "key": "MPLUGIN",
+    "name": "Maven Plugin Tools (Moved to GitHub Issues)",
+    "id": "12317820",
+    "issue_count": 526,
+    "category": "Maven"
+  },
+  {
+    "key": "NLPCRAFT",
+    "name": "NLPCraft (Retired)",
+    "id": "12323722",
+    "issue_count": 526,
+    "category": "Retired"
+  },
+  {
+    "key": "SDAP",
+    "name": "Apache Science Data Analytics Platform",
+    "id": "12321620",
+    "issue_count": 525,
+    "category": "Incubator"
+  },
+  {
+    "key": "AXIOM",
+    "name": "Axiom",
+    "id": "12311190",
+    "issue_count": 523,
+    "category": "Web Services"
+  },
+  {
+    "key": "FTPSERVER",
+    "name": "FtpServer",
+    "id": "10571",
+    "issue_count": 516,
+    "category": "MINA"
+  },
+  {
+    "key": "MENFORCER",
+    "name": "Maven Enforcer Plugin (Moved to GitHub Issues)",
+    "id": "12317520",
+    "issue_count": 512,
+    "category": "Maven"
+  },
+  {
+    "key": "VALIDATOR",
+    "name": "Commons Validator",
+    "id": "12310494",
+    "issue_count": 507,
+    "category": "Commons"
+  },
+  {
+    "key": "SHALE",
+    "name": "Shale",
+    "id": "12311040",
+    "issue_count": 497,
+    "category": "Retired"
+  },
+  {
+    "key": "MNGSITE",
+    "name": "Maven Project Web Site (Moved to GitHub Issues)",
+    "id": "12317822",
+    "issue_count": 493,
+    "category": "Maven"
+  },
+  {
+    "key": "NEMO",
+    "name": "Apache Nemo (Retired)",
+    "id": "12321823",
+    "issue_count": 487,
+    "category": "Retired"
+  },
+  {
+    "key": "EMPIREDB",
+    "name": "Empire-DB",
+    "id": "12310820",
+    "issue_count": 483,
+    "category": "Incubator"
+  },
+  {
+    "key": "ODFTOOLKIT",
+    "name": "ODF Toolkit",
+    "id": "12312220",
+    "issue_count": 479,
+    "category": "Retired"
+  },
+  {
+    "key": "MSHADE",
+    "name": "Maven Shade Plugin (Moved to GitHub Issues)",
+    "id": "12317921",
+    "issue_count": 478,
+    "category": "Maven"
+  },
+  {
+    "key": "DAEMON",
+    "name": "Commons Daemon",
+    "id": "12310468",
+    "issue_count": 477,
+    "category": "Commons"
+  },
+  {
+    "key": "MPOM",
+    "name": "Maven POMs (Moved to GitHub issues) ",
+    "id": "12311250",
+    "issue_count": 472,
+    "category": "Retired"
+  },
+  {
+    "key": "CELIX",
+    "name": "Celix",
+    "id": "12311213",
+    "issue_count": 469,
+    "category": "Incubator"
+  },
+  {
+    "key": "RIVER",
+    "name": "River (Retired)",
+    "id": "12310600",
+    "issue_count": 467,
+    "category": "Retired"
+  },
+  {
+    "key": "MCHANGES",
+    "name": "Maven Changes Plugin (Moved to GitHub Issues)",
+    "id": "12317222",
+    "issue_count": 465,
+    "category": "Maven"
+  },
+  {
+    "key": "FLAGON",
+    "name": "Flagon",
+    "id": "12320621",
+    "issue_count": 460,
+    "category": "Flagon"
+  },
+  {
+    "key": "MPIR",
+    "name": "Maven Project Info Reports Plugin (Moved to GitHub Issues)",
+    "id": "12317821",
+    "issue_count": 460,
+    "category": "Maven"
+  },
+  {
+    "key": "JEXL",
+    "name": "Commons JEXL",
+    "id": "12310479",
+    "issue_count": 456,
+    "category": "Commons"
+  },
+  {
+    "key": "MWAR",
+    "name": "Maven WAR Plugin (Moved to GitHub Issues)",
+    "id": "12318121",
+    "issue_count": 456,
+    "category": "Maven"
+  },
+  {
+    "key": "RAMPART",
+    "name": "Rampart",
+    "id": "12310610",
+    "issue_count": 451,
+    "category": "Axis"
+  },
+  {
+    "key": "BLUR",
+    "name": "Apache Blur",
+    "id": "12313721",
+    "issue_count": 450,
+    "category": "Retired"
+  },
+  {
+    "key": "EDGENT",
+    "name": "Edgent (Retired)",
+    "id": "12319623",
+    "issue_count": 450,
+    "category": "Retired"
+  },
+  {
+    "key": "WAVE",
+    "name": "Wave",
+    "id": "12311240",
+    "issue_count": 446,
+    "category": "Retired"
+  },
+  {
+    "key": "MCHECKSTYLE",
+    "name": "Maven Checkstyle Plugin (Moved to GitHub Issues)",
+    "id": "12317223",
+    "issue_count": 444,
+    "category": "Maven"
+  },
+  {
+    "key": "WINK",
+    "name": "Wink",
+    "id": "12310940",
+    "issue_count": 439,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ARIA",
+    "name": "AriaTosca",
+    "id": "12320626",
+    "issue_count": 427,
+    "category": "Retired"
+  },
+  {
+    "key": "JOHNZON",
+    "name": "Johnzon",
+    "id": "12315523",
+    "issue_count": 426,
+    "category": "Incubator"
+  },
+  {
+    "key": "WOOKIE",
+    "name": "Wookie",
+    "id": "12310961",
+    "issue_count": 425,
+    "category": "Incubator"
+  },
+  {
+    "key": "WHIMSY",
+    "name": "Whimsy",
+    "id": "12318723",
+    "issue_count": 424,
+    "category": "Whimsy"
+  },
+  {
+    "key": "CASSSIDECAR",
+    "name": "Sidecar for Apache Cassandra",
+    "id": "12324020",
+    "issue_count": 418,
+    "category": "Cassandra"
+  },
+  {
+    "key": "TAMAYA",
+    "name": "Tamaya",
+    "id": "12315925",
+    "issue_count": 414,
+    "category": "Retired"
+  },
+  {
+    "key": "POOL",
+    "name": "Commons Pool",
+    "id": "12310488",
+    "issue_count": 411,
+    "category": "Commons"
+  },
+  {
+    "key": "MAILBOX",
+    "name": "James Mailbox",
+    "id": "12311221",
+    "issue_count": 408,
+    "category": "James"
+  },
+  {
+    "key": "APLO",
+    "name": "ActiveMQ Apollo (Retired)",
+    "id": "12311310",
+    "issue_count": 406,
+    "category": "Retired"
+  },
+  {
+    "key": "MPMD",
+    "name": "Maven PMD Plugin (Moved to GitHub Issues)",
+    "id": "12317621",
+    "issue_count": 405,
+    "category": "Maven"
+  },
+  {
+    "key": "DIRAPI",
+    "name": "Directory Client API",
+    "id": "12310962",
+    "issue_count": 404,
+    "category": "Directory"
+  },
+  {
+    "key": "HTRACE",
+    "name": "HTrace",
+    "id": "12315924",
+    "issue_count": 402,
+    "category": "Retired"
+  },
+  {
+    "key": "METAMODEL",
+    "name": "Apache MetaModel (Retired)",
+    "id": "12314523",
+    "issue_count": 400,
+    "category": "Retired"
+  },
+  {
+    "key": "IVYDE",
+    "name": "IvyDE (Retired)",
+    "id": "12310640",
+    "issue_count": 388,
+    "category": "Retired"
+  },
+  {
+    "key": "ROCKETMQ",
+    "name": "Apache RocketMQ",
+    "id": "12320724",
+    "issue_count": 384,
+    "category": "Incubator"
+  },
+  {
+    "key": "IMAGING",
+    "name": "Commons Imaging",
+    "id": "12313421",
+    "issue_count": 381,
+    "category": "Commons"
+  },
+  {
+    "key": "GRIFFIN",
+    "name": "Griffin (Retired)",
+    "id": "12320728",
+    "issue_count": 380,
+    "category": "Retired"
+  },
+  {
+    "key": "TORQUEOLD",
+    "name": "Torque issues (old)",
+    "id": "12310542",
+    "issue_count": 378,
+    "category": "DB"
+  },
+  {
+    "key": "ESME",
+    "name": "Enterprise Social Messaging Environment (ESME)",
+    "id": "12310850",
+    "issue_count": 373,
+    "category": "ESME"
+  },
+  {
+    "key": "TORQUE",
+    "name": "Torque",
+    "id": "12310280",
+    "issue_count": 372,
+    "category": "DB"
+  },
+  {
+    "key": "MINVOKER",
+    "name": "Maven Invoker Plugin (Moved to GitHub Issues)",
+    "id": "12317525",
+    "issue_count": 370,
+    "category": "Maven"
+  },
+  {
+    "key": "GEARPUMP",
+    "name": "Apache Gearpump",
+    "id": "12319920",
+    "issue_count": 368,
+    "category": "Retired"
+  },
+  {
+    "key": "FILEUPLOAD",
+    "name": "Commons FileUpload",
+    "id": "12310476",
+    "issue_count": 364,
+    "category": "Commons"
+  },
+  {
+    "key": "BCEL",
+    "name": "Commons BCEL",
+    "id": "12314220",
+    "issue_count": 361,
+    "category": "Commons"
+  },
+  {
+    "key": "CLI",
+    "name": "Commons CLI",
+    "id": "12310463",
+    "issue_count": 353,
+    "category": "Commons"
+  },
+  {
+    "key": "FINCN",
+    "name": "Fineract Cloud Native",
+    "id": "12321627",
+    "issue_count": 353,
+    "category": "Fineract"
+  },
+  {
+    "key": "IMAP",
+    "name": "James Imap",
+    "id": "12310831",
+    "issue_count": 353,
+    "category": "James"
+  },
+  {
+    "key": "LABS",
+    "name": "Labs (Retired)",
+    "id": "12310571",
+    "issue_count": 352,
+    "category": "Retired"
+  },
+  {
+    "key": "PLC4X",
+    "name": "Apache PLC4X",
+    "id": "12321628",
+    "issue_count": 351,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "VYSPER",
+    "name": "VYSPER",
+    "id": "12310930",
+    "issue_count": 350,
+    "category": "MINA"
+  },
+  {
+    "key": "DOXIASITETOOLS",
+    "name": "Maven Doxia Sitetools (Moved to GitHub Issues)",
+    "id": "12317320",
+    "issue_count": 348,
+    "category": "Maven"
+  },
+  {
+    "key": "JOSHUA",
+    "name": "Joshua (Retired)",
+    "id": "12319720",
+    "issue_count": 346,
+    "category": "Retired"
+  },
+  {
+    "key": "MEECROWAVE",
+    "name": "Meecrowave",
+    "id": "12320731",
+    "issue_count": 343,
+    "category": "OpenWebBeans"
+  },
+  {
+    "key": "FC",
+    "name": "FORTRESS",
+    "id": "12315921",
+    "issue_count": 336,
+    "category": "Directory"
+  },
+  {
+    "key": "XBEAN",
+    "name": "XBean",
+    "id": "12310312",
+    "issue_count": 333,
+    "category": "Geronimo"
+  },
+  {
+    "key": "MIME4J",
+    "name": "James Mime4j",
+    "id": "12310521",
+    "issue_count": 332,
+    "category": "James"
+  },
+  {
+    "key": "CODEC",
+    "name": "Commons Codec",
+    "id": "12310464",
+    "issue_count": 331,
+    "category": "Commons"
+  },
+  {
+    "key": "GSOC",
+    "name": "Comdev GSOC",
+    "id": "12325021",
+    "issue_count": 330,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "NIFIREG",
+    "name": "NiFi Registry - MOVED TO NIFI PROJECT",
+    "id": "12320920",
+    "issue_count": 327,
+    "category": "NiFi"
+  },
+  {
+    "key": "MYRIAD",
+    "name": "Myriad",
+    "id": "12318522",
+    "issue_count": 325,
+    "category": "Myriad"
+  },
+  {
+    "key": "BAHIR",
+    "name": "Bahir (Retired)",
+    "id": "12320122",
+    "issue_count": 324,
+    "category": "Retired"
+  },
+  {
+    "key": "OMID",
+    "name": "Phoenix Omid",
+    "id": "12320021",
+    "issue_count": 322,
+    "category": "Phoenix"
+  },
+  {
+    "key": "MTOMCAT",
+    "name": "Apache Tomcat Maven Plugin",
+    "id": "12312120",
+    "issue_count": 320,
+    "category": "Tomcat"
+  },
+  {
+    "key": "LUCY",
+    "name": "Lucy",
+    "id": "12310501",
+    "issue_count": 320,
+    "category": "Retired"
+  },
+  {
+    "key": "MEAR",
+    "name": "Maven EAR Plugin (Moved to GitHub Issues)",
+    "id": "12317422",
+    "issue_count": 320,
+    "category": "Maven"
+  },
+  {
+    "key": "HIVEMALL",
+    "name": "Hivemall",
+    "id": "12320630",
+    "issue_count": 318,
+    "category": "Retired"
+  },
+  {
+    "key": "SMX4NMR",
+    "name": "ServiceMix NMR",
+    "id": "12311209",
+    "issue_count": 318,
+    "category": "ServiceMix"
+  },
+  {
+    "key": "CSV",
+    "name": "Commons CSV",
+    "id": "12313222",
+    "issue_count": 317,
+    "category": "Commons"
+  },
+  {
+    "key": "EXTCDI",
+    "name": "MyFaces CODI",
+    "id": "12311071",
+    "issue_count": 317,
+    "category": "MyFaces"
+  },
+  {
+    "key": "MUSE",
+    "name": "Muse",
+    "id": "10614",
+    "issue_count": 314,
+    "category": "Retired"
+  },
+  {
+    "key": "TEPHRA",
+    "name": "Phoenix Tephra",
+    "id": "12320123",
+    "issue_count": 314,
+    "category": "Phoenix"
+  },
+  {
+    "key": "ABDERA",
+    "name": "Abdera",
+    "id": "12310505",
+    "issue_count": 311,
+    "category": "Abdera"
+  },
+  {
+    "key": "POLYGENE",
+    "name": "Polygene",
+    "id": "12316820",
+    "issue_count": 311,
+    "category": "Polygene"
+  },
+  {
+    "key": "SPOT",
+    "name": "Spot (Retired)",
+    "id": "12320637",
+    "issue_count": 309,
+    "category": "Retired"
+  },
+  {
+    "key": "IBATISNET",
+    "name": "iBatis for .NET",
+    "id": "10602",
+    "issue_count": 301,
+    "category": "Retired"
+  },
+  {
+    "key": "MJAR",
+    "name": "Maven JAR Plugin (Moved to GitHub Issues)",
+    "id": "12317526",
+    "issue_count": 301,
+    "category": "Maven"
+  },
+  {
+    "key": "MDEPLOY",
+    "name": "Maven Deploy Plugin (Moved to GitHub Issues)",
+    "id": "12317228",
+    "issue_count": 299,
+    "category": "Maven"
+  },
+  {
+    "key": "ETCH",
+    "name": "Etch",
+    "id": "12310835",
+    "issue_count": 295,
+    "category": "Etch"
+  },
+  {
+    "key": "COMDEV",
+    "name": "Community Development",
+    "id": "12311010",
+    "issue_count": 294,
+    "category": "Apache Software Foundation"
+  },
+  {
+    "key": "JELLY",
+    "name": "Commons Jelly",
+    "id": "10012",
+    "issue_count": 291,
+    "category": "Commons"
+  },
+  {
+    "key": "SCXML",
+    "name": "Commons SCXML",
+    "id": "12310492",
+    "issue_count": 289,
+    "category": "Commons"
+  },
+  {
+    "key": "DDLUTILS",
+    "name": "DdlUtils",
+    "id": "10731",
+    "issue_count": 289,
+    "category": "DB"
+  },
+  {
+    "key": "MRESOURCES",
+    "name": "Maven Resources Plugin (Moved to GitHub Issues)",
+    "id": "12317827",
+    "issue_count": 288,
+    "category": "Maven"
+  },
+  {
+    "key": "DOSGI",
+    "name": "CXF Distributed OSGi (Retired)",
+    "id": "12311031",
+    "issue_count": 278,
+    "category": "Retired"
+  },
+  {
+    "key": "NETBEANSINFRA",
+    "name": "Apache NetBeans Infra",
+    "id": "12323920",
+    "issue_count": 277,
+    "category": "NetBeans"
+  },
+  {
+    "key": "INCUBATOR",
+    "name": "Incubator",
+    "id": "10595",
+    "issue_count": 277,
+    "category": "Incubator"
+  },
+  {
+    "key": "CACTUS",
+    "name": "Cactus",
+    "id": "10471",
+    "issue_count": 275,
+    "category": "Retired"
+  },
+  {
+    "key": "TWILL",
+    "name": "Apache Twill (Retired)",
+    "id": "12315020",
+    "issue_count": 271,
+    "category": "Retired"
+  },
+  {
+    "key": "SMX4KNL",
+    "name": "ServiceMix Kernel",
+    "id": "12311205",
+    "issue_count": 269,
+    "category": "Retired"
+  },
+  {
+    "key": "SANDBOX",
+    "name": "Commons Sandbox",
+    "id": "12310491",
+    "issue_count": 266,
+    "category": "Commons"
+  },
+  {
+    "key": "JUNEAU",
+    "name": "Juneau",
+    "id": "12320520",
+    "issue_count": 263,
+    "category": "Incubator"
+  },
+  {
+    "key": "OGNL",
+    "name": "Commons OGNL (Dormant)",
+    "id": "12313525",
+    "issue_count": 261,
+    "category": "Commons"
+  },
+  {
+    "key": "S2GRAPH",
+    "name": "S2Graph (Retired)",
+    "id": "12319320",
+    "issue_count": 258,
+    "category": "Retired"
+  },
+  {
+    "key": "FEDIZ",
+    "name": "CXF-Fediz",
+    "id": "12313420",
+    "issue_count": 256,
+    "category": "CXF"
+  },
+  {
+    "key": "MODPYTHON",
+    "name": "mod_python",
+    "id": "10640",
+    "issue_count": 256,
+    "category": "HTTP Server"
+  },
+  {
+    "key": "MINDEXER",
+    "name": "Maven Indexer (Moved to GitHub Issues)",
+    "id": "12317523",
+    "issue_count": 255,
+    "category": "Maven"
+  },
+  {
+    "key": "MSKINS",
+    "name": "Maven Skins (Moved to GitHub Issues)",
+    "id": "12317926",
+    "issue_count": 252,
+    "category": "Maven"
+  },
+  {
+    "key": "SANTUARIO",
+    "name": "Santuario",
+    "id": "12311231",
+    "issue_count": 252,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ATTIC",
+    "name": "Attic",
+    "id": "12310920",
+    "issue_count": 248,
+    "category": "Apache Software Foundation"
+  },
+  {
+    "key": "MANTTASKS",
+    "name": "Maven Ant Tasks (RETIRED)",
+    "id": "12317120",
+    "issue_count": 247,
+    "category": "Maven"
+  },
+  {
+    "key": "AWF",
+    "name": "Apache AWF (Retired)",
+    "id": "12313220",
+    "issue_count": 244,
+    "category": "Retired"
+  },
+  {
+    "key": "LOG4PHP",
+    "name": "Log4php",
+    "id": "12310690",
+    "issue_count": 244,
+    "category": "Logging"
+  },
+  {
+    "key": "PODLINGNAMESEARCH",
+    "name": "Podling Suitable Names Search",
+    "id": "12312620",
+    "issue_count": 244,
+    "category": "Incubator"
+  },
+  {
+    "key": "VXQUERY",
+    "name": "VXQuery (Retired)",
+    "id": "12310960",
+    "issue_count": 244,
+    "category": "Retired"
+  },
+  {
+    "key": "WODEN",
+    "name": "Woden",
+    "id": "10710",
+    "issue_count": 244,
+    "category": "Web Services"
+  },
+  {
+    "key": "JCS",
+    "name": "Commons JCS",
+    "id": "12310506",
+    "issue_count": 243,
+    "category": "Commons"
+  },
+  {
+    "key": "MINIFI",
+    "name": "Apache NiFi MiNiFi - MOVED TO NIFI PROJECT",
+    "id": "12319921",
+    "issue_count": 241,
+    "category": "NiFi"
+  },
+  {
+    "key": "PORTLETBRIDGE",
+    "name": "MyFaces Portlet Bridge",
+    "id": "12310733",
+    "issue_count": 235,
+    "category": "MyFaces"
+  },
+  {
+    "key": "FREEMARKER",
+    "name": "Apache Freemarker",
+    "id": "12318825",
+    "issue_count": 233,
+    "category": "Freemarker"
+  },
+  {
+    "key": "TEXT",
+    "name": "Commons Text",
+    "id": "12318221",
+    "issue_count": 230,
+    "category": "Commons"
+  },
+  {
+    "key": "DIR",
+    "name": "Directory",
+    "id": "10400",
+    "issue_count": 229,
+    "category": "Directory"
+  },
+  {
+    "key": "MRUNIT",
+    "name": "MRUnit",
+    "id": "12311292",
+    "issue_count": 224,
+    "category": "MRUnit"
+  },
+  {
+    "key": "OLTU",
+    "name": "Apache Oltu",
+    "id": "12314420",
+    "issue_count": 216,
+    "category": "Retired"
+  },
+  {
+    "key": "SANDESHA2",
+    "name": "Sandesha2",
+    "id": "12310190",
+    "issue_count": 216,
+    "category": "Axis"
+  },
+  {
+    "key": "PIO",
+    "name": "PredictionIO (Retired)",
+    "id": "12320420",
+    "issue_count": 214,
+    "category": "Retired"
+  },
+  {
+    "key": "DL",
+    "name": "DistributedLog",
+    "id": "12320620",
+    "issue_count": 213,
+    "category": "DistributedLog"
+  },
+  {
+    "key": "HIVEMIND",
+    "name": "HiveMind",
+    "id": "10500",
+    "issue_count": 213,
+    "category": "Retired"
+  },
+  {
+    "key": "MANTRUN",
+    "name": "Maven Antrun Plugin (Moved to GitHub Issues)",
+    "id": "12317121",
+    "issue_count": 213,
+    "category": "Maven"
+  },
+  {
+    "key": "VELTOOLS",
+    "name": "Velocity Tools",
+    "id": "12310130",
+    "issue_count": 211,
+    "category": "Velocity"
+  },
+  {
+    "key": "EMAIL",
+    "name": "Commons Email",
+    "id": "12310474",
+    "issue_count": 207,
+    "category": "Commons"
+  },
+  {
+    "key": "MPH",
+    "name": "Maven Help Plugin (Moved to GitHub Issues)",
+    "id": "12317522",
+    "issue_count": 207,
+    "category": "Maven"
+  },
+  {
+    "key": "NUMBERS",
+    "name": "Commons Numbers",
+    "id": "12320720",
+    "issue_count": 205,
+    "category": "Commons"
+  },
+  {
+    "key": "SERF",
+    "name": "serf",
+    "id": "12318820",
+    "issue_count": 205,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "JXPATH",
+    "name": "Commons JXPath",
+    "id": "12310480",
+    "issue_count": 204,
+    "category": "Commons"
+  },
+  {
+    "key": "DMAP",
+    "name": "DeviceMap",
+    "id": "12312921",
+    "issue_count": 204,
+    "category": "Devicemap"
+  },
+  {
+    "key": "MINSTALL",
+    "name": "Maven Install Plugin (Moved to GitHub Issues)",
+    "id": "12317524",
+    "issue_count": 202,
+    "category": "Maven"
+  },
+  {
+    "key": "OPENOFFICE",
+    "name": "OpenOffice",
+    "id": "12322821",
+    "issue_count": 202,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "DIGESTER",
+    "name": "Commons Digester",
+    "id": "12310471",
+    "issue_count": 198,
+    "category": "Commons"
+  },
+  {
+    "key": "BATCHEE",
+    "name": "BatchEE",
+    "id": "12314924",
+    "issue_count": 197,
+    "category": "Incubator"
+  },
+  {
+    "key": "WSCOMMONS",
+    "name": "WS-Commons",
+    "id": "12310250",
+    "issue_count": 197,
+    "category": "Web Services"
+  },
+  {
+    "key": "BVAL",
+    "name": "BVal",
+    "id": "12311080",
+    "issue_count": 195,
+    "category": "BVal"
+  },
+  {
+    "key": "LOGGING",
+    "name": "Commons Logging",
+    "id": "12310484",
+    "issue_count": 194,
+    "category": "Commons"
+  },
+  {
+    "key": "XMLRPC",
+    "name": "XML-RPC",
+    "id": "10465",
+    "issue_count": 193,
+    "category": "Retired"
+  },
+  {
+    "key": "JXR",
+    "name": "Maven JXR (Moved to GitHub Issues)",
+    "id": "12317527",
+    "issue_count": 192,
+    "category": "Maven"
+  },
+  {
+    "key": "RNG",
+    "name": "Commons RNG",
+    "id": "12320623",
+    "issue_count": 190,
+    "category": "Commons"
+  },
+  {
+    "key": "EXTSCRIPT",
+    "name": "MyFaces Extensions Scripting",
+    "id": "12310964",
+    "issue_count": 190,
+    "category": "MyFaces"
+  },
+  {
+    "key": "DATAFU",
+    "name": "DataFu",
+    "id": "12315221",
+    "issue_count": 184,
+    "category": "Incubator"
+  },
+  {
+    "key": "S4",
+    "name": "Apache S4 (Retired)",
+    "id": "12312322",
+    "issue_count": 179,
+    "category": "Retired"
+  },
+  {
+    "key": "DROIDS",
+    "name": "Droids",
+    "id": "12310842",
+    "issue_count": 179,
+    "category": "Retired"
+  },
+  {
+    "key": "SOAP",
+    "name": "SOAP",
+    "id": "10459",
+    "issue_count": 173,
+    "category": "Retired"
+  },
+  {
+    "key": "CRYPTO",
+    "name": "Commons Crypto",
+    "id": "12320024",
+    "issue_count": 170,
+    "category": "Commons"
+  },
+  {
+    "key": "GUMP",
+    "name": "Gump",
+    "id": "10457",
+    "issue_count": 170,
+    "category": "Gump"
+  },
+  {
+    "key": "MAILET",
+    "name": "James Mailet",
+    "id": "12310660",
+    "issue_count": 170,
+    "category": "James"
+  },
+  {
+    "key": "EXTVAL",
+    "name": "MyFaces Extensions Validator",
+    "id": "12310821",
+    "issue_count": 161,
+    "category": "MyFaces"
+  },
+  {
+    "key": "RAMPARTC",
+    "name": "Rampart/C",
+    "id": "12310630",
+    "issue_count": 159,
+    "category": "Axis"
+  },
+  {
+    "key": "MWRAPPER",
+    "name": "Maven Wrapper (Moved to GitHub Issues)",
+    "id": "12323721",
+    "issue_count": 158,
+    "category": "Maven"
+  },
+  {
+    "key": "COMMONSSITE",
+    "name": "Apache Commons All",
+    "id": "12310466",
+    "issue_count": 155,
+    "category": "Commons"
+  },
+  {
+    "key": "OLIO",
+    "name": "Olio",
+    "id": "12310839",
+    "issue_count": 154,
+    "category": "Retired"
+  },
+  {
+    "key": "DBUTILS",
+    "name": "Commons DbUtils",
+    "id": "12310470",
+    "issue_count": 152,
+    "category": "Commons"
+  },
+  {
+    "key": "MRRESOURCES",
+    "name": "Maven Remote Resources Plugin (Moved to GitHub Issues)",
+    "id": "12317825",
+    "issue_count": 152,
+    "category": "Maven"
+  },
+  {
+    "key": "GEOMETRY",
+    "name": "Commons Geometry",
+    "id": "12321920",
+    "issue_count": 150,
+    "category": "Commons"
+  },
+  {
+    "key": "MCHANGELOG",
+    "name": "Maven Changelog Plugin (Moved to GitHub Issues)",
+    "id": "12317221",
+    "issue_count": 150,
+    "category": "Maven"
+  },
+  {
+    "key": "DUBBO",
+    "name": "Apache Dubbo",
+    "id": "12321822",
+    "issue_count": 148,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MGPG",
+    "name": "Maven GPG Plugin (Moved to GitHub Issues)",
+    "id": "12317521",
+    "issue_count": 145,
+    "category": "Maven"
+  },
+  {
+    "key": "OJB",
+    "name": "OJB",
+    "id": "10700",
+    "issue_count": 144,
+    "category": "Retired"
+  },
+  {
+    "key": "XGC",
+    "name": "XMLGraphicsCommons",
+    "id": "12314221",
+    "issue_count": 144,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MSOURCES",
+    "name": "Maven Source Plugin (Moved to GitHub Issues)",
+    "id": "12317924",
+    "issue_count": 143,
+    "category": "Maven"
+  },
+  {
+    "key": "CASSANALYTICS",
+    "name": "Apache Cassandra Analytics",
+    "id": "12325525",
+    "issue_count": 140,
+    "category": "Cassandra"
+  },
+  {
+    "key": "DIRECTMEMORY",
+    "name": "Apache DirectMemory",
+    "id": "12312321",
+    "issue_count": 139,
+    "category": "Incubator"
+  },
+  {
+    "key": "QPIDIT",
+    "name": "Apache QPID Interoperability Test Suite",
+    "id": "12318621",
+    "issue_count": 139,
+    "category": "Qpid"
+  },
+  {
+    "key": "HTTPASYNC",
+    "name": "HttpComponents HttpAsyncClient",
+    "id": "12311081",
+    "issue_count": 138,
+    "category": "HttpComponents"
+  },
+  {
+    "key": "SCOUT",
+    "name": "Scout (Retired)",
+    "id": "10610",
+    "issue_count": 138,
+    "category": "Retired"
+  },
+  {
+    "key": "COCOON3",
+    "name": "Cocoon 3 (Retired) (Retired) (Retired)",
+    "id": "12310838",
+    "issue_count": 132,
+    "category": "Retired"
+  },
+  {
+    "key": "STONEHENGE",
+    "name": "Stonehenge",
+    "id": "12310845",
+    "issue_count": 130,
+    "category": "Retired"
+  },
+  {
+    "key": "QUICKSTEP",
+    "name": "Apache Quickstep",
+    "id": "12320022",
+    "issue_count": 128,
+    "category": "Retired"
+  },
+  {
+    "key": "MEJB",
+    "name": "Maven EJB Plugin (Moved to GitHub Issues)",
+    "id": "12317421",
+    "issue_count": 128,
+    "category": "Maven"
+  },
+  {
+    "key": "MBUILDCACHE",
+    "name": "Maven Build Cache Extension (Moved to GitHub Issues)",
+    "id": "12324820",
+    "issue_count": 124,
+    "category": "Retired"
+  },
+  {
+    "key": "EXEC",
+    "name": "Commons Exec",
+    "id": "12310814",
+    "issue_count": 124,
+    "category": "Commons"
+  },
+  {
+    "key": "ZETACOMP",
+    "name": "Zeta Components (Retired)",
+    "id": "12311131",
+    "issue_count": 123,
+    "category": "Retired"
+  },
+  {
+    "key": "CASSJAVA",
+    "name": "Apache Cassandra Java driver",
+    "id": "12325523",
+    "issue_count": 121,
+    "category": "Cassandra"
+  },
+  {
+    "key": "CLOWNFISH",
+    "name": "Apache Lucy-Clownfish",
+    "id": "12315720",
+    "issue_count": 120,
+    "category": "Lucy"
+  },
+  {
+    "key": "DIRSHARED",
+    "name": "Directory Shared (Please use DIRAPI instead)",
+    "id": "12310770",
+    "issue_count": 120,
+    "category": "Directory"
+  },
+  {
+    "key": "PROTOCOLS",
+    "name": "James Protocols",
+    "id": "12311060",
+    "issue_count": 120,
+    "category": "James"
+  },
+  {
+    "key": "MCLEAN",
+    "name": "Maven Clean Plugin (Moved to GitHub Issues)",
+    "id": "12317224",
+    "issue_count": 120,
+    "category": "Maven"
+  },
+  {
+    "key": "ONAMI",
+    "name": "Apache Onami",
+    "id": "12314120",
+    "issue_count": 118,
+    "category": "Onami"
+  },
+  {
+    "key": "HUPA",
+    "name": "James Hupa",
+    "id": "12310980",
+    "issue_count": 117,
+    "category": "Retired"
+  },
+  {
+    "key": "JSIEVE",
+    "name": "James jSieve",
+    "id": "10412",
+    "issue_count": 115,
+    "category": "James"
+  },
+  {
+    "key": "JSPF",
+    "name": "James jSPF",
+    "id": "12310350",
+    "issue_count": 115,
+    "category": "James"
+  },
+  {
+    "key": "PB",
+    "name": "Portals Bridges (Retired)",
+    "id": "10720",
+    "issue_count": 114,
+    "category": "Retired"
+  },
+  {
+    "key": "CRAIL",
+    "name": "Apache Crail",
+    "id": "12321625",
+    "issue_count": 113,
+    "category": "Retired"
+  },
+  {
+    "key": "CHAIN",
+    "name": "Commons Chain",
+    "id": "12310462",
+    "issue_count": 113,
+    "category": "Commons"
+  },
+  {
+    "key": "CASSGO",
+    "name": "Apache Cassandra Go driver",
+    "id": "12325524",
+    "issue_count": 111,
+    "category": "Cassandra"
+  },
+  {
+    "key": "GRFT",
+    "name": "Graffito",
+    "id": "10661",
+    "issue_count": 110,
+    "category": "Retired"
+  },
+  {
+    "key": "WSRP4J",
+    "name": "WSRP4J",
+    "id": "10464",
+    "issue_count": 109,
+    "category": "Retired"
+  },
+  {
+    "key": "MPDF",
+    "name": "Maven PDF Plugin (RETIRED)",
+    "id": "12317620",
+    "issue_count": 107,
+    "category": "Maven"
+  },
+  {
+    "key": "RIPPLE",
+    "name": "Apache Ripple",
+    "id": "12314421",
+    "issue_count": 106,
+    "category": "Retired"
+  },
+  {
+    "key": "JAXME",
+    "name": "JaxMe",
+    "id": "10463",
+    "issue_count": 106,
+    "category": "Retired"
+  },
+  {
+    "key": "HISE",
+    "name": "HISE",
+    "id": "12311000",
+    "issue_count": 103,
+    "category": "Retired"
+  },
+  {
+    "key": "TRB",
+    "name": "Turbine",
+    "id": "12310090",
+    "issue_count": 103,
+    "category": "Turbine"
+  },
+  {
+    "key": "MRQL",
+    "name": "MRQL",
+    "id": "12314428",
+    "issue_count": 102,
+    "category": "Retired"
+  },
+  {
+    "key": "GOSSIP",
+    "name": "Gossip",
+    "id": "12320121",
+    "issue_count": 101,
+    "category": "Retired"
+  },
+  {
+    "key": "LIMINAL",
+    "name": "Apache Liminal (Retired)",
+    "id": "12324221",
+    "issue_count": 100,
+    "category": "Retired"
+  },
+  {
+    "key": "AGE2",
+    "name": "Apache AGE",
+    "id": "12324621",
+    "issue_count": 98,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "XMLCOMMONS",
+    "name": "XML Commons",
+    "id": "12311230",
+    "issue_count": 97,
+    "category": "XML"
+  },
+  {
+    "key": "PHOTARK",
+    "name": "PhotArk",
+    "id": "12310832",
+    "issue_count": 96,
+    "category": "Retired"
+  },
+  {
+    "key": "HTTPDRAFT",
+    "name": "Labs WebArch draft-fielding-http (Retired)",
+    "id": "12310740",
+    "issue_count": 95,
+    "category": "Retired"
+  },
+  {
+    "key": "SCIMPLE",
+    "name": "Apache SCIMple",
+    "id": "12322321",
+    "issue_count": 94,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "WSIF",
+    "name": "Axis-WSIF",
+    "id": "10462",
+    "issue_count": 94,
+    "category": "Retired"
+  },
+  {
+    "key": "MPLUGINTESTING",
+    "name": "Maven Plugin Testing  (Moved to GitHub Issues)",
+    "id": "12317720",
+    "issue_count": 92,
+    "category": "Maven"
+  },
+  {
+    "key": "MJLINK",
+    "name": "Maven JLink Plugin (Moved to GitHub Issues)",
+    "id": "12321432",
+    "issue_count": 91,
+    "category": "Maven"
+  },
+  {
+    "key": "MRAR",
+    "name": "Maven RAR Plugin (Moved to GitHub Issues)",
+    "id": "12317823",
+    "issue_count": 89,
+    "category": "Maven"
+  },
+  {
+    "key": "AMATERASU",
+    "name": "AMATERASU",
+    "id": "12321521",
+    "issue_count": 84,
+    "category": "Retired"
+  },
+  {
+    "key": "STEVE",
+    "name": "Steve",
+    "id": "12315220",
+    "issue_count": 84,
+    "category": "Steve"
+  },
+  {
+    "key": "MARTIFACT",
+    "name": "Maven Artifact Plugin (Moved to GitHub Issues)",
+    "id": "12324322",
+    "issue_count": 83,
+    "category": "Maven"
+  },
+  {
+    "key": "SAMOA",
+    "name": "SAMOA",
+    "id": "12316220",
+    "issue_count": 83,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "STATISTICS",
+    "name": "Commons Statistics",
+    "id": "12321632",
+    "issue_count": 82,
+    "category": "Commons"
+  },
+  {
+    "key": "PIRK",
+    "name": "PIRK",
+    "id": "12320320",
+    "issue_count": 81,
+    "category": "Retired"
+  },
+  {
+    "key": "APA",
+    "name": "Portals Apps (Retired)",
+    "id": "12310870",
+    "issue_count": 81,
+    "category": "Retired"
+  },
+  {
+    "key": "JCI",
+    "name": "Commons JCI",
+    "id": "12310650",
+    "issue_count": 79,
+    "category": "Commons"
+  },
+  {
+    "key": "COMMONSRDF",
+    "name": "Apache Commons RDF",
+    "id": "12316620",
+    "issue_count": 78,
+    "category": "Commons"
+  },
+  {
+    "key": "MARVIN",
+    "name": "Apache Marvin (Retired)",
+    "id": "12322622",
+    "issue_count": 78,
+    "category": "Retired"
+  },
+  {
+    "key": "MARCHETYPES",
+    "name": "Maven Archetype Bundles (Moved to GitHub Issues)",
+    "id": "12317123",
+    "issue_count": 78,
+    "category": "Maven"
+  },
+  {
+    "key": "MANT",
+    "name": "Maven Ant Plugin (RETIRED)",
+    "id": "12317021",
+    "issue_count": 77,
+    "category": "Maven"
+  },
+  {
+    "key": "DOXIATOOLS",
+    "name": "Maven Doxia Tools (Moved to GitHub Issues)",
+    "id": "12317420",
+    "issue_count": 76,
+    "category": "Maven"
+  },
+  {
+    "key": "EASYANT",
+    "name": "EasyAnt",
+    "id": "12311270",
+    "issue_count": 75,
+    "category": "Ant"
+  },
+  {
+    "key": "SANDESHA2C",
+    "name": "Sandesha2/C",
+    "id": "12310540",
+    "issue_count": 75,
+    "category": "Retired"
+  },
+  {
+    "key": "BETWIXT",
+    "name": "Commons Betwixt",
+    "id": "12310461",
+    "issue_count": 73,
+    "category": "Commons"
+  },
+  {
+    "key": "MJARSIGNER",
+    "name": "Maven Jar Signer Plugin (Moved to GitHub Issues)",
+    "id": "12317528",
+    "issue_count": 73,
+    "category": "Maven"
+  },
+  {
+    "key": "MYNEWTDOC",
+    "name": "MyNewt Docs",
+    "id": "12320020",
+    "issue_count": 73,
+    "category": "Incubator"
+  },
+  {
+    "key": "OCM",
+    "name": "Jackrabbit OCM",
+    "id": "12310932",
+    "issue_count": 72,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "MYFACESTEST",
+    "name": "MyFaces Test",
+    "id": "12310951",
+    "issue_count": 72,
+    "category": "MyFaces"
+  },
+  {
+    "key": "MSCMPUB",
+    "name": "Maven SCM Publish Plugin (Moved to GitHub Issues)",
+    "id": "12317920",
+    "issue_count": 70,
+    "category": "Maven"
+  },
+  {
+    "key": "PYLUCENE",
+    "name": "PyLucene",
+    "id": "12310871",
+    "issue_count": 70,
+    "category": "Lucene"
+  },
+  {
+    "key": "XMLSCHEMA",
+    "name": "XmlSchema",
+    "id": "12311191",
+    "issue_count": 70,
+    "category": "Web Services"
+  },
+  {
+    "key": "DAYTRADER",
+    "name": "DayTrader",
+    "id": "12310320",
+    "issue_count": 67,
+    "category": "Geronimo"
+  },
+  {
+    "key": "ORCHESTRA",
+    "name": "MyFaces Orchestra",
+    "id": "12310691",
+    "issue_count": 67,
+    "category": "MyFaces"
+  },
+  {
+    "key": "MDOAP",
+    "name": "Maven DOAP Plugin (Moved to GitHub Issues)",
+    "id": "12317226",
+    "issue_count": 65,
+    "category": "Maven"
+  },
+  {
+    "key": "SIRONA",
+    "name": "Sirona (Retired)",
+    "id": "12314925",
+    "issue_count": 65,
+    "category": "Retired"
+  },
+  {
+    "key": "AGEOLD",
+    "name": "Apache AGE (old)",
+    "id": "12324223",
+    "issue_count": 64,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "HDT",
+    "name": "Hadoop Development Tools",
+    "id": "12314121",
+    "issue_count": 63,
+    "category": "Hadoop"
+  },
+  {
+    "key": "CLOUDSTACK",
+    "name": "CloudStack",
+    "id": "12313920",
+    "issue_count": 61,
+    "category": "Cloudstack"
+  },
+  {
+    "key": "TST",
+    "name": "Test Project",
+    "id": "10650",
+    "issue_count": 61,
+    "category": "Infrastructure"
+  },
+  {
+    "key": "MASFRES",
+    "name": "Apache Maven Resource Bundles (Moved to GitHub Issues)",
+    "id": "12314621",
+    "issue_count": 60,
+    "category": "Maven"
+  },
+  {
+    "key": "MTOOLCHAINS",
+    "name": "Maven Toolchains Plugin (Moved to GitHub Issues)",
+    "id": "12318020",
+    "issue_count": 60,
+    "category": "Maven"
+  },
+  {
+    "key": "HORN",
+    "name": "Apache Horn (Retired)",
+    "id": "12318827",
+    "issue_count": 59,
+    "category": "Retired"
+  },
+  {
+    "key": "PNIX",
+    "name": "Avalon Phoenix",
+    "id": "10081",
+    "issue_count": 58,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRSITE",
+    "name": "Jackrabbit Site",
+    "id": "12310861",
+    "issue_count": 57,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "MACR",
+    "name": "Maven ACR Plugin (Moved to GitHub Issues)",
+    "id": "12317020",
+    "issue_count": 57,
+    "category": "Maven"
+  },
+  {
+    "key": "WAYANG",
+    "name": "Apache Wayang",
+    "id": "12324420",
+    "issue_count": 56,
+    "category": "Wayang"
+  },
+  {
+    "key": "KALUMET",
+    "name": "Kalumet (Retired)",
+    "id": "12312324",
+    "issue_count": 56,
+    "category": "Retired"
+  },
+  {
+    "key": "XERCESP",
+    "name": "Xerces-P",
+    "id": "12310241",
+    "issue_count": 55,
+    "category": "XML"
+  },
+  {
+    "key": "DORMANT",
+    "name": "Commons Dormant",
+    "id": "12310591",
+    "issue_count": 53,
+    "category": "Commons"
+  },
+  {
+    "key": "COR",
+    "name": "Corinthia",
+    "id": "12316120",
+    "issue_count": 53,
+    "category": "Retired"
+  },
+  {
+    "key": "RUNTIME",
+    "name": "Avalon Merlin Runtime",
+    "id": "10425",
+    "issue_count": 52,
+    "category": "Retired"
+  },
+  {
+    "key": "EXLBR",
+    "name": "Excalibur Components",
+    "id": "10428",
+    "issue_count": 52,
+    "category": "Retired"
+  },
+  {
+    "key": "APOLLO",
+    "name": "WSRF",
+    "id": "10612",
+    "issue_count": 51,
+    "category": "Retired"
+  },
+  {
+    "key": "CHAINSAW",
+    "name": "Apache Chainsaw",
+    "id": "12321824",
+    "issue_count": 50,
+    "category": "Logging"
+  },
+  {
+    "key": "CXFXJC",
+    "name": "CXF XJC Utils",
+    "id": "12315520",
+    "issue_count": 50,
+    "category": "CXF"
+  },
+  {
+    "key": "JDKIM",
+    "name": "James jDKIM",
+    "id": "12310990",
+    "issue_count": 49,
+    "category": "James"
+  },
+  {
+    "key": "MAVIBOT",
+    "name": "Mavibot",
+    "id": "12314620",
+    "issue_count": 49,
+    "category": "Directory"
+  },
+  {
+    "key": "CLKE",
+    "name": "Click Eclipse",
+    "id": "12310901",
+    "issue_count": 47,
+    "category": "Click"
+  },
+  {
+    "key": "PROVISIONR",
+    "name": "Provisionr",
+    "id": "12314423",
+    "issue_count": 47,
+    "category": "Retired"
+  },
+  {
+    "key": "BSF",
+    "name": "Commons BSF",
+    "id": "12310621",
+    "issue_count": 46,
+    "category": "Commons"
+  },
+  {
+    "key": "MFCOMMONS",
+    "name": "MyFaces Commons",
+    "id": "12310846",
+    "issue_count": 46,
+    "category": "MyFaces"
+  },
+  {
+    "key": "ASYNCWEB",
+    "name": "Asyncweb",
+    "id": "12310752",
+    "issue_count": 45,
+    "category": "MINA"
+  },
+  {
+    "key": "AGILA",
+    "name": "Agila",
+    "id": "10730",
+    "issue_count": 44,
+    "category": "Retired"
+  },
+  {
+    "key": "MPT",
+    "name": "James MPT",
+    "id": "12310847",
+    "issue_count": 44,
+    "category": "James"
+  },
+  {
+    "key": "IOTA",
+    "name": "Iota (Retired)",
+    "id": "12319528",
+    "issue_count": 43,
+    "category": "Retired"
+  },
+  {
+    "key": "TRANSACTION",
+    "name": "Commons Transaction",
+    "id": "12310493",
+    "issue_count": 42,
+    "category": "Commons"
+  },
+  {
+    "key": "TRAINING",
+    "name": "Apache Training",
+    "id": "12322825",
+    "issue_count": 41,
+    "category": "Training"
+  },
+  {
+    "key": "RESOURCES",
+    "name": "Commons Resources",
+    "id": "12310490",
+    "issue_count": 41,
+    "category": "Commons"
+  },
+  {
+    "key": "MLINKCHECK",
+    "name": "Maven Linkcheck Plugin (Moved to GitHub Issues)",
+    "id": "12317530",
+    "issue_count": 40,
+    "category": "Maven"
+  },
+  {
+    "key": "MVERIFIER",
+    "name": "Maven Verifier Plugin (Moved to GitHub Issues)",
+    "id": "12318120",
+    "issue_count": 40,
+    "category": "Maven"
+  },
+  {
+    "key": "APISIX",
+    "name": "APISIX",
+    "id": "12324021",
+    "issue_count": 39,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MREPOSITORY",
+    "name": "Maven Repository Plugin (RETIRED)",
+    "id": "12317826",
+    "issue_count": 39,
+    "category": "Maven"
+  },
+  {
+    "key": "MILAGRO",
+    "name": "Milagro (Retired)",
+    "id": "12319526",
+    "issue_count": 38,
+    "category": "Retired"
+  },
+  {
+    "key": "ADDR",
+    "name": "Addressing",
+    "id": "12310060",
+    "issue_count": 37,
+    "category": "Retired"
+  },
+  {
+    "key": "OEP",
+    "name": "OpenEJB Eclipse Plugin",
+    "id": "12310834",
+    "issue_count": 37,
+    "category": "OpenEJB"
+  },
+  {
+    "key": "DI",
+    "name": "Diversity and Inclusion",
+    "id": "12322922",
+    "issue_count": 36,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MDOCCK",
+    "name": "Maven Documentation Checker Plugin  (RETIRED) (Retired)",
+    "id": "12317229",
+    "issue_count": 36,
+    "category": "Retired"
+  },
+  {
+    "key": "IMPERIUS",
+    "name": "Imperius",
+    "id": "12310742",
+    "issue_count": 34,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRRMI",
+    "name": "Jackrabbit JCR-RMI",
+    "id": "12310862",
+    "issue_count": 34,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "KITTY",
+    "name": "Kitty (Retired)",
+    "id": "12311202",
+    "issue_count": 34,
+    "category": "Retired"
+  },
+  {
+    "key": "WHISKER",
+    "name": "Apache Whisker",
+    "id": "12313020",
+    "issue_count": 33,
+    "category": "Creadur"
+  },
+  {
+    "key": "MJMOD",
+    "name": "Maven JMod Plugin (Moved to GitHub Issues)",
+    "id": "12321433",
+    "issue_count": 33,
+    "category": "Maven"
+  },
+  {
+    "key": "MODELER",
+    "name": "Commons Modeler",
+    "id": "12310486",
+    "issue_count": 32,
+    "category": "Commons"
+  },
+  {
+    "key": "MJDEPS",
+    "name": "Maven JDeps Plugin (Moved to GitHub Issues)",
+    "id": "12319223",
+    "issue_count": 32,
+    "category": "Maven"
+  },
+  {
+    "key": "TUWENI",
+    "name": "Tuweni (Retired)",
+    "id": "12322921",
+    "issue_count": 32,
+    "category": "Retired"
+  },
+  {
+    "key": "FUNCTOR",
+    "name": "Commons Functor (Dormant)",
+    "id": "12312520",
+    "issue_count": 31,
+    "category": "Commons"
+  },
+  {
+    "key": "OPENWIRE",
+    "name": "ActiveMQ OpenWire",
+    "id": "12315620",
+    "issue_count": 29,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "MSTAGE",
+    "name": "Maven Stage Plugin (Moved to GitHub Issues)",
+    "id": "12317925",
+    "issue_count": 29,
+    "category": "Maven"
+  },
+  {
+    "key": "PROXY",
+    "name": "Commons Proxy",
+    "id": "12310731",
+    "issue_count": 28,
+    "category": "Commons"
+  },
+  {
+    "key": "TASHI",
+    "name": "Tashi (Retired)",
+    "id": "12310841",
+    "issue_count": 28,
+    "category": "Retired"
+  },
+  {
+    "key": "WEAVER",
+    "name": "Commons Weaver",
+    "id": "12315320",
+    "issue_count": 27,
+    "category": "Commons"
+  },
+  {
+    "key": "PORTALS",
+    "name": "Portals (Retired)",
+    "id": "10741",
+    "issue_count": 27,
+    "category": "Retired"
+  },
+  {
+    "key": "NUTTX",
+    "name": "Apache NuttX",
+    "id": "12323524",
+    "issue_count": 26,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "GBUILD",
+    "name": "GBuild",
+    "id": "12310200",
+    "issue_count": 26,
+    "category": "Geronimo"
+  },
+  {
+    "key": "TENTACLES",
+    "name": "Apache Tentacles",
+    "id": "12313620",
+    "issue_count": 25,
+    "category": "Creadur"
+  },
+  {
+    "key": "POSTAGE",
+    "name": "James Postage",
+    "id": "12310507",
+    "issue_count": 25,
+    "category": "Retired"
+  },
+  {
+    "key": "OPENAZ",
+    "name": "Apache OpenAZ (Retired)",
+    "id": "12318220",
+    "issue_count": 24,
+    "category": "Retired"
+  },
+  {
+    "key": "NUVEM",
+    "name": "Nuvem",
+    "id": "12311151",
+    "issue_count": 24,
+    "category": "Incubator"
+  },
+  {
+    "key": "PULSAR",
+    "name": "Pulsar (Retired)",
+    "id": "12321221",
+    "issue_count": 24,
+    "category": "Retired"
+  },
+  {
+    "key": "AUTOTAG",
+    "name": "Tiles Autotag",
+    "id": "12311422",
+    "issue_count": 24,
+    "category": "Retired"
+  },
+  {
+    "key": "ASFSITE",
+    "name": "www.apache.org website",
+    "id": "12321220",
+    "issue_count": 24,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "CONCERTED",
+    "name": "Apache Concerted",
+    "id": "12319120",
+    "issue_count": 23,
+    "category": "Retired"
+  },
+  {
+    "key": "CORAL",
+    "name": "Apache Coral",
+    "id": "12321820",
+    "issue_count": 23,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "FORTRESS",
+    "name": "Excalibur Fortress",
+    "id": "10420",
+    "issue_count": 23,
+    "category": "Retired"
+  },
+  {
+    "key": "NEETHI",
+    "name": "Neethi",
+    "id": "12311260",
+    "issue_count": 23,
+    "category": "Web Services"
+  },
+  {
+    "key": "PRC",
+    "name": "Public Relations",
+    "id": "12310837",
+    "issue_count": 23,
+    "category": "Apache Software Foundation"
+  },
+  {
+    "key": "NIP",
+    "name": "NiFi Improvement Proposal",
+    "id": "12325520",
+    "issue_count": 22,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "SB",
+    "name": "Struts Sandbox",
+    "id": "12311044",
+    "issue_count": 22,
+    "category": "Struts Framework"
+  },
+  {
+    "key": "SITE",
+    "name": "Struts Shared Resources",
+    "id": "12311045",
+    "issue_count": 22,
+    "category": "Struts Framework"
+  },
+  {
+    "key": "DISCOVERY",
+    "name": "Commons Discovery",
+    "id": "12310472",
+    "issue_count": 21,
+    "category": "Commons"
+  },
+  {
+    "key": "MFHTML5",
+    "name": "MyFaces HTML5 Component Library",
+    "id": "12311280",
+    "issue_count": 21,
+    "category": "MyFaces"
+  },
+  {
+    "key": "TREQ",
+    "name": "Tiles Request",
+    "id": "12311421",
+    "issue_count": 21,
+    "category": "Retired"
+  },
+  {
+    "key": "TILESSHARED",
+    "name": "Tiles Shared Resources",
+    "id": "12311048",
+    "issue_count": 21,
+    "category": "Retired"
+  },
+  {
+    "key": "EL",
+    "name": "Commons EL",
+    "id": "12310473",
+    "issue_count": 20,
+    "category": "Commons"
+  },
+  {
+    "key": "CMDA",
+    "name": "Apache Climate Model Diagnostic Analyzer",
+    "id": "12318520",
+    "issue_count": 19,
+    "category": "Retired"
+  },
+  {
+    "key": "ECHARTS",
+    "name": "Apache ECharts",
+    "id": "12321921",
+    "issue_count": 19,
+    "category": "ECharts"
+  },
+  {
+    "key": "CENTRAL",
+    "name": "Avalon Metro Central",
+    "id": "10530",
+    "issue_count": 19,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRTCK",
+    "name": "Jackrabbit JCR Tests",
+    "id": "12310970",
+    "issue_count": 19,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "MPATCH",
+    "name": "Maven Patch Plugin (RETIRED)",
+    "id": "12317622",
+    "issue_count": 19,
+    "category": "Maven"
+  },
+  {
+    "key": "TEXEN",
+    "name": "Texen",
+    "id": "12310651",
+    "issue_count": 19,
+    "category": "Velocity"
+  },
+  {
+    "key": "MSCRIPTING",
+    "name": "Maven Scripting (Moved to GitHub Issues)",
+    "id": "12322823",
+    "issue_count": 17,
+    "category": "Maven"
+  },
+  {
+    "key": "SAND",
+    "name": "Sandesha",
+    "id": "12310062",
+    "issue_count": 17,
+    "category": "Axis"
+  },
+  {
+    "key": "CASSPYTHON",
+    "name": "Apache Cassandra Python driver",
+    "id": "12325522",
+    "issue_count": 16,
+    "category": "Cassandra"
+  },
+  {
+    "key": "PINOT",
+    "name": "Apache Pinot",
+    "id": "12322620",
+    "issue_count": 16,
+    "category": "Pinot"
+  },
+  {
+    "key": "STUDIO",
+    "name": "Avalon Merlin Studio",
+    "id": "10531",
+    "issue_count": 16,
+    "category": "Retired"
+  },
+  {
+    "key": "KATO",
+    "name": "Kato",
+    "id": "12310848",
+    "issue_count": 16,
+    "category": "Retired"
+  },
+  {
+    "key": "HERMES",
+    "name": "Pubscribe",
+    "id": "10613",
+    "issue_count": 16,
+    "category": "Retired"
+  },
+  {
+    "key": "SUPERSET",
+    "name": "Superset",
+    "id": "12321120",
+    "issue_count": 16,
+    "category": "Superset"
+  },
+  {
+    "key": "COTTON",
+    "name": "COTTON",
+    "id": "12318722",
+    "issue_count": 15,
+    "category": "Retired"
+  },
+  {
+    "key": "DIRNAMING",
+    "name": "Directory Naming",
+    "id": "10512",
+    "issue_count": 15,
+    "category": "Directory"
+  },
+  {
+    "key": "TILESSHOW",
+    "name": "Tiles Showcase",
+    "id": "12311047",
+    "issue_count": 15,
+    "category": "Retired"
+  },
+  {
+    "key": "TESTING",
+    "name": "Apache Commons Testing",
+    "id": "12321821",
+    "issue_count": 14,
+    "category": "Commons"
+  },
+  {
+    "key": "DIRTSEC",
+    "name": "Triplesec",
+    "id": "12310592",
+    "issue_count": 14,
+    "category": "Directory"
+  },
+  {
+    "key": "AMQCLI",
+    "name": "ActiveMQ CLI Tools",
+    "id": "12320821",
+    "issue_count": 13,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "ALOIS",
+    "name": "ALOIS",
+    "id": "12311173",
+    "issue_count": 13,
+    "category": "Retired"
+  },
+  {
+    "key": "DATASKETCHES",
+    "name": "Apache Datasketches",
+    "id": "12323120",
+    "issue_count": 13,
+    "category": "Datasketches"
+  },
+  {
+    "key": "CS",
+    "name": "Central Services",
+    "id": "12323522",
+    "issue_count": 13,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ATTRIBUTES",
+    "name": "Commons Attributes",
+    "id": "12310459",
+    "issue_count": 13,
+    "category": "Commons"
+  },
+  {
+    "key": "PRIMITIVES",
+    "name": "Commons Primitives",
+    "id": "12310489",
+    "issue_count": 13,
+    "category": "Commons"
+  },
+  {
+    "key": "DBF",
+    "name": "DocBook Framework",
+    "id": "12310652",
+    "issue_count": 13,
+    "category": "Velocity"
+  },
+  {
+    "key": "MJDEPRSCAN",
+    "name": "Maven JDeprScan Plugin (Moved to GitHub Issues)",
+    "id": "12321621",
+    "issue_count": 13,
+    "category": "Maven"
+  },
+  {
+    "key": "ORP",
+    "name": "Open Relevance Project ",
+    "id": "12310943",
+    "issue_count": 13,
+    "category": "Lucene"
+  },
+  {
+    "key": "SAVAN",
+    "name": "Savan",
+    "id": "12310622",
+    "issue_count": 13,
+    "category": "Retired"
+  },
+  {
+    "key": "BRAND",
+    "name": "Trademarks Committee",
+    "id": "12319621",
+    "issue_count": 13,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "LAUNCHER",
+    "name": "Commons Launcher",
+    "id": "12310483",
+    "issue_count": 12,
+    "category": "Commons"
+  },
+  {
+    "key": "PEGASUS",
+    "name": "Apache Pegasus",
+    "id": "12324222",
+    "issue_count": 11,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "WADI",
+    "name": "WADI",
+    "id": "12310220",
+    "issue_count": 11,
+    "category": "Retired"
+  },
+  {
+    "key": "BLUESKY",
+    "name": "Bluesky",
+    "id": "12310907",
+    "issue_count": 10,
+    "category": "Retired"
+  },
+  {
+    "key": "KAND",
+    "name": "Kandula",
+    "id": "12310061",
+    "issue_count": 10,
+    "category": "Axis"
+  },
+  {
+    "key": "LCN4C",
+    "name": "Lucene4c",
+    "id": "10701",
+    "issue_count": 10,
+    "category": "Retired"
+  },
+  {
+    "key": "TILESSB",
+    "name": "Tiles Sandbox",
+    "id": "12311049",
+    "issue_count": 10,
+    "category": "Retired"
+  },
+  {
+    "key": "BLAZE",
+    "name": "ActiveRealTime (Retired)",
+    "id": "12311204",
+    "issue_count": 9,
+    "category": "Retired"
+  },
+  {
+    "key": "BLUEMARLIN",
+    "name": "Apache BlueMarlin (Retired)",
+    "id": "12324320",
+    "issue_count": 9,
+    "category": "Retired"
+  },
+  {
+    "key": "EVENTMESH",
+    "name": "Apache EventMesh",
+    "id": "12324520",
+    "issue_count": 9,
+    "category": "EventMesh"
+  },
+  {
+    "key": "FEEDPARSER",
+    "name": "Commons FeedParser",
+    "id": "12310475",
+    "issue_count": 9,
+    "category": "Retired"
+  },
+  {
+    "key": "DIRGROOVY",
+    "name": "Directory Groovy LDAP",
+    "id": "12310880",
+    "issue_count": 9,
+    "category": "Directory"
+  },
+  {
+    "key": "JACOB",
+    "name": "ODE JaCOb",
+    "id": "12314525",
+    "issue_count": 9,
+    "category": "ODE"
+  },
+  {
+    "key": "VELOCITYSB",
+    "name": "Velocity Sandbox",
+    "id": "12311130",
+    "issue_count": 9,
+    "category": "Velocity"
+  },
+  {
+    "key": "ANAKIA",
+    "name": "Anakia",
+    "id": "12310632",
+    "issue_count": 8,
+    "category": "Velocity"
+  },
+  {
+    "key": "EWS",
+    "name": "ews",
+    "id": "10620",
+    "issue_count": 8,
+    "category": "Retired"
+  },
+  {
+    "key": "LOKAHI",
+    "name": "Lokahi",
+    "id": "12310560",
+    "issue_count": 8,
+    "category": "Retired"
+  },
+  {
+    "key": "MIRAE",
+    "name": "Mirae",
+    "id": "10671",
+    "issue_count": 8,
+    "category": "Retired"
+  },
+  {
+    "key": "AVALON",
+    "name": "Avalon",
+    "id": "10572",
+    "issue_count": 7,
+    "category": "Retired"
+  },
+  {
+    "key": "ARMI",
+    "name": "AltRMI",
+    "id": "10101",
+    "issue_count": 6,
+    "category": "Retired"
+  },
+  {
+    "key": "CASSCPP",
+    "name": "Apache Cassandra C/C++ driver",
+    "id": "12325720",
+    "issue_count": 6,
+    "category": "Cassandra"
+  },
+  {
+    "key": "AVNSHARP",
+    "name": "Avalon Castle",
+    "id": "10426",
+    "issue_count": 6,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRSERVLET",
+    "name": "Jackrabbit JCR Servlets",
+    "id": "12310933",
+    "issue_count": 6,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "OWC",
+    "name": "ODE Web Console",
+    "id": "12320636",
+    "issue_count": 6,
+    "category": "ODE"
+  },
+  {
+    "key": "TRIPLES",
+    "name": "TripleSoup",
+    "id": "12310620",
+    "issue_count": 6,
+    "category": "Retired"
+  },
+  {
+    "key": "ACL",
+    "name": "ActiveCluster",
+    "id": "12311200",
+    "issue_count": 5,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "TRANSPORTS",
+    "name": "Axis2 Transports",
+    "id": "12311160",
+    "issue_count": 5,
+    "category": "Axis"
+  },
+  {
+    "key": "TM",
+    "name": "BRAND",
+    "id": "12312920",
+    "issue_count": 5,
+    "category": "Apache Software Foundation"
+  },
+  {
+    "key": "HERALDRY",
+    "name": "Heraldry",
+    "id": "12310550",
+    "issue_count": 5,
+    "category": "Retired"
+  },
+  {
+    "key": "TATPI",
+    "name": "TomEE Arquillian Test Porting Initiative",
+    "id": "12314322",
+    "issue_count": 5,
+    "category": "TomEE"
+  },
+  {
+    "key": "DORIS",
+    "name": "Apache Doris",
+    "id": "12324720",
+    "issue_count": 4,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "GLUTEN",
+    "name": "Apache Gluten (incubating)",
+    "id": "12325220",
+    "issue_count": 4,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ECS",
+    "name": "ECS",
+    "id": "12310813",
+    "issue_count": 4,
+    "category": "Retired"
+  },
+  {
+    "key": "NIFILIBS",
+    "name": "NiFi Standard Libraries",
+    "id": "12323420",
+    "issue_count": 4,
+    "category": "NiFi"
+  },
+  {
+    "key": "AMQWEBSITE",
+    "name": "ActiveMQ Website",
+    "id": "12325420",
+    "issue_count": 3,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "CASSNODEJS",
+    "name": "Apache Cassandra NodeJS Driver",
+    "id": "12325820",
+    "issue_count": 3,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "OTAVA",
+    "name": "Apache Otava (incubating)",
+    "id": "12325526",
+    "issue_count": 3,
+    "category": "Incubator"
+  },
+  {
+    "key": "TOOLS",
+    "name": "Avalon Metro Tools",
+    "id": "10533",
+    "issue_count": 3,
+    "category": "Retired"
+  },
+  {
+    "key": "JCRBENCH",
+    "name": "Jackrabbit JCR Benchmark",
+    "id": "12310935",
+    "issue_count": 3,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "JCRCL",
+    "name": "Jackrabbit JCR Classloader",
+    "id": "12310934",
+    "issue_count": 3,
+    "category": "Jackrabbit"
+  },
+  {
+    "key": "DEPOT",
+    "name": "Depot",
+    "id": "10403",
+    "issue_count": 2,
+    "category": "Retired"
+  },
+  {
+    "key": "DVSL",
+    "name": "Dvsl",
+    "id": "12310670",
+    "issue_count": 2,
+    "category": "Velocity"
+  },
+  {
+    "key": "ESCIMO",
+    "name": "eSCIMo ",
+    "id": "12314926",
+    "issue_count": 2,
+    "category": "Directory"
+  },
+  {
+    "key": "RBATIS",
+    "name": "iBATIS for Ruby",
+    "id": "12310572",
+    "issue_count": 2,
+    "category": "Retired"
+  },
+  {
+    "key": "STOMP",
+    "name": "Stomp Specification",
+    "id": "12311203",
+    "issue_count": 2,
+    "category": "ActiveMQ"
+  },
+  {
+    "key": "TSIK",
+    "name": "TSIK",
+    "id": "10742",
+    "issue_count": 2,
+    "category": "Retired"
+  },
+  {
+    "key": "AAR",
+    "name": "aardvark",
+    "id": "12320120",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "CLOUDBERRY",
+    "name": "Apache Cloudberry",
+    "id": "12325521",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "MCFSDK",
+    "name": "Apache ManifoldCF SDK",
+    "id": "12325620",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ZIPKIN",
+    "name": "Apache Zipkin",
+    "id": "12322520",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "PLANET",
+    "name": "Avalon Metro Planet",
+    "id": "10532",
+    "issue_count": 1,
+    "category": "Retired"
+  },
+  {
+    "key": "GAVTESTY",
+    "name": "Gav Testing",
+    "id": "12325320",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "INFRATESTY33",
+    "name": "Infra Testy 33",
+    "id": "12325121",
+    "issue_count": 1,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "KI",
+    "name": "Ki",
+    "id": "12310890",
+    "issue_count": 1,
+    "category": "Retired"
+  },
+  {
+    "key": "MYNEWT",
+    "name": "Mynewt",
+    "id": "12319221",
+    "issue_count": 1,
+    "category": "Mynewt"
+  },
+  {
+    "key": "MMETRIC",
+    "name": "The Maven Metric Extension",
+    "id": "12324220",
+    "issue_count": 1,
+    "category": "Maven"
+  },
+  {
+    "key": "TEVAL",
+    "name": "Tiles Eval",
+    "id": "12311423",
+    "issue_count": 1,
+    "category": "Retired"
+  },
+  {
+    "key": "AMBER",
+    "name": "Amber",
+    "id": "12311100",
+    "issue_count": 0,
+    "category": "Incubator"
+  },
+  {
+    "key": "HERTZBEAT",
+    "name": "Apache HertzBeat",
+    "id": "12325920",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "PETRI",
+    "name": "Apache Petri",
+    "id": "12323521",
+    "issue_count": 0,
+    "category": "Petri"
+  },
+  {
+    "key": "STREAMPARK",
+    "name": "Apache StreamPark",
+    "id": "12325022",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "SUPERSETSEC",
+    "name": "Apache Superset security",
+    "id": "12325122",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "SANSELAN",
+    "name": "Commons Sanselan",
+    "id": "12310720",
+    "issue_count": 0,
+    "category": "Commons"
+  },
+  {
+    "key": "CUSTOS",
+    "name": "Custos Security",
+    "id": "12324121",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "GSHELL",
+    "name": "GShell",
+    "id": "12310503",
+    "issue_count": 0,
+    "category": "Geronimo"
+  },
+  {
+    "key": "INFRATESTY2",
+    "name": "Infra test 2",
+    "id": "12325120",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "JSEC",
+    "name": "JSecurity",
+    "id": "12310812",
+    "issue_count": 0,
+    "category": "Retired"
+  },
+  {
+    "key": "MXNETTEST",
+    "name": "MxNet Test",
+    "id": "12322320",
+    "issue_count": 0,
+    "category": "Uncategorized"
+  },
+  {
+    "key": "ADFFACES",
+    "name": "MyFaces ADF-Faces",
+    "id": "12310300",
+    "issue_count": 0,
+    "category": "MyFaces"
+  },
+  {
+    "key": "YOKO",
+    "name": "Yoko - CORBA Server",
+    "id": "12310271",
+    "issue_count": 0,
+    "category": "Geronimo"
+  }
+]

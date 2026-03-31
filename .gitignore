@@ -11,4 +11,5 @@ build/
 coverage.xml
 
 # Data artifacts (large downloaded files)
-artifacts/
+artifacts/*
+!artifacts/apache_jira_projects.json
