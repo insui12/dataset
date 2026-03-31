@@ -228,9 +228,64 @@ def auto_shutdown_timer(shutdown_at, local_dir, remote_dir, server, port,
     log(machine_id, "최종 동기화 완료", log_file)
 
     if sys.platform == "win32":
-        os.system('shutdown /s /t 30 /c "실습실 수집 자동 종료 (30초 후)"')
+        _win_shutdown(machine_id, log_file)
     else:
         os.system("sudo shutdown -h now")
+
+
+def _win_shutdown(machine_id: int, log_file: str | None):
+    """Windows 종료: subprocess → Windows API 순으로 시도."""
+    # 1차: shutdown 명령어
+    r = subprocess.run(
+        ["shutdown", "/s", "/t", "30", "/c", "lab collector auto shutdown"],
+        capture_output=True, text=True,
+    )
+    if r.returncode == 0:
+        log(machine_id, "shutdown 명령 성공 (30초 후 종료)", log_file)
+        return
+
+    log(machine_id, f"shutdown 명령 실패 (rc={r.returncode}): {r.stderr.strip()}", log_file)
+    log(machine_id, "Windows API로 종료 시도...", log_file)
+
+    # 2차: Windows API (ExitWindowsEx)
+    try:
+        import ctypes
+        from ctypes import wintypes
+
+        advapi32 = ctypes.WinDLL("advapi32", use_last_error=True)
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        user32 = ctypes.WinDLL("user32", use_last_error=True)
+
+        class LUID(ctypes.Structure):
+            _fields_ = [("LowPart", wintypes.DWORD), ("HighPart", wintypes.LONG)]
+
+        class LUID_AND_ATTRIBUTES(ctypes.Structure):
+            _fields_ = [("Luid", LUID), ("Attributes", wintypes.DWORD)]
+
+        class TOKEN_PRIVILEGES(ctypes.Structure):
+            _fields_ = [("PrivilegeCount", wintypes.DWORD),
+                        ("Privileges", LUID_AND_ATTRIBUTES * 1)]
+
+        hToken = wintypes.HANDLE()
+        advapi32.OpenProcessToken(
+            kernel32.GetCurrentProcess(), 0x0020 | 0x0008, ctypes.byref(hToken))
+
+        luid = LUID()
+        advapi32.LookupPrivilegeValueW(None, "SeShutdownPrivilege", ctypes.byref(luid))
+
+        tp = TOKEN_PRIVILEGES()
+        tp.PrivilegeCount = 1
+        tp.Privileges[0].Luid = luid
+        tp.Privileges[0].Attributes = 0x00000002  # SE_PRIVILEGE_ENABLED
+        advapi32.AdjustTokenPrivileges(hToken, False, ctypes.byref(tp), 0, None, None)
+
+        # EWX_SHUTDOWN=1 | EWX_FORCE=4
+        if user32.ExitWindowsEx(0x00000001 | 0x00000004, 0x00040000):
+            log(machine_id, "Windows API 종료 성공", log_file)
+        else:
+            log(machine_id, "[ERROR] Windows API 종료 실패", log_file)
+    except Exception as e:
+        log(machine_id, f"[ERROR] 종료 실패: {e}", log_file)
 
 
 # ---- 메인 ----
