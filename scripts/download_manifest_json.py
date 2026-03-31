@@ -5,10 +5,16 @@ import asyncio
 import json
 import os
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
+
+# Portable Python (._pth)에서는 PYTHONPATH가 무시되므로 직접 추가
+_src = str(Path(__file__).resolve().parent.parent / "src")
+if _src not in sys.path:
+    sys.path.insert(0, _src)
 
 from gbtd_infra.adapter_registry import adapter_for_family
 from gbtd_infra.clients.http import PoliteHttpClient

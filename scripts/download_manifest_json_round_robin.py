@@ -3,7 +3,13 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import sys
 from pathlib import Path
+
+# Portable Python (._pth)에서는 PYTHONPATH가 무시되므로 직접 추가
+_src = str(Path(__file__).resolve().parent.parent / "src")
+if _src not in sys.path:
+    sys.path.insert(0, _src)
 
 import yaml
 
