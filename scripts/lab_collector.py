@@ -8,6 +8,7 @@
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import threading
@@ -122,11 +123,11 @@ def sync_to_server(local_dir: str, remote_dir: str, server: str, port: int,
         except (subprocess.TimeoutExpired, FileNotFoundError):
             pass
 
-    # scp 배치 전송 (디렉토리별, 50개씩)
+    # scp 배치 전송 (디렉토리별, 20개씩 — Windows cmd 8191자 제한 대응)
     for subdir, files in by_dir.items():
         target = f"{server}:{remote_dir}/{subdir}/" if subdir else f"{server}:{remote_dir}/"
-        for i in range(0, len(files), 50):
-            batch = files[i:i + 50]
+        for i in range(0, len(files), 20):
+            batch = files[i:i + 20]
             try:
                 subprocess.run(
                     ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no"] + batch + [target],
@@ -261,6 +262,19 @@ def main() -> int:
     mid = args.machine
     log(mid, "=== 실습실 수집기 시작 ===", log_file)
     log(mid, f"머신: {mid}/{args.total}, 서버: {args.server}:{args.port}", log_file)
+
+    # 디스크 공간 확인
+    try:
+        disk = shutil.disk_usage(output_dir)
+        free_gb = disk.free / (1024 ** 3)
+        log(mid, f"디스크 여유: {free_gb:.1f} GB", log_file)
+        if free_gb < 5:
+            log(mid, f"[WARNING] 디스크 여유 공간 부족 ({free_gb:.1f} GB < 5 GB)", log_file)
+        if free_gb < 1:
+            log(mid, "[ERROR] 디스크 공간 1 GB 미만. 수집 중단.", log_file)
+            return 1
+    except OSError:
+        pass
 
     # 서버에서 state 복원
     log(mid, "서버에서 진행상태 동기화...", log_file)
