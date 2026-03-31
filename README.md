@@ -1,5 +1,9 @@
 # GBTD: Global Bug Tracker Dataset Infrastructure (raw warehouse v0)
 
+cd ~/dataset && bash scripts/lab_setup.sh
+bash scripts/lab_collector.sh --machine N
+
+
 ## 핵심 목표
 - 전처리 이전의 **원시 수집 warehouse** 구축
 - official API만 사용
