@@ -1395,3 +1395,2657 @@ families:
       kind: repo
       tracker_id: gitlab-org/omnibus-gitlab
       tracker_api_key: gitlab-org/omnibus-gitlab
+- slug: jira
+  name: Jira
+  tier: core
+  collection_mode: manifest_exhaustive
+  dataset_role: software_product
+  protocol: REST
+  visibility: public
+  status: active
+  instances:
+  - name: apache
+    base_url: https://issues.apache.org/jira
+    api_base_url: https://issues.apache.org/jira
+    is_bounded: false
+    entries:
+    - name: aar
+      kind: project
+      tracker_id: AAR
+      tracker_api_key: AAR
+    - name: abdera
+      kind: project
+      tracker_id: ABDERA
+      tracker_api_key: ABDERA
+    - name: accumulo
+      kind: project
+      tracker_id: ACCUMULO
+      tracker_api_key: ACCUMULO
+    - name: ace
+      kind: project
+      tracker_id: ACE
+      tracker_api_key: ACE
+    - name: acl
+      kind: project
+      tracker_id: ACL
+      tracker_api_key: ACL
+    - name: addr
+      kind: project
+      tracker_id: ADDR
+      tracker_api_key: ADDR
+    - name: age2
+      kind: project
+      tracker_id: AGE2
+      tracker_api_key: AGE2
+    - name: ageold
+      kind: project
+      tracker_id: AGEOLD
+      tracker_api_key: AGEOLD
+    - name: agila
+      kind: project
+      tracker_id: AGILA
+      tracker_api_key: AGILA
+    - name: airavata
+      kind: project
+      tracker_id: AIRAVATA
+      tracker_api_key: AIRAVATA
+    - name: alois
+      kind: project
+      tracker_id: ALOIS
+      tracker_api_key: ALOIS
+    - name: amaterasu
+      kind: project
+      tracker_id: AMATERASU
+      tracker_api_key: AMATERASU
+    - name: ambari
+      kind: project
+      tracker_id: AMBARI
+      tracker_api_key: AMBARI
+    - name: amq
+      kind: project
+      tracker_id: AMQ
+      tracker_api_key: AMQ
+    - name: amqcli
+      kind: project
+      tracker_id: AMQCLI
+      tracker_api_key: AMQCLI
+    - name: amqcpp
+      kind: project
+      tracker_id: AMQCPP
+      tracker_api_key: AMQCPP
+    - name: amqnet
+      kind: project
+      tracker_id: AMQNET
+      tracker_api_key: AMQNET
+    - name: amqwebsite
+      kind: project
+      tracker_id: AMQWEBSITE
+      tracker_api_key: AMQWEBSITE
+    - name: anakia
+      kind: project
+      tracker_id: ANAKIA
+      tracker_api_key: ANAKIA
+    - name: any23
+      kind: project
+      tracker_id: ANY23
+      tracker_api_key: ANY23
+    - name: apa
+      kind: project
+      tracker_id: APA
+      tracker_api_key: APA
+    - name: apexcore
+      kind: project
+      tracker_id: APEXCORE
+      tracker_api_key: APEXCORE
+    - name: apexmalhar
+      kind: project
+      tracker_id: APEXMALHAR
+      tracker_api_key: APEXMALHAR
+    - name: apisix
+      kind: project
+      tracker_id: APISIX
+      tracker_api_key: APISIX
+    - name: aplo
+      kind: project
+      tracker_id: APLO
+      tracker_api_key: APLO
+    - name: apollo
+      kind: project
+      tracker_id: APOLLO
+      tracker_api_key: APOLLO
+    - name: archetype
+      kind: project
+      tracker_id: ARCHETYPE
+      tracker_api_key: ARCHETYPE
+    - name: aria
+      kind: project
+      tracker_id: ARIA
+      tracker_api_key: ARIA
+    - name: aries
+      kind: project
+      tracker_id: ARIES
+      tracker_api_key: ARIES
+    - name: armi
+      kind: project
+      tracker_id: ARMI
+      tracker_api_key: ARMI
+    - name: arrow
+      kind: project
+      tracker_id: ARROW
+      tracker_api_key: ARROW
+    - name: artemis
+      kind: project
+      tracker_id: ARTEMIS
+      tracker_api_key: ARTEMIS
+    - name: asfsite
+      kind: project
+      tracker_id: ASFSITE
+      tracker_api_key: ASFSITE
+    - name: asterixdb
+      kind: project
+      tracker_id: ASTERIXDB
+      tracker_api_key: ASTERIXDB
+    - name: asyncweb
+      kind: project
+      tracker_id: ASYNCWEB
+      tracker_api_key: ASYNCWEB
+    - name: atlas
+      kind: project
+      tracker_id: ATLAS
+      tracker_api_key: ATLAS
+    - name: attic
+      kind: project
+      tracker_id: ATTIC
+      tracker_api_key: ATTIC
+    - name: attributes
+      kind: project
+      tracker_id: ATTRIBUTES
+      tracker_api_key: ATTRIBUTES
+    - name: aurora
+      kind: project
+      tracker_id: AURORA
+      tracker_api_key: AURORA
+    - name: autotag
+      kind: project
+      tracker_id: AUTOTAG
+      tracker_api_key: AUTOTAG
+    - name: avalon
+      kind: project
+      tracker_id: AVALON
+      tracker_api_key: AVALON
+    - name: avnsharp
+      kind: project
+      tracker_id: AVNSHARP
+      tracker_api_key: AVNSHARP
+    - name: avro
+      kind: project
+      tracker_id: AVRO
+      tracker_api_key: AVRO
+    - name: awf
+      kind: project
+      tracker_id: AWF
+      tracker_api_key: AWF
+    - name: axiom
+      kind: project
+      tracker_id: AXIOM
+      tracker_api_key: AXIOM
+    - name: axis
+      kind: project
+      tracker_id: AXIS
+      tracker_api_key: AXIS
+    - name: axis2
+      kind: project
+      tracker_id: AXIS2
+      tracker_api_key: AXIS2
+    - name: axis2c
+      kind: project
+      tracker_id: AXIS2C
+      tracker_api_key: AXIS2C
+    - name: axiscpp
+      kind: project
+      tracker_id: AXISCPP
+      tracker_api_key: AXISCPP
+    - name: bahir
+      kind: project
+      tracker_id: BAHIR
+      tracker_api_key: BAHIR
+    - name: batchee
+      kind: project
+      tracker_id: BATCHEE
+      tracker_api_key: BATCHEE
+    - name: batik
+      kind: project
+      tracker_id: BATIK
+      tracker_api_key: BATIK
+    - name: bcel
+      kind: project
+      tracker_id: BCEL
+      tracker_api_key: BCEL
+    - name: beam
+      kind: project
+      tracker_id: BEAM
+      tracker_api_key: BEAM
+    - name: beanutils
+      kind: project
+      tracker_id: BEANUTILS
+      tracker_api_key: BEANUTILS
+    - name: beehive
+      kind: project
+      tracker_id: BEEHIVE
+      tracker_api_key: BEEHIVE
+    - name: betwixt
+      kind: project
+      tracker_id: BETWIXT
+      tracker_api_key: BETWIXT
+    - name: bigtop
+      kind: project
+      tracker_id: BIGTOP
+      tracker_api_key: BIGTOP
+    - name: blaze
+      kind: project
+      tracker_id: BLAZE
+      tracker_api_key: BLAZE
+    - name: bluemarlin
+      kind: project
+      tracker_id: BLUEMARLIN
+      tracker_api_key: BLUEMARLIN
+    - name: bluesky
+      kind: project
+      tracker_id: BLUESKY
+      tracker_api_key: BLUESKY
+    - name: blur
+      kind: project
+      tracker_id: BLUR
+      tracker_api_key: BLUR
+    - name: bookkeeper
+      kind: project
+      tracker_id: BOOKKEEPER
+      tracker_api_key: BOOKKEEPER
+    - name: brand
+      kind: project
+      tracker_id: BRAND
+      tracker_api_key: BRAND
+    - name: brooklyn
+      kind: project
+      tracker_id: BROOKLYN
+      tracker_api_key: BROOKLYN
+    - name: bsf
+      kind: project
+      tracker_id: BSF
+      tracker_api_key: BSF
+    - name: buildr
+      kind: project
+      tracker_id: BUILDR
+      tracker_api_key: BUILDR
+    - name: bval
+      kind: project
+      tracker_id: BVAL
+      tracker_api_key: BVAL
+    - name: cactus
+      kind: project
+      tracker_id: CACTUS
+      tracker_api_key: CACTUS
+    - name: calcite
+      kind: project
+      tracker_id: CALCITE
+      tracker_api_key: CALCITE
+    - name: camel
+      kind: project
+      tracker_id: CAMEL
+      tracker_api_key: CAMEL
+    - name: carbondata
+      kind: project
+      tracker_id: CARBONDATA
+      tracker_api_key: CARBONDATA
+    - name: cassanalytics
+      kind: project
+      tracker_id: CASSANALYTICS
+      tracker_api_key: CASSANALYTICS
+    - name: cassandra
+      kind: project
+      tracker_id: CASSANDRA
+      tracker_api_key: CASSANDRA
+    - name: casscpp
+      kind: project
+      tracker_id: CASSCPP
+      tracker_api_key: CASSCPP
+    - name: cassgo
+      kind: project
+      tracker_id: CASSGO
+      tracker_api_key: CASSGO
+    - name: cassjava
+      kind: project
+      tracker_id: CASSJAVA
+      tracker_api_key: CASSJAVA
+    - name: cassnodejs
+      kind: project
+      tracker_id: CASSNODEJS
+      tracker_api_key: CASSNODEJS
+    - name: casspython
+      kind: project
+      tracker_id: CASSPYTHON
+      tracker_api_key: CASSPYTHON
+    - name: casssidecar
+      kind: project
+      tracker_id: CASSSIDECAR
+      tracker_api_key: CASSSIDECAR
+    - name: causeway
+      kind: project
+      tracker_id: CAUSEWAY
+      tracker_api_key: CAUSEWAY
+    - name: cay
+      kind: project
+      tracker_id: CAY
+      tracker_api_key: CAY
+    - name: cb
+      kind: project
+      tracker_id: CB
+      tracker_api_key: CB
+    - name: celeborn
+      kind: project
+      tracker_id: CELEBORN
+      tracker_api_key: CELEBORN
+    - name: celix
+      kind: project
+      tracker_id: CELIX
+      tracker_api_key: CELIX
+    - name: central
+      kind: project
+      tracker_id: CENTRAL
+      tracker_api_key: CENTRAL
+    - name: chain
+      kind: project
+      tracker_id: CHAIN
+      tracker_api_key: CHAIN
+    - name: chainsaw
+      kind: project
+      tracker_id: CHAINSAW
+      tracker_api_key: CHAINSAW
+    - name: chukwa
+      kind: project
+      tracker_id: CHUKWA
+      tracker_api_key: CHUKWA
+    - name: clerezza
+      kind: project
+      tracker_id: CLEREZZA
+      tracker_api_key: CLEREZZA
+    - name: cli
+      kind: project
+      tracker_id: CLI
+      tracker_api_key: CLI
+    - name: climate
+      kind: project
+      tracker_id: CLIMATE
+      tracker_api_key: CLIMATE
+    - name: clk
+      kind: project
+      tracker_id: CLK
+      tracker_api_key: CLK
+    - name: clke
+      kind: project
+      tracker_id: CLKE
+      tracker_api_key: CLKE
+    - name: cloudberry
+      kind: project
+      tracker_id: CLOUDBERRY
+      tracker_api_key: CLOUDBERRY
+    - name: cloudstack
+      kind: project
+      tracker_id: CLOUDSTACK
+      tracker_api_key: CLOUDSTACK
+    - name: clownfish
+      kind: project
+      tracker_id: CLOWNFISH
+      tracker_api_key: CLOWNFISH
+    - name: cmda
+      kind: project
+      tracker_id: CMDA
+      tracker_api_key: CMDA
+    - name: cmis
+      kind: project
+      tracker_id: CMIS
+      tracker_api_key: CMIS
+    - name: cocoon
+      kind: project
+      tracker_id: COCOON
+      tracker_api_key: COCOON
+    - name: cocoon3
+      kind: project
+      tracker_id: COCOON3
+      tracker_api_key: COCOON3
+    - name: codec
+      kind: project
+      tracker_id: CODEC
+      tracker_api_key: CODEC
+    - name: collections
+      kind: project
+      tracker_id: COLLECTIONS
+      tracker_api_key: COLLECTIONS
+    - name: comdev
+      kind: project
+      tracker_id: COMDEV
+      tracker_api_key: COMDEV
+    - name: commonsrdf
+      kind: project
+      tracker_id: COMMONSRDF
+      tracker_api_key: COMMONSRDF
+    - name: commonssite
+      kind: project
+      tracker_id: COMMONSSITE
+      tracker_api_key: COMMONSSITE
+    - name: compress
+      kind: project
+      tracker_id: COMPRESS
+      tracker_api_key: COMPRESS
+    - name: concerted
+      kind: project
+      tracker_id: CONCERTED
+      tracker_api_key: CONCERTED
+    - name: configuration
+      kind: project
+      tracker_id: CONFIGURATION
+      tracker_api_key: CONFIGURATION
+    - name: connectors
+      kind: project
+      tracker_id: CONNECTORS
+      tracker_api_key: CONNECTORS
+    - name: continuum
+      kind: project
+      tracker_id: CONTINUUM
+      tracker_api_key: CONTINUUM
+    - name: cor
+      kind: project
+      tracker_id: COR
+      tracker_api_key: COR
+    - name: coral
+      kind: project
+      tracker_id: CORAL
+      tracker_api_key: CORAL
+    - name: cotton
+      kind: project
+      tracker_id: COTTON
+      tracker_api_key: COTTON
+    - name: couchdb
+      kind: project
+      tracker_id: COUCHDB
+      tracker_api_key: COUCHDB
+    - name: crail
+      kind: project
+      tracker_id: CRAIL
+      tracker_api_key: CRAIL
+    - name: crunch
+      kind: project
+      tracker_id: CRUNCH
+      tracker_api_key: CRUNCH
+    - name: crypto
+      kind: project
+      tracker_id: CRYPTO
+      tracker_api_key: CRYPTO
+    - name: cs
+      kind: project
+      tracker_id: CS
+      tracker_api_key: CS
+    - name: csv
+      kind: project
+      tracker_id: CSV
+      tracker_api_key: CSV
+    - name: ctakes
+      kind: project
+      tracker_id: CTAKES
+      tracker_api_key: CTAKES
+    - name: curator
+      kind: project
+      tracker_id: CURATOR
+      tracker_api_key: CURATOR
+    - name: cxf
+      kind: project
+      tracker_id: CXF
+      tracker_api_key: CXF
+    - name: cxfxjc
+      kind: project
+      tracker_id: CXFXJC
+      tracker_api_key: CXFXJC
+    - name: daemon
+      kind: project
+      tracker_id: DAEMON
+      tracker_api_key: DAEMON
+    - name: daffodil
+      kind: project
+      tracker_id: DAFFODIL
+      tracker_api_key: DAFFODIL
+    - name: datafu
+      kind: project
+      tracker_id: DATAFU
+      tracker_api_key: DATAFU
+    - name: datalab
+      kind: project
+      tracker_id: DATALAB
+      tracker_api_key: DATALAB
+    - name: datasketches
+      kind: project
+      tracker_id: DATASKETCHES
+      tracker_api_key: DATASKETCHES
+    - name: daytrader
+      kind: project
+      tracker_id: DAYTRADER
+      tracker_api_key: DAYTRADER
+    - name: dbcp
+      kind: project
+      tracker_id: DBCP
+      tracker_api_key: DBCP
+    - name: dbf
+      kind: project
+      tracker_id: DBF
+      tracker_api_key: DBF
+    - name: dbutils
+      kind: project
+      tracker_id: DBUTILS
+      tracker_api_key: DBUTILS
+    - name: ddlutils
+      kind: project
+      tracker_id: DDLUTILS
+      tracker_api_key: DDLUTILS
+    - name: deltaspike
+      kind: project
+      tracker_id: DELTASPIKE
+      tracker_api_key: DELTASPIKE
+    - name: depot
+      kind: project
+      tracker_id: DEPOT
+      tracker_api_key: DEPOT
+    - name: derby
+      kind: project
+      tracker_id: DERBY
+      tracker_api_key: DERBY
+    - name: di
+      kind: project
+      tracker_id: DI
+      tracker_api_key: DI
+    - name: digester
+      kind: project
+      tracker_id: DIGESTER
+      tracker_api_key: DIGESTER
+    - name: dir
+      kind: project
+      tracker_id: DIR
+      tracker_api_key: DIR
+    - name: dirapi
+      kind: project
+      tracker_id: DIRAPI
+      tracker_api_key: DIRAPI
+    - name: directmemory
+      kind: project
+      tracker_id: DIRECTMEMORY
+      tracker_api_key: DIRECTMEMORY
+    - name: dirgroovy
+      kind: project
+      tracker_id: DIRGROOVY
+      tracker_api_key: DIRGROOVY
+    - name: dirkrb
+      kind: project
+      tracker_id: DIRKRB
+      tracker_api_key: DIRKRB
+    - name: dirmina
+      kind: project
+      tracker_id: DIRMINA
+      tracker_api_key: DIRMINA
+    - name: dirnaming
+      kind: project
+      tracker_id: DIRNAMING
+      tracker_api_key: DIRNAMING
+    - name: dirserver
+      kind: project
+      tracker_id: DIRSERVER
+      tracker_api_key: DIRSERVER
+    - name: dirshared
+      kind: project
+      tracker_id: DIRSHARED
+      tracker_api_key: DIRSHARED
+    - name: dirstudio
+      kind: project
+      tracker_id: DIRSTUDIO
+      tracker_api_key: DIRSTUDIO
+    - name: dirtsec
+      kind: project
+      tracker_id: DIRTSEC
+      tracker_api_key: DIRTSEC
+    - name: discovery
+      kind: project
+      tracker_id: DISCOVERY
+      tracker_api_key: DISCOVERY
+    - name: dispatch
+      kind: project
+      tracker_id: DISPATCH
+      tracker_api_key: DISPATCH
+    - name: dl
+      kind: project
+      tracker_id: DL
+      tracker_api_key: DL
+    - name: dmap
+      kind: project
+      tracker_id: DMAP
+      tracker_api_key: DMAP
+    - name: doris
+      kind: project
+      tracker_id: DORIS
+      tracker_api_key: DORIS
+    - name: dormant
+      kind: project
+      tracker_id: DORMANT
+      tracker_api_key: DORMANT
+    - name: dosgi
+      kind: project
+      tracker_id: DOSGI
+      tracker_api_key: DOSGI
+    - name: doxia
+      kind: project
+      tracker_id: DOXIA
+      tracker_api_key: DOXIA
+    - name: doxiasitetools
+      kind: project
+      tracker_id: DOXIASITETOOLS
+      tracker_api_key: DOXIASITETOOLS
+    - name: doxiatools
+      kind: project
+      tracker_id: DOXIATOOLS
+      tracker_api_key: DOXIATOOLS
+    - name: drill
+      kind: project
+      tracker_id: DRILL
+      tracker_api_key: DRILL
+    - name: droids
+      kind: project
+      tracker_id: DROIDS
+      tracker_api_key: DROIDS
+    - name: dtacloud
+      kind: project
+      tracker_id: DTACLOUD
+      tracker_api_key: DTACLOUD
+    - name: dubbo
+      kind: project
+      tracker_id: DUBBO
+      tracker_api_key: DUBBO
+    - name: dvsl
+      kind: project
+      tracker_id: DVSL
+      tracker_api_key: DVSL
+    - name: eagle
+      kind: project
+      tracker_id: EAGLE
+      tracker_api_key: EAGLE
+    - name: easyant
+      kind: project
+      tracker_id: EASYANT
+      tracker_api_key: EASYANT
+    - name: echarts
+      kind: project
+      tracker_id: ECHARTS
+      tracker_api_key: ECHARTS
+    - name: ecs
+      kind: project
+      tracker_id: ECS
+      tracker_api_key: ECS
+    - name: edgent
+      kind: project
+      tracker_id: EDGENT
+      tracker_api_key: EDGENT
+    - name: el
+      kind: project
+      tracker_id: EL
+      tracker_api_key: EL
+    - name: email
+      kind: project
+      tracker_id: EMAIL
+      tracker_api_key: EMAIL
+    - name: empiredb
+      kind: project
+      tracker_id: EMPIREDB
+      tracker_api_key: EMPIREDB
+    - name: escimo
+      kind: project
+      tracker_id: ESCIMO
+      tracker_api_key: ESCIMO
+    - name: esme
+      kind: project
+      tracker_id: ESME
+      tracker_api_key: ESME
+    - name: etch
+      kind: project
+      tracker_id: ETCH
+      tracker_api_key: ETCH
+    - name: eventmesh
+      kind: project
+      tracker_id: EVENTMESH
+      tracker_api_key: EVENTMESH
+    - name: ews
+      kind: project
+      tracker_id: EWS
+      tracker_api_key: EWS
+    - name: exec
+      kind: project
+      tracker_id: EXEC
+      tracker_api_key: EXEC
+    - name: exlbr
+      kind: project
+      tracker_id: EXLBR
+      tracker_api_key: EXLBR
+    - name: extcdi
+      kind: project
+      tracker_id: EXTCDI
+      tracker_api_key: EXTCDI
+    - name: extscript
+      kind: project
+      tracker_id: EXTSCRIPT
+      tracker_api_key: EXTSCRIPT
+    - name: extval
+      kind: project
+      tracker_id: EXTVAL
+      tracker_api_key: EXTVAL
+    - name: falcon
+      kind: project
+      tracker_id: FALCON
+      tracker_api_key: FALCON
+    - name: fc
+      kind: project
+      tracker_id: FC
+      tracker_api_key: FC
+    - name: fediz
+      kind: project
+      tracker_id: FEDIZ
+      tracker_api_key: FEDIZ
+    - name: feedparser
+      kind: project
+      tracker_id: FEEDPARSER
+      tracker_api_key: FEEDPARSER
+    - name: felix
+      kind: project
+      tracker_id: FELIX
+      tracker_api_key: FELIX
+    - name: fileupload
+      kind: project
+      tracker_id: FILEUPLOAD
+      tracker_api_key: FILEUPLOAD
+    - name: fincn
+      kind: project
+      tracker_id: FINCN
+      tracker_api_key: FINCN
+    - name: fineract
+      kind: project
+      tracker_id: FINERACT
+      tracker_api_key: FINERACT
+    - name: flagon
+      kind: project
+      tracker_id: FLAGON
+      tracker_api_key: FLAGON
+    - name: flex
+      kind: project
+      tracker_id: FLEX
+      tracker_api_key: FLEX
+    - name: flink
+      kind: project
+      tracker_id: FLINK
+      tracker_api_key: FLINK
+    - name: flume
+      kind: project
+      tracker_id: FLUME
+      tracker_api_key: FLUME
+    - name: fop
+      kind: project
+      tracker_id: FOP
+      tracker_api_key: FOP
+    - name: for
+      kind: project
+      tracker_id: FOR
+      tracker_api_key: FOR
+    - name: fortress
+      kind: project
+      tracker_id: FORTRESS
+      tracker_api_key: FORTRESS
+    - name: freemarker
+      kind: project
+      tracker_id: FREEMARKER
+      tracker_api_key: FREEMARKER
+    - name: ftpserver
+      kind: project
+      tracker_id: FTPSERVER
+      tracker_api_key: FTPSERVER
+    - name: functor
+      kind: project
+      tracker_id: FUNCTOR
+      tracker_api_key: FUNCTOR
+    - name: gavtesty
+      kind: project
+      tracker_id: GAVTESTY
+      tracker_api_key: GAVTESTY
+    - name: gbuild
+      kind: project
+      tracker_id: GBUILD
+      tracker_api_key: GBUILD
+    - name: gearpump
+      kind: project
+      tracker_id: GEARPUMP
+      tracker_api_key: GEARPUMP
+    - name: geode
+      kind: project
+      tracker_id: GEODE
+      tracker_api_key: GEODE
+    - name: geometry
+      kind: project
+      tracker_id: GEOMETRY
+      tracker_api_key: GEOMETRY
+    - name: geronimo
+      kind: project
+      tracker_id: GERONIMO
+      tracker_api_key: GERONIMO
+    - name: geronimodevtools
+      kind: project
+      tracker_id: GERONIMODEVTOOLS
+      tracker_api_key: GERONIMODEVTOOLS
+    - name: giraph
+      kind: project
+      tracker_id: GIRAPH
+      tracker_api_key: GIRAPH
+    - name: gluten
+      kind: project
+      tracker_id: GLUTEN
+      tracker_api_key: GLUTEN
+    - name: gobblin
+      kind: project
+      tracker_id: GOBBLIN
+      tracker_api_key: GOBBLIN
+    - name: gora
+      kind: project
+      tracker_id: GORA
+      tracker_api_key: GORA
+    - name: gossip
+      kind: project
+      tracker_id: GOSSIP
+      tracker_api_key: GOSSIP
+    - name: grft
+      kind: project
+      tracker_id: GRFT
+      tracker_api_key: GRFT
+    - name: griffin
+      kind: project
+      tracker_id: GRIFFIN
+      tracker_api_key: GRIFFIN
+    - name: groovy
+      kind: project
+      tracker_id: GROOVY
+      tracker_api_key: GROOVY
+    - name: gsoc
+      kind: project
+      tracker_id: GSOC
+      tracker_api_key: GSOC
+    - name: guacamole
+      kind: project
+      tracker_id: GUACAMOLE
+      tracker_api_key: GUACAMOLE
+    - name: gump
+      kind: project
+      tracker_id: GUMP
+      tracker_api_key: GUMP
+    - name: hadoop
+      kind: project
+      tracker_id: HADOOP
+      tracker_api_key: HADOOP
+    - name: hama
+      kind: project
+      tracker_id: HAMA
+      tracker_api_key: HAMA
+    - name: harmony
+      kind: project
+      tracker_id: HARMONY
+      tracker_api_key: HARMONY
+    - name: hawq
+      kind: project
+      tracker_id: HAWQ
+      tracker_api_key: HAWQ
+    - name: hbase
+      kind: project
+      tracker_id: HBASE
+      tracker_api_key: HBASE
+    - name: hcatalog
+      kind: project
+      tracker_id: HCATALOG
+      tracker_api_key: HCATALOG
+    - name: hdds
+      kind: project
+      tracker_id: HDDS
+      tracker_api_key: HDDS
+    - name: hdfs
+      kind: project
+      tracker_id: HDFS
+      tracker_api_key: HDFS
+    - name: hdt
+      kind: project
+      tracker_id: HDT
+      tracker_api_key: HDT
+    - name: helix
+      kind: project
+      tracker_id: HELIX
+      tracker_api_key: HELIX
+    - name: heraldry
+      kind: project
+      tracker_id: HERALDRY
+      tracker_api_key: HERALDRY
+    - name: hermes
+      kind: project
+      tracker_id: HERMES
+      tracker_api_key: HERMES
+    - name: hise
+      kind: project
+      tracker_id: HISE
+      tracker_api_key: HISE
+    - name: hive
+      kind: project
+      tracker_id: HIVE
+      tracker_api_key: HIVE
+    - name: hivemall
+      kind: project
+      tracker_id: HIVEMALL
+      tracker_api_key: HIVEMALL
+    - name: hivemind
+      kind: project
+      tracker_id: HIVEMIND
+      tracker_api_key: HIVEMIND
+    - name: hop
+      kind: project
+      tracker_id: HOP
+      tracker_api_key: HOP
+    - name: horn
+      kind: project
+      tracker_id: HORN
+      tracker_api_key: HORN
+    - name: htrace
+      kind: project
+      tracker_id: HTRACE
+      tracker_api_key: HTRACE
+    - name: httpasync
+      kind: project
+      tracker_id: HTTPASYNC
+      tracker_api_key: HTTPASYNC
+    - name: httpclient
+      kind: project
+      tracker_id: HTTPCLIENT
+      tracker_api_key: HTTPCLIENT
+    - name: httpcore
+      kind: project
+      tracker_id: HTTPCORE
+      tracker_api_key: HTTPCORE
+    - name: httpdraft
+      kind: project
+      tracker_id: HTTPDRAFT
+      tracker_api_key: HTTPDRAFT
+    - name: hudi
+      kind: project
+      tracker_id: HUDI
+      tracker_api_key: HUDI
+    - name: hupa
+      kind: project
+      tracker_id: HUPA
+      tracker_api_key: HUPA
+    - name: ibatis
+      kind: project
+      tracker_id: IBATIS
+      tracker_api_key: IBATIS
+    - name: ibatisnet
+      kind: project
+      tracker_id: IBATISNET
+      tracker_api_key: IBATISNET
+    - name: ignite
+      kind: project
+      tracker_id: IGNITE
+      tracker_api_key: IGNITE
+    - name: imaging
+      kind: project
+      tracker_id: IMAGING
+      tracker_api_key: IMAGING
+    - name: imap
+      kind: project
+      tracker_id: IMAP
+      tracker_api_key: IMAP
+    - name: impala
+      kind: project
+      tracker_id: IMPALA
+      tracker_api_key: IMPALA
+    - name: imperius
+      kind: project
+      tracker_id: IMPERIUS
+      tracker_api_key: IMPERIUS
+    - name: jira_incubator
+      kind: project
+      tracker_id: INCUBATOR
+      tracker_api_key: INCUBATOR
+    - name: infratesty33
+      kind: project
+      tracker_id: INFRATESTY33
+      tracker_api_key: INFRATESTY33
+    - name: inlong
+      kind: project
+      tracker_id: INLONG
+      tracker_api_key: INLONG
+    - name: io
+      kind: project
+      tracker_id: IO
+      tracker_api_key: IO
+    - name: iota
+      kind: project
+      tracker_id: IOTA
+      tracker_api_key: IOTA
+    - name: iotdb
+      kind: project
+      tracker_id: IOTDB
+      tracker_api_key: IOTDB
+    - name: ivy
+      kind: project
+      tracker_id: IVY
+      tracker_api_key: IVY
+    - name: ivyde
+      kind: project
+      tracker_id: IVYDE
+      tracker_api_key: IVYDE
+    - name: jacob
+      kind: project
+      tracker_id: JACOB
+      tracker_api_key: JACOB
+    - name: james
+      kind: project
+      tracker_id: JAMES
+      tracker_api_key: JAMES
+    - name: jaxme
+      kind: project
+      tracker_id: JAXME
+      tracker_api_key: JAXME
+    - name: jci
+      kind: project
+      tracker_id: JCI
+      tracker_api_key: JCI
+    - name: jclouds
+      kind: project
+      tracker_id: JCLOUDS
+      tracker_api_key: JCLOUDS
+    - name: jcr
+      kind: project
+      tracker_id: JCR
+      tracker_api_key: JCR
+    - name: jcrbench
+      kind: project
+      tracker_id: JCRBENCH
+      tracker_api_key: JCRBENCH
+    - name: jcrcl
+      kind: project
+      tracker_id: JCRCL
+      tracker_api_key: JCRCL
+    - name: jcrrmi
+      kind: project
+      tracker_id: JCRRMI
+      tracker_api_key: JCRRMI
+    - name: jcrservlet
+      kind: project
+      tracker_id: JCRSERVLET
+      tracker_api_key: JCRSERVLET
+    - name: jcrsite
+      kind: project
+      tracker_id: JCRSITE
+      tracker_api_key: JCRSITE
+    - name: jcrtck
+      kind: project
+      tracker_id: JCRTCK
+      tracker_api_key: JCRTCK
+    - name: jcrvlt
+      kind: project
+      tracker_id: JCRVLT
+      tracker_api_key: JCRVLT
+    - name: jcs
+      kind: project
+      tracker_id: JCS
+      tracker_api_key: JCS
+    - name: jdkim
+      kind: project
+      tracker_id: JDKIM
+      tracker_api_key: JDKIM
+    - name: jdo
+      kind: project
+      tracker_id: JDO
+      tracker_api_key: JDO
+    - name: jelly
+      kind: project
+      tracker_id: JELLY
+      tracker_api_key: JELLY
+    - name: jena
+      kind: project
+      tracker_id: JENA
+      tracker_api_key: JENA
+    - name: jexl
+      kind: project
+      tracker_id: JEXL
+      tracker_api_key: JEXL
+    - name: johnzon
+      kind: project
+      tracker_id: JOHNZON
+      tracker_api_key: JOHNZON
+    - name: joshua
+      kind: project
+      tracker_id: JOSHUA
+      tracker_api_key: JOSHUA
+    - name: js1
+      kind: project
+      tracker_id: JS1
+      tracker_api_key: JS1
+    - name: js2
+      kind: project
+      tracker_id: JS2
+      tracker_api_key: JS2
+    - name: jsieve
+      kind: project
+      tracker_id: JSIEVE
+      tracker_api_key: JSIEVE
+    - name: jspf
+      kind: project
+      tracker_id: JSPF
+      tracker_api_key: JSPF
+    - name: jspwiki
+      kind: project
+      tracker_id: JSPWIKI
+      tracker_api_key: JSPWIKI
+    - name: juddi
+      kind: project
+      tracker_id: JUDDI
+      tracker_api_key: JUDDI
+    - name: juneau
+      kind: project
+      tracker_id: JUNEAU
+      tracker_api_key: JUNEAU
+    - name: jxpath
+      kind: project
+      tracker_id: JXPATH
+      tracker_api_key: JXPATH
+    - name: jxr
+      kind: project
+      tracker_id: JXR
+      tracker_api_key: JXR
+    - name: kafka
+      kind: project
+      tracker_id: KAFKA
+      tracker_api_key: KAFKA
+    - name: kalumet
+      kind: project
+      tracker_id: KALUMET
+      tracker_api_key: KALUMET
+    - name: kand
+      kind: project
+      tracker_id: KAND
+      tracker_api_key: KAND
+    - name: karaf
+      kind: project
+      tracker_id: KARAF
+      tracker_api_key: KARAF
+    - name: kato
+      kind: project
+      tracker_id: KATO
+      tracker_api_key: KATO
+    - name: ki
+      kind: project
+      tracker_id: KI
+      tracker_api_key: KI
+    - name: kitty
+      kind: project
+      tracker_id: KITTY
+      tracker_api_key: KITTY
+    - name: knox
+      kind: project
+      tracker_id: KNOX
+      tracker_api_key: KNOX
+    - name: kudu
+      kind: project
+      tracker_id: KUDU
+      tracker_api_key: KUDU
+    - name: kylin
+      kind: project
+      tracker_id: KYLIN
+      tracker_api_key: KYLIN
+    - name: labs
+      kind: project
+      tracker_id: LABS
+      tracker_api_key: LABS
+    - name: lang
+      kind: project
+      tracker_id: LANG
+      tracker_api_key: LANG
+    - name: launcher
+      kind: project
+      tracker_id: LAUNCHER
+      tracker_api_key: LAUNCHER
+    - name: lcn4c
+      kind: project
+      tracker_id: LCN4C
+      tracker_api_key: LCN4C
+    - name: legal
+      kind: project
+      tracker_id: LEGAL
+      tracker_api_key: LEGAL
+    - name: lens
+      kind: project
+      tracker_id: LENS
+      tracker_api_key: LENS
+    - name: libcloud
+      kind: project
+      tracker_id: LIBCLOUD
+      tracker_api_key: LIBCLOUD
+    - name: liminal
+      kind: project
+      tracker_id: LIMINAL
+      tracker_api_key: LIMINAL
+    - name: livy
+      kind: project
+      tracker_id: LIVY
+      tracker_api_key: LIVY
+    - name: log4j2
+      kind: project
+      tracker_id: LOG4J2
+      tracker_api_key: LOG4J2
+    - name: log4net
+      kind: project
+      tracker_id: LOG4NET
+      tracker_api_key: LOG4NET
+    - name: log4php
+      kind: project
+      tracker_id: LOG4PHP
+      tracker_api_key: LOG4PHP
+    - name: logcxx
+      kind: project
+      tracker_id: LOGCXX
+      tracker_api_key: LOGCXX
+    - name: logging
+      kind: project
+      tracker_id: LOGGING
+      tracker_api_key: LOGGING
+    - name: lokahi
+      kind: project
+      tracker_id: LOKAHI
+      tracker_api_key: LOKAHI
+    - name: lucene
+      kind: project
+      tracker_id: LUCENE
+      tracker_api_key: LUCENE
+    - name: lucenenet
+      kind: project
+      tracker_id: LUCENENET
+      tracker_api_key: LUCENENET
+    - name: lucy
+      kind: project
+      tracker_id: LUCY
+      tracker_api_key: LUCY
+    - name: macr
+      kind: project
+      tracker_id: MACR
+      tracker_api_key: MACR
+    - name: madlib
+      kind: project
+      tracker_id: MADLIB
+      tracker_api_key: MADLIB
+    - name: mahout
+      kind: project
+      tracker_id: MAHOUT
+      tracker_api_key: MAHOUT
+    - name: mailbox
+      kind: project
+      tracker_id: MAILBOX
+      tracker_api_key: MAILBOX
+    - name: mailet
+      kind: project
+      tracker_id: MAILET
+      tracker_api_key: MAILET
+    - name: mant
+      kind: project
+      tracker_id: MANT
+      tracker_api_key: MANT
+    - name: mantrun
+      kind: project
+      tracker_id: MANTRUN
+      tracker_api_key: MANTRUN
+    - name: manttasks
+      kind: project
+      tracker_id: MANTTASKS
+      tracker_api_key: MANTTASKS
+    - name: mapreduce
+      kind: project
+      tracker_id: MAPREDUCE
+      tracker_api_key: MAPREDUCE
+    - name: marchetypes
+      kind: project
+      tracker_id: MARCHETYPES
+      tracker_api_key: MARCHETYPES
+    - name: marmotta
+      kind: project
+      tracker_id: MARMOTTA
+      tracker_api_key: MARMOTTA
+    - name: martifact
+      kind: project
+      tracker_id: MARTIFACT
+      tracker_api_key: MARTIFACT
+    - name: marvin
+      kind: project
+      tracker_id: MARVIN
+      tracker_api_key: MARVIN
+    - name: masfres
+      kind: project
+      tracker_id: MASFRES
+      tracker_api_key: MASFRES
+    - name: massembly
+      kind: project
+      tracker_id: MASSEMBLY
+      tracker_api_key: MASSEMBLY
+    - name: math
+      kind: project
+      tracker_id: MATH
+      tracker_api_key: MATH
+    - name: mavibot
+      kind: project
+      tracker_id: MAVIBOT
+      tracker_api_key: MAVIBOT
+    - name: mbuildcache
+      kind: project
+      tracker_id: MBUILDCACHE
+      tracker_api_key: MBUILDCACHE
+    - name: mcfsdk
+      kind: project
+      tracker_id: MCFSDK
+      tracker_api_key: MCFSDK
+    - name: mchangelog
+      kind: project
+      tracker_id: MCHANGELOG
+      tracker_api_key: MCHANGELOG
+    - name: mchanges
+      kind: project
+      tracker_id: MCHANGES
+      tracker_api_key: MCHANGES
+    - name: mcheckstyle
+      kind: project
+      tracker_id: MCHECKSTYLE
+      tracker_api_key: MCHECKSTYLE
+    - name: mclean
+      kind: project
+      tracker_id: MCLEAN
+      tracker_api_key: MCLEAN
+    - name: mcompiler
+      kind: project
+      tracker_id: MCOMPILER
+      tracker_api_key: MCOMPILER
+    - name: mdep
+      kind: project
+      tracker_id: MDEP
+      tracker_api_key: MDEP
+    - name: mdeploy
+      kind: project
+      tracker_id: MDEPLOY
+      tracker_api_key: MDEPLOY
+    - name: mdoap
+      kind: project
+      tracker_id: MDOAP
+      tracker_api_key: MDOAP
+    - name: mdocck
+      kind: project
+      tracker_id: MDOCCK
+      tracker_api_key: MDOCCK
+    - name: mear
+      kind: project
+      tracker_id: MEAR
+      tracker_api_key: MEAR
+    - name: meclipse
+      kind: project
+      tracker_id: MECLIPSE
+      tracker_api_key: MECLIPSE
+    - name: meecrowave
+      kind: project
+      tracker_id: MEECROWAVE
+      tracker_api_key: MEECROWAVE
+    - name: mejb
+      kind: project
+      tracker_id: MEJB
+      tracker_api_key: MEJB
+    - name: menforcer
+      kind: project
+      tracker_id: MENFORCER
+      tracker_api_key: MENFORCER
+    - name: mesos
+      kind: project
+      tracker_id: MESOS
+      tracker_api_key: MESOS
+    - name: metamodel
+      kind: project
+      tracker_id: METAMODEL
+      tracker_api_key: METAMODEL
+    - name: metron
+      kind: project
+      tracker_id: METRON
+      tracker_api_key: METRON
+    - name: mfcommons
+      kind: project
+      tracker_id: MFCOMMONS
+      tracker_api_key: MFCOMMONS
+    - name: mfhtml5
+      kind: project
+      tracker_id: MFHTML5
+      tracker_api_key: MFHTML5
+    - name: mgpg
+      kind: project
+      tracker_id: MGPG
+      tracker_api_key: MGPG
+    - name: milagro
+      kind: project
+      tracker_id: MILAGRO
+      tracker_api_key: MILAGRO
+    - name: mime4j
+      kind: project
+      tracker_id: MIME4J
+      tracker_api_key: MIME4J
+    - name: mindexer
+      kind: project
+      tracker_id: MINDEXER
+      tracker_api_key: MINDEXER
+    - name: minifi
+      kind: project
+      tracker_id: MINIFI
+      tracker_api_key: MINIFI
+    - name: minificpp
+      kind: project
+      tracker_id: MINIFICPP
+      tracker_api_key: MINIFICPP
+    - name: minstall
+      kind: project
+      tracker_id: MINSTALL
+      tracker_api_key: MINSTALL
+    - name: minvoker
+      kind: project
+      tracker_id: MINVOKER
+      tracker_api_key: MINVOKER
+    - name: mirae
+      kind: project
+      tracker_id: MIRAE
+      tracker_api_key: MIRAE
+    - name: mjar
+      kind: project
+      tracker_id: MJAR
+      tracker_api_key: MJAR
+    - name: mjarsigner
+      kind: project
+      tracker_id: MJARSIGNER
+      tracker_api_key: MJARSIGNER
+    - name: mjavadoc
+      kind: project
+      tracker_id: MJAVADOC
+      tracker_api_key: MJAVADOC
+    - name: mjdeprscan
+      kind: project
+      tracker_id: MJDEPRSCAN
+      tracker_api_key: MJDEPRSCAN
+    - name: mjdeps
+      kind: project
+      tracker_id: MJDEPS
+      tracker_api_key: MJDEPS
+    - name: mjlink
+      kind: project
+      tracker_id: MJLINK
+      tracker_api_key: MJLINK
+    - name: mjmod
+      kind: project
+      tracker_id: MJMOD
+      tracker_api_key: MJMOD
+    - name: mlinkcheck
+      kind: project
+      tracker_id: MLINKCHECK
+      tracker_api_key: MLINKCHECK
+    - name: mmetric
+      kind: project
+      tracker_id: MMETRIC
+      tracker_api_key: MMETRIC
+    - name: mnemonic
+      kind: project
+      tracker_id: MNEMONIC
+      tracker_api_key: MNEMONIC
+    - name: mng
+      kind: project
+      tracker_id: MNG
+      tracker_api_key: MNG
+    - name: mngsite
+      kind: project
+      tracker_id: MNGSITE
+      tracker_api_key: MNGSITE
+    - name: modeler
+      kind: project
+      tracker_id: MODELER
+      tracker_api_key: MODELER
+    - name: modpython
+      kind: project
+      tracker_id: MODPYTHON
+      tracker_api_key: MODPYTHON
+    - name: mpatch
+      kind: project
+      tracker_id: MPATCH
+      tracker_api_key: MPATCH
+    - name: mpdf
+      kind: project
+      tracker_id: MPDF
+      tracker_api_key: MPDF
+    - name: mph
+      kind: project
+      tracker_id: MPH
+      tracker_api_key: MPH
+    - name: mpir
+      kind: project
+      tracker_id: MPIR
+      tracker_api_key: MPIR
+    - name: mplugin
+      kind: project
+      tracker_id: MPLUGIN
+      tracker_api_key: MPLUGIN
+    - name: mplugintesting
+      kind: project
+      tracker_id: MPLUGINTESTING
+      tracker_api_key: MPLUGINTESTING
+    - name: mpmd
+      kind: project
+      tracker_id: MPMD
+      tracker_api_key: MPMD
+    - name: mpom
+      kind: project
+      tracker_id: MPOM
+      tracker_api_key: MPOM
+    - name: mpt
+      kind: project
+      tracker_id: MPT
+      tracker_api_key: MPT
+    - name: mrar
+      kind: project
+      tracker_id: MRAR
+      tracker_api_key: MRAR
+    - name: mrelease
+      kind: project
+      tracker_id: MRELEASE
+      tracker_api_key: MRELEASE
+    - name: mrepository
+      kind: project
+      tracker_id: MREPOSITORY
+      tracker_api_key: MREPOSITORY
+    - name: mresolver
+      kind: project
+      tracker_id: MRESOLVER
+      tracker_api_key: MRESOLVER
+    - name: mresources
+      kind: project
+      tracker_id: MRESOURCES
+      tracker_api_key: MRESOURCES
+    - name: mrm
+      kind: project
+      tracker_id: MRM
+      tracker_api_key: MRM
+    - name: mrql
+      kind: project
+      tracker_id: MRQL
+      tracker_api_key: MRQL
+    - name: mrresources
+      kind: project
+      tracker_id: MRRESOURCES
+      tracker_api_key: MRRESOURCES
+    - name: mrunit
+      kind: project
+      tracker_id: MRUNIT
+      tracker_api_key: MRUNIT
+    - name: mscmpub
+      kind: project
+      tracker_id: MSCMPUB
+      tracker_api_key: MSCMPUB
+    - name: mscripting
+      kind: project
+      tracker_id: MSCRIPTING
+      tracker_api_key: MSCRIPTING
+    - name: mshade
+      kind: project
+      tracker_id: MSHADE
+      tracker_api_key: MSHADE
+    - name: mshared
+      kind: project
+      tracker_id: MSHARED
+      tracker_api_key: MSHARED
+    - name: msite
+      kind: project
+      tracker_id: MSITE
+      tracker_api_key: MSITE
+    - name: mskins
+      kind: project
+      tracker_id: MSKINS
+      tracker_api_key: MSKINS
+    - name: msources
+      kind: project
+      tracker_id: MSOURCES
+      tracker_api_key: MSOURCES
+    - name: mstage
+      kind: project
+      tracker_id: MSTAGE
+      tracker_api_key: MSTAGE
+    - name: mtomcat
+      kind: project
+      tracker_id: MTOMCAT
+      tracker_api_key: MTOMCAT
+    - name: mtoolchains
+      kind: project
+      tracker_id: MTOOLCHAINS
+      tracker_api_key: MTOOLCHAINS
+    - name: muse
+      kind: project
+      tracker_id: MUSE
+      tracker_api_key: MUSE
+    - name: mverifier
+      kind: project
+      tracker_id: MVERIFIER
+      tracker_api_key: MVERIFIER
+    - name: mwar
+      kind: project
+      tracker_id: MWAR
+      tracker_api_key: MWAR
+    - name: mwrapper
+      kind: project
+      tracker_id: MWRAPPER
+      tracker_api_key: MWRAPPER
+    - name: mxnet
+      kind: project
+      tracker_id: MXNET
+      tracker_api_key: MXNET
+    - name: myfaces
+      kind: project
+      tracker_id: MYFACES
+      tracker_api_key: MYFACES
+    - name: myfacestest
+      kind: project
+      tracker_id: MYFACESTEST
+      tracker_api_key: MYFACESTEST
+    - name: mynewt
+      kind: project
+      tracker_id: MYNEWT
+      tracker_api_key: MYNEWT
+    - name: mynewtdoc
+      kind: project
+      tracker_id: MYNEWTDOC
+      tracker_api_key: MYNEWTDOC
+    - name: myriad
+      kind: project
+      tracker_id: MYRIAD
+      tracker_api_key: MYRIAD
+    - name: neethi
+      kind: project
+      tracker_id: NEETHI
+      tracker_api_key: NEETHI
+    - name: nemo
+      kind: project
+      tracker_id: NEMO
+      tracker_api_key: NEMO
+    - name: net
+      kind: project
+      tracker_id: NET
+      tracker_api_key: NET
+    - name: netbeans
+      kind: project
+      tracker_id: NETBEANS
+      tracker_api_key: NETBEANS
+    - name: netbeansinfra
+      kind: project
+      tracker_id: NETBEANSINFRA
+      tracker_api_key: NETBEANSINFRA
+    - name: nifi
+      kind: project
+      tracker_id: NIFI
+      tracker_api_key: NIFI
+    - name: nifilibs
+      kind: project
+      tracker_id: NIFILIBS
+      tracker_api_key: NIFILIBS
+    - name: nifireg
+      kind: project
+      tracker_id: NIFIREG
+      tracker_api_key: NIFIREG
+    - name: nip
+      kind: project
+      tracker_id: NIP
+      tracker_api_key: NIP
+    - name: nlpcraft
+      kind: project
+      tracker_id: NLPCRAFT
+      tracker_api_key: NLPCRAFT
+    - name: npanday
+      kind: project
+      tracker_id: NPANDAY
+      tracker_api_key: NPANDAY
+    - name: numbers
+      kind: project
+      tracker_id: NUMBERS
+      tracker_api_key: NUMBERS
+    - name: nutch
+      kind: project
+      tracker_id: NUTCH
+      tracker_api_key: NUTCH
+    - name: nuttx
+      kind: project
+      tracker_id: NUTTX
+      tracker_api_key: NUTTX
+    - name: nuvem
+      kind: project
+      tracker_id: NUVEM
+      tracker_api_key: NUVEM
+    - name: oak
+      kind: project
+      tracker_id: OAK
+      tracker_api_key: OAK
+    - name: ocm
+      kind: project
+      tracker_id: OCM
+      tracker_api_key: OCM
+    - name: ode
+      kind: project
+      tracker_id: ODE
+      tracker_api_key: ODE
+    - name: odftoolkit
+      kind: project
+      tracker_id: ODFTOOLKIT
+      tracker_api_key: ODFTOOLKIT
+    - name: oep
+      kind: project
+      tracker_id: OEP
+      tracker_api_key: OEP
+    - name: ofbiz
+      kind: project
+      tracker_id: OFBIZ
+      tracker_api_key: OFBIZ
+    - name: ognl
+      kind: project
+      tracker_id: OGNL
+      tracker_api_key: OGNL
+    - name: ojb
+      kind: project
+      tracker_id: OJB
+      tracker_api_key: OJB
+    - name: olingo
+      kind: project
+      tracker_id: OLINGO
+      tracker_api_key: OLINGO
+    - name: olio
+      kind: project
+      tracker_id: OLIO
+      tracker_api_key: OLIO
+    - name: oltu
+      kind: project
+      tracker_id: OLTU
+      tracker_api_key: OLTU
+    - name: omid
+      kind: project
+      tracker_id: OMID
+      tracker_api_key: OMID
+    - name: onami
+      kind: project
+      tracker_id: ONAMI
+      tracker_api_key: ONAMI
+    - name: oodt
+      kind: project
+      tracker_id: OODT
+      tracker_api_key: OODT
+    - name: oozie
+      kind: project
+      tracker_id: OOZIE
+      tracker_api_key: OOZIE
+    - name: openaz
+      kind: project
+      tracker_id: OPENAZ
+      tracker_api_key: OPENAZ
+    - name: openejb
+      kind: project
+      tracker_id: OPENEJB
+      tracker_api_key: OPENEJB
+    - name: openjpa
+      kind: project
+      tracker_id: OPENJPA
+      tracker_api_key: OPENJPA
+    - name: openmeetings
+      kind: project
+      tracker_id: OPENMEETINGS
+      tracker_api_key: OPENMEETINGS
+    - name: opennlp
+      kind: project
+      tracker_id: OPENNLP
+      tracker_api_key: OPENNLP
+    - name: openoffice
+      kind: project
+      tracker_id: OPENOFFICE
+      tracker_api_key: OPENOFFICE
+    - name: openwire
+      kind: project
+      tracker_id: OPENWIRE
+      tracker_api_key: OPENWIRE
+    - name: orc
+      kind: project
+      tracker_id: ORC
+      tracker_api_key: ORC
+    - name: orchestra
+      kind: project
+      tracker_id: ORCHESTRA
+      tracker_api_key: ORCHESTRA
+    - name: orp
+      kind: project
+      tracker_id: ORP
+      tracker_api_key: ORP
+    - name: otava
+      kind: project
+      tracker_id: OTAVA
+      tracker_api_key: OTAVA
+    - name: owb
+      kind: project
+      tracker_id: OWB
+      tracker_api_key: OWB
+    - name: owc
+      kind: project
+      tracker_id: OWC
+      tracker_api_key: OWC
+    - name: parquet
+      kind: project
+      tracker_id: PARQUET
+      tracker_api_key: PARQUET
+    - name: pb
+      kind: project
+      tracker_id: PB
+      tracker_api_key: PB
+    - name: pdfbox
+      kind: project
+      tracker_id: PDFBOX
+      tracker_api_key: PDFBOX
+    - name: pegasus
+      kind: project
+      tracker_id: PEGASUS
+      tracker_api_key: PEGASUS
+    - name: phoenix
+      kind: project
+      tracker_id: PHOENIX
+      tracker_api_key: PHOENIX
+    - name: photark
+      kind: project
+      tracker_id: PHOTARK
+      tracker_api_key: PHOTARK
+    - name: pig
+      kind: project
+      tracker_id: PIG
+      tracker_api_key: PIG
+    - name: pinot
+      kind: project
+      tracker_id: PINOT
+      tracker_api_key: PINOT
+    - name: pio
+      kind: project
+      tracker_id: PIO
+      tracker_api_key: PIO
+    - name: pirk
+      kind: project
+      tracker_id: PIRK
+      tracker_api_key: PIRK
+    - name: pivot
+      kind: project
+      tracker_id: PIVOT
+      tracker_api_key: PIVOT
+    - name: planet
+      kind: project
+      tracker_id: PLANET
+      tracker_api_key: PLANET
+    - name: plc4x
+      kind: project
+      tracker_id: PLC4X
+      tracker_api_key: PLC4X
+    - name: pluto
+      kind: project
+      tracker_id: PLUTO
+      tracker_api_key: PLUTO
+    - name: pnix
+      kind: project
+      tracker_id: PNIX
+      tracker_api_key: PNIX
+    - name: podlingnamesearch
+      kind: project
+      tracker_id: PODLINGNAMESEARCH
+      tracker_api_key: PODLINGNAMESEARCH
+    - name: polygene
+      kind: project
+      tracker_id: POLYGENE
+      tracker_api_key: POLYGENE
+    - name: pool
+      kind: project
+      tracker_id: POOL
+      tracker_api_key: POOL
+    - name: portals
+      kind: project
+      tracker_id: PORTALS
+      tracker_api_key: PORTALS
+    - name: portletbridge
+      kind: project
+      tracker_id: PORTLETBRIDGE
+      tracker_api_key: PORTLETBRIDGE
+    - name: postage
+      kind: project
+      tracker_id: POSTAGE
+      tracker_api_key: POSTAGE
+    - name: prc
+      kind: project
+      tracker_id: PRC
+      tracker_api_key: PRC
+    - name: primitives
+      kind: project
+      tracker_id: PRIMITIVES
+      tracker_api_key: PRIMITIVES
+    - name: protocols
+      kind: project
+      tracker_id: PROTOCOLS
+      tracker_api_key: PROTOCOLS
+    - name: proton
+      kind: project
+      tracker_id: PROTON
+      tracker_api_key: PROTON
+    - name: provisionr
+      kind: project
+      tracker_id: PROVISIONR
+      tracker_api_key: PROVISIONR
+    - name: proxy
+      kind: project
+      tracker_id: PROXY
+      tracker_api_key: PROXY
+    - name: pulsar
+      kind: project
+      tracker_id: PULSAR
+      tracker_api_key: PULSAR
+    - name: pylucene
+      kind: project
+      tracker_id: PYLUCENE
+      tracker_api_key: PYLUCENE
+    - name: qpid
+      kind: project
+      tracker_id: QPID
+      tracker_api_key: QPID
+    - name: qpidit
+      kind: project
+      tracker_id: QPIDIT
+      tracker_api_key: QPIDIT
+    - name: qpidjms
+      kind: project
+      tracker_id: QPIDJMS
+      tracker_api_key: QPIDJMS
+    - name: quickstep
+      kind: project
+      tracker_id: QUICKSTEP
+      tracker_api_key: QUICKSTEP
+    - name: rampart
+      kind: project
+      tracker_id: RAMPART
+      tracker_api_key: RAMPART
+    - name: rampartc
+      kind: project
+      tracker_id: RAMPARTC
+      tracker_api_key: RAMPARTC
+    - name: ranger
+      kind: project
+      tracker_id: RANGER
+      tracker_api_key: RANGER
+    - name: rat
+      kind: project
+      tracker_id: RAT
+      tracker_api_key: RAT
+    - name: ratis
+      kind: project
+      tracker_id: RATIS
+      tracker_api_key: RATIS
+    - name: rave
+      kind: project
+      tracker_id: RAVE
+      tracker_api_key: RAVE
+    - name: rbatis
+      kind: project
+      tracker_id: RBATIS
+      tracker_api_key: RBATIS
+    - name: reef
+      kind: project
+      tracker_id: REEF
+      tracker_api_key: REEF
+    - name: resources
+      kind: project
+      tracker_id: RESOURCES
+      tracker_api_key: RESOURCES
+    - name: ripple
+      kind: project
+      tracker_id: RIPPLE
+      tracker_api_key: RIPPLE
+    - name: river
+      kind: project
+      tracker_id: RIVER
+      tracker_api_key: RIVER
+    - name: rng
+      kind: project
+      tracker_id: RNG
+      tracker_api_key: RNG
+    - name: rocketmq
+      kind: project
+      tracker_id: ROCKETMQ
+      tracker_api_key: ROCKETMQ
+    - name: rol
+      kind: project
+      tracker_id: ROL
+      tracker_api_key: ROL
+    - name: runtime
+      kind: project
+      tracker_id: RUNTIME
+      tracker_api_key: RUNTIME
+    - name: rya
+      kind: project
+      tracker_id: RYA
+      tracker_api_key: RYA
+    - name: s2graph
+      kind: project
+      tracker_id: S2GRAPH
+      tracker_api_key: S2GRAPH
+    - name: s4
+      kind: project
+      tracker_id: S4
+      tracker_api_key: S4
+    - name: samoa
+      kind: project
+      tracker_id: SAMOA
+      tracker_api_key: SAMOA
+    - name: samza
+      kind: project
+      tracker_id: SAMZA
+      tracker_api_key: SAMZA
+    - name: sand
+      kind: project
+      tracker_id: SAND
+      tracker_api_key: SAND
+    - name: sandbox
+      kind: project
+      tracker_id: SANDBOX
+      tracker_api_key: SANDBOX
+    - name: sandesha2
+      kind: project
+      tracker_id: SANDESHA2
+      tracker_api_key: SANDESHA2
+    - name: sandesha2c
+      kind: project
+      tracker_id: SANDESHA2C
+      tracker_api_key: SANDESHA2C
+    - name: santuario
+      kind: project
+      tracker_id: SANTUARIO
+      tracker_api_key: SANTUARIO
+    - name: savan
+      kind: project
+      tracker_id: SAVAN
+      tracker_api_key: SAVAN
+    - name: sb
+      kind: project
+      tracker_id: SB
+      tracker_api_key: SB
+    - name: scb
+      kind: project
+      tracker_id: SCB
+      tracker_api_key: SCB
+    - name: scimple
+      kind: project
+      tracker_id: SCIMPLE
+      tracker_api_key: SCIMPLE
+    - name: scm
+      kind: project
+      tracker_id: SCM
+      tracker_api_key: SCM
+    - name: scout
+      kind: project
+      tracker_id: SCOUT
+      tracker_api_key: SCOUT
+    - name: scxml
+      kind: project
+      tracker_id: SCXML
+      tracker_api_key: SCXML
+    - name: sdap
+      kind: project
+      tracker_id: SDAP
+      tracker_api_key: SDAP
+    - name: sedona
+      kind: project
+      tracker_id: SEDONA
+      tracker_api_key: SEDONA
+    - name: sentry
+      kind: project
+      tracker_id: SENTRY
+      tracker_api_key: SENTRY
+    - name: serf
+      kind: project
+      tracker_id: SERF
+      tracker_api_key: SERF
+    - name: shale
+      kind: project
+      tracker_id: SHALE
+      tracker_api_key: SHALE
+    - name: shindig
+      kind: project
+      tracker_id: SHINDIG
+      tracker_api_key: SHINDIG
+    - name: shiro
+      kind: project
+      tracker_id: SHIRO
+      tracker_api_key: SHIRO
+    - name: singa
+      kind: project
+      tracker_id: SINGA
+      tracker_api_key: SINGA
+    - name: sirona
+      kind: project
+      tracker_id: SIRONA
+      tracker_api_key: SIRONA
+    - name: sis
+      kind: project
+      tracker_id: SIS
+      tracker_api_key: SIS
+    - name: site
+      kind: project
+      tracker_id: SITE
+      tracker_api_key: SITE
+    - name: slider
+      kind: project
+      tracker_id: SLIDER
+      tracker_api_key: SLIDER
+    - name: sling
+      kind: project
+      tracker_id: SLING
+      tracker_api_key: SLING
+    - name: sm
+      kind: project
+      tracker_id: SM
+      tracker_api_key: SM
+    - name: smx4
+      kind: project
+      tracker_id: SMX4
+      tracker_api_key: SMX4
+    - name: smx4knl
+      kind: project
+      tracker_id: SMX4KNL
+      tracker_api_key: SMX4KNL
+    - name: smx4nmr
+      kind: project
+      tracker_id: SMX4NMR
+      tracker_api_key: SMX4NMR
+    - name: smxcomp
+      kind: project
+      tracker_id: SMXCOMP
+      tracker_api_key: SMXCOMP
+    - name: soap
+      kind: project
+      tracker_id: SOAP
+      tracker_api_key: SOAP
+    - name: solr
+      kind: project
+      tracker_id: SOLR
+      tracker_api_key: SOLR
+    - name: spark
+      kind: project
+      tracker_id: SPARK
+      tracker_api_key: SPARK
+    - name: spot
+      kind: project
+      tracker_id: SPOT
+      tracker_api_key: SPOT
+    - name: sqoop
+      kind: project
+      tracker_id: SQOOP
+      tracker_api_key: SQOOP
+    - name: sshd
+      kind: project
+      tracker_id: SSHD
+      tracker_api_key: SSHD
+    - name: stanbol
+      kind: project
+      tracker_id: STANBOL
+      tracker_api_key: STANBOL
+    - name: statistics
+      kind: project
+      tracker_id: STATISTICS
+      tracker_api_key: STATISTICS
+    - name: stdcxx
+      kind: project
+      tracker_id: STDCXX
+      tracker_api_key: STDCXX
+    - name: steve
+      kind: project
+      tracker_id: STEVE
+      tracker_api_key: STEVE
+    - name: stomp
+      kind: project
+      tracker_id: STOMP
+      tracker_api_key: STOMP
+    - name: stonehenge
+      kind: project
+      tracker_id: STONEHENGE
+      tracker_api_key: STONEHENGE
+    - name: storm
+      kind: project
+      tracker_id: STORM
+      tracker_api_key: STORM
+    - name: str
+      kind: project
+      tracker_id: STR
+      tracker_api_key: STR
+    - name: stratos
+      kind: project
+      tracker_id: STRATOS
+      tracker_api_key: STRATOS
+    - name: streampipes
+      kind: project
+      tracker_id: STREAMPIPES
+      tracker_api_key: STREAMPIPES
+    - name: streams
+      kind: project
+      tracker_id: STREAMS
+      tracker_api_key: STREAMS
+    - name: studio
+      kind: project
+      tracker_id: STUDIO
+      tracker_api_key: STUDIO
+    - name: submarine
+      kind: project
+      tracker_id: SUBMARINE
+      tracker_api_key: SUBMARINE
+    - name: superset
+      kind: project
+      tracker_id: SUPERSET
+      tracker_api_key: SUPERSET
+    - name: surefire
+      kind: project
+      tracker_id: SUREFIRE
+      tracker_api_key: SUREFIRE
+    - name: svn
+      kind: project
+      tracker_id: SVN
+      tracker_api_key: SVN
+    - name: synapse
+      kind: project
+      tracker_id: SYNAPSE
+      tracker_api_key: SYNAPSE
+    - name: syncope
+      kind: project
+      tracker_id: SYNCOPE
+      tracker_api_key: SYNCOPE
+    - name: systemds
+      kind: project
+      tracker_id: SYSTEMDS
+      tracker_api_key: SYSTEMDS
+    - name: tajo
+      kind: project
+      tracker_id: TAJO
+      tracker_api_key: TAJO
+    - name: tamaya
+      kind: project
+      tracker_id: TAMAYA
+      tracker_api_key: TAMAYA
+    - name: tap5
+      kind: project
+      tracker_id: TAP5
+      tracker_api_key: TAP5
+    - name: tapestry
+      kind: project
+      tracker_id: TAPESTRY
+      tracker_api_key: TAPESTRY
+    - name: tashi
+      kind: project
+      tracker_id: TASHI
+      tracker_api_key: TASHI
+    - name: tatpi
+      kind: project
+      tracker_id: TATPI
+      tracker_api_key: TATPI
+    - name: taverna
+      kind: project
+      tracker_id: TAVERNA
+      tracker_api_key: TAVERNA
+    - name: tc
+      kind: project
+      tracker_id: TC
+      tracker_api_key: TC
+    - name: tentacles
+      kind: project
+      tracker_id: TENTACLES
+      tracker_api_key: TENTACLES
+    - name: tephra
+      kind: project
+      tracker_id: TEPHRA
+      tracker_api_key: TEPHRA
+    - name: jira_testing
+      kind: project
+      tracker_id: TESTING
+      tracker_api_key: TESTING
+    - name: teval
+      kind: project
+      tracker_id: TEVAL
+      tracker_api_key: TEVAL
+    - name: texen
+      kind: project
+      tracker_id: TEXEN
+      tracker_api_key: TEXEN
+    - name: text
+      kind: project
+      tracker_id: TEXT
+      tracker_api_key: TEXT
+    - name: tez
+      kind: project
+      tracker_id: TEZ
+      tracker_api_key: TEZ
+    - name: thrift
+      kind: project
+      tracker_id: THRIFT
+      tracker_api_key: THRIFT
+    - name: tika
+      kind: project
+      tracker_id: TIKA
+      tracker_api_key: TIKA
+    - name: tiles
+      kind: project
+      tracker_id: TILES
+      tracker_api_key: TILES
+    - name: tilessb
+      kind: project
+      tracker_id: TILESSB
+      tracker_api_key: TILESSB
+    - name: tilesshared
+      kind: project
+      tracker_id: TILESSHARED
+      tracker_api_key: TILESSHARED
+    - name: tilesshow
+      kind: project
+      tracker_id: TILESSHOW
+      tracker_api_key: TILESSHOW
+    - name: tinkerpop
+      kind: project
+      tracker_id: TINKERPOP
+      tracker_api_key: TINKERPOP
+    - name: tm
+      kind: project
+      tracker_id: TM
+      tracker_api_key: TM
+    - name: tobago
+      kind: project
+      tracker_id: TOBAGO
+      tracker_api_key: TOBAGO
+    - name: tomahawk
+      kind: project
+      tracker_id: TOMAHAWK
+      tracker_api_key: TOMAHAWK
+    - name: tomee
+      kind: project
+      tracker_id: TOMEE
+      tracker_api_key: TOMEE
+    - name: jira_tools
+      kind: project
+      tracker_id: TOOLS
+      tracker_api_key: TOOLS
+    - name: toree
+      kind: project
+      tracker_id: TOREE
+      tracker_api_key: TOREE
+    - name: torque
+      kind: project
+      tracker_id: TORQUE
+      tracker_api_key: TORQUE
+    - name: torqueold
+      kind: project
+      tracker_id: TORQUEOLD
+      tracker_api_key: TORQUEOLD
+    - name: trafodion
+      kind: project
+      tracker_id: TRAFODION
+      tracker_api_key: TRAFODION
+    - name: training
+      kind: project
+      tracker_id: TRAINING
+      tracker_api_key: TRAINING
+    - name: transaction
+      kind: project
+      tracker_id: TRANSACTION
+      tracker_api_key: TRANSACTION
+    - name: transports
+      kind: project
+      tracker_id: TRANSPORTS
+      tracker_api_key: TRANSPORTS
+    - name: trb
+      kind: project
+      tracker_id: TRB
+      tracker_api_key: TRB
+    - name: treq
+      kind: project
+      tracker_id: TREQ
+      tracker_api_key: TREQ
+    - name: trinidad
+      kind: project
+      tracker_id: TRINIDAD
+      tracker_api_key: TRINIDAD
+    - name: triples
+      kind: project
+      tracker_id: TRIPLES
+      tracker_api_key: TRIPLES
+    - name: ts
+      kind: project
+      tracker_id: TS
+      tracker_api_key: TS
+    - name: tsik
+      kind: project
+      tracker_id: TSIK
+      tracker_api_key: TSIK
+    - name: tst
+      kind: project
+      tracker_id: TST
+      tracker_api_key: TST
+    - name: tuscany
+      kind: project
+      tracker_id: TUSCANY
+      tracker_api_key: TUSCANY
+    - name: tuweni
+      kind: project
+      tracker_id: TUWENI
+      tracker_api_key: TUWENI
+    - name: twill
+      kind: project
+      tracker_id: TWILL
+      tracker_api_key: TWILL
+    - name: uima
+      kind: project
+      tracker_id: UIMA
+      tracker_api_key: UIMA
+    - name: unomi
+      kind: project
+      tracker_id: UNOMI
+      tracker_api_key: UNOMI
+    - name: usergrid
+      kind: project
+      tracker_id: USERGRID
+      tracker_api_key: USERGRID
+    - name: validator
+      kind: project
+      tracker_id: VALIDATOR
+      tracker_api_key: VALIDATOR
+    - name: vcl
+      kind: project
+      tracker_id: VCL
+      tracker_api_key: VCL
+    - name: velocity
+      kind: project
+      tracker_id: VELOCITY
+      tracker_api_key: VELOCITY
+    - name: velocitysb
+      kind: project
+      tracker_id: VELOCITYSB
+      tracker_api_key: VELOCITYSB
+    - name: veltools
+      kind: project
+      tracker_id: VELTOOLS
+      tracker_api_key: VELTOOLS
+    - name: vfs
+      kind: project
+      tracker_id: VFS
+      tracker_api_key: VFS
+    - name: vxquery
+      kind: project
+      tracker_id: VXQUERY
+      tracker_api_key: VXQUERY
+    - name: vysper
+      kind: project
+      tracker_id: VYSPER
+      tracker_api_key: VYSPER
+    - name: wadi
+      kind: project
+      tracker_id: WADI
+      tracker_api_key: WADI
+    - name: wagon
+      kind: project
+      tracker_id: WAGON
+      tracker_api_key: WAGON
+    - name: wave
+      kind: project
+      tracker_id: WAVE
+      tracker_api_key: WAVE
+    - name: wayang
+      kind: project
+      tracker_id: WAYANG
+      tracker_api_key: WAYANG
+    - name: weaver
+      kind: project
+      tracker_id: WEAVER
+      tracker_api_key: WEAVER
+    - name: weex
+      kind: project
+      tracker_id: WEEX
+      tracker_api_key: WEEX
+    - name: whimsy
+      kind: project
+      tracker_id: WHIMSY
+      tracker_api_key: WHIMSY
+    - name: whirr
+      kind: project
+      tracker_id: WHIRR
+      tracker_api_key: WHIRR
+    - name: whisker
+      kind: project
+      tracker_id: WHISKER
+      tracker_api_key: WHISKER
+    - name: wicket
+      kind: project
+      tracker_id: WICKET
+      tracker_api_key: WICKET
+    - name: wink
+      kind: project
+      tracker_id: WINK
+      tracker_api_key: WINK
+    - name: woden
+      kind: project
+      tracker_id: WODEN
+      tracker_api_key: WODEN
+    - name: wookie
+      kind: project
+      tracker_id: WOOKIE
+      tracker_api_key: WOOKIE
+    - name: wscommons
+      kind: project
+      tracker_id: WSCOMMONS
+      tracker_api_key: WSCOMMONS
+    - name: wsif
+      kind: project
+      tracker_id: WSIF
+      tracker_api_key: WSIF
+    - name: wsrp4j
+      kind: project
+      tracker_id: WSRP4J
+      tracker_api_key: WSRP4J
+    - name: wss
+      kind: project
+      tracker_id: WSS
+      tracker_api_key: WSS
+    - name: ww
+      kind: project
+      tracker_id: WW
+      tracker_api_key: WW
+    - name: xalanc
+      kind: project
+      tracker_id: XALANC
+      tracker_api_key: XALANC
+    - name: xalanj
+      kind: project
+      tracker_id: XALANJ
+      tracker_api_key: XALANJ
+    - name: xap
+      kind: project
+      tracker_id: XAP
+      tracker_api_key: XAP
+    - name: xbean
+      kind: project
+      tracker_id: XBEAN
+      tracker_api_key: XBEAN
+    - name: xercesc
+      kind: project
+      tracker_id: XERCESC
+      tracker_api_key: XERCESC
+    - name: xercesj
+      kind: project
+      tracker_id: XERCESJ
+      tracker_api_key: XERCESJ
+    - name: xercesp
+      kind: project
+      tracker_id: XERCESP
+      tracker_api_key: XERCESP
+    - name: xgc
+      kind: project
+      tracker_id: XGC
+      tracker_api_key: XGC
+    - name: xmlbeans
+      kind: project
+      tracker_id: XMLBEANS
+      tracker_api_key: XMLBEANS
+    - name: xmlcommons
+      kind: project
+      tracker_id: XMLCOMMONS
+      tracker_api_key: XMLCOMMONS
+    - name: xmlrpc
+      kind: project
+      tracker_id: XMLRPC
+      tracker_api_key: XMLRPC
+    - name: xmlschema
+      kind: project
+      tracker_id: XMLSCHEMA
+      tracker_api_key: XMLSCHEMA
+    - name: xw
+      kind: project
+      tracker_id: XW
+      tracker_api_key: XW
+    - name: yarn
+      kind: project
+      tracker_id: YARN
+      tracker_api_key: YARN
+    - name: yetus
+      kind: project
+      tracker_id: YETUS
+      tracker_api_key: YETUS
+    - name: yunikorn
+      kind: project
+      tracker_id: YUNIKORN
+      tracker_api_key: YUNIKORN
+    - name: zeppelin
+      kind: project
+      tracker_id: ZEPPELIN
+      tracker_api_key: ZEPPELIN
+    - name: zetacomp
+      kind: project
+      tracker_id: ZETACOMP
+      tracker_api_key: ZETACOMP
+    - name: zipkin
+      kind: project
+      tracker_id: ZIPKIN
+      tracker_api_key: ZIPKIN
+    - name: zookeeper
+      kind: project
+      tracker_id: ZOOKEEPER
+      tracker_api_key: ZOOKEEPER

@@ -113,7 +113,7 @@ def parse_args() -> argparse.Namespace:
 
     # Team vs entries: mutually exclusive
     group = parser.add_mutually_exclusive_group()
-    group.add_argument("--team", choices=["A", "B", "C"], default=None, help="Team name. Loads entries from team config.")
+    group.add_argument("--team", choices=["A", "B", "C", "D"], default=None, help="Team name. Loads entries from team config.")
     group.add_argument("--entries", default=None, help="comma-separated entry names (alternative to --team)")
 
     parser.add_argument("--team-config", default=TEAM_CONFIG_DEFAULT, help="Team assignments YAML path.")
