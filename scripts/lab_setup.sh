@@ -16,7 +16,7 @@
 set -euo pipefail
 
 SERVER="selab@aise.hknu.ac.kr"
-PORT=51712
+PORT=51713
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 VENV_DIR="$PROJECT_ROOT/.venv"
 

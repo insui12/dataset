@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 SERVER = "selab@aise.hknu.ac.kr"
-PORT = 51712
+PORT = 51713
 
 
 def run(cmd, **kwargs):

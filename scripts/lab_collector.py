@@ -16,7 +16,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 SERVER = "selab@aise.hknu.ac.kr"
-PORT = 51712
+PORT = 51713
 SYNC_INTERVAL = 30  # minutes
 SHUTDOWN_AT = "09:00"
 DEST_DIR = "/home/selab/dataset/artifacts/json_downloads_round_robin_D"

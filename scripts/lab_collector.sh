@@ -16,7 +16,7 @@
 #
 # 옵션:
 #   --server         서버 주소 (기본: selab@aise.hknu.ac.kr)
-#   --port           SSH 포트 (기본: 51712)
+#   --port           SSH 포트 (기본: 51713)
 #   --sync-interval  동기화 간격 분 (기본: 30)
 #   --shutdown-at    자동 종료 시각 HH:MM KST (기본: 09:00)
 #   --no-shutdown    자동 종료 안 함
@@ -32,7 +32,7 @@ set -euo pipefail
 MACHINE_ID=""
 TOTAL_MACHINES=41
 SERVER="selab@aise.hknu.ac.kr"
-PORT=51712
+PORT=51713
 SYNC_INTERVAL=30
 SHUTDOWN_AT="09:00"
 NO_SHUTDOWN=false
