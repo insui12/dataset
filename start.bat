@@ -34,7 +34,7 @@ if exist "%PY%" (
 )
 
 echo [1/5] Downloading Python %PY_VER%...
-curl -L --progress-bar -o _python.zip "https://www.python.org/ftp/python/%PY_VER%/python-%PY_VER%-embed-amd64.zip"
+curl -L --ssl-no-revoke --progress-bar -o _python.zip "https://www.python.org/ftp/python/%PY_VER%/python-%PY_VER%-embed-amd64.zip"
 if %errorlevel% neq 0 (
     echo [ERROR] Download failed.
     pause
@@ -55,7 +55,7 @@ echo import site
 ) > "%PY_DIR%\%PY_PTH%"
 
 echo   Installing pip...
-curl -sL -o "%PY_DIR%\get-pip.py" "https://bootstrap.pypa.io/get-pip.py"
+curl -sL --ssl-no-revoke -o "%PY_DIR%\get-pip.py" "https://bootstrap.pypa.io/get-pip.py"
 "%PY%" "%PY_DIR%\get-pip.py" --no-warn-script-location --quiet 2>nul
 del "%PY_DIR%\get-pip.py" 2>nul
 echo   Python %PY_VER% ready!
