@@ -206,6 +206,26 @@ def periodic_sync_loop(local_dir, remote_dir, server, port, machine_id, log_file
         sync_log(log_file, server, port)
 
 
+def _schedule_shutdown(shutdown_at: str, machine_id: int, log_file: str | None):
+    """Windows 작업 스케줄러로 종료 예약 — Python과 무관하게 OS가 종료."""
+    task_name = "LabCollectorShutdown"
+    # 기존 예약 삭제 후 재생성
+    subprocess.run(
+        ["schtasks", "/delete", "/tn", task_name, "/f"],
+        capture_output=True,
+    )
+    r = subprocess.run(
+        ["schtasks", "/create", "/tn", task_name,
+         "/tr", "shutdown /s /f /t 60",
+         "/sc", "once", "/st", shutdown_at, "/f"],
+        capture_output=True, text=True,
+    )
+    if r.returncode == 0:
+        log(machine_id, f"Windows 종료 예약 완료: {shutdown_at} (schtasks)", log_file)
+    else:
+        log(machine_id, f"[WARNING] schtasks 예약 실패: {r.stderr.strip()}", log_file)
+
+
 def auto_shutdown_timer(shutdown_at, local_dir, remote_dir, server, port,
                         machine_id, log_file, stop_event):
     now = datetime.now()
@@ -355,6 +375,10 @@ def main() -> int:
     stop = threading.Event()
 
     if not args.no_shutdown:
+        # Windows: 작업 스케줄러로 종료 예약 (Python과 무관하게 OS가 종료)
+        if sys.platform == "win32":
+            _schedule_shutdown(args.shutdown_at, mid, log_file)
+
         threading.Thread(
             target=auto_shutdown_timer,
             args=(args.shutdown_at, output_dir, args.dest_dir, args.server, args.port,
