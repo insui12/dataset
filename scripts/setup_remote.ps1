@@ -43,9 +43,33 @@ Write-Host "  Sleep disabled"
 # Show info
 $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -like "10.108.*" }).IPAddress
 $mac = (Get-NetAdapter | Where-Object { $_.Status -eq "Up" -and $_.MacAddress -notlike "00-50-56*" }).MacAddress
+$hostname = $env:COMPUTERNAME
+
+# Save to shared file on server
+Write-Host "`n[6/6] Registering to server..."
+$info = "$hostname,$ip,$mac"
+$regFile = "$env:TEMP\_lab_reg.txt"
+$info | Out-File $regFile -Encoding ASCII
+$SERVER = "selab@aise.hknu.ac.kr"
+$PORT = 51713
+
+# Try SSH key first, then skip if no key
+$sshDir = "$env:USERPROFILE\.ssh"
+if (Test-Path "$sshDir\id_ed25519") {
+    scp -P $PORT -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=10 $regFile "${SERVER}:/home/selab/dataset/artifacts/lab_registry/" 2>$null
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "  Registered to server" -ForegroundColor Green
+    } else {
+        Write-Host "  Server unreachable (will register when start.bat runs)" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "  No SSH key yet (will register when start.bat runs)" -ForegroundColor Yellow
+}
+Remove-Item $regFile -ErrorAction SilentlyContinue
 
 Write-Host "`n============================================"
 Write-Host "  Setup complete!"
+Write-Host "  Hostname: $hostname"
 Write-Host "  IP:  $ip"
 Write-Host "  MAC: $mac"
 Write-Host "============================================"
