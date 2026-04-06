@@ -42,55 +42,36 @@ function Load-PCs {
 # --- Action: Discover PCs on network ---
 function Discover-PCs {
     $subnet = "10.108.10"
-    Write-Host "Scanning $subnet.1-254 ..." -ForegroundColor Cyan
+    Write-Host "Scanning $subnet.1-254 (this takes ~30 seconds)..." -ForegroundColor Cyan
 
-    $found = @()
-    $jobs = @()
+    # Fast ping sweep
+    $pingJob = 1..254 | ForEach-Object { ping -n 1 -w 200 "$subnet.$_" } 2>$null | Out-Null
 
-    1..254 | ForEach-Object {
-        $ip = "$subnet.$_"
-        $jobs += Start-Job -ScriptBlock {
-            param($ip)
-            $ping = Test-Connection -ComputerName $ip -Count 1 -TimeoutSeconds 1 -Quiet
-            if ($ping) {
-                # Try to get MAC
-                $arp = arp -a $ip 2>$null | Select-String $ip
-                $mac = ""
-                if ($arp -match "([0-9a-f]{2}-){5}[0-9a-f]{2}") {
-                    $mac = $Matches[0]
-                }
-                return @{IP=$ip; MAC=$mac; Online=$true}
-            }
-            return $null
-        } -ArgumentList $ip
-    }
-
-    Write-Host "Waiting for scan..." -ForegroundColor Yellow
-    $results = $jobs | Wait-Job -Timeout 30 | Receive-Job
-    $jobs | Remove-Job -Force
-
+    # Read ARP table (populated by ping)
+    $arpOutput = arp -a
     $pcs = @()
     $i = 1
-    foreach ($r in $results) {
-        if ($r -and $r.Online) {
-            $pcs += @{
-                id = $i
-                ip = $r.IP
-                mac = $r.MAC
-            }
-            Write-Host "  PC$i: $($r.IP)  MAC=$($r.MAC)" -ForegroundColor Green
+
+    foreach ($line in $arpOutput) {
+        if ($line -match "($subnet\.\d+)\s+([0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2})\s+dynamic") {
+            $ip = $Matches[1]
+            $mac = $Matches[2]
+            # Skip gateway and broadcast
+            if ($ip -like "*.1" -or $ip -like "*.255") { continue }
+            $pcs += @{ id = $i; ip = $ip; mac = $mac }
+            Write-Host "  PC${i}: $ip  MAC=$mac" -ForegroundColor Green
             $i++
         }
     }
 
     if ($pcs.Count -eq 0) {
-        Write-Host "[ERROR] No PCs found" -ForegroundColor Red
+        Write-Host "[ERROR] No PCs found on $subnet.x" -ForegroundColor Red
+        Write-Host "  Check: ipconfig | findstr 10.108" -ForegroundColor Yellow
         return
     }
 
     $pcs | ConvertTo-Json -Depth 3 | Out-File $ConfigFile -Encoding UTF8
     Write-Host "`nFound $($pcs.Count) PCs. Saved to $ConfigFile" -ForegroundColor Cyan
-    Write-Host "Edit $ConfigFile to assign machine numbers if needed." -ForegroundColor Yellow
 }
 
 # --- Action: Run command on all PCs ---
