@@ -13,3 +13,7 @@ coverage.xml
 # Data artifacts (large downloaded files)
 artifacts/*
 !artifacts/apache_jira_projects.json
+
+# Google OAuth secrets
+client_secret_*.json
+client_secret_*.json:Zone.Identifier

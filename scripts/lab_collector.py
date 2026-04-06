@@ -45,7 +45,7 @@ def pull_state(local_dir: str, remote_dir: str, server: str, port: int):
     try:
         subprocess.run(
             ["scp", "-r", "-P", str(port),
-             "-o", "StrictHostKeyChecking=no", "-o", "ConnectTimeout=10",
+             "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10",
              f"{server}:{remote_dir}/_state", local_dir],
             capture_output=True, timeout=60,
         )
@@ -54,8 +54,12 @@ def pull_state(local_dir: str, remote_dir: str, server: str, port: int):
 
 
 def sync_to_server(local_dir: str, remote_dir: str, server: str, port: int,
-                   machine_id: int, log_file: str | None) -> int:
-    """새 파일만 서버로 전송."""
+                   machine_id: int, log_file: str | None,
+                   my_entries: list[str] | None = None) -> int:
+    """새 파일만 서버로 전송.
+
+    state 동기화는 자기 담당 entries만 푸시 (race condition 방지).
+    """
     marker = os.path.join(local_dir, "_last_sync")
     last_sync = 0.0
     if os.path.exists(marker):
@@ -64,22 +68,40 @@ def sync_to_server(local_dir: str, remote_dir: str, server: str, port: int,
         except (ValueError, OSError):
             pass
 
-    # _state/ 는 항상 전체 동기화 (작고, 재개에 필수)
+    # _state/ 는 자기 담당 entries만 동기화 (다른 PC 상태 덮어쓰기 방지)
     state_dir = os.path.join(local_dir, "_state")
-    if os.path.isdir(state_dir):
-        try:
-            subprocess.run(
-                ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no",
-                 "-o", "ConnectTimeout=10", server, f"mkdir -p {remote_dir}"],
-                capture_output=True, timeout=15,
-            )
-            subprocess.run(
-                ["scp", "-r", "-P", str(port), "-o", "StrictHostKeyChecking=no",
-                 state_dir, f"{server}:{remote_dir}/"],
-                capture_output=True, timeout=120,
-            )
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            pass
+    if os.path.isdir(state_dir) and my_entries:
+        # 이 머신 담당 entries에 해당하는 state 파일만 찾기
+        my_state_files = []
+        for sf in os.listdir(state_dir):
+            if not sf.endswith(".json"):
+                continue
+            # state 파일명: {family}__{instance}__{entry}__{mode}.json
+            # entry명이 포함되어 있는지 확인
+            for entry in my_entries:
+                # entry에 '/' 있으면 '__'로 변환 (github/gitlab)
+                normalized = entry.replace("/", "__")
+                if f"__{normalized}__" in sf:
+                    my_state_files.append(os.path.join(state_dir, sf))
+                    break
+
+        if my_state_files:
+            try:
+                subprocess.run(
+                    ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes",
+                     "-o", "ConnectTimeout=10", server, f"mkdir -p {remote_dir}/_state"],
+                    capture_output=True, timeout=15,
+                )
+                # 20개씩 배치로 전송
+                for i in range(0, len(my_state_files), 20):
+                    batch = my_state_files[i:i + 20]
+                    subprocess.run(
+                        ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes"]
+                        + batch + [f"{server}:{remote_dir}/_state/"],
+                        capture_output=True, timeout=60,
+                    )
+            except (subprocess.TimeoutExpired, FileNotFoundError):
+                pass
 
     # 새 데이터 파일 찾기
     skip = {"_last_sync", "_sync_files.txt"}
@@ -117,7 +139,7 @@ def sync_to_server(local_dir: str, remote_dir: str, server: str, port: int,
         mkdir_cmd = "mkdir -p " + " ".join(f'"{d}"' for d in dirs)
         try:
             subprocess.run(
-                ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no", server, mkdir_cmd],
+                ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes", server, mkdir_cmd],
                 capture_output=True, timeout=30,
             )
         except (subprocess.TimeoutExpired, FileNotFoundError):
@@ -130,7 +152,7 @@ def sync_to_server(local_dir: str, remote_dir: str, server: str, port: int,
             batch = files[i:i + 20]
             try:
                 subprocess.run(
-                    ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no"] + batch + [target],
+                    ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes"] + batch + [target],
                     capture_output=True, timeout=300,
                 )
             except (subprocess.TimeoutExpired, FileNotFoundError):
@@ -145,12 +167,12 @@ def sync_log(log_file: str, server: str, port: int):
     """로그 파일 서버 전송."""
     try:
         subprocess.run(
-            ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no", server,
+            ["ssh", "-p", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes", server,
              f"mkdir -p {REMOTE_LOG_DIR}"],
             capture_output=True, timeout=10,
         )
         subprocess.run(
-            ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no",
+            ["scp", "-P", str(port), "-o", "StrictHostKeyChecking=no", "-o", "BatchMode=yes",
              log_file, f"{server}:{REMOTE_LOG_DIR}/"],
             capture_output=True, timeout=30,
         )
@@ -200,9 +222,9 @@ def calculate_entries(root: Path, machine_id: int, total: int):
 # ---- 백그라운드 스레드 ----
 
 def periodic_sync_loop(local_dir, remote_dir, server, port, machine_id, log_file,
-                       interval_min, stop_event):
+                       interval_min, stop_event, my_entries=None):
     while not stop_event.wait(interval_min * 60):
-        sync_to_server(local_dir, remote_dir, server, port, machine_id, log_file)
+        sync_to_server(local_dir, remote_dir, server, port, machine_id, log_file, my_entries)
         sync_log(log_file, server, port)
 
 
@@ -227,7 +249,7 @@ def _schedule_shutdown(shutdown_at: str, machine_id: int, log_file: str | None):
 
 
 def auto_shutdown_timer(shutdown_at, local_dir, remote_dir, server, port,
-                        machine_id, log_file, stop_event):
+                        machine_id, log_file, stop_event, my_entries=None):
     now = datetime.now()
     h, m = map(int, shutdown_at.split(":"))
     target = now.replace(hour=h, minute=m, second=0, microsecond=0)
@@ -243,7 +265,7 @@ def auto_shutdown_timer(shutdown_at, local_dir, remote_dir, server, port,
 
     log(machine_id, "=== 자동 종료 시작 ===", log_file)
     log(machine_id, "종료 전 최종 동기화...", log_file)
-    sync_to_server(local_dir, remote_dir, server, port, machine_id, log_file)
+    sync_to_server(local_dir, remote_dir, server, port, machine_id, log_file, my_entries)
     sync_log(log_file, server, port)
     log(machine_id, "최종 동기화 완료", log_file)
 
@@ -382,14 +404,14 @@ def main() -> int:
         threading.Thread(
             target=auto_shutdown_timer,
             args=(args.shutdown_at, output_dir, args.dest_dir, args.server, args.port,
-                  mid, log_file, stop),
+                  mid, log_file, stop, my_all),
             daemon=True,
         ).start()
 
     threading.Thread(
         target=periodic_sync_loop,
         args=(output_dir, args.dest_dir, args.server, args.port, mid, log_file,
-              args.sync_interval, stop),
+              args.sync_interval, stop, my_all),
         daemon=True,
     ).start()
 
@@ -416,7 +438,7 @@ def main() -> int:
 
     # 최종 동기화
     log(mid, "수집 완료. 최종 동기화...", log_file)
-    sync_to_server(output_dir, args.dest_dir, args.server, args.port, mid, log_file)
+    sync_to_server(output_dir, args.dest_dir, args.server, args.port, mid, log_file, my_all)
     sync_log(log_file, args.server, args.port)
     log(mid, "=== 모든 작업 완료 ===", log_file)
     return 0
