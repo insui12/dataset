@@ -23,23 +23,28 @@ if %errorlevel% neq 0 (
 )
 echo   Password set: selab1234
 
-REM 2. Enable WinRM
+REM 2. Network to Private + Enable WinRM
 echo.
-echo [2/4] Enabling WinRM...
+echo [2/5] Setting network to Private...
+powershell -Command "Get-NetConnectionProfile | Where-Object {$_.NetworkCategory -eq 'Public'} | Set-NetConnectionProfile -NetworkCategory Private" >nul 2>&1
+echo   Network set to Private
+
+echo.
+echo [3/5] Enabling WinRM...
 winrm quickconfig -quiet
 powershell -Command "Enable-PSRemoting -Force -SkipNetworkProfileCheck" >nul 2>&1
 echo   WinRM enabled
 
-REM 3. Firewall
+REM 4. Firewall
 echo.
-echo [3/4] Firewall rules...
+echo [4/5] Firewall rules...
 netsh advfirewall firewall add rule name="WinRM-HTTP" dir=in action=allow protocol=TCP localport=5985 >nul 2>&1
 netsh advfirewall firewall add rule name="WOL" dir=in action=allow protocol=UDP localport=9 >nul 2>&1
 echo   Firewall OK
 
-REM 4. Disable sleep
+REM 5. Disable sleep
 echo.
-echo [4/4] Disabling sleep...
+echo [5/5] Disabling sleep...
 powercfg /change standby-timeout-ac 0
 powercfg /change hibernate-timeout-ac 0
 powercfg /change monitor-timeout-ac 0
