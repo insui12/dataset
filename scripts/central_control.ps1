@@ -42,31 +42,39 @@ function Load-PCs {
 # --- Action: Discover PCs on network ---
 function Discover-PCs {
     $subnet = "10.108.10"
-    Write-Host "Scanning $subnet.1-254 (this takes ~30 seconds)..." -ForegroundColor Cyan
+    $myIP = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -like "$subnet.*" }).IPAddress
+    Write-Host "Scanning $subnet.1-254 via WinRM..." -ForegroundColor Cyan
+    Write-Host "  My IP: $myIP (skipping)" -ForegroundColor Yellow
 
-    # Fast ping sweep
-    $pingJob = 1..254 | ForEach-Object { ping -n 1 -w 200 "$subnet.$_" } 2>$null | Out-Null
-
-    # Read ARP table (populated by ping)
-    $arpOutput = arp -a
     $pcs = @()
     $i = 1
 
-    foreach ($line in $arpOutput) {
-        if ($line -match "($subnet\.\d+)\s+([0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2}-[0-9a-f]{2})\s+dynamic") {
-            $ip = $Matches[1]
-            $mac = $Matches[2]
-            # Skip gateway and broadcast
-            if ($ip -like "*.1" -or $ip -like "*.255") { continue }
+    1..254 | ForEach-Object {
+        $ip = "$subnet.$_"
+        if ($ip -eq $myIP) { return }  # skip self
+        $result = Test-WSMan -ComputerName $ip -ErrorAction SilentlyContinue 2>$null
+        if ($result) {
+            # Get MAC via WinRM
+            $mac = ""
+            try {
+                $macResult = Invoke-Command -ComputerName $ip -Credential $Cred -ScriptBlock {
+                    (Get-NetAdapter | Where-Object { $_.Status -eq "Up" -and $_.MacAddress -notlike "00-50-56*" }).MacAddress
+                } -ErrorAction SilentlyContinue
+                if ($macResult) { $mac = $macResult }
+            } catch {}
             $pcs += @{ id = $i; ip = $ip; mac = $mac }
             Write-Host "  PC${i}: $ip  MAC=$mac" -ForegroundColor Green
             $i++
         }
     }
 
+    # Add self
+    $myMAC = (Get-NetAdapter | Where-Object { $_.Status -eq "Up" -and $_.MacAddress -notlike "00-50-56*" }).MacAddress
+    $pcs += @{ id = $i; ip = $myIP; mac = $myMAC }
+    Write-Host "  PC${i}: $myIP  MAC=$myMAC (this PC)" -ForegroundColor Cyan
+
     if ($pcs.Count -eq 0) {
-        Write-Host "[ERROR] No PCs found on $subnet.x" -ForegroundColor Red
-        Write-Host "  Check: ipconfig | findstr 10.108" -ForegroundColor Yellow
+        Write-Host "[ERROR] No PCs found" -ForegroundColor Red
         return
     }
 
