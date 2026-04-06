@@ -31,7 +31,7 @@ echo   Network set to Private
 
 echo.
 echo [3/5] Enabling WinRM...
-winrm quickconfig -quiet
+winrm quickconfig -quiet -force >nul 2>&1
 powershell -Command "Enable-PSRemoting -Force -SkipNetworkProfileCheck" >nul 2>&1
 echo   WinRM enabled
 
