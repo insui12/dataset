@@ -1,12 +1,10 @@
-# Lab PC Remote Control Setup (run as Administrator)
-# Usage: Right-click > Run with PowerShell
-#   or:  powershell -ExecutionPolicy Bypass -File setup_remote.ps1
+# Lab PC Remote Control Setup
+# Usage: Double-click lab_start.bat or right-click this file > Run with PowerShell
 
-# Check admin
+# Auto-elevate to admin
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "[ERROR] Run as Administrator" -ForegroundColor Red
-    pause
-    exit 1
+    Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    exit
 }
 
 Write-Host "============================================"
